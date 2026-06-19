@@ -1370,7 +1370,7 @@ client.domain_dns_lookup(
 <dl>
 <dd>
 
-**type:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
+**type:** `typing.Union[str, typing.Sequence[str]]` — A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
     
 </dd>
 </dl>
@@ -1473,10 +1473,18 @@ client.bulk_domain_dns_lookup(
 <dl>
 <dd>
 
-**type:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` 
+**type:** `typing.Union[str, typing.Sequence[str]]` 
 
 A comma-separated list of DNS record types for lookup.
 Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ip_addresses:** `typing.Optional[typing.Sequence[str]]` — Array of IP addresses to include in the lookup for enrichment
     
 </dd>
 </dl>
@@ -1577,7 +1585,7 @@ client.domain_dns_history(
 <dl>
 <dd>
 
-**type:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` 
+**type:** `typing.Union[str, typing.Sequence[str]]` 
 
 A comma-separated list of DNS record types for lookup.
 Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
@@ -2842,6 +2850,14 @@ client.domain_availability_suggestions(
 <dd>
 
 **source:** `typing.Optional[DomainAvailabilitySuggestionsRequestSource]` — Specify the data source for domain availability checks. Use "dns" for DNS-based lookups or "whois" for WHOIS-based lookups. By default, "dns" is used.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**sug:** `typing.Optional[bool]` — Enable domain suggestions.
     
 </dd>
 </dl>
@@ -5606,7 +5622,7 @@ client.pdf_upload_resources(
 <dl>
 <dd>
 
-**file:** `typing.Optional[typing.List[core.File]]` — The PDF files to be uploaded to the API Freaks server. Multiple files can be provided in an array.
+**file:** `typing.List[core.File]` — The PDF files to be uploaded to the API Freaks server. Multiple files can be provided in an array.
     
 </dd>
 </dl>
@@ -7178,7 +7194,7 @@ client.currency_convert_latest(
 <dl>
 <dd>
 
-**amount:** `typing.Optional[float]` — Amount to convert
+**amount:** `typing.Optional[str]` — Amount to convert
     
 </dd>
 </dl>
@@ -7302,7 +7318,7 @@ client.currency_convert_historical(
 <dl>
 <dd>
 
-**amount:** `typing.Optional[float]` — The Amount to be converted
+**amount:** `typing.Optional[str]` — The Amount to be converted
     
 </dd>
 </dl>
@@ -7644,7 +7660,7 @@ client.currency_convert_by_ip(
 <dl>
 <dd>
 
-**amount:** `typing.Optional[float]` — Amount to convert
+**amount:** `typing.Optional[str]` — Amount to convert
     
 </dd>
 </dl>
@@ -7984,7 +8000,7 @@ client.commodity_latest_rates(
 <dl>
 <dd>
 
-**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
+**symbols:** `typing.Union[str, typing.Sequence[str]]` — Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
     
 </dd>
 </dl>
@@ -8093,7 +8109,7 @@ client.commodity_historical_rates(
 <dl>
 <dd>
 
-**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols
+**symbols:** `typing.Union[str, typing.Sequence[str]]` — Comma-separated list of commodity symbols
     
 </dd>
 </dl>
@@ -8203,7 +8219,7 @@ client.commodity_fluctuation(
 <dl>
 <dd>
 
-**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols
+**symbols:** `typing.Union[str, typing.Sequence[str]]` — Comma-separated list of commodity symbols
     
 </dd>
 </dl>
@@ -8313,7 +8329,7 @@ client.commodity_time_series(
 <dl>
 <dd>
 
-**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols
+**symbols:** `typing.Union[str, typing.Sequence[str]]` — Comma-separated list of commodity symbols
     
 </dd>
 </dl>
@@ -12295,6 +12311,14 @@ client.user_agent_lookup(
 <dd>
 
 **api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**user_agent:** `str` — The User-Agent string to parse.
     
 </dd>
 </dl>
