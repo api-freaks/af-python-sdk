@@ -30,7 +30,7 @@ class GeolocationLookupResponse(UniversalBaseModel):
     network: typing.Optional[GeolocationLookupResponseNetwork] = None
     currency: typing.Optional[GeolocationLookupResponseCurrency] = None
     security: typing.Optional[GeolocationLookupResponseSecurity] = None
-    abuse: typing.Optional[typing.List[GeolocationLookupResponseAbuseItem]] = None
+    abuse: typing.Optional[GeolocationLookupResponseAbuseItem] = None
     time_zone: typing.Optional[GeolocationLookupResponseTimeZone] = None
     user_agent: typing.Optional[GeolocationLookupResponseUserAgent] = None
 

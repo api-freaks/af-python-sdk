@@ -987,7 +987,7 @@ class ApifreaksApi:
         keyword : typing.Optional[str]
             Keyword search term for reverse WHOIS by keyword (case-insensitive pattern matching).
 
-        email : typing.Optional[str]
+        email : str
             Email search term for reverse WHOIS by email address (case-insensitive exact or regex match; * wildcard supported).
 
         owner : typing.Optional[str]
@@ -1042,7 +1042,7 @@ class ApifreaksApi:
         format: typing.Optional[DomainDnsLookupRequestFormat] = None,
         host_name: typing.Optional[str] = None,
         ip_address: typing.Optional[str] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DomainDnsLookupResponse:
         """
@@ -1062,7 +1062,7 @@ class ApifreaksApi:
         ip_address : typing.Optional[str]
             The IP address for requested DNS's PTR record. 'type' parameter must be set to 'all'.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
 
         request_options : typing.Optional[RequestOptions]
@@ -1099,7 +1099,8 @@ class ApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainDnsLookupRequestFormat] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
+        ip_addresses: typing.Optional[typing.Sequence[str]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BulkDomainDnsLookupResponse:
         """
@@ -1117,9 +1118,12 @@ class ApifreaksApi:
         format : typing.Optional[BulkDomainDnsLookupRequestFormat]
             Format of the response.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+
+        ip_addresses : typing.Optional[typing.Sequence[str]]
+            Array of IP addresses to include in the lookup for enrichment
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -1141,7 +1145,12 @@ class ApifreaksApi:
         )
         """
         _response = self._raw_client.bulk_domain_dns_lookup(
-            api_key=api_key, domain_names=domain_names, format=format, type=type, request_options=request_options
+            api_key=api_key,
+            domain_names=domain_names,
+            format=format,
+            type=type,
+            ip_addresses=ip_addresses,
+            request_options=request_options,
         )
         return _response.data
 
@@ -1151,7 +1160,7 @@ class ApifreaksApi:
         api_key: str,
         host_name: str,
         format: typing.Optional[DomainDnsHistoryRequestFormat] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
         page: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DomainDnsHistoryResponse:
@@ -1170,7 +1179,7 @@ class ApifreaksApi:
         format : typing.Optional[DomainDnsHistoryRequestFormat]
             Format of the response.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
@@ -1865,6 +1874,7 @@ class ApifreaksApi:
         domain: str,
         format: typing.Optional[DomainAvailabilitySuggestionsRequestFormat] = None,
         source: typing.Optional[DomainAvailabilitySuggestionsRequestSource] = None,
+        sug: typing.Optional[bool] = None,
         count: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DomainAvailabilitySuggestionsResponse:
@@ -1884,6 +1894,9 @@ class ApifreaksApi:
 
         source : typing.Optional[DomainAvailabilitySuggestionsRequestSource]
             Specify the data source for domain availability checks. Use "dns" for DNS-based lookups or "whois" for WHOIS-based lookups. By default, "dns" is used.
+
+        sug : typing.Optional[bool]
+            Enable domain suggestions.
 
         count : typing.Optional[int]
             Number of suggestions to retrieve.
@@ -1907,7 +1920,7 @@ class ApifreaksApi:
         )
         """
         _response = self._raw_client.domain_availability_suggestions(
-            api_key=api_key, domain=domain, format=format, source=source, count=count, request_options=request_options
+            api_key=api_key, domain=domain, format=format, source=source, sug=sug, count=count, request_options=request_options
         )
         return _response.data
 
@@ -3450,7 +3463,7 @@ class ApifreaksApi:
         *,
         api_key: str,
         format: typing.Optional[PdfUploadResourcesRequestFormat] = None,
-        file: typing.Optional[typing.List[core.File]] = OMIT,
+        file: typing.List[core.File],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> PdfUploadResourcesResponse:
         """
@@ -3464,7 +3477,7 @@ class ApifreaksApi:
         format : typing.Optional[PdfUploadResourcesRequestFormat]
             Specifies the desired format for the API response. Choose 'json' for a JSON object or 'xml' for an XML structure.
 
-        file : typing.Optional[typing.List[core.File]]
+        file : typing.List[core.File]
             See core.File for more documentation
 
         request_options : typing.Optional[RequestOptions]
@@ -4287,7 +4300,7 @@ class ApifreaksApi:
         from_: str,
         to: str,
         format: typing.Optional[CurrencyConvertLatestRequestFormat] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         updates: typing.Optional[CurrencyConvertLatestRequestUpdates] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CurrencyConvertLatestResponse:
@@ -4308,7 +4321,7 @@ class ApifreaksApi:
         format : typing.Optional[CurrencyConvertLatestRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             Amount to convert
 
         updates : typing.Optional[CurrencyConvertLatestRequestUpdates]
@@ -4352,7 +4365,7 @@ class ApifreaksApi:
         to: str,
         date: dt.date,
         format: typing.Optional[CurrencyConvertHistoricalRequestFormat] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CurrencyConvertHistoricalResponse:
         """
@@ -4375,7 +4388,7 @@ class ApifreaksApi:
         format : typing.Optional[CurrencyConvertHistoricalRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             The Amount to be converted
 
         request_options : typing.Optional[RequestOptions]
@@ -4556,7 +4569,7 @@ class ApifreaksApi:
         format: typing.Optional[CurrencyConvertByIpRequestFormat] = None,
         updates: typing.Optional[CurrencyConvertByIpRequestUpdates] = None,
         ip: typing.Optional[str] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CurrencyConvertByIpResponse:
         """
@@ -4579,7 +4592,7 @@ class ApifreaksApi:
         ip : typing.Optional[str]
             IPv4 or IPv6 geolocated currency
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             Amount to convert
 
         request_options : typing.Optional[RequestOptions]
@@ -4733,7 +4746,7 @@ class ApifreaksApi:
         api_key: str,
         updates: CommodityLatestRatesRequestUpdates,
         format: typing.Optional[CommodityLatestRatesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         quote: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CommodityLatestRatesResponse:
@@ -4751,7 +4764,7 @@ class ApifreaksApi:
         format : typing.Optional[CommodityLatestRatesRequestFormat]
             Format of the Response
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
 
         quote : typing.Optional[str]
@@ -4792,7 +4805,7 @@ class ApifreaksApi:
         api_key: str,
         date: dt.date,
         format: typing.Optional[CommodityHistoricalRatesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CommodityHistoricalRatesResponse:
         """
@@ -4809,7 +4822,7 @@ class ApifreaksApi:
         format : typing.Optional[CommodityHistoricalRatesRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -4847,7 +4860,7 @@ class ApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityFluctuationRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CommodityFluctuationResponse:
         """
@@ -4867,7 +4880,7 @@ class ApifreaksApi:
         format : typing.Optional[CommodityFluctuationRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -4913,7 +4926,7 @@ class ApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityTimeSeriesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CommodityTimeSeriesResponse:
         """
@@ -4933,7 +4946,7 @@ class ApifreaksApi:
         format : typing.Optional[CommodityTimeSeriesRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -7128,6 +7141,7 @@ class ApifreaksApi:
         self,
         *,
         api_key: str,
+        user_agent: str,
         format: typing.Optional[UserAgentLookupRequestFormat] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UserAgentLookupResponse:
@@ -7138,6 +7152,9 @@ class ApifreaksApi:
         ----------
         api_key : str
             Your API key
+
+        user_agent : str
+            The User-Agent string to parse.
 
         format : typing.Optional[UserAgentLookupRequestFormat]
             Format of the response
@@ -7159,7 +7176,7 @@ class ApifreaksApi:
             api_key="apiKey",
         )
         """
-        _response = self._raw_client.user_agent_lookup(api_key=api_key, format=format, request_options=request_options)
+        _response = self._raw_client.user_agent_lookup(api_key=api_key, user_agent=user_agent, format=format, request_options=request_options)
         return _response.data
 
     def bulk_user_agent_lookup(
@@ -8362,7 +8379,7 @@ class AsyncApifreaksApi:
         keyword : typing.Optional[str]
             Keyword search term for reverse WHOIS by keyword (case-insensitive pattern matching).
 
-        email : typing.Optional[str]
+        email : str
             Email search term for reverse WHOIS by email address (case-insensitive exact or regex match; * wildcard supported).
 
         owner : typing.Optional[str]
@@ -8425,7 +8442,7 @@ class AsyncApifreaksApi:
         format: typing.Optional[DomainDnsLookupRequestFormat] = None,
         host_name: typing.Optional[str] = None,
         ip_address: typing.Optional[str] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DomainDnsLookupResponse:
         """
@@ -8445,7 +8462,7 @@ class AsyncApifreaksApi:
         ip_address : typing.Optional[str]
             The IP address for requested DNS's PTR record. 'type' parameter must be set to 'all'.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
 
         request_options : typing.Optional[RequestOptions]
@@ -8490,7 +8507,8 @@ class AsyncApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainDnsLookupRequestFormat] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
+        ip_addresses: typing.Optional[typing.Sequence[str]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> BulkDomainDnsLookupResponse:
         """
@@ -8508,9 +8526,12 @@ class AsyncApifreaksApi:
         format : typing.Optional[BulkDomainDnsLookupRequestFormat]
             Format of the response.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+
+        ip_addresses : typing.Optional[typing.Sequence[str]]
+            Array of IP addresses to include in the lookup for enrichment
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -8540,7 +8561,12 @@ class AsyncApifreaksApi:
         asyncio.run(main())
         """
         _response = await self._raw_client.bulk_domain_dns_lookup(
-            api_key=api_key, domain_names=domain_names, format=format, type=type, request_options=request_options
+            api_key=api_key,
+            domain_names=domain_names,
+            format=format,
+            type=type,
+            ip_addresses=ip_addresses,
+            request_options=request_options,
         )
         return _response.data
 
@@ -8550,7 +8576,7 @@ class AsyncApifreaksApi:
         api_key: str,
         host_name: str,
         format: typing.Optional[DomainDnsHistoryRequestFormat] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
         page: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DomainDnsHistoryResponse:
@@ -8569,7 +8595,7 @@ class AsyncApifreaksApi:
         format : typing.Optional[DomainDnsHistoryRequestFormat]
             Format of the response.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
@@ -9352,6 +9378,7 @@ class AsyncApifreaksApi:
         domain: str,
         format: typing.Optional[DomainAvailabilitySuggestionsRequestFormat] = None,
         source: typing.Optional[DomainAvailabilitySuggestionsRequestSource] = None,
+        sug: typing.Optional[bool] = None,
         count: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> DomainAvailabilitySuggestionsResponse:
@@ -9371,6 +9398,9 @@ class AsyncApifreaksApi:
 
         source : typing.Optional[DomainAvailabilitySuggestionsRequestSource]
             Specify the data source for domain availability checks. Use "dns" for DNS-based lookups or "whois" for WHOIS-based lookups. By default, "dns" is used.
+
+        sug : typing.Optional[bool]
+            Enable domain suggestions.
 
         count : typing.Optional[int]
             Number of suggestions to retrieve.
@@ -9402,7 +9432,7 @@ class AsyncApifreaksApi:
         asyncio.run(main())
         """
         _response = await self._raw_client.domain_availability_suggestions(
-            api_key=api_key, domain=domain, format=format, source=source, count=count, request_options=request_options
+            api_key=api_key, domain=domain, format=format, source=source, sug=sug, count=count, request_options=request_options
         )
         return _response.data
 
@@ -11081,7 +11111,7 @@ class AsyncApifreaksApi:
         *,
         api_key: str,
         format: typing.Optional[PdfUploadResourcesRequestFormat] = None,
-        file: typing.Optional[typing.List[core.File]] = OMIT,
+        file: typing.List[core.File],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> PdfUploadResourcesResponse:
         """
@@ -11095,7 +11125,7 @@ class AsyncApifreaksApi:
         format : typing.Optional[PdfUploadResourcesRequestFormat]
             Specifies the desired format for the API response. Choose 'json' for a JSON object or 'xml' for an XML structure.
 
-        file : typing.Optional[typing.List[core.File]]
+        file : typing.List[core.File]
             See core.File for more documentation
 
         request_options : typing.Optional[RequestOptions]
@@ -12001,7 +12031,7 @@ class AsyncApifreaksApi:
         from_: str,
         to: str,
         format: typing.Optional[CurrencyConvertLatestRequestFormat] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         updates: typing.Optional[CurrencyConvertLatestRequestUpdates] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CurrencyConvertLatestResponse:
@@ -12022,7 +12052,7 @@ class AsyncApifreaksApi:
         format : typing.Optional[CurrencyConvertLatestRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             Amount to convert
 
         updates : typing.Optional[CurrencyConvertLatestRequestUpdates]
@@ -12074,7 +12104,7 @@ class AsyncApifreaksApi:
         to: str,
         date: dt.date,
         format: typing.Optional[CurrencyConvertHistoricalRequestFormat] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CurrencyConvertHistoricalResponse:
         """
@@ -12097,7 +12127,7 @@ class AsyncApifreaksApi:
         format : typing.Optional[CurrencyConvertHistoricalRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             The Amount to be converted
 
         request_options : typing.Optional[RequestOptions]
@@ -12299,7 +12329,7 @@ class AsyncApifreaksApi:
         format: typing.Optional[CurrencyConvertByIpRequestFormat] = None,
         updates: typing.Optional[CurrencyConvertByIpRequestUpdates] = None,
         ip: typing.Optional[str] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CurrencyConvertByIpResponse:
         """
@@ -12322,7 +12352,7 @@ class AsyncApifreaksApi:
         ip : typing.Optional[str]
             IPv4 or IPv6 geolocated currency
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             Amount to convert
 
         request_options : typing.Optional[RequestOptions]
@@ -12512,7 +12542,7 @@ class AsyncApifreaksApi:
         api_key: str,
         updates: CommodityLatestRatesRequestUpdates,
         format: typing.Optional[CommodityLatestRatesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         quote: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CommodityLatestRatesResponse:
@@ -12530,7 +12560,7 @@ class AsyncApifreaksApi:
         format : typing.Optional[CommodityLatestRatesRequestFormat]
             Format of the Response
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
 
         quote : typing.Optional[str]
@@ -12579,7 +12609,7 @@ class AsyncApifreaksApi:
         api_key: str,
         date: dt.date,
         format: typing.Optional[CommodityHistoricalRatesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CommodityHistoricalRatesResponse:
         """
@@ -12596,7 +12626,7 @@ class AsyncApifreaksApi:
         format : typing.Optional[CommodityHistoricalRatesRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -12641,7 +12671,7 @@ class AsyncApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityFluctuationRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CommodityFluctuationResponse:
         """
@@ -12661,7 +12691,7 @@ class AsyncApifreaksApi:
         format : typing.Optional[CommodityFluctuationRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -12714,7 +12744,7 @@ class AsyncApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityTimeSeriesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> CommodityTimeSeriesResponse:
         """
@@ -12734,7 +12764,7 @@ class AsyncApifreaksApi:
         format : typing.Optional[CommodityTimeSeriesRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -15227,6 +15257,7 @@ class AsyncApifreaksApi:
         self,
         *,
         api_key: str,
+        user_agent: str,
         format: typing.Optional[UserAgentLookupRequestFormat] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> UserAgentLookupResponse:
@@ -15237,6 +15268,9 @@ class AsyncApifreaksApi:
         ----------
         api_key : str
             Your API key
+
+        user_agent : str
+            The User-Agent string to parse.
 
         format : typing.Optional[UserAgentLookupRequestFormat]
             Format of the response

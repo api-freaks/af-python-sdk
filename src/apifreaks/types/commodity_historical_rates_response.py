@@ -5,35 +5,27 @@ import typing
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from .commodity_historical_rates_response_metadata_value import CommodityHistoricalRatesResponseMetadataValue
-from .commodity_historical_rates_response_rates_value import CommodityHistoricalRatesResponseRatesValue
 
 
 class CommodityHistoricalRatesResponse(UniversalBaseModel):
     success: bool = pydantic.Field()
     """
-    API request success indicator. "true" for successful requests.
+    API request success indicator. 'true' for successful requests.
     """
 
-    timestamp: typing.Optional[float] = pydantic.Field(default=None)
+    timestamp: float = pydantic.Field()
     """
     Unix timestamp indicating when the response was generated.
     """
 
-    metadata: typing.Optional[typing.Dict[str, CommodityHistoricalRatesResponseMetadataValue]] = pydantic.Field(
-        default=None
-    )
+    rates: typing.Dict[str, float] = pydantic.Field()
+    """
+    Map containing rate data for all the requested commodities.
+    """
+
+    metadata: typing.Dict[str, CommodityHistoricalRatesResponseMetadataValue] = pydantic.Field()
     """
     Map containing detailed information for all the requested commodities keyed by commodity symbol.
-    """
-
-    date: str = pydantic.Field()
-    """
-    Date for which the user requested the commodity price. Format: YYYY-MM-DD.
-    """
-
-    rates: typing.Dict[str, CommodityHistoricalRatesResponseRatesValue] = pydantic.Field()
-    """
-    Map containing rate data for each available requested commodity symbol, keyed by symbol.
     """
 
     if IS_PYDANTIC_V2:

@@ -3,18 +3,15 @@
 import typing
 
 import pydantic
-import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from ..core.serialization import FieldMetadata
 
 
 class GetAdminUnitDetailsResponse(UniversalBaseModel):
     name: str
     admin_code: str
+    admin_iso3166_2: str
     admin_level: str
-    iso_alpha2: typing_extensions.Annotated[
-        str, FieldMetadata(alias="iso_alpha_2"), pydantic.Field(alias="iso_alpha_2")
-    ]
+    country_iso3166_2: str
     country_name: str
 
     if IS_PYDANTIC_V2:

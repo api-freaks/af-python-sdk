@@ -30,7 +30,7 @@ class BulkGeolocationLookupResponseItem(UniversalBaseModel):
     network: typing.Optional[BulkGeolocationLookupResponseItemNetwork] = None
     currency: typing.Optional[BulkGeolocationLookupResponseItemCurrency] = None
     security: typing.Optional[BulkGeolocationLookupResponseItemSecurity] = None
-    abuse: typing.Optional[typing.List[BulkGeolocationLookupResponseItemAbuseItem]] = None
+    abuse: typing.Optional[BulkGeolocationLookupResponseItemAbuseItem] = None
     time_zone: typing.Optional[BulkGeolocationLookupResponseItemTimeZone] = None
     user_agent: typing.Optional[BulkGeolocationLookupResponseItemUserAgent] = None
 

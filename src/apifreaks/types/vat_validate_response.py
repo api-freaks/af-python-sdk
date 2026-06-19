@@ -12,8 +12,8 @@ from .vat_validate_response_validation import VatValidateResponseValidation
 class VatValidateResponse(UniversalBaseModel):
     country_code: str
     vat_number: str
-    requester_country_code: typing.Optional[str] = None
-    requester_vat_number: typing.Optional[str] = None
+    requester_country_code: str
+    requester_vat_number: str
     requested_at: dt.datetime
     validation: VatValidateResponseValidation
     company: VatValidateResponseCompany

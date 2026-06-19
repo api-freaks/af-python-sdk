@@ -7,16 +7,16 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
 class AstronomyLookupResponseAstronomyEvening(UniversalBaseModel):
-    golden_hour_begin: typing.Optional[str] = None
-    golden_hour_end: typing.Optional[str] = None
-    blue_hour_begin: typing.Optional[str] = None
-    blue_hour_end: typing.Optional[str] = None
-    civil_twilight_begin: typing.Optional[str] = None
-    civil_twilight_end: typing.Optional[str] = None
-    nautical_twilight_begin: typing.Optional[str] = None
-    nautical_twilight_end: typing.Optional[str] = None
-    astronomical_twilight_begin: typing.Optional[str] = None
-    astronomical_twilight_end: typing.Optional[str] = None
+    golden_hour_begin: str
+    golden_hour_end: str
+    blue_hour_begin: str
+    blue_hour_end: str
+    civil_twilight_begin: str
+    civil_twilight_end: str
+    nautical_twilight_begin: str
+    nautical_twilight_end: str
+    astronomical_twilight_begin: str
+    astronomical_twilight_end: str
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

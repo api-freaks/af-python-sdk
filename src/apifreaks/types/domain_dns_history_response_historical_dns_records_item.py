@@ -20,9 +20,6 @@ class DomainDnsHistoryResponseHistoricalDnsRecordsItem(UniversalBaseModel):
         dt.datetime, FieldMetadata(alias="queryTime"), pydantic.Field(alias="queryTime")
     ]
     domain_name: typing_extensions.Annotated[str, FieldMetadata(alias="domainName"), pydantic.Field(alias="domainName")]
-    domain_registered: typing_extensions.Annotated[
-        bool, FieldMetadata(alias="domainRegistered"), pydantic.Field(alias="domainRegistered")
-    ]
     dns_types: typing_extensions.Annotated[
         DomainDnsHistoryResponseHistoricalDnsRecordsItemDnsTypes,
         FieldMetadata(alias="dnsTypes"),

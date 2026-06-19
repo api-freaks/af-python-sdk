@@ -3,5 +3,5 @@
 import typing
 
 BulkEmailValidateResponseEmailValidationResponsesItemValidEmail = typing.Union[
-    typing.Literal["valid", "invalid"], typing.Any
+    typing.Literal["valid", "Invalid", "Unknown", "Risky"], typing.Any
 ]

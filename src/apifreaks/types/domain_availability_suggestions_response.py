@@ -10,9 +10,12 @@ from .domain_availability_suggestions_response_domain_available_response_item im
 
 
 class DomainAvailabilitySuggestionsResponse(UniversalBaseModel):
-    domain_available_response: typing.Optional[
-        typing.List[DomainAvailabilitySuggestionsResponseDomainAvailableResponseItem]
-    ] = None
+    domain_available_response: typing.List[DomainAvailabilitySuggestionsResponseDomainAvailableResponseItem] = (
+        pydantic.Field()
+    )
+    """
+    List of domain availability objects.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

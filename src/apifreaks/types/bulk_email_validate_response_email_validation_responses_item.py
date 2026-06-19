@@ -39,7 +39,9 @@ class BulkEmailValidateResponseEmailValidationResponsesItem(UniversalBaseModel):
     domain: BulkEmailValidateResponseEmailValidationResponsesItemDomain
     account: BulkEmailValidateResponseEmailValidationResponsesItemAccount
     dns: BulkEmailValidateResponseEmailValidationResponsesItemDns
-    ip: typing.Optional[str] = None
+    ip_address: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="ipAddress"), pydantic.Field(alias="ipAddress")
+    ] = None
     address: typing.Optional[BulkEmailValidateResponseEmailValidationResponsesItemAddress] = None
 
     if IS_PYDANTIC_V2:

@@ -13,8 +13,8 @@ from .timezone_lookup_response_time_zone import TimezoneLookupResponseTimeZone
 class TimezoneLookupResponse(UniversalBaseModel):
     ip: typing.Optional[str] = None
     location: typing.Optional[TimezoneLookupResponseLocation] = None
-    time_zone: TimezoneLookupResponseTimeZone
-    airport_details: typing.Optional[TimezoneLookupResponseAirportDetails] = None
+    time_zone: typing.Optional[TimezoneLookupResponseTimeZone] = None
+    airport_detail: typing.Optional[TimezoneLookupResponseAirportDetails] = None
     lo_code_details: typing.Optional[TimezoneLookupResponseLoCodeDetails] = None
 
     if IS_PYDANTIC_V2:

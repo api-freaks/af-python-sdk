@@ -7,14 +7,14 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
 class TimezoneLookupResponseLoCodeDetails(UniversalBaseModel):
-    lo_code: str
-    city: str
-    longitude: str
-    latitude: str
-    state_code: str
-    country_code: str
-    country_name: str
-    location_type: str
+    lo_code: typing.Optional[str] = None
+    city: typing.Optional[str] = None
+    longitude: typing.Optional[float] = None
+    latitude: typing.Optional[float] = None
+    state_code: typing.Optional[str] = None
+    country_code: typing.Optional[str] = None
+    country_name: typing.Optional[str] = None
+    location_type: typing.Optional[str] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

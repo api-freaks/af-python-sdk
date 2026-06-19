@@ -10,13 +10,13 @@ from ..core.serialization import FieldMetadata
 
 class DomainSslChainLookupResponseSslCertificatesItemIssuer(UniversalBaseModel):
     common_name: typing_extensions.Annotated[str, FieldMetadata(alias="commonName"), pydantic.Field(alias="commonName")]
-    organization: typing.Optional[str] = None
+    organization: str
     organizational_unit: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="organizationalUnit"), pydantic.Field(alias="organizationalUnit")
     ] = None
     locality: typing.Optional[str] = None
     state: typing.Optional[str] = None
-    country: typing.Optional[str] = None
+    country: str
     inc_country: typing_extensions.Annotated[
         typing.Optional[str], FieldMetadata(alias="incCountry"), pydantic.Field(alias="incCountry")
     ] = None

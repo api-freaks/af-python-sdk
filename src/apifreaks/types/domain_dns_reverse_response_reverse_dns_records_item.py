@@ -21,8 +21,8 @@ class DomainDnsReverseResponseReverseDnsRecordsItem(UniversalBaseModel):
     ]
     domain_name: typing_extensions.Annotated[str, FieldMetadata(alias="domainName"), pydantic.Field(alias="domainName")]
     domain_registered: typing_extensions.Annotated[
-        bool, FieldMetadata(alias="domainRegistered"), pydantic.Field(alias="domainRegistered")
-    ]
+        typing.Optional[bool], FieldMetadata(alias="domainRegistered"), pydantic.Field(alias="domainRegistered")
+    ] = None
     dns_types: typing_extensions.Annotated[
         DomainDnsReverseResponseReverseDnsRecordsItemDnsTypes,
         FieldMetadata(alias="dnsTypes"),

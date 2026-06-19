@@ -1748,6 +1748,7 @@ class RawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
+                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -2464,7 +2465,7 @@ class RawApifreaksApi:
         keyword : typing.Optional[str]
             Keyword search term for reverse WHOIS by keyword (case-insensitive pattern matching).
 
-        email : typing.Optional[str]
+        email : str
             Email search term for reverse WHOIS by email address (case-insensitive exact or regex match; * wildcard supported).
 
         owner : typing.Optional[str]
@@ -2652,7 +2653,7 @@ class RawApifreaksApi:
         format: typing.Optional[DomainDnsLookupRequestFormat] = None,
         host_name: typing.Optional[str] = None,
         ip_address: typing.Optional[str] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DomainDnsLookupResponse]:
         """
@@ -2672,7 +2673,7 @@ class RawApifreaksApi:
         ip_address : typing.Optional[str]
             The IP address for requested DNS's PTR record. 'type' parameter must be set to 'all'.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
 
         request_options : typing.Optional[RequestOptions]
@@ -2852,7 +2853,8 @@ class RawApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainDnsLookupRequestFormat] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
+        ip_addresses: typing.Optional[typing.Sequence[str]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BulkDomainDnsLookupResponse]:
         """
@@ -2870,9 +2872,12 @@ class RawApifreaksApi:
         format : typing.Optional[BulkDomainDnsLookupRequestFormat]
             Format of the response.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+
+        ip_addresses : typing.Optional[typing.Sequence[str]]
+            Array of IP addresses to include in the lookup for enrichment
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -2892,6 +2897,7 @@ class RawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
+                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -3056,7 +3062,7 @@ class RawApifreaksApi:
         api_key: str,
         host_name: str,
         format: typing.Optional[DomainDnsHistoryRequestFormat] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
         page: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DomainDnsHistoryResponse]:
@@ -3075,7 +3081,7 @@ class RawApifreaksApi:
         format : typing.Optional[DomainDnsHistoryRequestFormat]
             Format of the response.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
@@ -3863,6 +3869,17 @@ class RawApifreaksApi:
                         ),
                     ),
                 )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             if _response.status_code == 413:
                 raise ContentTooLargeError(
                     headers=dict(_response.headers),
@@ -4044,6 +4061,17 @@ class RawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -4238,8 +4266,30 @@ class RawApifreaksApi:
                         ),
                     ),
                 )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -4426,8 +4476,30 @@ class RawApifreaksApi:
                         ),
                     ),
                 )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -5113,6 +5185,7 @@ class RawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
+                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -5196,6 +5269,17 @@ class RawApifreaksApi:
                         ),
                     ),
                 )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             if _response.status_code == 413:
                 raise ContentTooLargeError(
                     headers=dict(_response.headers),
@@ -5267,6 +5351,7 @@ class RawApifreaksApi:
         domain: str,
         format: typing.Optional[DomainAvailabilitySuggestionsRequestFormat] = None,
         source: typing.Optional[DomainAvailabilitySuggestionsRequestSource] = None,
+        sug: typing.Optional[bool] = None,
         count: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DomainAvailabilitySuggestionsResponse]:
@@ -5287,6 +5372,9 @@ class RawApifreaksApi:
         source : typing.Optional[DomainAvailabilitySuggestionsRequestSource]
             Specify the data source for domain availability checks. Use "dns" for DNS-based lookups or "whois" for WHOIS-based lookups. By default, "dns" is used.
 
+        sug : typing.Optional[bool]
+            Enable domain suggestions.
+
         count : typing.Optional[int]
             Number of suggestions to retrieve.
 
@@ -5306,6 +5394,7 @@ class RawApifreaksApi:
                 "format": format,
                 "domain": domain,
                 "source": source,
+                "sug": sug,
                 "count": count,
             },
             request_options=request_options,
@@ -5377,6 +5466,17 @@ class RawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -5577,6 +5677,17 @@ class RawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -9451,7 +9562,7 @@ class RawApifreaksApi:
         *,
         api_key: str,
         format: typing.Optional[PdfUploadResourcesRequestFormat] = None,
-        file: typing.Optional[typing.List[core.File]] = OMIT,
+        file: typing.List[core.File],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[PdfUploadResourcesResponse]:
         """
@@ -9465,7 +9576,7 @@ class RawApifreaksApi:
         format : typing.Optional[PdfUploadResourcesRequestFormat]
             Specifies the desired format for the API response. Choose 'json' for a JSON object or 'xml' for an XML structure.
 
-        file : typing.Optional[typing.List[core.File]]
+        file : typing.List[core.File]
             See core.File for more documentation
 
         request_options : typing.Optional[RequestOptions]
@@ -11867,7 +11978,7 @@ class RawApifreaksApi:
         from_: str,
         to: str,
         format: typing.Optional[CurrencyConvertLatestRequestFormat] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         updates: typing.Optional[CurrencyConvertLatestRequestUpdates] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CurrencyConvertLatestResponse]:
@@ -11888,7 +11999,7 @@ class RawApifreaksApi:
         format : typing.Optional[CurrencyConvertLatestRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             Amount to convert
 
         updates : typing.Optional[CurrencyConvertLatestRequestUpdates]
@@ -12063,7 +12174,7 @@ class RawApifreaksApi:
         to: str,
         date: dt.date,
         format: typing.Optional[CurrencyConvertHistoricalRequestFormat] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CurrencyConvertHistoricalResponse]:
         """
@@ -12086,7 +12197,7 @@ class RawApifreaksApi:
         format : typing.Optional[CurrencyConvertHistoricalRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             The Amount to be converted
 
         request_options : typing.Optional[RequestOptions]
@@ -12648,7 +12759,7 @@ class RawApifreaksApi:
         format: typing.Optional[CurrencyConvertByIpRequestFormat] = None,
         updates: typing.Optional[CurrencyConvertByIpRequestUpdates] = None,
         ip: typing.Optional[str] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CurrencyConvertByIpResponse]:
         """
@@ -12671,7 +12782,7 @@ class RawApifreaksApi:
         ip : typing.Optional[str]
             IPv4 or IPv6 geolocated currency
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             Amount to convert
 
         request_options : typing.Optional[RequestOptions]
@@ -13366,7 +13477,7 @@ class RawApifreaksApi:
         api_key: str,
         updates: CommodityLatestRatesRequestUpdates,
         format: typing.Optional[CommodityLatestRatesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         quote: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CommodityLatestRatesResponse]:
@@ -13384,7 +13495,7 @@ class RawApifreaksApi:
         format : typing.Optional[CommodityLatestRatesRequestFormat]
             Format of the Response
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
 
         quote : typing.Optional[str]
@@ -13556,7 +13667,7 @@ class RawApifreaksApi:
         api_key: str,
         date: dt.date,
         format: typing.Optional[CommodityHistoricalRatesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CommodityHistoricalRatesResponse]:
         """
@@ -13573,7 +13684,7 @@ class RawApifreaksApi:
         format : typing.Optional[CommodityHistoricalRatesRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -13742,7 +13853,7 @@ class RawApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityFluctuationRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CommodityFluctuationResponse]:
         """
@@ -13762,7 +13873,7 @@ class RawApifreaksApi:
         format : typing.Optional[CommodityFluctuationRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -13932,7 +14043,7 @@ class RawApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityTimeSeriesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CommodityTimeSeriesResponse]:
         """
@@ -13952,7 +14063,7 @@ class RawApifreaksApi:
         format : typing.Optional[CommodityTimeSeriesRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -21111,6 +21222,7 @@ class RawApifreaksApi:
         self,
         *,
         api_key: str,
+        user_agent: str,
         format: typing.Optional[UserAgentLookupRequestFormat] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[UserAgentLookupResponse]:
@@ -21121,6 +21233,9 @@ class RawApifreaksApi:
         ----------
         api_key : str
             Your API key
+
+        user_agent : str
+            The User-Agent string to parse.
 
         format : typing.Optional[UserAgentLookupRequestFormat]
             Format of the response
@@ -21139,6 +21254,9 @@ class RawApifreaksApi:
             params={
                 "apiKey": api_key,
                 "format": format,
+            },
+            headers={
+                "User-Agent": str(user_agent),
             },
             request_options=request_options,
         )
@@ -24094,6 +24212,7 @@ class AsyncRawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
+                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -24810,7 +24929,7 @@ class AsyncRawApifreaksApi:
         keyword : typing.Optional[str]
             Keyword search term for reverse WHOIS by keyword (case-insensitive pattern matching).
 
-        email : typing.Optional[str]
+        email : str
             Email search term for reverse WHOIS by email address (case-insensitive exact or regex match; * wildcard supported).
 
         owner : typing.Optional[str]
@@ -24998,7 +25117,7 @@ class AsyncRawApifreaksApi:
         format: typing.Optional[DomainDnsLookupRequestFormat] = None,
         host_name: typing.Optional[str] = None,
         ip_address: typing.Optional[str] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DomainDnsLookupResponse]:
         """
@@ -25018,7 +25137,7 @@ class AsyncRawApifreaksApi:
         ip_address : typing.Optional[str]
             The IP address for requested DNS's PTR record. 'type' parameter must be set to 'all'.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
 
         request_options : typing.Optional[RequestOptions]
@@ -25198,7 +25317,7 @@ class AsyncRawApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainDnsLookupRequestFormat] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BulkDomainDnsLookupResponse]:
         """
@@ -25216,7 +25335,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[BulkDomainDnsLookupRequestFormat]
             Format of the response.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
@@ -25238,6 +25357,7 @@ class AsyncRawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
+                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -25402,7 +25522,7 @@ class AsyncRawApifreaksApi:
         api_key: str,
         host_name: str,
         format: typing.Optional[DomainDnsHistoryRequestFormat] = None,
-        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        type: typing.Union[str, typing.Sequence[str]],
         page: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DomainDnsHistoryResponse]:
@@ -25421,7 +25541,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[DomainDnsHistoryRequestFormat]
             Format of the response.
 
-        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        type : typing.Union[str, typing.Sequence[str]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
@@ -26209,6 +26329,17 @@ class AsyncRawApifreaksApi:
                         ),
                     ),
                 )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             if _response.status_code == 413:
                 raise ContentTooLargeError(
                     headers=dict(_response.headers),
@@ -26390,6 +26521,17 @@ class AsyncRawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -26584,8 +26726,30 @@ class AsyncRawApifreaksApi:
                         ),
                     ),
                 )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -26772,8 +26936,30 @@ class AsyncRawApifreaksApi:
                         ),
                     ),
                 )
+            if _response.status_code == 405:
+                raise MethodNotAllowedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -27459,6 +27645,7 @@ class AsyncRawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
+                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -27542,6 +27729,17 @@ class AsyncRawApifreaksApi:
                         ),
                     ),
                 )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
             if _response.status_code == 413:
                 raise ContentTooLargeError(
                     headers=dict(_response.headers),
@@ -27613,6 +27811,7 @@ class AsyncRawApifreaksApi:
         domain: str,
         format: typing.Optional[DomainAvailabilitySuggestionsRequestFormat] = None,
         source: typing.Optional[DomainAvailabilitySuggestionsRequestSource] = None,
+        sug: typing.Optional[bool] = None,
         count: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DomainAvailabilitySuggestionsResponse]:
@@ -27633,6 +27832,9 @@ class AsyncRawApifreaksApi:
         source : typing.Optional[DomainAvailabilitySuggestionsRequestSource]
             Specify the data source for domain availability checks. Use "dns" for DNS-based lookups or "whois" for WHOIS-based lookups. By default, "dns" is used.
 
+        sug : typing.Optional[bool]
+            Enable domain suggestions.
+
         count : typing.Optional[int]
             Number of suggestions to retrieve.
 
@@ -27652,6 +27854,7 @@ class AsyncRawApifreaksApi:
                 "format": format,
                 "domain": domain,
                 "source": source,
+                "sug": sug,
                 "count": count,
             },
             request_options=request_options,
@@ -27723,6 +27926,17 @@ class AsyncRawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -27923,6 +28137,17 @@ class AsyncRawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -31797,7 +32022,7 @@ class AsyncRawApifreaksApi:
         *,
         api_key: str,
         format: typing.Optional[PdfUploadResourcesRequestFormat] = None,
-        file: typing.Optional[typing.List[core.File]] = OMIT,
+        file: typing.List[core.File],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[PdfUploadResourcesResponse]:
         """
@@ -31811,7 +32036,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[PdfUploadResourcesRequestFormat]
             Specifies the desired format for the API response. Choose 'json' for a JSON object or 'xml' for an XML structure.
 
-        file : typing.Optional[typing.List[core.File]]
+        file : typing.List[core.File]
             See core.File for more documentation
 
         request_options : typing.Optional[RequestOptions]
@@ -34215,7 +34440,7 @@ class AsyncRawApifreaksApi:
         from_: str,
         to: str,
         format: typing.Optional[CurrencyConvertLatestRequestFormat] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         updates: typing.Optional[CurrencyConvertLatestRequestUpdates] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CurrencyConvertLatestResponse]:
@@ -34236,7 +34461,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CurrencyConvertLatestRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             Amount to convert
 
         updates : typing.Optional[CurrencyConvertLatestRequestUpdates]
@@ -34411,7 +34636,7 @@ class AsyncRawApifreaksApi:
         to: str,
         date: dt.date,
         format: typing.Optional[CurrencyConvertHistoricalRequestFormat] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CurrencyConvertHistoricalResponse]:
         """
@@ -34434,7 +34659,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CurrencyConvertHistoricalRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             The Amount to be converted
 
         request_options : typing.Optional[RequestOptions]
@@ -34996,7 +35221,7 @@ class AsyncRawApifreaksApi:
         format: typing.Optional[CurrencyConvertByIpRequestFormat] = None,
         updates: typing.Optional[CurrencyConvertByIpRequestUpdates] = None,
         ip: typing.Optional[str] = None,
-        amount: typing.Optional[float] = None,
+        amount: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CurrencyConvertByIpResponse]:
         """
@@ -35019,7 +35244,7 @@ class AsyncRawApifreaksApi:
         ip : typing.Optional[str]
             IPv4 or IPv6 geolocated currency
 
-        amount : typing.Optional[float]
+        amount : typing.Optional[str]
             Amount to convert
 
         request_options : typing.Optional[RequestOptions]
@@ -35714,7 +35939,7 @@ class AsyncRawApifreaksApi:
         api_key: str,
         updates: CommodityLatestRatesRequestUpdates,
         format: typing.Optional[CommodityLatestRatesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         quote: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CommodityLatestRatesResponse]:
@@ -35732,7 +35957,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CommodityLatestRatesRequestFormat]
             Format of the Response
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
 
         quote : typing.Optional[str]
@@ -35904,7 +36129,7 @@ class AsyncRawApifreaksApi:
         api_key: str,
         date: dt.date,
         format: typing.Optional[CommodityHistoricalRatesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CommodityHistoricalRatesResponse]:
         """
@@ -35921,7 +36146,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CommodityHistoricalRatesRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -36090,7 +36315,7 @@ class AsyncRawApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityFluctuationRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CommodityFluctuationResponse]:
         """
@@ -36110,7 +36335,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CommodityFluctuationRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -36280,7 +36505,7 @@ class AsyncRawApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityTimeSeriesRequestFormat] = None,
-        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        symbols: typing.Union[str, typing.Sequence[str]],
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CommodityTimeSeriesResponse]:
         """
@@ -36300,7 +36525,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CommodityTimeSeriesRequestFormat]
             Format of the response.
 
-        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+        symbols : typing.Union[str, typing.Sequence[str]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -43471,6 +43696,9 @@ class AsyncRawApifreaksApi:
         api_key : str
             Your API key
 
+        user_agent : str
+            The User-Agent string to parse.
+
         format : typing.Optional[UserAgentLookupRequestFormat]
             Format of the response
 
@@ -43488,6 +43716,9 @@ class AsyncRawApifreaksApi:
             params={
                 "apiKey": api_key,
                 "format": format,
+            },
+            headers={
+                "User-Agent": str(user_agent),
             },
             request_options=request_options,
         )

@@ -3,42 +3,29 @@
 import typing
 
 import pydantic
-import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from ..core.serialization import FieldMetadata
 from .commodity_time_series_response_metadata_value import CommodityTimeSeriesResponseMetadataValue
-from .commodity_time_series_response_rates_value_value import CommodityTimeSeriesResponseRatesValueValue
 
 
 class CommodityTimeSeriesResponse(UniversalBaseModel):
     success: bool = pydantic.Field()
     """
-    API request success indicator. "true" for successful requests.
+    API request success indicator. 'true' for successful requests.
     """
 
-    timestamp: typing.Optional[float] = pydantic.Field(default=None)
+    timestamp: float = pydantic.Field()
     """
     Unix timestamp indicating when the response was generated.
     """
 
-    metadata: typing.Optional[typing.Dict[str, CommodityTimeSeriesResponseMetadataValue]] = pydantic.Field(default=None)
+    rates: typing.Dict[str, float] = pydantic.Field()
     """
-    Map containing detailed information for all the requested commodities keyed by commodity symbol.
+    Map containing rate data for all the requested commodities.
     """
 
-    start_date: typing_extensions.Annotated[
-        str,
-        FieldMetadata(alias="startDate"),
-        pydantic.Field(alias="startDate", description="The start date of the time series data in YYYY-MM-DD format."),
-    ]
-    end_date: typing_extensions.Annotated[
-        str,
-        FieldMetadata(alias="endDate"),
-        pydantic.Field(alias="endDate", description="The end date of the time series data in YYYY-MM-DD format."),
-    ]
-    rates: typing.Dict[str, typing.Dict[str, CommodityTimeSeriesResponseRatesValueValue]] = pydantic.Field()
+    metadata: typing.Dict[str, CommodityTimeSeriesResponseMetadataValue] = pydantic.Field()
     """
-    Date-indexed map; each key is a date (YYYY-MM-DD) whose value maps commodity symbols to OHLC data.
+    Map containing detailed information for all the requested commodities keyed by commodity symbol.
     """
 
     if IS_PYDANTIC_V2:

@@ -10,9 +10,12 @@ from .bulk_domain_availability_check_response_bulk_domain_available_response_ite
 
 
 class BulkDomainAvailabilityCheckResponse(UniversalBaseModel):
-    bulk_domain_available_response: typing.Optional[
-        typing.List[BulkDomainAvailabilityCheckResponseBulkDomainAvailableResponseItem]
-    ] = None
+    bulk_domain_available_response: typing.List[
+        BulkDomainAvailabilityCheckResponseBulkDomainAvailableResponseItem
+    ] = pydantic.Field()
+    """
+    List of domain availability objects.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

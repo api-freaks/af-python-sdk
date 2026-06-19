@@ -2,4 +2,4 @@
 
 import typing
 
-EmailValidateResponseValidEmail = typing.Union[typing.Literal["valid", "invalid"], typing.Any]
+EmailValidateResponseValidEmail = typing.Union[typing.Literal["valid", "Invalid", "Unknown", "Risky"], typing.Any]

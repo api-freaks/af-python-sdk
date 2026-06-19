@@ -27,13 +27,23 @@ class BulkDomainDnsLookupResponseBulkDnsInfoItem(UniversalBaseModel):
         pydantic.Field(alias="queryTime", description="Time at which the query was made (Format:YYYY-MM-DD HH:mm:ss)."),
     ]
     domain_name: typing_extensions.Annotated[
-        str, FieldMetadata(alias="domainName"), pydantic.Field(alias="domainName", description="Queried domain.")
-    ]
+        typing.Optional[str],
+        FieldMetadata(alias="domainName"),
+        pydantic.Field(alias="domainName", description="Queried domain (present for domain lookups)."),
+    ] = None
     domain_registered: typing_extensions.Annotated[
-        bool,
+        typing.Optional[bool],
         FieldMetadata(alias="domainRegistered"),
-        pydantic.Field(alias="domainRegistered", description="Indicates whether the domain is registered."),
-    ]
+        pydantic.Field(
+            alias="domainRegistered",
+            description="Indicates whether the domain is registered (present for domain lookups).",
+        ),
+    ] = None
+    ip_address: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="ipAddress"),
+        pydantic.Field(alias="ipAddress", description="IP address queried (present for IP lookups)."),
+    ] = None
     dns_types: typing_extensions.Annotated[
         BulkDomainDnsLookupResponseBulkDnsInfoItemDnsTypes,
         FieldMetadata(alias="dnsTypes"),

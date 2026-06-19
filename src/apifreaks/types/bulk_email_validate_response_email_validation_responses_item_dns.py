@@ -13,10 +13,10 @@ class BulkEmailValidateResponseEmailValidationResponsesItemDns(UniversalBaseMode
         typing.List[str], FieldMetadata(alias="mxRecords"), pydantic.Field(alias="mxRecords")
     ]
     a_records: typing_extensions.Annotated[
-        typing.Optional[typing.List[str]],
+        typing.List[str],
         FieldMetadata(alias="aRecords"),
         pydantic.Field(alias="aRecords", description="Collection of A (Address) records for the domain."),
-    ] = None
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

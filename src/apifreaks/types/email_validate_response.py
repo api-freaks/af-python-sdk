@@ -27,7 +27,9 @@ class EmailValidateResponse(UniversalBaseModel):
     domain: EmailValidateResponseDomain
     account: EmailValidateResponseAccount
     dns: EmailValidateResponseDns
-    ip: typing.Optional[str] = None
+    ip_address: typing_extensions.Annotated[
+        typing.Optional[str], FieldMetadata(alias="ipAddress"), pydantic.Field(alias="ipAddress")
+    ] = None
     address: typing.Optional[EmailValidateResponseAddress] = None
 
     if IS_PYDANTIC_V2:

@@ -9,7 +9,6 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 class ZipcodeSearchByRadiusResponseResultsItem(UniversalBaseModel):
     code: typing.Optional[str] = None
     region: typing.Optional[str] = None
-    region_code: typing.Optional[str] = None
     city: typing.Optional[str] = None
     district: typing.Optional[str] = None
     distance: typing.Optional[float] = None

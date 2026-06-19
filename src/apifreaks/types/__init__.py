@@ -228,11 +228,9 @@ if typing.TYPE_CHECKING:
     from .commodity_fluctuation_request_format import CommodityFluctuationRequestFormat
     from .commodity_fluctuation_response import CommodityFluctuationResponse
     from .commodity_fluctuation_response_metadata_value import CommodityFluctuationResponseMetadataValue
-    from .commodity_fluctuation_response_rates_value import CommodityFluctuationResponseRatesValue
     from .commodity_historical_rates_request_format import CommodityHistoricalRatesRequestFormat
     from .commodity_historical_rates_response import CommodityHistoricalRatesResponse
     from .commodity_historical_rates_response_metadata_value import CommodityHistoricalRatesResponseMetadataValue
-    from .commodity_historical_rates_response_rates_value import CommodityHistoricalRatesResponseRatesValue
     from .commodity_latest_rates_request_format import CommodityLatestRatesRequestFormat
     from .commodity_latest_rates_request_updates import CommodityLatestRatesRequestUpdates
     from .commodity_latest_rates_response import CommodityLatestRatesResponse
@@ -248,7 +246,6 @@ if typing.TYPE_CHECKING:
     from .commodity_time_series_request_format import CommodityTimeSeriesRequestFormat
     from .commodity_time_series_response import CommodityTimeSeriesResponse
     from .commodity_time_series_response_metadata_value import CommodityTimeSeriesResponseMetadataValue
-    from .commodity_time_series_response_rates_value_value import CommodityTimeSeriesResponseRatesValueValue
     from .content_too_large_error_body import ContentTooLargeErrorBody
     from .currency_convert_by_ip_request_format import CurrencyConvertByIpRequestFormat
     from .currency_convert_by_ip_request_updates import CurrencyConvertByIpRequestUpdates
@@ -1131,11 +1128,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CommodityFluctuationRequestFormat": ".commodity_fluctuation_request_format",
     "CommodityFluctuationResponse": ".commodity_fluctuation_response",
     "CommodityFluctuationResponseMetadataValue": ".commodity_fluctuation_response_metadata_value",
-    "CommodityFluctuationResponseRatesValue": ".commodity_fluctuation_response_rates_value",
     "CommodityHistoricalRatesRequestFormat": ".commodity_historical_rates_request_format",
     "CommodityHistoricalRatesResponse": ".commodity_historical_rates_response",
     "CommodityHistoricalRatesResponseMetadataValue": ".commodity_historical_rates_response_metadata_value",
-    "CommodityHistoricalRatesResponseRatesValue": ".commodity_historical_rates_response_rates_value",
     "CommodityLatestRatesRequestFormat": ".commodity_latest_rates_request_format",
     "CommodityLatestRatesRequestUpdates": ".commodity_latest_rates_request_updates",
     "CommodityLatestRatesResponse": ".commodity_latest_rates_response",
@@ -1149,7 +1144,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "CommodityTimeSeriesRequestFormat": ".commodity_time_series_request_format",
     "CommodityTimeSeriesResponse": ".commodity_time_series_response",
     "CommodityTimeSeriesResponseMetadataValue": ".commodity_time_series_response_metadata_value",
-    "CommodityTimeSeriesResponseRatesValueValue": ".commodity_time_series_response_rates_value_value",
     "ContentTooLargeErrorBody": ".content_too_large_error_body",
     "CurrencyConvertByIpRequestFormat": ".currency_convert_by_ip_request_format",
     "CurrencyConvertByIpRequestUpdates": ".currency_convert_by_ip_request_updates",
@@ -1796,11 +1790,9 @@ __all__ = [
     "CommodityFluctuationRequestFormat",
     "CommodityFluctuationResponse",
     "CommodityFluctuationResponseMetadataValue",
-    "CommodityFluctuationResponseRatesValue",
     "CommodityHistoricalRatesRequestFormat",
     "CommodityHistoricalRatesResponse",
     "CommodityHistoricalRatesResponseMetadataValue",
-    "CommodityHistoricalRatesResponseRatesValue",
     "CommodityLatestRatesRequestFormat",
     "CommodityLatestRatesRequestUpdates",
     "CommodityLatestRatesResponse",
@@ -1814,7 +1806,6 @@ __all__ = [
     "CommodityTimeSeriesRequestFormat",
     "CommodityTimeSeriesResponse",
     "CommodityTimeSeriesResponseMetadataValue",
-    "CommodityTimeSeriesResponseRatesValueValue",
     "ContentTooLargeErrorBody",
     "CurrencyConvertByIpRequestFormat",
     "CurrencyConvertByIpRequestUpdates",

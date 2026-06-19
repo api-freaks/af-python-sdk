@@ -22,19 +22,15 @@ class TimezoneLookupResponseTimeZone(UniversalBaseModel):
     date_time_unix: float
     time24: typing_extensions.Annotated[str, FieldMetadata(alias="time_24"), pydantic.Field(alias="time_24")]
     time12: typing_extensions.Annotated[str, FieldMetadata(alias="time_12"), pydantic.Field(alias="time_12")]
-    week: float
-    month: float
-    year: float
+    week: int
+    month: int
+    year: int
     year_abbr: str
-    current_tz_abbreviation: str
-    current_tz_full_name: str
-    standard_tz_abbreviation: str
-    standard_tz_full_name: str
     is_dst: bool
     dst_savings: float
     dst_exists: bool
-    dst_start: typing.Optional[TimezoneLookupResponseTimeZoneDstStart] = None
-    dst_end: typing.Optional[TimezoneLookupResponseTimeZoneDstEnd] = None
+    dst_start: TimezoneLookupResponseTimeZoneDstStart
+    dst_end: TimezoneLookupResponseTimeZoneDstEnd
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -9,7 +9,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 class SubdomainsLookupResponseSubdomainsItem(UniversalBaseModel):
     subdomain: str
     first_seen: str
-    last_seen: typing.Optional[str] = None
+    last_seen: str
     inactive_from: typing.Optional[str] = pydantic.Field(default=None)
     """
     The date from which the subdomain is considered inactive. Appears only if the subdomain is no longer active.

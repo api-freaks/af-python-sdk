@@ -8,7 +8,7 @@ from .zipcode_distance_match_response_results_item import ZipcodeDistanceMatchRe
 
 
 class ZipcodeDistanceMatchResponse(UniversalBaseModel):
-    results_count: typing.Optional[str] = pydantic.Field(default=None)
+    result_count: typing.Optional[int] = pydantic.Field(default=None)
     """
     Number of matching ZIP/postal code pairs returned
     """

@@ -7,18 +7,18 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
 class TimezoneLookupResponseAirportDetails(UniversalBaseModel):
-    type: str
-    name: str
-    longitude: str
-    latitude: str
-    elevation_ft: float
-    continent_code: str
-    country_code: str
-    state_code: str
-    city: str
-    iata_code: str
-    icao_code: str
-    faa_code: str
+    type: typing.Optional[str] = None
+    name: typing.Optional[str] = None
+    longitude: typing.Optional[float] = None
+    latitude: typing.Optional[float] = None
+    elevation_ft: typing.Optional[float] = None
+    continent_code: typing.Optional[str] = None
+    country_code: typing.Optional[str] = None
+    state_code: typing.Optional[str] = None
+    city: typing.Optional[str] = None
+    iata_code: typing.Optional[str] = None
+    icao_code: typing.Optional[str] = None
+    faa_code: typing.Optional[str] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
