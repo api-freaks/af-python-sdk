@@ -1,5 +1,5 @@
 # Reference
-<details><summary><code>client.<a href="src/apifreaks/client.py">geolocation_lookup</a>(...) -> GeolocationLookupResponse</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">geolocation_lookup</a>(...) -> typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response]</code></summary>
 <dl>
 <dd>
 
@@ -107,6 +107,14 @@ client.geolocation_lookup(
 <dl>
 <dd>
 
+**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns the v2 response model, `GeolocationLookupV2Response`).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -119,7 +127,7 @@ client.geolocation_lookup(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_geolocation_lookup</a>(...) -> typing.List[BulkGeolocationLookupResponseItem]</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_geolocation_lookup</a>(...) -> typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]]</code></summary>
 <dl>
 <dd>
 
@@ -224,6 +232,14 @@ client.bulk_geolocation_lookup(
 <dd>
 
 **include:** `typing.Optional[str]` — Comma-separated list of additional information to include in the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns a list of `GeolocationLookupV2Response`).
     
 </dd>
 </dl>
@@ -697,7 +713,7 @@ client.geocoder_reverse(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">domain_whois_lookup</a>(...) -> DomainWhoisLookupResponse</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">domain_whois_lookup</a>(...) -> typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response]</code></summary>
 <dl>
 <dd>
 
@@ -776,6 +792,14 @@ client.domain_whois_lookup(
 <dl>
 <dd>
 
+**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns the v2 response model, `DomainWhoisLookupV2Response`).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -788,7 +812,7 @@ client.domain_whois_lookup(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_domain_whois_lookup</a>(...) -> BulkDomainWhoisLookupResponse</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_domain_whois_lookup</a>(...) -> typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]]</code></summary>
 <dl>
 <dd>
 
@@ -860,6 +884,14 @@ client.bulk_domain_whois_lookup(
 <dd>
 
 **format:** `typing.Optional[BulkDomainWhoisLookupRequestFormat]` — Format of the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns a list of `DomainWhoisLookupV2Response`).
     
 </dd>
 </dl>
@@ -11906,7 +11938,7 @@ client.get_flags(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">timezone_lookup</a>(...) -> TimezoneLookupResponse</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">timezone_lookup</a>(...) -> typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response]</code></summary>
 <dl>
 <dd>
 
@@ -12039,6 +12071,14 @@ client.timezone_lookup(
 <dd>
 
 **lo_code:** `typing.Optional[str]` — 5-letter UN/LO city code.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns the v2 response model, `TimezoneLookupV2Response`).
     
 </dd>
 </dl>
@@ -12939,7 +12979,7 @@ client.readability_score(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">astronomy_lookup</a>(...) -> AstronomyLookupResponse</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">astronomy_lookup</a>(...) -> typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response]</code></summary>
 <dl>
 <dd>
 
@@ -13064,6 +13104,14 @@ client.astronomy_lookup(
 <dd>
 
 **time_zone:** `typing.Optional[str]` — 
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns the v2 response model, `AstronomyLookupV2Response`).
     
 </dd>
 </dl>

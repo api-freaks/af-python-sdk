@@ -37,6 +37,7 @@ from .types.asn_whois_lookup_request_format import AsnWhoisLookupRequestFormat
 from .types.asn_whois_lookup_response import AsnWhoisLookupResponse
 from .types.astronomy_lookup_request_format import AstronomyLookupRequestFormat
 from .types.astronomy_lookup_response import AstronomyLookupResponse
+from .types.astronomy_lookup_v2_response import AstronomyLookupV2Response
 from .types.bulk_current_weather_request_format import BulkCurrentWeatherRequestFormat
 from .types.bulk_current_weather_request_locations_item import BulkCurrentWeatherRequestLocationsItem
 from .types.bulk_current_weather_response import BulkCurrentWeatherResponse
@@ -124,6 +125,7 @@ from .types.domain_whois_history_request_format import DomainWhoisHistoryRequest
 from .types.domain_whois_history_response import DomainWhoisHistoryResponse
 from .types.domain_whois_lookup_request_format import DomainWhoisLookupRequestFormat
 from .types.domain_whois_lookup_response import DomainWhoisLookupResponse
+from .types.domain_whois_lookup_v2_response import DomainWhoisLookupV2Response
 from .types.domain_whois_reverse_request_format import DomainWhoisReverseRequestFormat
 from .types.domain_whois_reverse_request_mode import DomainWhoisReverseRequestMode
 from .types.domain_whois_reverse_response import DomainWhoisReverseResponse
@@ -139,6 +141,7 @@ from .types.geocoder_search_response_item import GeocoderSearchResponseItem
 from .types.geolocation_lookup_request_format import GeolocationLookupRequestFormat
 from .types.geolocation_lookup_request_lang import GeolocationLookupRequestLang
 from .types.geolocation_lookup_response import GeolocationLookupResponse
+from .types.geolocation_lookup_v2_response import GeolocationLookupV2Response
 from .types.get_admin_levels_request_format import GetAdminLevelsRequestFormat
 from .types.get_admin_levels_response import GetAdminLevelsResponse
 from .types.get_admin_unit_details_request_format import GetAdminUnitDetailsRequestFormat
@@ -250,6 +253,7 @@ from .types.timezone_convert_response import TimezoneConvertResponse
 from .types.timezone_lookup_request_format import TimezoneLookupRequestFormat
 from .types.timezone_lookup_request_lang import TimezoneLookupRequestLang
 from .types.timezone_lookup_response import TimezoneLookupResponse
+from .types.timezone_lookup_v2_response import TimezoneLookupV2Response
 from .types.user_agent_lookup_request_format import UserAgentLookupRequestFormat
 from .types.user_agent_lookup_response import UserAgentLookupResponse
 from .types.vat_rate_by_country_request_format import VatRateByCountryRequestFormat
@@ -307,8 +311,9 @@ class RawApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[GeolocationLookupResponse]:
+    ) -> HttpResponse[typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response]]:
         """
         Get detailed geolocation data for an IP address including country, city, timezone, currency, and optional security and user-agent information
 
@@ -344,7 +349,7 @@ class RawApifreaksApi:
             Successful response
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v1.0/geolocation/lookup",
+            "v2.0/geolocation/lookup" if version == "2.0" else "v1.0/geolocation/lookup",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -359,13 +364,22 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    GeolocationLookupResponse,
-                    parse_obj_as(
-                        type_=GeolocationLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response],
+                        parse_obj_as(
+                            type_=GeolocationLookupV2Response,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response],
+                        parse_obj_as(
+                            type_=GeolocationLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -518,8 +532,9 @@ class RawApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[typing.List[BulkGeolocationLookupResponseItem]]:
+    ) -> HttpResponse[typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]]]:
         """
         Retrieve detailed geolocation data for multiple IP addresses in a single request.
         Supports up to `50,000` IP-addresses/host-names per request.
@@ -556,7 +571,7 @@ class RawApifreaksApi:
             Successful response
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v1.0/geolocation/lookup",
+            "v2.0/geolocation/lookup" if version == "2.0" else "v1.0/geolocation/lookup",
             method="POST",
             params={
                 "apiKey": api_key,
@@ -577,13 +592,22 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    typing.List[BulkGeolocationLookupResponseItem],
-                    parse_obj_as(
-                        type_=typing.List[BulkGeolocationLookupResponseItem],  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]],
+                        parse_obj_as(
+                            type_=typing.List[GeolocationLookupV2Response],  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]],
+                        parse_obj_as(
+                            type_=typing.List[BulkGeolocationLookupResponseItem],  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -1522,8 +1546,9 @@ class RawApifreaksApi:
         api_key: str,
         domain_name: str,
         format: typing.Optional[DomainWhoisLookupRequestFormat] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[DomainWhoisLookupResponse]:
+    ) -> HttpResponse[typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response]]:
         """
         Retrieve current WHOIS information for a domain name.
         This endpoint provides detailed registration information including registrar details,
@@ -1549,7 +1574,7 @@ class RawApifreaksApi:
             Successful response
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v1.0/domain/whois/live",
+            "v2.0/domain/whois/live" if version == "2.0" else "v1.0/domain/whois/live",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -1560,13 +1585,22 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    DomainWhoisLookupResponse,
-                    parse_obj_as(
-                        type_=DomainWhoisLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response],
+                        parse_obj_as(
+                            type_=DomainWhoisLookupV2Response,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response],
+                        parse_obj_as(
+                            type_=DomainWhoisLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -1715,8 +1749,9 @@ class RawApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainWhoisLookupRequestFormat] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[BulkDomainWhoisLookupResponse]:
+    ) -> HttpResponse[typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]]]:
         """
         Retrieve WHOIS information for `100 Domains per Request`.
 
@@ -1740,7 +1775,7 @@ class RawApifreaksApi:
             WHOIS data retrieved successfully for all domains
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v1.0/domain/whois/live",
+            "v2.0/domain/whois/live" if version == "2.0" else "v1.0/domain/whois/live",
             method="POST",
             params={
                 "apiKey": api_key,
@@ -1748,7 +1783,6 @@ class RawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
-                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -1758,13 +1792,22 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    BulkDomainWhoisLookupResponse,
-                    parse_obj_as(
-                        type_=BulkDomainWhoisLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]],
+                        parse_obj_as(
+                            type_=typing.List[DomainWhoisLookupV2Response],  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]],
+                        parse_obj_as(
+                            type_=BulkDomainWhoisLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -20762,8 +20805,9 @@ class RawApifreaksApi:
         iata_code: typing.Optional[str] = None,
         icao_code: typing.Optional[str] = None,
         lo_code: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[TimezoneLookupResponse]:
+    ) -> HttpResponse[typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response]]:
         """
         Retrieve current time, date, and timezone-related information by specifying a timezone name, location address, location coordinates, IP address, or use the client IP address if no parameter is passed.
 
@@ -20811,7 +20855,7 @@ class RawApifreaksApi:
             Timezone lookup result
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v1.0/geolocation/timezone",
+            "v2.0/geolocation/timezone" if version == "2.0" else "v1.0/geolocation/timezone",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -20830,13 +20874,22 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    TimezoneLookupResponse,
-                    parse_obj_as(
-                        type_=TimezoneLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response],
+                        parse_obj_as(
+                            type_=TimezoneLookupV2Response,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response],
+                        parse_obj_as(
+                            type_=TimezoneLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -22555,8 +22608,9 @@ class RawApifreaksApi:
         date: typing.Optional[dt.date] = None,
         elevation: typing.Optional[float] = None,
         time_zone: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[AstronomyLookupResponse]:
+    ) -> HttpResponse[typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response]]:
         """
         Retrieve sunrise and sunset times, current position of the moon, and other related information by specifying a location address, location coordinates, IP address, or using the client IP address if no parameter is passed.
 
@@ -22600,7 +22654,7 @@ class RawApifreaksApi:
             Successful response with astronomy data
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v1.0/geolocation/astronomy",
+            "v2.0/geolocation/astronomy" if version == "2.0" else "v1.0/geolocation/astronomy",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -22618,13 +22672,22 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    AstronomyLookupResponse,
-                    parse_obj_as(
-                        type_=AstronomyLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response],
+                        parse_obj_as(
+                            type_=AstronomyLookupV2Response,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response],
+                        parse_obj_as(
+                            type_=AstronomyLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -22771,8 +22834,9 @@ class AsyncRawApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[GeolocationLookupResponse]:
+    ) -> AsyncHttpResponse[typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response]]:
         """
         Get detailed geolocation data for an IP address including country, city, timezone, currency, and optional security and user-agent information
 
@@ -22808,7 +22872,7 @@ class AsyncRawApifreaksApi:
             Successful response
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v1.0/geolocation/lookup",
+            "v2.0/geolocation/lookup" if version == "2.0" else "v1.0/geolocation/lookup",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -22823,13 +22887,22 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    GeolocationLookupResponse,
-                    parse_obj_as(
-                        type_=GeolocationLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response],
+                        parse_obj_as(
+                            type_=GeolocationLookupV2Response,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response],
+                        parse_obj_as(
+                            type_=GeolocationLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -22982,8 +23055,9 @@ class AsyncRawApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[typing.List[BulkGeolocationLookupResponseItem]]:
+    ) -> AsyncHttpResponse[typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]]]:
         """
         Retrieve detailed geolocation data for multiple IP addresses in a single request.
         Supports up to `50,000` IP-addresses/host-names per request.
@@ -23020,7 +23094,7 @@ class AsyncRawApifreaksApi:
             Successful response
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v1.0/geolocation/lookup",
+            "v2.0/geolocation/lookup" if version == "2.0" else "v1.0/geolocation/lookup",
             method="POST",
             params={
                 "apiKey": api_key,
@@ -23041,13 +23115,22 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    typing.List[BulkGeolocationLookupResponseItem],
-                    parse_obj_as(
-                        type_=typing.List[BulkGeolocationLookupResponseItem],  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]],
+                        parse_obj_as(
+                            type_=typing.List[GeolocationLookupV2Response],  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]],
+                        parse_obj_as(
+                            type_=typing.List[BulkGeolocationLookupResponseItem],  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -23986,8 +24069,9 @@ class AsyncRawApifreaksApi:
         api_key: str,
         domain_name: str,
         format: typing.Optional[DomainWhoisLookupRequestFormat] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[DomainWhoisLookupResponse]:
+    ) -> AsyncHttpResponse[typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response]]:
         """
         Retrieve current WHOIS information for a domain name.
         This endpoint provides detailed registration information including registrar details,
@@ -24013,7 +24097,7 @@ class AsyncRawApifreaksApi:
             Successful response
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v1.0/domain/whois/live",
+            "v2.0/domain/whois/live" if version == "2.0" else "v1.0/domain/whois/live",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -24024,13 +24108,22 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    DomainWhoisLookupResponse,
-                    parse_obj_as(
-                        type_=DomainWhoisLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response],
+                        parse_obj_as(
+                            type_=DomainWhoisLookupV2Response,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response],
+                        parse_obj_as(
+                            type_=DomainWhoisLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -24179,8 +24272,9 @@ class AsyncRawApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainWhoisLookupRequestFormat] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[BulkDomainWhoisLookupResponse]:
+    ) -> AsyncHttpResponse[typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]]]:
         """
         Retrieve WHOIS information for `100 Domains per Request`.
 
@@ -24204,7 +24298,7 @@ class AsyncRawApifreaksApi:
             WHOIS data retrieved successfully for all domains
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v1.0/domain/whois/live",
+            "v2.0/domain/whois/live" if version == "2.0" else "v1.0/domain/whois/live",
             method="POST",
             params={
                 "apiKey": api_key,
@@ -24212,7 +24306,6 @@ class AsyncRawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
-                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -24222,13 +24315,22 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    BulkDomainWhoisLookupResponse,
-                    parse_obj_as(
-                        type_=BulkDomainWhoisLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]],
+                        parse_obj_as(
+                            type_=typing.List[DomainWhoisLookupV2Response],  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]],
+                        parse_obj_as(
+                            type_=BulkDomainWhoisLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -43225,8 +43327,9 @@ class AsyncRawApifreaksApi:
         iata_code: typing.Optional[str] = None,
         icao_code: typing.Optional[str] = None,
         lo_code: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[TimezoneLookupResponse]:
+    ) -> AsyncHttpResponse[typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response]]:
         """
         Retrieve current time, date, and timezone-related information by specifying a timezone name, location address, location coordinates, IP address, or use the client IP address if no parameter is passed.
 
@@ -43274,7 +43377,7 @@ class AsyncRawApifreaksApi:
             Timezone lookup result
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v1.0/geolocation/timezone",
+            "v2.0/geolocation/timezone" if version == "2.0" else "v1.0/geolocation/timezone",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -43293,13 +43396,22 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    TimezoneLookupResponse,
-                    parse_obj_as(
-                        type_=TimezoneLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response],
+                        parse_obj_as(
+                            type_=TimezoneLookupV2Response,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response],
+                        parse_obj_as(
+                            type_=TimezoneLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -45017,8 +45129,9 @@ class AsyncRawApifreaksApi:
         date: typing.Optional[dt.date] = None,
         elevation: typing.Optional[float] = None,
         time_zone: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[AstronomyLookupResponse]:
+    ) -> AsyncHttpResponse[typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response]]:
         """
         Retrieve sunrise and sunset times, current position of the moon, and other related information by specifying a location address, location coordinates, IP address, or using the client IP address if no parameter is passed.
 
@@ -45062,7 +45175,7 @@ class AsyncRawApifreaksApi:
             Successful response with astronomy data
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v1.0/geolocation/astronomy",
+            "v2.0/geolocation/astronomy" if version == "2.0" else "v1.0/geolocation/astronomy",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -45080,13 +45193,22 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                _data = typing.cast(
-                    AstronomyLookupResponse,
-                    parse_obj_as(
-                        type_=AstronomyLookupResponse,  # type: ignore
-                        object_=_response.json(),
-                    ),
-                )
+                if version == "2.0":
+                    _data = typing.cast(
+                        typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response],
+                        parse_obj_as(
+                            type_=AstronomyLookupV2Response,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
+                else:
+                    _data = typing.cast(
+                        typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response],
+                        parse_obj_as(
+                            type_=AstronomyLookupResponse,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(

@@ -17,6 +17,7 @@ from .types.asn_whois_lookup_request_format import AsnWhoisLookupRequestFormat
 from .types.asn_whois_lookup_response import AsnWhoisLookupResponse
 from .types.astronomy_lookup_request_format import AstronomyLookupRequestFormat
 from .types.astronomy_lookup_response import AstronomyLookupResponse
+from .types.astronomy_lookup_v2_response import AstronomyLookupV2Response
 from .types.bulk_current_weather_request_format import BulkCurrentWeatherRequestFormat
 from .types.bulk_current_weather_request_locations_item import BulkCurrentWeatherRequestLocationsItem
 from .types.bulk_current_weather_response import BulkCurrentWeatherResponse
@@ -104,6 +105,7 @@ from .types.domain_whois_history_request_format import DomainWhoisHistoryRequest
 from .types.domain_whois_history_response import DomainWhoisHistoryResponse
 from .types.domain_whois_lookup_request_format import DomainWhoisLookupRequestFormat
 from .types.domain_whois_lookup_response import DomainWhoisLookupResponse
+from .types.domain_whois_lookup_v2_response import DomainWhoisLookupV2Response
 from .types.domain_whois_reverse_request_format import DomainWhoisReverseRequestFormat
 from .types.domain_whois_reverse_request_mode import DomainWhoisReverseRequestMode
 from .types.domain_whois_reverse_response import DomainWhoisReverseResponse
@@ -119,6 +121,7 @@ from .types.geocoder_search_response_item import GeocoderSearchResponseItem
 from .types.geolocation_lookup_request_format import GeolocationLookupRequestFormat
 from .types.geolocation_lookup_request_lang import GeolocationLookupRequestLang
 from .types.geolocation_lookup_response import GeolocationLookupResponse
+from .types.geolocation_lookup_v2_response import GeolocationLookupV2Response
 from .types.get_admin_levels_request_format import GetAdminLevelsRequestFormat
 from .types.get_admin_levels_response import GetAdminLevelsResponse
 from .types.get_admin_unit_details_request_format import GetAdminUnitDetailsRequestFormat
@@ -227,6 +230,7 @@ from .types.timezone_convert_response import TimezoneConvertResponse
 from .types.timezone_lookup_request_format import TimezoneLookupRequestFormat
 from .types.timezone_lookup_request_lang import TimezoneLookupRequestLang
 from .types.timezone_lookup_response import TimezoneLookupResponse
+from .types.timezone_lookup_v2_response import TimezoneLookupV2Response
 from .types.user_agent_lookup_request_format import UserAgentLookupRequestFormat
 from .types.user_agent_lookup_response import UserAgentLookupResponse
 from .types.vat_rate_by_country_request_format import VatRateByCountryRequestFormat
@@ -363,8 +367,9 @@ class ApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> GeolocationLookupResponse:
+    ) -> typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response]:
         """
         Get detailed geolocation data for an IP address including country, city, timezone, currency, and optional security and user-agent information
 
@@ -416,6 +421,7 @@ class ApifreaksApi:
             fields=fields,
             excludes=excludes,
             include=include,
+            version=version,
             request_options=request_options,
         )
         return _response.data
@@ -430,8 +436,9 @@ class ApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> typing.List[BulkGeolocationLookupResponseItem]:
+    ) -> typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]]:
         """
         Retrieve detailed geolocation data for multiple IP addresses in a single request.
         Supports up to `50,000` IP-addresses/host-names per request.
@@ -485,6 +492,7 @@ class ApifreaksApi:
             fields=fields,
             excludes=excludes,
             include=include,
+            version=version,
             request_options=request_options,
         )
         return _response.data
@@ -737,8 +745,9 @@ class ApifreaksApi:
         api_key: str,
         domain_name: str,
         format: typing.Optional[DomainWhoisLookupRequestFormat] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> DomainWhoisLookupResponse:
+    ) -> typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response]:
         """
         Retrieve current WHOIS information for a domain name.
         This endpoint provides detailed registration information including registrar details,
@@ -774,7 +783,7 @@ class ApifreaksApi:
         )
         """
         _response = self._raw_client.domain_whois_lookup(
-            api_key=api_key, domain_name=domain_name, format=format, request_options=request_options
+            api_key=api_key, domain_name=domain_name, format=format, version=version, request_options=request_options
         )
         return _response.data
 
@@ -784,8 +793,9 @@ class ApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainWhoisLookupRequestFormat] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BulkDomainWhoisLookupResponse:
+    ) -> typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]]:
         """
         Retrieve WHOIS information for `100 Domains per Request`.
 
@@ -819,7 +829,7 @@ class ApifreaksApi:
         )
         """
         _response = self._raw_client.bulk_domain_whois_lookup(
-            api_key=api_key, domain_names=domain_names, format=format, request_options=request_options
+            api_key=api_key, domain_names=domain_names, format=format, version=version, request_options=request_options
         )
         return _response.data
 
@@ -6947,8 +6957,9 @@ class ApifreaksApi:
         iata_code: typing.Optional[str] = None,
         icao_code: typing.Optional[str] = None,
         lo_code: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> TimezoneLookupResponse:
+    ) -> typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response]:
         """
         Retrieve current time, date, and timezone-related information by specifying a timezone name, location address, location coordinates, IP address, or use the client IP address if no parameter is passed.
 
@@ -7016,6 +7027,7 @@ class ApifreaksApi:
             iata_code=iata_code,
             icao_code=icao_code,
             lo_code=lo_code,
+            version=version,
             request_options=request_options,
         )
         return _response.data
@@ -7488,8 +7500,9 @@ class ApifreaksApi:
         date: typing.Optional[dt.date] = None,
         elevation: typing.Optional[float] = None,
         time_zone: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AstronomyLookupResponse:
+    ) -> typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response]:
         """
         Retrieve sunrise and sunset times, current position of the moon, and other related information by specifying a location address, location coordinates, IP address, or using the client IP address if no parameter is passed.
 
@@ -7552,6 +7565,7 @@ class ApifreaksApi:
             date=date,
             elevation=elevation,
             time_zone=time_zone,
+            version=version,
             request_options=request_options,
         )
         return _response.data
@@ -7667,8 +7681,9 @@ class AsyncApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> GeolocationLookupResponse:
+    ) -> typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response]:
         """
         Get detailed geolocation data for an IP address including country, city, timezone, currency, and optional security and user-agent information
 
@@ -7728,6 +7743,7 @@ class AsyncApifreaksApi:
             fields=fields,
             excludes=excludes,
             include=include,
+            version=version,
             request_options=request_options,
         )
         return _response.data
@@ -7742,8 +7758,9 @@ class AsyncApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> typing.List[BulkGeolocationLookupResponseItem]:
+    ) -> typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]]:
         """
         Retrieve detailed geolocation data for multiple IP addresses in a single request.
         Supports up to `50,000` IP-addresses/host-names per request.
@@ -7805,6 +7822,7 @@ class AsyncApifreaksApi:
             fields=fields,
             excludes=excludes,
             include=include,
+            version=version,
             request_options=request_options,
         )
         return _response.data
@@ -8089,8 +8107,9 @@ class AsyncApifreaksApi:
         api_key: str,
         domain_name: str,
         format: typing.Optional[DomainWhoisLookupRequestFormat] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> DomainWhoisLookupResponse:
+    ) -> typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response]:
         """
         Retrieve current WHOIS information for a domain name.
         This endpoint provides detailed registration information including registrar details,
@@ -8134,7 +8153,7 @@ class AsyncApifreaksApi:
         asyncio.run(main())
         """
         _response = await self._raw_client.domain_whois_lookup(
-            api_key=api_key, domain_name=domain_name, format=format, request_options=request_options
+            api_key=api_key, domain_name=domain_name, format=format, version=version, request_options=request_options
         )
         return _response.data
 
@@ -8144,8 +8163,9 @@ class AsyncApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainWhoisLookupRequestFormat] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BulkDomainWhoisLookupResponse:
+    ) -> typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]]:
         """
         Retrieve WHOIS information for `100 Domains per Request`.
 
@@ -8187,7 +8207,7 @@ class AsyncApifreaksApi:
         asyncio.run(main())
         """
         _response = await self._raw_client.bulk_domain_whois_lookup(
-            api_key=api_key, domain_names=domain_names, format=format, request_options=request_options
+            api_key=api_key, domain_names=domain_names, format=format, version=version, request_options=request_options
         )
         return _response.data
 
@@ -15047,8 +15067,9 @@ class AsyncApifreaksApi:
         iata_code: typing.Optional[str] = None,
         icao_code: typing.Optional[str] = None,
         lo_code: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> TimezoneLookupResponse:
+    ) -> typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response]:
         """
         Retrieve current time, date, and timezone-related information by specifying a timezone name, location address, location coordinates, IP address, or use the client IP address if no parameter is passed.
 
@@ -15124,6 +15145,7 @@ class AsyncApifreaksApi:
             iata_code=iata_code,
             icao_code=icao_code,
             lo_code=lo_code,
+            version=version,
             request_options=request_options,
         )
         return _response.data
@@ -15664,8 +15686,9 @@ class AsyncApifreaksApi:
         date: typing.Optional[dt.date] = None,
         elevation: typing.Optional[float] = None,
         time_zone: typing.Optional[str] = None,
+        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AstronomyLookupResponse:
+    ) -> typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response]:
         """
         Retrieve sunrise and sunset times, current position of the moon, and other related information by specifying a location address, location coordinates, IP address, or using the client IP address if no parameter is passed.
 
@@ -15736,6 +15759,7 @@ class AsyncApifreaksApi:
             date=date,
             elevation=elevation,
             time_zone=time_zone,
+            version=version,
             request_options=request_options,
         )
         return _response.data

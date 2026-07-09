@@ -3,7 +3,7 @@ name = "apifreaks"
 
 [tool.poetry]
 name = "apifreaks"
-version = "1.0.1"
+version = "1.0.2"
 description = "Official Python SDK for the Apifreaks API platform."
 readme = "README.md"
 authors = ["Apifreaks <support@apifreaks.com>"]
