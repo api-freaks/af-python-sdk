@@ -14,6 +14,9 @@ class WebScrapeResponse(UniversalBaseModel):
         FieldMetadata(alias="extractedData"),
         pydantic.Field(alias="extractedData", description="Extracted data based on the extract instructions"),
     ]
+    """
+    Extracted data based on the extract instructions
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

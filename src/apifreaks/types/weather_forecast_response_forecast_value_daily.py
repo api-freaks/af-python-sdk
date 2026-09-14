@@ -29,16 +29,28 @@ class WeatherForecastResponseForecastValueDaily(UniversalBaseModel):
         FieldMetadata(alias="temperature_2m_max"),
         pydantic.Field(alias="temperature_2m_max", description="Maximum air temperature at 2m (°C)"),
     ] = None
+    """
+    Maximum air temperature at 2m (°C)
+    """
+
     temperature2m_min: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="temperature_2m_min"),
         pydantic.Field(alias="temperature_2m_min", description="Minimum air temperature at 2m (°C)"),
     ] = None
+    """
+    Minimum air temperature at 2m (°C)
+    """
+
     temperature2m_mean: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="temperature_2m_mean"),
         pydantic.Field(alias="temperature_2m_mean", description="Mean air temperature at 2m (°C)"),
     ] = None
+    """
+    Mean air temperature at 2m (°C)
+    """
+
     apparent_temperature_max: typing.Optional[float] = pydantic.Field(default=None)
     """
     Maximum feels-like temperature (°C)
@@ -94,36 +106,64 @@ class WeatherForecastResponseForecastValueDaily(UniversalBaseModel):
         FieldMetadata(alias="wind_speed_10m_max"),
         pydantic.Field(alias="wind_speed_10m_max", description="Max wind speed at 10m (km/h)"),
     ] = None
+    """
+    Max wind speed at 10m (km/h)
+    """
+
     wind_speed10m_min: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_speed_10m_min"),
         pydantic.Field(alias="wind_speed_10m_min", description="Min wind speed at 10m (km/h)"),
     ] = None
+    """
+    Min wind speed at 10m (km/h)
+    """
+
     wind_speed10m_mean: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_speed_10m_mean"),
         pydantic.Field(alias="wind_speed_10m_mean", description="Mean wind speed at 10m (km/h)"),
     ] = None
+    """
+    Mean wind speed at 10m (km/h)
+    """
+
     wind_gusts10m_max: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_gusts_10m_max"),
         pydantic.Field(alias="wind_gusts_10m_max", description="Max wind gusts at 10m (km/h)"),
     ] = None
+    """
+    Max wind gusts at 10m (km/h)
+    """
+
     wind_gusts10m_min: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_gusts_10m_min"),
         pydantic.Field(alias="wind_gusts_10m_min", description="Min wind gusts at 10m (km/h)"),
     ] = None
+    """
+    Min wind gusts at 10m (km/h)
+    """
+
     wind_gusts10m_mean: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_gusts_10m_mean"),
         pydantic.Field(alias="wind_gusts_10m_mean", description="Mean wind gusts at 10m (km/h)"),
     ] = None
+    """
+    Mean wind gusts at 10m (km/h)
+    """
+
     wind_direction10m_dominant: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="wind_direction_10m_dominant"),
         pydantic.Field(alias="wind_direction_10m_dominant", description="Dominant wind direction at 10m (°)"),
     ] = None
+    """
+    Dominant wind direction at 10m (°)
+    """
+
     shortwave_radiation_sum: typing.Optional[float] = pydantic.Field(default=None)
     """
     Total shortwave radiation (MJ/m²)
@@ -154,36 +194,59 @@ class WeatherForecastResponseForecastValueDaily(UniversalBaseModel):
         FieldMetadata(alias="dew_point_2m_max"),
         pydantic.Field(alias="dew_point_2m_max", description="Max dew point at 2m (°C)"),
     ] = None
+    """
+    Max dew point at 2m (°C)
+    """
+
     dew_point2m_min: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="dew_point_2m_min"),
         pydantic.Field(alias="dew_point_2m_min", description="Min dew point at 2m (°C)"),
     ] = None
+    """
+    Min dew point at 2m (°C)
+    """
+
     dew_point2m_mean: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="dew_point_2m_mean"),
         pydantic.Field(alias="dew_point_2m_mean", description="Mean dew point at 2m (°C)"),
     ] = None
+    """
+    Mean dew point at 2m (°C)
+    """
+
     relative_humidity2m_max: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="relative_humidity_2m_max"),
         pydantic.Field(alias="relative_humidity_2m_max", description="Max relative humidity (%)"),
     ] = None
+    """
+    Max relative humidity (%)
+    """
+
     relative_humidity2m_min: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="relative_humidity_2m_min"),
         pydantic.Field(alias="relative_humidity_2m_min", description="Min relative humidity (%)"),
     ] = None
+    """
+    Min relative humidity (%)
+    """
+
     relative_humidity2m_mean: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="relative_humidity_2m_mean"),
         pydantic.Field(alias="relative_humidity_2m_mean", description="Mean relative humidity (%)"),
     ] = None
-    et0fao_evapotranspiration_sum: typing_extensions.Annotated[
-        typing.Optional[float],
-        FieldMetadata(alias="et0_fao_evapotranspiration_sum"),
-        pydantic.Field(alias="et0_fao_evapotranspiration_sum", description="ET₀ Reference Evapotranspiration (mm)"),
-    ] = None
+    """
+    Mean relative humidity (%)
+    """
+
+    et0_fao_evapotranspiration_sum: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    ET₀ Reference Evapotranspiration (mm)
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

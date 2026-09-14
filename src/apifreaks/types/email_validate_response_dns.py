@@ -9,14 +9,17 @@ from ..core.serialization import FieldMetadata
 
 
 class EmailValidateResponseDns(UniversalBaseModel):
-    mx_records: typing_extensions.Annotated[
-        typing.List[str], FieldMetadata(alias="mxRecords"), pydantic.Field(alias="mxRecords")
+    mx_record: typing_extensions.Annotated[
+        typing.List[str], FieldMetadata(alias="mxRecord"), pydantic.Field(alias="mxRecord")
     ]
-    a_records: typing_extensions.Annotated[
-        typing.List[str],
-        FieldMetadata(alias="aRecords"),
-        pydantic.Field(alias="aRecords", description="Collection of A (Address) records for the domain."),
-    ]
+    a_record: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="aRecord"),
+        pydantic.Field(alias="aRecord", description="Collection of A (Address) records for the domain."),
+    ] = None
+    """
+    Collection of A (Address) records for the domain.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

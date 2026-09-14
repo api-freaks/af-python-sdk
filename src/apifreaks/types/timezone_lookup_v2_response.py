@@ -4,161 +4,41 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-
-
-class TimezoneLookupV2ResponseLocation(UniversalBaseModel):
-    location_string: typing.Optional[str] = None
-    continent_code: typing.Optional[str] = None
-    continent_name: typing.Optional[str] = None
-    country_code2: typing.Optional[str] = None
-    country_code3: typing.Optional[str] = None
-    country_name: typing.Optional[str] = None
-    country_name_official: typing.Optional[str] = None
-    is_eu: typing.Optional[bool] = None
-    state_prov: typing.Optional[str] = None
-    state_code: typing.Optional[str] = None
-    district: typing.Optional[str] = None
-    city: typing.Optional[str] = None
-    locality: typing.Optional[str] = None
-    zipcode: typing.Optional[str] = None
-    latitude: typing.Optional[str] = None
-    longitude: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class TimezoneLookupV2ResponseAirportDetails(UniversalBaseModel):
-    type: typing.Optional[str] = None
-    name: typing.Optional[str] = None
-    latitude: typing.Optional[float] = None
-    longitude: typing.Optional[float] = None
-    elevation_ft: typing.Optional[float] = None
-    continent_code: typing.Optional[str] = None
-    country_code: typing.Optional[str] = None
-    state_code: typing.Optional[str] = None
-    city: typing.Optional[str] = None
-    iata_code: typing.Optional[str] = None
-    icao_code: typing.Optional[str] = None
-    faa_code: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class TimezoneLookupV2ResponseLoCodeDetails(UniversalBaseModel):
-    lo_code: typing.Optional[str] = None
-    city: typing.Optional[str] = None
-    state_code: typing.Optional[str] = None
-    country_code: typing.Optional[str] = None
-    country_name: typing.Optional[str] = None
-    location_type: typing.Optional[str] = None
-    latitude: typing.Optional[float] = None
-    longitude: typing.Optional[float] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class TimezoneLookupV2ResponseTimeZoneDstStart(UniversalBaseModel):
-    utc_time: typing.Optional[str] = None
-    duration: typing.Optional[str] = None
-    gap: typing.Optional[bool] = None
-    date_time_after: typing.Optional[str] = None
-    date_time_before: typing.Optional[str] = None
-    overlap: typing.Optional[bool] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class TimezoneLookupV2ResponseTimeZoneDstEnd(UniversalBaseModel):
-    utc_time: typing.Optional[str] = None
-    duration: typing.Optional[str] = None
-    gap: typing.Optional[bool] = None
-    date_time_after: typing.Optional[str] = None
-    date_time_before: typing.Optional[str] = None
-    overlap: typing.Optional[bool] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class TimezoneLookupV2ResponseTimeZone(UniversalBaseModel):
-    name: typing.Optional[str] = None
-    offset: typing.Optional[float] = None
-    offset_with_dst: typing.Optional[float] = None
-    current_time: typing.Optional[str] = None
-    current_time_unix: typing.Optional[float] = None
-    date: typing.Optional[str] = None
-    date_time: typing.Optional[str] = None
-    date_time_txt: typing.Optional[str] = None
-    date_time_wti: typing.Optional[str] = None
-    date_time_ymd: typing.Optional[str] = None
-    time_24: typing.Optional[str] = None
-    time_12: typing.Optional[str] = None
-    week: typing.Optional[int] = None
-    month: typing.Optional[int] = None
-    year: typing.Optional[int] = None
-    year_abbr: typing.Optional[str] = None
-    current_tz_abbreviation: typing.Optional[str] = None
-    current_tz_full_name: typing.Optional[str] = None
-    standard_tz_abbreviation: typing.Optional[str] = None
-    standard_tz_full_name: typing.Optional[str] = None
-    is_dst: typing.Optional[bool] = None
-    dst_savings: typing.Optional[float] = None
-    dst_exists: typing.Optional[bool] = None
-    dst_tz_abbreviation: typing.Optional[str] = None
-    dst_tz_full_name: typing.Optional[str] = None
-    dst_start: typing.Optional[TimezoneLookupV2ResponseTimeZoneDstStart] = None
-    dst_end: typing.Optional[TimezoneLookupV2ResponseTimeZoneDstEnd] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
+from .timezone_lookup_v2_response_airport_details import TimezoneLookupV2ResponseAirportDetails
+from .timezone_lookup_v2_response_lo_code_details import TimezoneLookupV2ResponseLoCodeDetails
+from .timezone_lookup_v2_response_location import TimezoneLookupV2ResponseLocation
+from .timezone_lookup_v2_response_time_zone import TimezoneLookupV2ResponseTimeZone
 
 
 class TimezoneLookupV2Response(UniversalBaseModel):
-    ip: typing.Optional[str] = None
-    location: typing.Optional[TimezoneLookupV2ResponseLocation] = None
-    airport_details: typing.Optional[TimezoneLookupV2ResponseAirportDetails] = None
-    lo_code_details: typing.Optional[TimezoneLookupV2ResponseLoCodeDetails] = None
-    time_zone: typing.Optional[TimezoneLookupV2ResponseTimeZone] = None
+    """
+    Timezone lookup result. time_zone is always present. Exactly which other object accompanies it depends on the lookup mode: tz name and lat/long coordinates return time_zone only (no location, no ip); location address returns a basic location object; ip param or client-IP fallback returns a rich location object plus top-level ip; iata_code/icao_code returns airport_details instead of location; lo_code returns lo_code_details instead of location.
+    """
+
+    ip: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The IP address used for the timezone lookup. Present when queried using the ip parameter, or with no location-identifying parameter at all (client-IP fallback). Absent for every other lookup mode.
+    """
+
+    time_zone: TimezoneLookupV2ResponseTimeZone = pydantic.Field()
+    """
+    Timezone and date/time information for the location.
+    """
+
+    location: typing.Optional[TimezoneLookupV2ResponseLocation] = pydantic.Field(default=None)
+    """
+    Geographic location information. Only present for location (address) and ip (or client-IP fallback) lookups; absent for tz, lat/long, iata_code/icao_code, and lo_code lookups. Field set varies by mode: location returns location_string plus a basic field set (country_name, state_prov, city, locality, latitude, longitude); ip/default returns a richer geo-IP field set (continent_code, continent_name, country_code2, country_code3, country_name_official, is_eu, state_code, district, zipcode) plus the common fields, but never location_string or locality.
+    """
+
+    airport_details: typing.Optional[TimezoneLookupV2ResponseAirportDetails] = pydantic.Field(default=None)
+    """
+    Airport information, present when queried by IATA or ICAO code.
+    """
+
+    lo_code_details: typing.Optional[TimezoneLookupV2ResponseLoCodeDetails] = pydantic.Field(default=None)
+    """
+    UN/LOCODE location details, present when queried by LO code.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

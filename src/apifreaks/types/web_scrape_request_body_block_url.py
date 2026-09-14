@@ -18,6 +18,10 @@ class WebScrapeRequestBodyBlockUrl(UniversalBaseModel):
             alias="blockUrl", description="List of script or URL patterns to block during network requests."
         ),
     ] = None
+    """
+    List of script or URL patterns to block during network requests.
+    """
+
     cookies: typing.Optional[typing.List[WebScrapeRequestBodyBlockUrlCookiesItem]] = pydantic.Field(default=None)
     """
     List of cookies to be set in the browser session.

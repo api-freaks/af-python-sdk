@@ -15,6 +15,10 @@ class PdfGetTaskStatusResponse(UniversalBaseModel):
         FieldMetadata(alias="taskId"),
         pydantic.Field(alias="taskId", description="The unique identifier of the PDF processing task."),
     ]
+    """
+    The unique identifier of the PDF processing task.
+    """
+
     status: str = pydantic.Field()
     """
     The current status of the task (e.g., 'queued', 'processing', 'completed', 'failed').
@@ -28,6 +32,10 @@ class PdfGetTaskStatusResponse(UniversalBaseModel):
             description="The timestamp when the task status was created, formatted as 'yyyy-MM-dd HH:mm:ss'.",
         ),
     ]
+    """
+    The timestamp when the task status was created, formatted as 'yyyy-MM-dd HH:mm:ss'.
+    """
+
     zip_output_url: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="zipOutputUrl"),
@@ -36,6 +44,10 @@ class PdfGetTaskStatusResponse(UniversalBaseModel):
             description="The URL to download all output files as a single ZIP archive. This is present only when the task status is 'COMPLETED'.",
         ),
     ] = None
+    """
+    The URL to download all output files as a single ZIP archive. This is present only when the task status is 'COMPLETED'.
+    """
+
     zip_file_id: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="zipFileId"),
@@ -44,6 +56,10 @@ class PdfGetTaskStatusResponse(UniversalBaseModel):
             description="The unique identifier for the ZIP file. This is present only when the task status is 'COMPLETED'.",
         ),
     ] = None
+    """
+    The unique identifier for the ZIP file. This is present only when the task status is 'COMPLETED'.
+    """
+
     output_urls: typing_extensions.Annotated[
         typing.Optional[typing.List[str]],
         FieldMetadata(alias="outputUrls"),
@@ -52,6 +68,10 @@ class PdfGetTaskStatusResponse(UniversalBaseModel):
             description="A list of URLs for each individual output file. This is present only when the task is 'COMPLETED'.",
         ),
     ] = None
+    """
+    A list of URLs for each individual output file. This is present only when the task is 'COMPLETED'.
+    """
+
     output_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]],
         FieldMetadata(alias="outputIds"),
@@ -60,6 +80,10 @@ class PdfGetTaskStatusResponse(UniversalBaseModel):
             description="A list of unique IDs for the output files. This is present only when the task is 'COMPLETED'.",
         ),
     ] = None
+    """
+    A list of unique IDs for the output files. This is present only when the task is 'COMPLETED'.
+    """
+
     input_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]],
         FieldMetadata(alias="inputIds"),
@@ -68,6 +92,10 @@ class PdfGetTaskStatusResponse(UniversalBaseModel):
             description="A list of unique IDs for the input files submitted with the task. If the task was initiated with the `destroy` parameter set to `true`, `inputIds` will not be generated.",
         ),
     ] = None
+    """
+    A list of unique IDs for the input files submitted with the task. If the task was initiated with the `destroy` parameter set to `true`, `inputIds` will not be generated.
+    """
+
     error: typing.Optional[str] = pydantic.Field(default=None)
     """
     The error code for the PDF Task. This is included only if the task fails.
@@ -86,6 +114,9 @@ class PdfGetTaskStatusResponse(UniversalBaseModel):
             description="The timestamp when the task status will expire and be removed from the system, formatted as 'yyyy-MM-dd HH:mm:ss'.",
         ),
     ] = None
+    """
+    The timestamp when the task status will expire and be removed from the system, formatted as 'yyyy-MM-dd HH:mm:ss'.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

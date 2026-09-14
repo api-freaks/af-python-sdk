@@ -14,11 +14,19 @@ class CurrencyFluctuationResponseRateFluctuationsValue(UniversalBaseModel):
         FieldMetadata(alias="startRate"),
         pydantic.Field(alias="startRate", description="Starting rate of the currency during the interval."),
     ]
+    """
+    Starting rate of the currency during the interval.
+    """
+
     end_rate: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="endRate"),
         pydantic.Field(alias="endRate", description="Ending rate of the currency during the interval."),
     ]
+    """
+    Ending rate of the currency during the interval.
+    """
+
     change: str = pydantic.Field()
     """
     Absolute change in currency rate over the interval.
@@ -29,6 +37,9 @@ class CurrencyFluctuationResponseRateFluctuationsValue(UniversalBaseModel):
         FieldMetadata(alias="percentChange"),
         pydantic.Field(alias="percentChange", description="Percentage change in currency rate over the interval."),
     ]
+    """
+    Percentage change in currency rate over the interval.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

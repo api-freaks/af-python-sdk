@@ -18,6 +18,13 @@ class OcrPredictResponse(UniversalBaseModel):
             description="Array containing extracted text. Structure varies based on input type and new_line parameter:\n- Single file, new_line=0: Array with single string element\n- Single file, new_line=1: Array of strings (one per line)\n- Bulk/ZIP file, new_line=0: Array of strings (one per file)\n- Bulk/ZIP file, new_line=1: Array of arrays (each inner array contains lines for respective file)",
         ),
     ]
+    """
+    Array containing extracted text. Structure varies based on input type and new_line parameter:
+    - Single file, new_line=0: Array with single string element
+    - Single file, new_line=1: Array of strings (one per line)
+    - Bulk/ZIP file, new_line=0: Array of strings (one per file)
+    - Bulk/ZIP file, new_line=1: Array of arrays (each inner array contains lines for respective file)
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

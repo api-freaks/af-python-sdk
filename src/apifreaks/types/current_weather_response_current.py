@@ -28,6 +28,10 @@ class CurrentWeatherResponseCurrent(UniversalBaseModel):
             alias="temperature_2m", description="Current air temperature (°C) measured at 2 meters above ground."
         ),
     ]
+    """
+    Current air temperature (°C) measured at 2 meters above ground.
+    """
+
     relative_humidity2m: typing_extensions.Annotated[
         float,
         FieldMetadata(alias="relative_humidity_2m"),
@@ -35,6 +39,10 @@ class CurrentWeatherResponseCurrent(UniversalBaseModel):
             alias="relative_humidity_2m", description="Current relative humidity percentage at 2 meters above ground."
         ),
     ]
+    """
+    Current relative humidity percentage at 2 meters above ground.
+    """
+
     apparent_temperature: float = pydantic.Field()
     """
     Current apparent temperature (°C) accounting for wind chill and humidity.
@@ -85,6 +93,10 @@ class CurrentWeatherResponseCurrent(UniversalBaseModel):
         FieldMetadata(alias="wind_speed_10m"),
         pydantic.Field(alias="wind_speed_10m", description="Current wind speed (km/h) at 10 meters above ground."),
     ]
+    """
+    Current wind speed (km/h) at 10 meters above ground.
+    """
+
     wind_direction10m: typing_extensions.Annotated[
         int,
         FieldMetadata(alias="wind_direction_10m"),
@@ -92,11 +104,19 @@ class CurrentWeatherResponseCurrent(UniversalBaseModel):
             alias="wind_direction_10m", description="Current wind direction in degrees at 10 meters above ground."
         ),
     ]
+    """
+    Current wind direction in degrees at 10 meters above ground.
+    """
+
     wind_gusts10m: typing_extensions.Annotated[
         float,
         FieldMetadata(alias="wind_gusts_10m"),
         pydantic.Field(alias="wind_gusts_10m", description="Current wind gust speed (km/h) at 10 meters above ground."),
     ]
+    """
+    Current wind gust speed (km/h) at 10 meters above ground.
+    """
+
     astronomy: CurrentWeatherResponseCurrentAstronomy = pydantic.Field()
     """
     Astronomical information including sunrise, sunset, and moon phases for the current date.

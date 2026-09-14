@@ -26,24 +26,26 @@ class BulkDomainDnsLookupResponseBulkDnsInfoItem(UniversalBaseModel):
         FieldMetadata(alias="queryTime"),
         pydantic.Field(alias="queryTime", description="Time at which the query was made (Format:YYYY-MM-DD HH:mm:ss)."),
     ]
+    """
+    Time at which the query was made (Format:YYYY-MM-DD HH:mm:ss).
+    """
+
     domain_name: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="domainName"),
-        pydantic.Field(alias="domainName", description="Queried domain (present for domain lookups)."),
-    ] = None
+        str, FieldMetadata(alias="domainName"), pydantic.Field(alias="domainName", description="Queried domain.")
+    ]
+    """
+    Queried domain.
+    """
+
     domain_registered: typing_extensions.Annotated[
-        typing.Optional[bool],
+        bool,
         FieldMetadata(alias="domainRegistered"),
-        pydantic.Field(
-            alias="domainRegistered",
-            description="Indicates whether the domain is registered (present for domain lookups).",
-        ),
-    ] = None
-    ip_address: typing_extensions.Annotated[
-        typing.Optional[str],
-        FieldMetadata(alias="ipAddress"),
-        pydantic.Field(alias="ipAddress", description="IP address queried (present for IP lookups)."),
-    ] = None
+        pydantic.Field(alias="domainRegistered", description="Indicates whether the domain is registered."),
+    ]
+    """
+    Indicates whether the domain is registered.
+    """
+
     dns_types: typing_extensions.Annotated[
         BulkDomainDnsLookupResponseBulkDnsInfoItemDnsTypes,
         FieldMetadata(alias="dnsTypes"),
@@ -54,6 +56,9 @@ class BulkDomainDnsLookupResponseBulkDnsInfoItem(UniversalBaseModel):
         FieldMetadata(alias="dnsRecords"),
         pydantic.Field(alias="dnsRecords", description="List of DNS records, each based on its type."),
     ]
+    """
+    List of DNS records, each based on its type.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

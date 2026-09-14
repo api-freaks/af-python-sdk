@@ -30,6 +30,10 @@ class AirQualityResponseForecastValueHourlyItem(UniversalBaseModel):
         FieldMetadata(alias="pm2_5"),
         pydantic.Field(alias="pm2_5", description="Concentration of particulate matter ≤2.5 micrometers (μg/m³)"),
     ] = None
+    """
+    Concentration of particulate matter ≤2.5 micrometers (μg/m³)
+    """
+
     carbon_dioxide: typing.Optional[float] = pydantic.Field(default=None)
     """
     Concentration of carbon dioxide (ppm)

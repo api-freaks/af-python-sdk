@@ -19,6 +19,10 @@ class CurrencyConvertLatestResponse(UniversalBaseModel):
         FieldMetadata(alias="from"),
         pydantic.Field(alias="from", description="Base currency code (the currency being converted from)."),
     ]
+    """
+    Base currency code (the currency being converted from).
+    """
+
     to: str = pydantic.Field()
     """
     Desired currency code (the currency to convert to).
@@ -34,11 +38,18 @@ class CurrencyConvertLatestResponse(UniversalBaseModel):
         FieldMetadata(alias="givenAmount"),
         pydantic.Field(alias="givenAmount", description="The amount in base currency to be converted."),
     ]
+    """
+    The amount in base currency to be converted.
+    """
+
     converted_amount: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="convertedAmount"),
         pydantic.Field(alias="convertedAmount", description="The result of the conversion in the desired currency."),
     ]
+    """
+    The result of the conversion in the desired currency.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

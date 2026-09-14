@@ -50,6 +50,9 @@ class DomainSslChainLookupResponseSslCertificatesItem(UniversalBaseModel):
         FieldMetadata(alias="pemRaw"),
         pydantic.Field(alias="pemRaw", description="Raw certificate in PEM format"),
     ] = None
+    """
+    Raw certificate in PEM format
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

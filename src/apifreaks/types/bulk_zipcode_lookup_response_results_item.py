@@ -10,6 +10,7 @@ class BulkZipcodeLookupResponseResultsItem(UniversalBaseModel):
     code: typing.Optional[str] = None
     country_code: typing.Optional[str] = None
     region: typing.Optional[str] = None
+    region_code: typing.Optional[str] = None
     city: typing.Optional[str] = None
     locality: typing.Optional[str] = None
     latitude: typing.Optional[float] = None

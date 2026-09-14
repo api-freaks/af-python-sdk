@@ -4,123 +4,29 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-
-
-class AstronomyLookupV2ResponseLocation(UniversalBaseModel):
-    location_string: typing.Optional[str] = None
-    continent_code: typing.Optional[str] = None
-    continent_name: typing.Optional[str] = None
-    country_code2: typing.Optional[str] = None
-    country_code3: typing.Optional[str] = None
-    country_name: typing.Optional[str] = None
-    country_name_official: typing.Optional[str] = None
-    is_eu: typing.Optional[bool] = None
-    state_prov: typing.Optional[str] = None
-    state_code: typing.Optional[str] = None
-    district: typing.Optional[str] = None
-    city: typing.Optional[str] = None
-    locality: typing.Optional[str] = None
-    zipcode: typing.Optional[str] = None
-    latitude: typing.Optional[str] = None
-    longitude: typing.Optional[str] = None
-    elevation: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class AstronomyLookupV2ResponseAstronomyMorning(UniversalBaseModel):
-    astronomical_twilight_begin: typing.Optional[str] = None
-    astronomical_twilight_end: typing.Optional[str] = None
-    nautical_twilight_begin: typing.Optional[str] = None
-    nautical_twilight_end: typing.Optional[str] = None
-    civil_twilight_begin: typing.Optional[str] = None
-    civil_twilight_end: typing.Optional[str] = None
-    blue_hour_begin: typing.Optional[str] = None
-    blue_hour_end: typing.Optional[str] = None
-    golden_hour_begin: typing.Optional[str] = None
-    golden_hour_end: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class AstronomyLookupV2ResponseAstronomyEvening(UniversalBaseModel):
-    golden_hour_begin: typing.Optional[str] = None
-    golden_hour_end: typing.Optional[str] = None
-    blue_hour_begin: typing.Optional[str] = None
-    blue_hour_end: typing.Optional[str] = None
-    civil_twilight_begin: typing.Optional[str] = None
-    civil_twilight_end: typing.Optional[str] = None
-    nautical_twilight_begin: typing.Optional[str] = None
-    nautical_twilight_end: typing.Optional[str] = None
-    astronomical_twilight_begin: typing.Optional[str] = None
-    astronomical_twilight_end: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class AstronomyLookupV2ResponseAstronomy(UniversalBaseModel):
-    time_zone: typing.Optional[str] = None
-    date: typing.Optional[str] = None
-    current_time: typing.Optional[str] = None
-    mid_night: typing.Optional[str] = None
-    night_end: typing.Optional[str] = None
-    night_begin: typing.Optional[str] = None
-    morning: typing.Optional[AstronomyLookupV2ResponseAstronomyMorning] = None
-    sunrise: typing.Optional[str] = None
-    sunset: typing.Optional[str] = None
-    sun_status: typing.Optional[str] = None
-    solar_noon: typing.Optional[str] = None
-    day_length: typing.Optional[str] = None
-    sun_altitude: typing.Optional[float] = None
-    sun_distance: typing.Optional[float] = None
-    sun_azimuth: typing.Optional[float] = None
-    evening: typing.Optional[AstronomyLookupV2ResponseAstronomyEvening] = None
-    moonrise: typing.Optional[str] = None
-    moonset: typing.Optional[str] = None
-    moon_status: typing.Optional[str] = None
-    moon_altitude: typing.Optional[float] = None
-    moon_distance: typing.Optional[float] = None
-    moon_azimuth: typing.Optional[float] = None
-    moon_parallactic_angle: typing.Optional[float] = None
-    moon_phase: typing.Optional[str] = None
-    moon_illumination_percentage: typing.Optional[str] = None
-    moon_angle: typing.Optional[float] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
+from .astronomy_lookup_v2_response_astronomy import AstronomyLookupV2ResponseAstronomy
+from .astronomy_lookup_v2_response_location import AstronomyLookupV2ResponseLocation
 
 
 class AstronomyLookupV2Response(UniversalBaseModel):
-    ip: typing.Optional[str] = None
-    location: typing.Optional[AstronomyLookupV2ResponseLocation] = None
-    astronomy: typing.Optional[AstronomyLookupV2ResponseAstronomy] = None
+    """
+    Astronomy data response containing location information and astronomical data.
+    """
+
+    ip: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    IPv4 or IPv6 address used for the geo-IP lookup. Present when the ip parameter is passed explicitly, or when no location, lat/long, or ip parameter is supplied at all (the API falls back to the requesting client's IP address). Absent when location or lat/long is used.
+    """
+
+    location: typing.Optional[AstronomyLookupV2ResponseLocation] = pydantic.Field(default=None)
+    """
+    Geographic location information for the astronomy calculation. The set of populated fields depends on which lookup mode the request used: (1) location param (geocode-by-address) returns location_string plus a basic field set (country_name, state_prov, city, locality, latitude, longitude, elevation); (2) lat + long params (geocode-by-coordinates) returns the same basic field set minus location_string, and locality may be an empty string when the coordinates don't resolve to a named sub-area; (3) ip param, or no location/lat/long/ip param at all (falls back to geo-IP lookup of the client's IP), returns the full geo-IP field set — continent_code, continent_name, country_code2, country_code3, country_name_official, is_eu, state_code, district, zipcode — in addition to the basic fields, but never location_string. elevation can be an empty string when elevation data is unavailable for the resolved location.
+    """
+
+    astronomy: AstronomyLookupV2ResponseAstronomy = pydantic.Field()
+    """
+    Complete astronomical data for the specified location and date.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

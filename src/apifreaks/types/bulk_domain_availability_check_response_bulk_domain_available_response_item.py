@@ -9,20 +9,11 @@ from ..core.serialization import FieldMetadata
 
 
 class BulkDomainAvailabilityCheckResponseBulkDomainAvailableResponseItem(UniversalBaseModel):
-    domain: str = pydantic.Field()
-    """
-    Name of the queried domain
-    """
-
+    domain: typing.Optional[str] = None
     domain_availability: typing_extensions.Annotated[
-        bool,
-        FieldMetadata(alias="domainAvailability"),
-        pydantic.Field(alias="domainAvailability", description="True if available, false if not available"),
-    ]
-    status: bool = pydantic.Field()
-    """
-    Determines whether the request was successfully processed or not for that specific entry.
-    """
+        typing.Optional[bool], FieldMetadata(alias="domainAvailability"), pydantic.Field(alias="domainAvailability")
+    ] = None
+    status: typing.Optional[bool] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

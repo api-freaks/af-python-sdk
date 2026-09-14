@@ -14,6 +14,9 @@ class WebScrapeRequestBodyBlockUrlInstructionsItemSwitchToIframe(UniversalBaseMo
         FieldMetadata(alias="switchToIframe"),
         pydantic.Field(alias="switchToIframe", description="Switches to an iframe by name or ID."),
     ] = None
+    """
+    Switches to an iframe by name or ID.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

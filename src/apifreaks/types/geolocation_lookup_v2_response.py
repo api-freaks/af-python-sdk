@@ -4,319 +4,83 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-
-
-class GeolocationLookupV2ResponseUserAgentDevice(UniversalBaseModel):
-    name: typing.Optional[str] = None
-    type: typing.Optional[str] = None
-    brand: typing.Optional[str] = None
-    cpu: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseUserAgentEngine(UniversalBaseModel):
-    name: typing.Optional[str] = None
-    type: typing.Optional[str] = None
-    version: typing.Optional[str] = None
-    version_major: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseUserAgentOperatingSystem(UniversalBaseModel):
-    name: typing.Optional[str] = None
-    type: typing.Optional[str] = None
-    version: typing.Optional[str] = None
-    version_major: typing.Optional[str] = None
-    build: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseUserAgent(UniversalBaseModel):
-    user_agent_string: typing.Optional[str] = None
-    name: typing.Optional[str] = None
-    type: typing.Optional[str] = None
-    version: typing.Optional[str] = None
-    version_major: typing.Optional[str] = None
-    device: typing.Optional[GeolocationLookupV2ResponseUserAgentDevice] = None
-    engine: typing.Optional[GeolocationLookupV2ResponseUserAgentEngine] = None
-    operating_system: typing.Optional[GeolocationLookupV2ResponseUserAgentOperatingSystem] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseLocation(UniversalBaseModel):
-    continent_code: typing.Optional[str] = None
-    continent_name: typing.Optional[str] = None
-    country_code2: typing.Optional[str] = None
-    country_code3: typing.Optional[str] = None
-    country_name: typing.Optional[str] = None
-    country_name_official: typing.Optional[str] = None
-    country_capital: typing.Optional[str] = None
-    state_prov: typing.Optional[str] = None
-    state_code: typing.Optional[str] = None
-    district: typing.Optional[str] = None
-    city: typing.Optional[str] = None
-    locality: typing.Optional[str] = None
-    accuracy_radius: typing.Optional[str] = None
-    confidence: typing.Optional[str] = None
-    dma_code: typing.Optional[str] = None
-    zipcode: typing.Optional[str] = None
-    latitude: typing.Optional[str] = None
-    longitude: typing.Optional[str] = None
-    is_eu: typing.Optional[bool] = None
-    country_flag: typing.Optional[str] = None
-    geoname_id: typing.Optional[str] = None
-    country_emoji: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseCountryMetadata(UniversalBaseModel):
-    calling_code: typing.Optional[str] = None
-    tld: typing.Optional[str] = None
-    languages: typing.Optional[typing.List[str]] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseNetwork(UniversalBaseModel):
-    connection_type: typing.Optional[str] = None
-    route: typing.Optional[str] = None
-    is_anycast: typing.Optional[bool] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseCurrency(UniversalBaseModel):
-    code: typing.Optional[str] = None
-    name: typing.Optional[str] = None
-    symbol: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseAsn(UniversalBaseModel):
-    as_number: typing.Optional[str] = None
-    organization: typing.Optional[str] = None
-    country: typing.Optional[str] = None
-    type: typing.Optional[str] = None
-    domain: typing.Optional[str] = None
-    date_allocated: typing.Optional[str] = None
-    rir: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseCompany(UniversalBaseModel):
-    name: typing.Optional[str] = None
-    type: typing.Optional[str] = None
-    domain: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseSecurity(UniversalBaseModel):
-    threat_score: typing.Optional[float] = None
-    is_tor: typing.Optional[bool] = None
-    is_proxy: typing.Optional[bool] = None
-    proxy_provider_names: typing.Optional[typing.List[str]] = None
-    proxy_confidence_score: typing.Optional[float] = None
-    proxy_last_seen: typing.Optional[str] = None
-    is_residential_proxy: typing.Optional[bool] = None
-    is_vpn: typing.Optional[bool] = None
-    vpn_provider_names: typing.Optional[typing.List[str]] = None
-    vpn_confidence_score: typing.Optional[float] = None
-    vpn_last_seen: typing.Optional[str] = None
-    is_relay: typing.Optional[bool] = None
-    relay_provider_name: typing.Optional[str] = None
-    is_anonymous: typing.Optional[bool] = None
-    is_known_attacker: typing.Optional[bool] = None
-    is_bot: typing.Optional[bool] = None
-    is_spam: typing.Optional[bool] = None
-    is_cloud_provider: typing.Optional[bool] = None
-    cloud_provider_name: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseAbuse(UniversalBaseModel):
-    route: typing.Optional[str] = None
-    country: typing.Optional[str] = None
-    name: typing.Optional[str] = None
-    organization: typing.Optional[str] = None
-    kind: typing.Optional[str] = None
-    address: typing.Optional[str] = None
-    emails: typing.Optional[typing.List[str]] = None
-    phone_numbers: typing.Optional[typing.List[str]] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseTimeZoneDstStart(UniversalBaseModel):
-    utc_time: typing.Optional[str] = None
-    duration: typing.Optional[str] = None
-    gap: typing.Optional[bool] = None
-    date_time_after: typing.Optional[str] = None
-    date_time_before: typing.Optional[str] = None
-    overlap: typing.Optional[bool] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseTimeZoneDstEnd(UniversalBaseModel):
-    utc_time: typing.Optional[str] = None
-    duration: typing.Optional[str] = None
-    gap: typing.Optional[bool] = None
-    date_time_after: typing.Optional[str] = None
-    date_time_before: typing.Optional[str] = None
-    overlap: typing.Optional[bool] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class GeolocationLookupV2ResponseTimeZone(UniversalBaseModel):
-    name: typing.Optional[str] = None
-    offset: typing.Optional[float] = None
-    offset_with_dst: typing.Optional[float] = None
-    current_time: typing.Optional[str] = None
-    current_time_unix: typing.Optional[float] = None
-    current_tz_abbreviation: typing.Optional[str] = None
-    current_tz_full_name: typing.Optional[str] = None
-    standard_tz_abbreviation: typing.Optional[str] = None
-    standard_tz_full_name: typing.Optional[str] = None
-    is_dst: typing.Optional[bool] = None
-    dst_savings: typing.Optional[float] = None
-    dst_exists: typing.Optional[bool] = None
-    dst_tz_abbreviation: typing.Optional[str] = None
-    dst_tz_full_name: typing.Optional[str] = None
-    dst_start: typing.Optional[GeolocationLookupV2ResponseTimeZoneDstStart] = None
-    dst_end: typing.Optional[GeolocationLookupV2ResponseTimeZoneDstEnd] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
+from .geolocation_lookup_v2_response_abuse import GeolocationLookupV2ResponseAbuse
+from .geolocation_lookup_v2_response_asn import GeolocationLookupV2ResponseAsn
+from .geolocation_lookup_v2_response_company import GeolocationLookupV2ResponseCompany
+from .geolocation_lookup_v2_response_country_metadata import GeolocationLookupV2ResponseCountryMetadata
+from .geolocation_lookup_v2_response_currency import GeolocationLookupV2ResponseCurrency
+from .geolocation_lookup_v2_response_location import GeolocationLookupV2ResponseLocation
+from .geolocation_lookup_v2_response_network import GeolocationLookupV2ResponseNetwork
+from .geolocation_lookup_v2_response_security import GeolocationLookupV2ResponseSecurity
+from .geolocation_lookup_v2_response_time_zone import GeolocationLookupV2ResponseTimeZone
+from .geolocation_lookup_v2_response_user_agent import GeolocationLookupV2ResponseUserAgent
 
 
 class GeolocationLookupV2Response(UniversalBaseModel):
-    ip: typing.Optional[str] = None
-    domain: typing.Optional[str] = None
-    hostname: typing.Optional[str] = None
-    user_agent: typing.Optional[GeolocationLookupV2ResponseUserAgent] = None
-    location: typing.Optional[GeolocationLookupV2ResponseLocation] = None
-    country_metadata: typing.Optional[GeolocationLookupV2ResponseCountryMetadata] = None
-    network: typing.Optional[GeolocationLookupV2ResponseNetwork] = None
-    currency: typing.Optional[GeolocationLookupV2ResponseCurrency] = None
-    asn: typing.Optional[GeolocationLookupV2ResponseAsn] = None
-    company: typing.Optional[GeolocationLookupV2ResponseCompany] = None
-    security: typing.Optional[GeolocationLookupV2ResponseSecurity] = None
-    abuse: typing.Optional[GeolocationLookupV2ResponseAbuse] = None
-    time_zone: typing.Optional[GeolocationLookupV2ResponseTimeZone] = None
+    ip: str = pydantic.Field()
+    """
+    The IP address used for the lookup (IPv4 or IPv6).
+    """
+
+    domain: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    The input domain, returned only for domain-based lookups.
+    """
+
+    hostname: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Reverse DNS hostname (PTR) for the input IP; returns the input IP if not resolvable.
+    """
+
+    location: typing.Optional[GeolocationLookupV2ResponseLocation] = pydantic.Field(default=None)
+    """
+    Geographic location information for the IP.
+    """
+
+    country_metadata: typing.Optional[GeolocationLookupV2ResponseCountryMetadata] = pydantic.Field(default=None)
+    """
+    Country-specific metadata.
+    """
+
+    network: typing.Optional[GeolocationLookupV2ResponseNetwork] = pydantic.Field(default=None)
+    """
+    Network information for the IP.
+    """
+
+    asn: typing.Optional[GeolocationLookupV2ResponseAsn] = pydantic.Field(default=None)
+    """
+    Autonomous System details for the IP.
+    """
+
+    company: typing.Optional[GeolocationLookupV2ResponseCompany] = pydantic.Field(default=None)
+    """
+    Company or ISP information mapped to the IP address.
+    """
+
+    currency: typing.Optional[GeolocationLookupV2ResponseCurrency] = pydantic.Field(default=None)
+    """
+    Currency information for the IP's country.
+    """
+
+    security: typing.Optional[GeolocationLookupV2ResponseSecurity] = pydantic.Field(default=None)
+    """
+    Threat intelligence and security information for the IP.
+    """
+
+    abuse: typing.Optional[GeolocationLookupV2ResponseAbuse] = pydantic.Field(default=None)
+    """
+    Abuse contact information for the IP.
+    """
+
+    time_zone: typing.Optional[GeolocationLookupV2ResponseTimeZone] = pydantic.Field(default=None)
+    """
+    Time zone information for the IP's location.
+    """
+
+    user_agent: typing.Optional[GeolocationLookupV2ResponseUserAgent] = pydantic.Field(default=None)
+    """
+    Parsed User-Agent details from the request.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

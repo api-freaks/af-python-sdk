@@ -22,14 +22,26 @@ class DomainDnsLookupResponse(UniversalBaseModel):
         FieldMetadata(alias="queryTime"),
         pydantic.Field(alias="queryTime", description="Time at which the query was made (Format:YYYY-MM-DD HH:mm:ss)."),
     ]
+    """
+    Time at which the query was made (Format:YYYY-MM-DD HH:mm:ss).
+    """
+
     domain_name: typing_extensions.Annotated[
         str, FieldMetadata(alias="domainName"), pydantic.Field(alias="domainName", description="Queried domain.")
     ]
+    """
+    Queried domain.
+    """
+
     domain_registered: typing_extensions.Annotated[
         bool,
         FieldMetadata(alias="domainRegistered"),
         pydantic.Field(alias="domainRegistered", description="Indicates whether the domain is registered."),
     ]
+    """
+    Indicates whether the domain is registered.
+    """
+
     dns_types: typing_extensions.Annotated[
         DomainDnsLookupResponseDnsTypes, FieldMetadata(alias="dnsTypes"), pydantic.Field(alias="dnsTypes")
     ]
@@ -38,6 +50,9 @@ class DomainDnsLookupResponse(UniversalBaseModel):
         FieldMetadata(alias="dnsRecords"),
         pydantic.Field(alias="dnsRecords", description="List of DNS records, each based on its type."),
     ]
+    """
+    List of DNS records, each based on its type.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

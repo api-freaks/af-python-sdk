@@ -16,6 +16,10 @@ class PdfCompressResponse(UniversalBaseModel):
             alias="taskId", description="Task id of the requested task which can be used to check the task status"
         ),
     ]
+    """
+    Task id of the requested task which can be used to check the task status
+    """
+
     input_ids: typing_extensions.Annotated[
         typing.Optional[typing.List[str]],
         FieldMetadata(alias="inputIds"),
@@ -24,6 +28,9 @@ class PdfCompressResponse(UniversalBaseModel):
             description="File Ids for the input files provided for the task. Not given with destroy param.",
         ),
     ] = None
+    """
+    File Ids for the input files provided for the task. Not given with destroy param.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

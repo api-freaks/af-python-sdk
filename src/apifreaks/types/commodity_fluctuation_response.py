@@ -3,29 +3,54 @@
 import typing
 
 import pydantic
+import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 from .commodity_fluctuation_response_metadata_value import CommodityFluctuationResponseMetadataValue
+from .commodity_fluctuation_response_rates_value import CommodityFluctuationResponseRatesValue
 
 
 class CommodityFluctuationResponse(UniversalBaseModel):
     success: bool = pydantic.Field()
     """
-    API request success indicator. 'true' for successful requests.
+    API request success indicator. "true" for successful requests.
     """
 
-    timestamp: float = pydantic.Field()
+    timestamp: typing.Optional[float] = pydantic.Field(default=None)
     """
     Unix timestamp indicating when the response was generated.
     """
 
-    rates: typing.Dict[str, float] = pydantic.Field()
-    """
-    Map containing rate data for all the requested commodities.
-    """
-
-    metadata: typing.Dict[str, CommodityFluctuationResponseMetadataValue] = pydantic.Field()
+    metadata: typing.Optional[typing.Dict[str, CommodityFluctuationResponseMetadataValue]] = pydantic.Field(
+        default=None
+    )
     """
     Map containing detailed information for all the requested commodities keyed by commodity symbol.
+    """
+
+    start_date: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="startDate"),
+        pydantic.Field(
+            alias="startDate", description="The start date of the fluctuation interval in YYYY-MM-DD format."
+        ),
+    ]
+    """
+    The start date of the fluctuation interval in YYYY-MM-DD format.
+    """
+
+    end_date: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="endDate"),
+        pydantic.Field(alias="endDate", description="The end date of the fluctuation interval in YYYY-MM-DD format."),
+    ]
+    """
+    The end date of the fluctuation interval in YYYY-MM-DD format.
+    """
+
+    rates: typing.Dict[str, CommodityFluctuationResponseRatesValue] = pydantic.Field()
+    """
+    Map keyed by commodity symbol; value contains fluctuation metrics.
     """
 
     if IS_PYDANTIC_V2:

@@ -11,17 +11,19 @@ from .domain_dns_history_response_historical_dns_records_item import DomainDnsHi
 
 class DomainDnsHistoryResponse(UniversalBaseModel):
     total_records: typing_extensions.Annotated[
-        int, FieldMetadata(alias="totalRecords"), pydantic.Field(alias="totalRecords")
-    ]
-    total_pages: typing_extensions.Annotated[int, FieldMetadata(alias="totalPages"), pydantic.Field(alias="totalPages")]
+        typing.Optional[int], FieldMetadata(alias="totalRecords"), pydantic.Field(alias="totalRecords")
+    ] = None
+    total_pages: typing_extensions.Annotated[
+        typing.Optional[int], FieldMetadata(alias="totalPages"), pydantic.Field(alias="totalPages")
+    ] = None
     current_page: typing_extensions.Annotated[
-        int, FieldMetadata(alias="currentPage"), pydantic.Field(alias="currentPage")
-    ]
+        typing.Optional[int], FieldMetadata(alias="currentPage"), pydantic.Field(alias="currentPage")
+    ] = None
     historical_dns_records: typing_extensions.Annotated[
-        typing.List[DomainDnsHistoryResponseHistoricalDnsRecordsItem],
+        typing.Optional[typing.List[DomainDnsHistoryResponseHistoricalDnsRecordsItem]],
         FieldMetadata(alias="historicalDnsRecords"),
         pydantic.Field(alias="historicalDnsRecords"),
-    ]
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

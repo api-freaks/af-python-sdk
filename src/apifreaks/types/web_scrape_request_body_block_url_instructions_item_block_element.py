@@ -17,6 +17,9 @@ class WebScrapeRequestBodyBlockUrlInstructionsItemBlockElement(UniversalBaseMode
             description="List of CSS selectors or XPaths for elements to block or hide on the page.",
         ),
     ] = None
+    """
+    List of CSS selectors or XPaths for elements to block or hide on the page.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -14,6 +14,9 @@ class WebScrapeRequestBodyBlockUrlInstructionsItemFillImageCaptcha(UniversalBase
         FieldMetadata(alias="fillImageCaptcha"),
         pydantic.Field(alias="fillImageCaptcha", description="Captures and fills CAPTCHA values automatically."),
     ] = None
+    """
+    Captures and fills CAPTCHA values automatically.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

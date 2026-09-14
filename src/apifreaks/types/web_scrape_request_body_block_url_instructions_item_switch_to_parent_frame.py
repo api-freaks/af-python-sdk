@@ -14,6 +14,9 @@ class WebScrapeRequestBodyBlockUrlInstructionsItemSwitchToParentFrame(UniversalB
         FieldMetadata(alias="switchToParentFrame"),
         pydantic.Field(alias="switchToParentFrame", description="Returns from iframe to parent context."),
     ] = None
+    """
+    Returns from iframe to parent context.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

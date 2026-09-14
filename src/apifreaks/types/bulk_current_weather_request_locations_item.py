@@ -22,6 +22,10 @@ class BulkCurrentWeatherRequestLocationsItem(UniversalBaseModel):
     long_: typing_extensions.Annotated[
         typing.Optional[float], FieldMetadata(alias="long"), pydantic.Field(alias="long", description="Longitude")
     ] = None
+    """
+    Longitude
+    """
+
     ip: typing.Optional[str] = pydantic.Field(default=None)
     """
     IP address

@@ -6,20 +6,20 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .bulk_email_validate_response_email_validation_responses_item import (
-    BulkEmailValidateResponseEmailValidationResponsesItem,
-)
+from .bulk_email_validate_response_email_response_item import BulkEmailValidateResponseEmailResponseItem
 
 
 class BulkEmailValidateResponse(UniversalBaseModel):
-    email_validation_responses: typing_extensions.Annotated[
-        typing.Optional[typing.List[BulkEmailValidateResponseEmailValidationResponsesItem]],
-        FieldMetadata(alias="emailValidationResponses"),
+    email_response: typing_extensions.Annotated[
+        typing.List[BulkEmailValidateResponseEmailResponseItem],
+        FieldMetadata(alias="emailResponse"),
         pydantic.Field(
-            alias="emailValidationResponses",
-            description="Array of SingleEmailValidationResponse objects for bulk validation",
+            alias="emailResponse", description="Array of SingleEmailValidationResponse objects for bulk validation"
         ),
-    ] = None
+    ]
+    """
+    Array of SingleEmailValidationResponse objects for bulk validation
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

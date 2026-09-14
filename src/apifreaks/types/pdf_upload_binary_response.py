@@ -14,11 +14,18 @@ class PdfUploadBinaryResponse(UniversalBaseModel):
         FieldMetadata(alias="fileName"),
         pydantic.Field(alias="fileName", description="The name of the uploaded file."),
     ] = None
+    """
+    The name of the uploaded file.
+    """
+
     file_id: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="fileId"),
         pydantic.Field(alias="fileId", description="The unique identifier assigned to the uploaded file."),
     ]
+    """
+    The unique identifier assigned to the uploaded file.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

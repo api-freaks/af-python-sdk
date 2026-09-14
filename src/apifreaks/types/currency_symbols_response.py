@@ -17,6 +17,9 @@ class CurrencySymbolsResponse(UniversalBaseModel):
             description="A map of all currency symbols keyed by currency code; value is the full currency name.",
         ),
     ]
+    """
+    A map of all currency symbols keyed by currency code; value is the full currency name.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
