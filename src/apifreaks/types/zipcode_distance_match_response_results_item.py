@@ -14,11 +14,19 @@ class ZipcodeDistanceMatchResponseResultsItem(UniversalBaseModel):
         FieldMetadata(alias="code_1"),
         pydantic.Field(alias="code_1", description="First ZIP/postal code in the pair"),
     ] = None
+    """
+    First ZIP/postal code in the pair
+    """
+
     code2: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="code_2"),
         pydantic.Field(alias="code_2", description="Second ZIP/postal code in the pair"),
     ] = None
+    """
+    Second ZIP/postal code in the pair
+    """
+
     distance: typing.Optional[float] = pydantic.Field(default=None)
     """
     Distance between the ZIP/postal code pair

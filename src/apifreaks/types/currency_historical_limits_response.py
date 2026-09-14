@@ -17,6 +17,9 @@ class CurrencyHistoricalLimitsResponse(UniversalBaseModel):
             description='Availability date range per currency, formatted "YYYY-MM-DD to YYYY-MM-DD".',
         ),
     ]
+    """
+    Availability date range per currency, formatted "YYYY-MM-DD to YYYY-MM-DD".
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -13,13 +13,13 @@ from .domain_whois_reverse_response_whois_domains_historical_item import (
 
 class DomainWhoisReverseResponse(UniversalBaseModel):
     total_result: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="total_Result"), pydantic.Field(alias="total_Result")
+        typing.Optional[int], FieldMetadata(alias="totalResult"), pydantic.Field(alias="totalResult")
     ] = None
     total_pages: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="total_Pages"), pydantic.Field(alias="total_Pages")
+        typing.Optional[int], FieldMetadata(alias="totalPages"), pydantic.Field(alias="totalPages")
     ] = None
     current_page: typing_extensions.Annotated[
-        typing.Optional[int], FieldMetadata(alias="current_Page"), pydantic.Field(alias="current_Page")
+        typing.Optional[int], FieldMetadata(alias="currentPage"), pydantic.Field(alias="currentPage")
     ] = None
     whois_domains_historical: typing.Optional[typing.List[DomainWhoisReverseResponseWhoisDomainsHistoricalItem]] = None
 

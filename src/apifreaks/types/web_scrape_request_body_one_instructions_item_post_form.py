@@ -20,6 +20,9 @@ class WebScrapeRequestBodyOneInstructionsItemPostForm(UniversalBaseModel):
             description="Submits a form using POST method. Provide the form's XPath/CSS selector and input values.",
         ),
     ] = None
+    """
+    Submits a form using POST method. Provide the form's XPath/CSS selector and input values.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -37,6 +37,10 @@ class CommoditySymbolsResponseSymbolsItem(UniversalBaseModel):
         FieldMetadata(alias="updateInterval"),
         pydantic.Field(alias="updateInterval", description="The rate at which this commodity's price is updated."),
     ]
+    """
+    The rate at which this commodity's price is updated.
+    """
+
     currency: CommoditySymbolsResponseSymbolsItemCurrency
     unit: CommoditySymbolsResponseSymbolsItemUnit
 

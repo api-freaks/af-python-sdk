@@ -14,6 +14,10 @@ class PdfDeleteFileResponse(UniversalBaseModel):
         FieldMetadata(alias="fileId"),
         pydantic.Field(alias="fileId", description="The unique identifier of the file."),
     ]
+    """
+    The unique identifier of the file.
+    """
+
     success: bool = pydantic.Field()
     """
     Indicates whether the file deletion request was successful.

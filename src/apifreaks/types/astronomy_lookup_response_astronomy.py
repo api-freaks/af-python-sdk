@@ -9,7 +9,7 @@ from .astronomy_lookup_response_astronomy_morning import AstronomyLookupResponse
 
 
 class AstronomyLookupResponseAstronomy(UniversalBaseModel):
-    time_zone: str = pydantic.Field()
+    time_zone: typing.Optional[str] = pydantic.Field(default=None)
     """
     Time zone to receive all time-based data in your preferred local time.
     """

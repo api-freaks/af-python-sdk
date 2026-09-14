@@ -27,6 +27,9 @@ class DomainDnsReverseResponseReverseDnsRecordsItemDnsRecordsItemSingleName(Univ
         FieldMetadata(alias="singleName"),
         pydantic.Field(alias="singleName", description="Name server for the domain"),
     ]
+    """
+    Name server for the domain
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

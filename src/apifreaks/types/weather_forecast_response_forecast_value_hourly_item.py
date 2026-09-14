@@ -20,16 +20,28 @@ class WeatherForecastResponseForecastValueHourlyItem(UniversalBaseModel):
         FieldMetadata(alias="temperature_2m"),
         pydantic.Field(alias="temperature_2m", description="Air temperature at 2m (°C)"),
     ] = None
+    """
+    Air temperature at 2m (°C)
+    """
+
     relative_humidity2m: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="relative_humidity_2m"),
         pydantic.Field(alias="relative_humidity_2m", description="Relative humidity at 2m (%)"),
     ] = None
+    """
+    Relative humidity at 2m (%)
+    """
+
     dew_point2m: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="dew_point_2m"),
         pydantic.Field(alias="dew_point_2m", description="Dew point at 2m (°C)"),
     ] = None
+    """
+    Dew point at 2m (°C)
+    """
+
     apparent_temperature: typing.Optional[float] = pydantic.Field(default=None)
     """
     Feels-like temperature (°C)
@@ -85,26 +97,38 @@ class WeatherForecastResponseForecastValueHourlyItem(UniversalBaseModel):
     Visibility distance (m)
     """
 
-    et0fao_evapotranspiration: typing_extensions.Annotated[
-        typing.Optional[float],
-        FieldMetadata(alias="et0_fao_evapotranspiration"),
-        pydantic.Field(alias="et0_fao_evapotranspiration", description="Evapotranspiration (mm)"),
-    ] = None
+    et0_fao_evapotranspiration: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Evapotranspiration (mm)
+    """
+
     wind_speed10m: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_speed_10m"),
         pydantic.Field(alias="wind_speed_10m", description="Wind speed at 10m (km/h)"),
     ] = None
+    """
+    Wind speed at 10m (km/h)
+    """
+
     wind_direction10m: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="wind_direction_10m"),
         pydantic.Field(alias="wind_direction_10m", description="Wind direction at 10m (°)"),
     ] = None
+    """
+    Wind direction at 10m (°)
+    """
+
     wind_gusts10m: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_gusts_10m"),
         pydantic.Field(alias="wind_gusts_10m", description="Wind gusts at 10m (km/h)"),
     ] = None
+    """
+    Wind gusts at 10m (km/h)
+    """
+
     uv_index: typing.Optional[float] = pydantic.Field(default=None)
     """
     UV index

@@ -10,7 +10,7 @@ from .astronomy_lookup_response_location import AstronomyLookupResponseLocation
 
 class AstronomyLookupResponse(UniversalBaseModel):
     ip: typing.Optional[str] = None
-    location: typing.Optional[AstronomyLookupResponseLocation] = None
+    location: AstronomyLookupResponseLocation
     astronomy: AstronomyLookupResponseAstronomy
 
     if IS_PYDANTIC_V2:

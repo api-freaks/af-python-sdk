@@ -19,6 +19,9 @@ class CurrencySupportedResponse(UniversalBaseModel):
             alias="supportedCurrenciesMap", description="A map of all supported currencies, keyed by currency code."
         ),
     ]
+    """
+    A map of all supported currencies, keyed by currency code.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

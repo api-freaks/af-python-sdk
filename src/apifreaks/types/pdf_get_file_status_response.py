@@ -15,21 +15,37 @@ class PdfGetFileStatusResponse(UniversalBaseModel):
         FieldMetadata(alias="fileId"),
         pydantic.Field(alias="fileId", description="The unique identifier of the file."),
     ]
+    """
+    The unique identifier of the file.
+    """
+
     file_name: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="fileName"),
         pydantic.Field(alias="fileName", description="The name of the file."),
     ] = None
+    """
+    The name of the file.
+    """
+
     file_type: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="fileType"),
         pydantic.Field(alias="fileType", description="The type of the file (e.g., 'pdf')."),
     ] = None
+    """
+    The type of the file (e.g., 'pdf').
+    """
+
     file_creation_time: typing_extensions.Annotated[
         dt.datetime,
         FieldMetadata(alias="fileCreationTime"),
         pydantic.Field(alias="fileCreationTime", description="The timestamp when the file was created."),
     ]
+    """
+    The timestamp when the file was created.
+    """
+
     file_deletion_time: typing_extensions.Annotated[
         typing.Optional[dt.date],
         FieldMetadata(alias="fileDeletionTime"),
@@ -37,6 +53,9 @@ class PdfGetFileStatusResponse(UniversalBaseModel):
             alias="fileDeletionTime", description="Date on which the file is scheduled to be deleted, in UTC."
         ),
     ] = None
+    """
+    Date on which the file is scheduled to be deleted, in UTC.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

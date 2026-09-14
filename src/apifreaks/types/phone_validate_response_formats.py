@@ -18,21 +18,36 @@ class PhoneValidateResponseFormats(UniversalBaseModel):
         FieldMetadata(alias="E164"),
         pydantic.Field(alias="E164", description="E.164 format for storage and APIs."),
     ] = None
+    """
+    E.164 format for storage and APIs.
+    """
+
     international: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="International"),
         pydantic.Field(alias="International", description="Human-readable international format."),
     ] = None
+    """
+    Human-readable international format.
+    """
+
     national: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="National"),
         pydantic.Field(alias="National", description="Local format as dialed within the country."),
     ] = None
+    """
+    Local format as dialed within the country.
+    """
+
     rfc3966: typing_extensions.Annotated[
         typing.Optional[str],
         FieldMetadata(alias="RFC3966"),
         pydantic.Field(alias="RFC3966", description="URI format for tel: links."),
     ] = None
+    """
+    URI format for tel: links.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

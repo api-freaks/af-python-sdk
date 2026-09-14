@@ -15,11 +15,19 @@ class CurrencyTimeSeriesResponse(UniversalBaseModel):
         FieldMetadata(alias="startDate"),
         pydantic.Field(alias="startDate", description="Starting date of the interval (provided via input)."),
     ]
+    """
+    Starting date of the interval (provided via input).
+    """
+
     end_date: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="endDate"),
         pydantic.Field(alias="endDate", description="Ending date of the interval (provided via input)."),
     ]
+    """
+    Ending date of the interval (provided via input).
+    """
+
     base: str = pydantic.Field()
     """
     Base currency with respect to which all rates are calculated.
@@ -32,6 +40,9 @@ class CurrencyTimeSeriesResponse(UniversalBaseModel):
             alias="historicalRatesList", description="List of historical exchange rates within the specified interval."
         ),
     ]
+    """
+    List of historical exchange rates within the specified interval.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

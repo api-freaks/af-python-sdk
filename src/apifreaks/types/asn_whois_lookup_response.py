@@ -27,10 +27,10 @@ class AsnWhoisLookupResponse(UniversalBaseModel):
     allocation_status: typing_extensions.Annotated[
         str, FieldMetadata(alias="allocationStatus"), pydantic.Field(alias="allocationStatus")
     ]
-    num_of_i_pv4routes: typing_extensions.Annotated[
+    num_of_i_pv4_routes: typing_extensions.Annotated[
         str, FieldMetadata(alias="numOfIPv4Routes"), pydantic.Field(alias="numOfIPv4Routes")
     ]
-    num_of_i_pv6routes: typing_extensions.Annotated[
+    num_of_i_pv6_routes: typing_extensions.Annotated[
         str, FieldMetadata(alias="numOfIPv6Routes"), pydantic.Field(alias="numOfIPv6Routes")
     ]
     whois_host: typing_extensions.Annotated[str, FieldMetadata(alias="whoisHost"), pydantic.Field(alias="whoisHost")]

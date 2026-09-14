@@ -37,6 +37,8 @@ from .types.asn_whois_lookup_request_format import AsnWhoisLookupRequestFormat
 from .types.asn_whois_lookup_response import AsnWhoisLookupResponse
 from .types.astronomy_lookup_request_format import AstronomyLookupRequestFormat
 from .types.astronomy_lookup_response import AstronomyLookupResponse
+from .types.astronomy_lookup_v2_request_format import AstronomyLookupV2RequestFormat
+from .types.astronomy_lookup_v2_request_lang import AstronomyLookupV2RequestLang
 from .types.astronomy_lookup_v2_response import AstronomyLookupV2Response
 from .types.bulk_current_weather_request_format import BulkCurrentWeatherRequestFormat
 from .types.bulk_current_weather_request_locations_item import BulkCurrentWeatherRequestLocationsItem
@@ -48,11 +50,16 @@ from .types.bulk_domain_dns_lookup_request_format import BulkDomainDnsLookupRequ
 from .types.bulk_domain_dns_lookup_response import BulkDomainDnsLookupResponse
 from .types.bulk_domain_whois_lookup_request_format import BulkDomainWhoisLookupRequestFormat
 from .types.bulk_domain_whois_lookup_response import BulkDomainWhoisLookupResponse
+from .types.bulk_domain_whois_lookup_v2_request_format import BulkDomainWhoisLookupV2RequestFormat
+from .types.bulk_domain_whois_lookup_v2_response import BulkDomainWhoisLookupV2Response
 from .types.bulk_email_validate_request_email_data_item import BulkEmailValidateRequestEmailDataItem
 from .types.bulk_email_validate_request_format import BulkEmailValidateRequestFormat
 from .types.bulk_email_validate_response import BulkEmailValidateResponse
 from .types.bulk_geolocation_lookup_request_format import BulkGeolocationLookupRequestFormat
 from .types.bulk_geolocation_lookup_response_item import BulkGeolocationLookupResponseItem
+from .types.bulk_geolocation_lookup_v2_request_format import BulkGeolocationLookupV2RequestFormat
+from .types.bulk_geolocation_lookup_v2_request_lang import BulkGeolocationLookupV2RequestLang
+from .types.bulk_geolocation_lookup_v2_response_item import BulkGeolocationLookupV2ResponseItem
 from .types.bulk_ip_security_lookup_request_format import BulkIpSecurityLookupRequestFormat
 from .types.bulk_ip_security_lookup_response_item import BulkIpSecurityLookupResponseItem
 from .types.bulk_phone_validate_request_format import BulkPhoneValidateRequestFormat
@@ -70,15 +77,25 @@ from .types.bulk_zipcode_lookup_request_format import BulkZipcodeLookupRequestFo
 from .types.bulk_zipcode_lookup_response import BulkZipcodeLookupResponse
 from .types.commodity_fluctuation_request_format import CommodityFluctuationRequestFormat
 from .types.commodity_fluctuation_response import CommodityFluctuationResponse
+from .types.commodity_fluctuation_v2_request_format import CommodityFluctuationV2RequestFormat
+from .types.commodity_fluctuation_v2_response import CommodityFluctuationV2Response
 from .types.commodity_historical_rates_request_format import CommodityHistoricalRatesRequestFormat
 from .types.commodity_historical_rates_response import CommodityHistoricalRatesResponse
+from .types.commodity_historical_rates_v2_request_format import CommodityHistoricalRatesV2RequestFormat
+from .types.commodity_historical_rates_v2_response import CommodityHistoricalRatesV2Response
 from .types.commodity_latest_rates_request_format import CommodityLatestRatesRequestFormat
 from .types.commodity_latest_rates_request_updates import CommodityLatestRatesRequestUpdates
 from .types.commodity_latest_rates_response import CommodityLatestRatesResponse
+from .types.commodity_latest_rates_v2_request_format import CommodityLatestRatesV2RequestFormat
+from .types.commodity_latest_rates_v2_response import CommodityLatestRatesV2Response
 from .types.commodity_symbols_request_format import CommoditySymbolsRequestFormat
 from .types.commodity_symbols_response import CommoditySymbolsResponse
+from .types.commodity_symbols_v2_request_format import CommoditySymbolsV2RequestFormat
+from .types.commodity_symbols_v2_response import CommoditySymbolsV2Response
 from .types.commodity_time_series_request_format import CommodityTimeSeriesRequestFormat
 from .types.commodity_time_series_response import CommodityTimeSeriesResponse
+from .types.commodity_time_series_v2_request_format import CommodityTimeSeriesV2RequestFormat
+from .types.commodity_time_series_v2_response import CommodityTimeSeriesV2Response
 from .types.currency_convert_by_ip_request_format import CurrencyConvertByIpRequestFormat
 from .types.currency_convert_by_ip_request_updates import CurrencyConvertByIpRequestUpdates
 from .types.currency_convert_by_ip_response import CurrencyConvertByIpResponse
@@ -117,14 +134,19 @@ from .types.domain_dns_lookup_response import DomainDnsLookupResponse
 from .types.domain_dns_reverse_request_format import DomainDnsReverseRequestFormat
 from .types.domain_dns_reverse_request_type import DomainDnsReverseRequestType
 from .types.domain_dns_reverse_response import DomainDnsReverseResponse
+from .types.domain_reputation_request_format import DomainReputationRequestFormat
+from .types.domain_reputation_response import DomainReputationResponse
 from .types.domain_ssl_chain_lookup_request_format import DomainSslChainLookupRequestFormat
 from .types.domain_ssl_chain_lookup_response import DomainSslChainLookupResponse
 from .types.domain_ssl_lookup_request_format import DomainSslLookupRequestFormat
 from .types.domain_ssl_lookup_response import DomainSslLookupResponse
+from .types.domain_typosquatting_request_format import DomainTyposquattingRequestFormat
+from .types.domain_typosquatting_response import DomainTyposquattingResponse
 from .types.domain_whois_history_request_format import DomainWhoisHistoryRequestFormat
 from .types.domain_whois_history_response import DomainWhoisHistoryResponse
 from .types.domain_whois_lookup_request_format import DomainWhoisLookupRequestFormat
 from .types.domain_whois_lookup_response import DomainWhoisLookupResponse
+from .types.domain_whois_lookup_v2_request_format import DomainWhoisLookupV2RequestFormat
 from .types.domain_whois_lookup_v2_response import DomainWhoisLookupV2Response
 from .types.domain_whois_reverse_request_format import DomainWhoisReverseRequestFormat
 from .types.domain_whois_reverse_request_mode import DomainWhoisReverseRequestMode
@@ -141,6 +163,8 @@ from .types.geocoder_search_response_item import GeocoderSearchResponseItem
 from .types.geolocation_lookup_request_format import GeolocationLookupRequestFormat
 from .types.geolocation_lookup_request_lang import GeolocationLookupRequestLang
 from .types.geolocation_lookup_response import GeolocationLookupResponse
+from .types.geolocation_lookup_v2_request_format import GeolocationLookupV2RequestFormat
+from .types.geolocation_lookup_v2_request_lang import GeolocationLookupV2RequestLang
 from .types.geolocation_lookup_v2_response import GeolocationLookupV2Response
 from .types.get_admin_levels_request_format import GetAdminLevelsRequestFormat
 from .types.get_admin_levels_response import GetAdminLevelsResponse
@@ -253,6 +277,8 @@ from .types.timezone_convert_response import TimezoneConvertResponse
 from .types.timezone_lookup_request_format import TimezoneLookupRequestFormat
 from .types.timezone_lookup_request_lang import TimezoneLookupRequestLang
 from .types.timezone_lookup_response import TimezoneLookupResponse
+from .types.timezone_lookup_v2_request_format import TimezoneLookupV2RequestFormat
+from .types.timezone_lookup_v2_request_lang import TimezoneLookupV2RequestLang
 from .types.timezone_lookup_v2_response import TimezoneLookupV2Response
 from .types.user_agent_lookup_request_format import UserAgentLookupRequestFormat
 from .types.user_agent_lookup_response import UserAgentLookupResponse
@@ -311,9 +337,8 @@ class RawApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response]]:
+    ) -> HttpResponse[GeolocationLookupResponse]:
         """
         Get detailed geolocation data for an IP address including country, city, timezone, currency, and optional security and user-agent information
 
@@ -349,7 +374,7 @@ class RawApifreaksApi:
             Successful response
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v2.0/geolocation/lookup" if version == "2.0" else "v1.0/geolocation/lookup",
+            "v1.0/geolocation/lookup",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -364,22 +389,13 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response],
-                        parse_obj_as(
-                            type_=GeolocationLookupV2Response,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response],
-                        parse_obj_as(
-                            type_=GeolocationLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    GeolocationLookupResponse,
+                    parse_obj_as(
+                        type_=GeolocationLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -532,9 +548,8 @@ class RawApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]]]:
+    ) -> HttpResponse[typing.List[BulkGeolocationLookupResponseItem]]:
         """
         Retrieve detailed geolocation data for multiple IP addresses in a single request.
         Supports up to `50,000` IP-addresses/host-names per request.
@@ -571,7 +586,7 @@ class RawApifreaksApi:
             Successful response
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v2.0/geolocation/lookup" if version == "2.0" else "v1.0/geolocation/lookup",
+            "v1.0/geolocation/lookup",
             method="POST",
             params={
                 "apiKey": api_key,
@@ -592,22 +607,13 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]],
-                        parse_obj_as(
-                            type_=typing.List[GeolocationLookupV2Response],  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]],
-                        parse_obj_as(
-                            type_=typing.List[BulkGeolocationLookupResponseItem],  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    typing.List[BulkGeolocationLookupResponseItem],
+                    parse_obj_as(
+                        type_=typing.List[BulkGeolocationLookupResponseItem],  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -1546,9 +1552,8 @@ class RawApifreaksApi:
         api_key: str,
         domain_name: str,
         format: typing.Optional[DomainWhoisLookupRequestFormat] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response]]:
+    ) -> HttpResponse[DomainWhoisLookupResponse]:
         """
         Retrieve current WHOIS information for a domain name.
         This endpoint provides detailed registration information including registrar details,
@@ -1574,7 +1579,7 @@ class RawApifreaksApi:
             Successful response
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v2.0/domain/whois/live" if version == "2.0" else "v1.0/domain/whois/live",
+            "v1.0/domain/whois/live",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -1585,22 +1590,13 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response],
-                        parse_obj_as(
-                            type_=DomainWhoisLookupV2Response,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response],
-                        parse_obj_as(
-                            type_=DomainWhoisLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    DomainWhoisLookupResponse,
+                    parse_obj_as(
+                        type_=DomainWhoisLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -1749,9 +1745,8 @@ class RawApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainWhoisLookupRequestFormat] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]]]:
+    ) -> HttpResponse[BulkDomainWhoisLookupResponse]:
         """
         Retrieve WHOIS information for `100 Domains per Request`.
 
@@ -1775,7 +1770,7 @@ class RawApifreaksApi:
             WHOIS data retrieved successfully for all domains
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v2.0/domain/whois/live" if version == "2.0" else "v1.0/domain/whois/live",
+            "v1.0/domain/whois/live",
             method="POST",
             params={
                 "apiKey": api_key,
@@ -1792,22 +1787,13 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]],
-                        parse_obj_as(
-                            type_=typing.List[DomainWhoisLookupV2Response],  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]],
-                        parse_obj_as(
-                            type_=BulkDomainWhoisLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    BulkDomainWhoisLookupResponse,
+                    parse_obj_as(
+                        type_=BulkDomainWhoisLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -2508,7 +2494,7 @@ class RawApifreaksApi:
         keyword : typing.Optional[str]
             Keyword search term for reverse WHOIS by keyword (case-insensitive pattern matching).
 
-        email : str
+        email : typing.Optional[str]
             Email search term for reverse WHOIS by email address (case-insensitive exact or regex match; * wildcard supported).
 
         owner : typing.Optional[str]
@@ -2696,7 +2682,7 @@ class RawApifreaksApi:
         format: typing.Optional[DomainDnsLookupRequestFormat] = None,
         host_name: typing.Optional[str] = None,
         ip_address: typing.Optional[str] = None,
-        type: typing.Union[str, typing.Sequence[str]],
+        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DomainDnsLookupResponse]:
         """
@@ -2716,7 +2702,7 @@ class RawApifreaksApi:
         ip_address : typing.Optional[str]
             The IP address for requested DNS's PTR record. 'type' parameter must be set to 'all'.
 
-        type : typing.Union[str, typing.Sequence[str]]
+        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
 
         request_options : typing.Optional[RequestOptions]
@@ -2896,8 +2882,7 @@ class RawApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainDnsLookupRequestFormat] = None,
-        type: typing.Union[str, typing.Sequence[str]],
-        ip_addresses: typing.Optional[typing.Sequence[str]] = None,
+        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BulkDomainDnsLookupResponse]:
         """
@@ -2915,12 +2900,9 @@ class RawApifreaksApi:
         format : typing.Optional[BulkDomainDnsLookupRequestFormat]
             Format of the response.
 
-        type : typing.Union[str, typing.Sequence[str]]
+        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
-
-        ip_addresses : typing.Optional[typing.Sequence[str]]
-            Array of IP addresses to include in the lookup for enrichment
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -2940,7 +2922,6 @@ class RawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
-                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -3105,7 +3086,7 @@ class RawApifreaksApi:
         api_key: str,
         host_name: str,
         format: typing.Optional[DomainDnsHistoryRequestFormat] = None,
-        type: typing.Union[str, typing.Sequence[str]],
+        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         page: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DomainDnsHistoryResponse]:
@@ -3124,7 +3105,7 @@ class RawApifreaksApi:
         format : typing.Optional[DomainDnsHistoryRequestFormat]
             Format of the response.
 
-        type : typing.Union[str, typing.Sequence[str]]
+        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
@@ -3912,17 +3893,6 @@ class RawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
             if _response.status_code == 413:
                 raise ContentTooLargeError(
                     headers=dict(_response.headers),
@@ -4104,17 +4074,6 @@ class RawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -4309,30 +4268,8 @@ class RawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
             if _response.status_code == 406:
                 raise NotAcceptableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -4519,30 +4456,8 @@ class RawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
             if _response.status_code == 406:
                 raise NotAcceptableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -5228,7 +5143,6 @@ class RawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
-                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -5312,17 +5226,6 @@ class RawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
             if _response.status_code == 413:
                 raise ContentTooLargeError(
                     headers=dict(_response.headers),
@@ -5394,7 +5297,6 @@ class RawApifreaksApi:
         domain: str,
         format: typing.Optional[DomainAvailabilitySuggestionsRequestFormat] = None,
         source: typing.Optional[DomainAvailabilitySuggestionsRequestSource] = None,
-        sug: typing.Optional[bool] = None,
         count: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DomainAvailabilitySuggestionsResponse]:
@@ -5415,9 +5317,6 @@ class RawApifreaksApi:
         source : typing.Optional[DomainAvailabilitySuggestionsRequestSource]
             Specify the data source for domain availability checks. Use "dns" for DNS-based lookups or "whois" for WHOIS-based lookups. By default, "dns" is used.
 
-        sug : typing.Optional[bool]
-            Enable domain suggestions.
-
         count : typing.Optional[int]
             Number of suggestions to retrieve.
 
@@ -5437,7 +5336,6 @@ class RawApifreaksApi:
                 "format": format,
                 "domain": domain,
                 "source": source,
-                "sug": sug,
                 "count": count,
             },
             request_options=request_options,
@@ -5509,17 +5407,6 @@ class RawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -5729,8 +5616,2510 @@ class RawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def domain_typosquatting(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[DomainTyposquattingRequestFormat] = None,
+        keyword: typing.Optional[str] = None,
+        pattern: typing.Optional[str] = None,
+        page_token: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[DomainTyposquattingResponse]:
+        """
+        The Domain Typosquatting API searches for registered domains that are typo or look-alike variants of a brand keyword, or that match a wildcard pattern. Results include registration lifecycle data and drop status across 1529+ TLDs, paginated at 100 domains per page.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[DomainTyposquattingRequestFormat]
+            Format of the response.
+
+        keyword : typing.Optional[str]
+            Brand or label to find typo variants for. 3-63 characters, letters, digits, or hyphens, a single label with no dots. Case-insensitive. Use either keyword or pattern, never both.
+
+        pattern : typing.Optional[str]
+            Wildcard search string that combines fuzzy matching with * wildcards. 3-63 characters total, * is the only supported wildcard and each one matches zero or more characters, maximum 3 asterisks per request. Use either keyword or pattern, never both.
+
+        page_token : typing.Optional[str]
+            Token from nextPageToken in the previous response. Required to retrieve page 2 and onward. The original keyword or pattern must be passed alongside the token on every page request. Results page at 100 domains per page.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[DomainTyposquattingResponse]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v1.0/domain/typosquatting",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "keyword": keyword,
+                "pattern": pattern,
+                "pageToken": page_token,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DomainTyposquattingResponse,
+                    parse_obj_as(
+                        type_=DomainTyposquattingResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def domain_reputation(
+        self,
+        *,
+        api_key: str,
+        domain_name: str,
+        format: typing.Optional[DomainReputationRequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[DomainReputationResponse]:
+        """
+        The Domain Reputation API evaluates a domain against threat intelligence sources, DGA (domain generation algorithm) scoring, trust signals, and email deliverability configuration, returning a consolidated risk assessment with a verdict, severity, and supporting evidence.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        domain_name : str
+            The domain name to assess (e.g. example.com). Must contain at least one dot and be at most 253 characters. Automatically lowercased.
+
+        format : typing.Optional[DomainReputationRequestFormat]
+            Format of the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[DomainReputationResponse]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v1.0/domain/reputation",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "domainName": domain_name,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DomainReputationResponse,
+                    parse_obj_as(
+                        type_=DomainReputationResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def astronomy_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[AstronomyLookupV2RequestFormat] = None,
+        location: typing.Optional[str] = None,
+        lat: typing.Optional[float] = None,
+        long_: typing.Optional[float] = None,
+        ip: typing.Optional[str] = None,
+        lang: typing.Optional[AstronomyLookupV2RequestLang] = None,
+        date: typing.Optional[dt.date] = None,
+        elevation: typing.Optional[float] = None,
+        time_zone: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[AstronomyLookupV2Response]:
+        """
+        Retrieve sunrise and sunset times, current position of the moon, and other related information by specifying a location address, location coordinates, IP address, or using the client IP address if no parameter is passed.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[AstronomyLookupV2RequestFormat]
+            Format of the response. Can be "json" or "xml".
+
+        location : typing.Optional[str]
+            Extract astronomy information using location (preferably city)
+
+        lat : typing.Optional[float]
+            Latitude to extract astronomy information using location coordinates
+
+        long_ : typing.Optional[float]
+            Longitude to extract astronomy information using location coordinates
+
+        ip : typing.Optional[str]
+            IPv4 or IPv6 address to extract astronomy information using IP address
+
+        lang : typing.Optional[AstronomyLookupV2RequestLang]
+            Response language of "location" field in case of lookup through IP address only.
+
+        date : typing.Optional[dt.date]
+            Specific date (format YYYY-MM-DD) for which astronomy data is required
+
+        elevation : typing.Optional[float]
+            Elevation above sea level at the location, in meters. The value should be between 0 meter and a maximum value of 10,000 meters. Negative value is set to 0.
+
+        time_zone : typing.Optional[str]
+            Time zone to receive all time-based data in your preferred local time.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[AstronomyLookupV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/geolocation/astronomy",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "location": location,
+                "lat": lat,
+                "long": long_,
+                "ip": ip,
+                "lang": lang,
+                "date": str(date) if date is not None else None,
+                "elevation": elevation,
+                "time_zone": time_zone,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    AstronomyLookupV2Response,
+                    parse_obj_as(
+                        type_=AstronomyLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def timezone_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[TimezoneLookupV2RequestFormat] = None,
+        ip: typing.Optional[str] = None,
+        tz: typing.Optional[str] = None,
+        location: typing.Optional[str] = None,
+        lat: typing.Optional[float] = None,
+        long_: typing.Optional[float] = None,
+        lang: typing.Optional[TimezoneLookupV2RequestLang] = None,
+        iata_code: typing.Optional[str] = None,
+        icao_code: typing.Optional[str] = None,
+        lo_code: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[TimezoneLookupV2Response]:
+        """
+        Get current time, date, and timezone details by specifying a timezone name, location address, GPS coordinates, IP address, IATA/ICAO airport code, UN/LOCODE, or use the client IP if no parameter is provided.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[TimezoneLookupV2RequestFormat]
+            Format of the response. Possible values: json, xml.
+
+        ip : typing.Optional[str]
+            IPv4 or IPv6 address to extract timezone information.
+
+        tz : typing.Optional[str]
+            Timezone name in IANA format (e.g., Asia/Kolkata) to retrieve information directly.
+
+        location : typing.Optional[str]
+            Location string (preferably city and country) to extract timezone.
+
+        lat : typing.Optional[float]
+            Latitude for geolocation-based timezone lookup. Only time_zone is returned for this mode; no location object is included.
+
+        long_ : typing.Optional[float]
+            Longitude for geolocation-based timezone lookup. Only time_zone is returned for this mode; no location object is included.
+
+        lang : typing.Optional[TimezoneLookupV2RequestLang]
+            Response language for location fields. Default: en.
+
+        iata_code : typing.Optional[str]
+            3-letter IATA airport code (e.g., LHR) to extract timezone.
+
+        icao_code : typing.Optional[str]
+            4-letter ICAO airport code (e.g., KJFK) to extract timezone.
+
+        lo_code : typing.Optional[str]
+            5-letter UN/LOCODE city code to extract timezone.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[TimezoneLookupV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/geolocation/timezone",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "ip": ip,
+                "tz": tz,
+                "location": location,
+                "lat": lat,
+                "long": long_,
+                "lang": lang,
+                "iata_code": iata_code,
+                "icao_code": icao_code,
+                "lo_code": lo_code,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    TimezoneLookupV2Response,
+                    parse_obj_as(
+                        type_=TimezoneLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def geolocation_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[GeolocationLookupV2RequestFormat] = None,
+        ip: typing.Optional[str] = None,
+        lang: typing.Optional[GeolocationLookupV2RequestLang] = None,
+        fields: typing.Optional[str] = None,
+        excludes: typing.Optional[str] = None,
+        include: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[GeolocationLookupV2Response]:
+        """
+        Get detailed IP geolocation data for an IP address including country, city, timezone, currency, and optional threat intelligence and user-agent information.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[GeolocationLookupV2RequestFormat]
+            Format of the response.
+
+        ip : typing.Optional[str]
+            IPv4, IPv6, or hostname for geolocation lookup.
+
+        lang : typing.Optional[GeolocationLookupV2RequestLang]
+            Response language for location fields. Default: en.
+
+        fields : typing.Optional[str]
+            Comma-separated list of fields to include in response. For example, `location` includes all location fields, `location.city` is a specific field.
+
+        excludes : typing.Optional[str]
+            Comma-separated list of fields to exclude from response.
+
+        include : typing.Optional[str]
+            Comma-separated list of additional data modules to include. Possible values: security (threat intelligence), hostname (IP-Hostname lookup), liveHostname (live hostname lookup), hostnameFallbackLive (hostname with live fallback), user_agent (parse User-Agent header), abuse (abuse contact info), dma_code (DMA code), geo_accuracy (accuracy_radius, confidence, locality), * (all modules).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[GeolocationLookupV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/geolocation/lookup",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "ip": ip,
+                "lang": lang,
+                "fields": fields,
+                "excludes": excludes,
+                "include": include,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    GeolocationLookupV2Response,
+                    parse_obj_as(
+                        type_=GeolocationLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 423:
+                raise LockedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def bulk_geolocation_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        ips: typing.Sequence[str],
+        format: typing.Optional[BulkGeolocationLookupV2RequestFormat] = None,
+        lang: typing.Optional[BulkGeolocationLookupV2RequestLang] = None,
+        fields: typing.Optional[str] = None,
+        excludes: typing.Optional[str] = None,
+        include: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[typing.List[BulkGeolocationLookupV2ResponseItem]]:
+        """
+        Get detailed IP geolocation data for multiple IP addresses including country, city, timezone, currency, and optional threat intelligence information. Supports up to 50,000 IP addresses per request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        ips : typing.Sequence[str]
+            List of IP addresses or hostnames to lookup.
+
+        format : typing.Optional[BulkGeolocationLookupV2RequestFormat]
+            Format of the response.
+
+        lang : typing.Optional[BulkGeolocationLookupV2RequestLang]
+            Response language for location fields. Default: en.
+
+        fields : typing.Optional[str]
+            Comma-separated list of fields to include in the response. For example, `location` includes all location fields, `location.city` is a specific field.
+
+        excludes : typing.Optional[str]
+            Comma-separated list of fields to exclude from response.
+
+        include : typing.Optional[str]
+            Comma-separated list of additional data modules to include. Possible values: security (threat intelligence), hostname (IP-Hostname lookup), liveHostname (live hostname lookup), user_agent (parse User-Agent header), abuse (abuse contact info), * (all modules).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[typing.List[BulkGeolocationLookupV2ResponseItem]]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/geolocation/lookup",
+            method="POST",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "lang": lang,
+                "fields": fields,
+                "excludes": excludes,
+                "include": include,
+            },
+            json={
+                "ips": ips,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    typing.List[BulkGeolocationLookupV2ResponseItem],
+                    parse_obj_as(
+                        type_=typing.List[BulkGeolocationLookupV2ResponseItem],  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def domain_whois_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        domain_name: str,
+        format: typing.Optional[DomainWhoisLookupV2RequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[DomainWhoisLookupV2Response]:
+        """
+        Returns the current WHOIS record for the specified domain, including registrar details, registrant/administrative/technical/billing/reseller contacts, name servers, status codes, and raw WHOIS text.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        domain_name : str
+            Domain name to retrieve WHOIS data for (e.g. example.com).
+
+        format : typing.Optional[DomainWhoisLookupV2RequestFormat]
+            Format of the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[DomainWhoisLookupV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/domain/whois/live",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "domainName": domain_name,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DomainWhoisLookupV2Response,
+                    parse_obj_as(
+                        type_=DomainWhoisLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def bulk_domain_whois_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        domain_names: typing.Sequence[str],
+        format: typing.Optional[BulkDomainWhoisLookupV2RequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[BulkDomainWhoisLookupV2Response]:
+        """
+        Returns the current WHOIS record for each requested domain, in request order. Supports up to 100 domain names per request; a domain that fails to resolve yields an error item instead of failing the whole batch.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        domain_names : typing.Sequence[str]
+            List of domain names to retrieve WHOIS data for.
+
+        format : typing.Optional[BulkDomainWhoisLookupV2RequestFormat]
+            Format of the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[BulkDomainWhoisLookupV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/domain/whois/live",
+            method="POST",
+            params={
+                "apiKey": api_key,
+                "format": format,
+            },
+            json={
+                "domainNames": domain_names,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BulkDomainWhoisLookupV2Response,
+                    parse_obj_as(
+                        type_=BulkDomainWhoisLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def commodity_latest_rates_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[CommodityLatestRatesV2RequestFormat] = None,
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        quote: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[CommodityLatestRatesV2Response]:
+        """
+        Returns the current live price for the requested commodity symbols. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[CommodityLatestRatesV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of commodity symbols (e.g., XAU, WTIOIL-SPOT). Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+
+        quote : typing.Optional[str]
+            Target currency for the exchange rate. If omitted (or set to `default`), the default quote currency of each commodity is used. Requires a premium plan; ignored on lower-tier plans.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[CommodityLatestRatesV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/rates/latest",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "symbols": symbols,
+                "quote": quote,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommodityLatestRatesV2Response,
+                    parse_obj_as(
+                        type_=CommodityLatestRatesV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def commodity_historical_rates_v2(
+        self,
+        *,
+        api_key: str,
+        date: dt.date,
+        format: typing.Optional[CommodityHistoricalRatesV2RequestFormat] = None,
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[CommodityHistoricalRatesV2Response]:
+        """
+        Returns OHLC price data for the requested commodity symbols on a specific date. Falls back to the nearest earlier rate if none exists for the exact date. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        date : dt.date
+            Date in YYYY-MM-DD format. Data available from 1990 onwards.
+
+        format : typing.Optional[CommodityHistoricalRatesV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of commodity symbols. Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[CommodityHistoricalRatesV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/rates/historical",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "symbols": symbols,
+                "date": str(date),
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommodityHistoricalRatesV2Response,
+                    parse_obj_as(
+                        type_=CommodityHistoricalRatesV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def commodity_fluctuation_v2(
+        self,
+        *,
+        api_key: str,
+        start_date: dt.date,
+        end_date: dt.date,
+        format: typing.Optional[CommodityFluctuationV2RequestFormat] = None,
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[CommodityFluctuationV2Response]:
+        """
+        Returns price fluctuation metrics (start, end, change, percent change) for the requested commodity symbols over a date range. For monthly-updated commodities the range snaps to month boundaries. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        start_date : dt.date
+            Start date (YYYY-MM-DD)
+
+        end_date : dt.date
+            End date (YYYY-MM-DD)
+
+        format : typing.Optional[CommodityFluctuationV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of commodity symbols. Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[CommodityFluctuationV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/fluctuation",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "symbols": symbols,
+                "startDate": str(start_date),
+                "endDate": str(end_date),
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommodityFluctuationV2Response,
+                    parse_obj_as(
+                        type_=CommodityFluctuationV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def commodity_time_series_v2(
+        self,
+        *,
+        api_key: str,
+        start_date: dt.date,
+        end_date: dt.date,
+        format: typing.Optional[CommodityTimeSeriesV2RequestFormat] = None,
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[CommodityTimeSeriesV2Response]:
+        """
+        Returns day-by-day OHLC data for the requested commodity symbols within a date range, indexed by date. Non-trading days are excluded. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        start_date : dt.date
+            Start date (YYYY-MM-DD)
+
+        end_date : dt.date
+            End date (YYYY-MM-DD). Maximum range is 365 days.
+
+        format : typing.Optional[CommodityTimeSeriesV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of commodity symbols. Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[CommodityTimeSeriesV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/time-series",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "symbols": symbols,
+                "startDate": str(start_date),
+                "endDate": str(end_date),
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommodityTimeSeriesV2Response,
+                    parse_obj_as(
+                        type_=CommodityTimeSeriesV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    def commodity_symbols_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[CommoditySymbolsV2RequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> HttpResponse[CommoditySymbolsV2Response]:
+        """
+        Returns the list of supported commodity symbols with metadata. Deprecated symbols stay listed with status "inactive" and a deprecationDate.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[CommoditySymbolsV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        HttpResponse[CommoditySymbolsV2Response]
+            Successful response
+        """
+        _response = self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/symbols",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommoditySymbolsV2Response,
+                    parse_obj_as(
+                        type_=CommoditySymbolsV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return HttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -9605,7 +11994,7 @@ class RawApifreaksApi:
         *,
         api_key: str,
         format: typing.Optional[PdfUploadResourcesRequestFormat] = None,
-        file: typing.List[core.File],
+        file: typing.Optional[typing.List[core.File]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[PdfUploadResourcesResponse]:
         """
@@ -9619,7 +12008,7 @@ class RawApifreaksApi:
         format : typing.Optional[PdfUploadResourcesRequestFormat]
             Specifies the desired format for the API response. Choose 'json' for a JSON object or 'xml' for an XML structure.
 
-        file : typing.List[core.File]
+        file : typing.Optional[typing.List[core.File]]
             See core.File for more documentation
 
         request_options : typing.Optional[RequestOptions]
@@ -12021,7 +14410,7 @@ class RawApifreaksApi:
         from_: str,
         to: str,
         format: typing.Optional[CurrencyConvertLatestRequestFormat] = None,
-        amount: typing.Optional[str] = None,
+        amount: typing.Optional[float] = None,
         updates: typing.Optional[CurrencyConvertLatestRequestUpdates] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CurrencyConvertLatestResponse]:
@@ -12042,7 +14431,7 @@ class RawApifreaksApi:
         format : typing.Optional[CurrencyConvertLatestRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[str]
+        amount : typing.Optional[float]
             Amount to convert
 
         updates : typing.Optional[CurrencyConvertLatestRequestUpdates]
@@ -12217,7 +14606,7 @@ class RawApifreaksApi:
         to: str,
         date: dt.date,
         format: typing.Optional[CurrencyConvertHistoricalRequestFormat] = None,
-        amount: typing.Optional[str] = None,
+        amount: typing.Optional[float] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CurrencyConvertHistoricalResponse]:
         """
@@ -12240,7 +14629,7 @@ class RawApifreaksApi:
         format : typing.Optional[CurrencyConvertHistoricalRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[str]
+        amount : typing.Optional[float]
             The Amount to be converted
 
         request_options : typing.Optional[RequestOptions]
@@ -12802,7 +15191,7 @@ class RawApifreaksApi:
         format: typing.Optional[CurrencyConvertByIpRequestFormat] = None,
         updates: typing.Optional[CurrencyConvertByIpRequestUpdates] = None,
         ip: typing.Optional[str] = None,
-        amount: typing.Optional[str] = None,
+        amount: typing.Optional[float] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CurrencyConvertByIpResponse]:
         """
@@ -12825,7 +15214,7 @@ class RawApifreaksApi:
         ip : typing.Optional[str]
             IPv4 or IPv6 geolocated currency
 
-        amount : typing.Optional[str]
+        amount : typing.Optional[float]
             Amount to convert
 
         request_options : typing.Optional[RequestOptions]
@@ -13520,7 +15909,7 @@ class RawApifreaksApi:
         api_key: str,
         updates: CommodityLatestRatesRequestUpdates,
         format: typing.Optional[CommodityLatestRatesRequestFormat] = None,
-        symbols: typing.Union[str, typing.Sequence[str]],
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         quote: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CommodityLatestRatesResponse]:
@@ -13538,7 +15927,7 @@ class RawApifreaksApi:
         format : typing.Optional[CommodityLatestRatesRequestFormat]
             Format of the Response
 
-        symbols : typing.Union[str, typing.Sequence[str]]
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
 
         quote : typing.Optional[str]
@@ -13710,7 +16099,7 @@ class RawApifreaksApi:
         api_key: str,
         date: dt.date,
         format: typing.Optional[CommodityHistoricalRatesRequestFormat] = None,
-        symbols: typing.Union[str, typing.Sequence[str]],
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CommodityHistoricalRatesResponse]:
         """
@@ -13727,7 +16116,7 @@ class RawApifreaksApi:
         format : typing.Optional[CommodityHistoricalRatesRequestFormat]
             Format of the response.
 
-        symbols : typing.Union[str, typing.Sequence[str]]
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -13896,7 +16285,7 @@ class RawApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityFluctuationRequestFormat] = None,
-        symbols: typing.Union[str, typing.Sequence[str]],
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CommodityFluctuationResponse]:
         """
@@ -13916,7 +16305,7 @@ class RawApifreaksApi:
         format : typing.Optional[CommodityFluctuationRequestFormat]
             Format of the response.
 
-        symbols : typing.Union[str, typing.Sequence[str]]
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -14086,7 +16475,7 @@ class RawApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityTimeSeriesRequestFormat] = None,
-        symbols: typing.Union[str, typing.Sequence[str]],
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[CommodityTimeSeriesResponse]:
         """
@@ -14106,7 +16495,7 @@ class RawApifreaksApi:
         format : typing.Optional[CommodityTimeSeriesRequestFormat]
             Format of the response.
 
-        symbols : typing.Union[str, typing.Sequence[str]]
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -20805,9 +23194,8 @@ class RawApifreaksApi:
         iata_code: typing.Optional[str] = None,
         icao_code: typing.Optional[str] = None,
         lo_code: typing.Optional[str] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response]]:
+    ) -> HttpResponse[TimezoneLookupResponse]:
         """
         Retrieve current time, date, and timezone-related information by specifying a timezone name, location address, location coordinates, IP address, or use the client IP address if no parameter is passed.
 
@@ -20855,7 +23243,7 @@ class RawApifreaksApi:
             Timezone lookup result
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v2.0/geolocation/timezone" if version == "2.0" else "v1.0/geolocation/timezone",
+            "v1.0/geolocation/timezone",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -20874,22 +23262,13 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response],
-                        parse_obj_as(
-                            type_=TimezoneLookupV2Response,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response],
-                        parse_obj_as(
-                            type_=TimezoneLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    TimezoneLookupResponse,
+                    parse_obj_as(
+                        type_=TimezoneLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -21275,7 +23654,6 @@ class RawApifreaksApi:
         self,
         *,
         api_key: str,
-        user_agent: str,
         format: typing.Optional[UserAgentLookupRequestFormat] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[UserAgentLookupResponse]:
@@ -21286,9 +23664,6 @@ class RawApifreaksApi:
         ----------
         api_key : str
             Your API key
-
-        user_agent : str
-            The User-Agent string to parse.
 
         format : typing.Optional[UserAgentLookupRequestFormat]
             Format of the response
@@ -21307,9 +23682,6 @@ class RawApifreaksApi:
             params={
                 "apiKey": api_key,
                 "format": format,
-            },
-            headers={
-                "User-Agent": str(user_agent),
             },
             request_options=request_options,
         )
@@ -21644,15 +24016,10 @@ class RawApifreaksApi:
         *,
         api_key: str,
         model: OcrPredictRequestModel,
-        ocr_predict_request_model: OcrPredictRequestModel,
-        url: typing.Optional[str] = None,
-        page_range: typing.Optional[str] = None,
-        zone: typing.Optional[str] = None,
-        new_line: typing.Optional[int] = None,
-        ocr_predict_request_url: typing.Optional[str] = OMIT,
-        ocr_predict_request_page_range: typing.Optional[str] = OMIT,
-        ocr_predict_request_zone: typing.Optional[str] = OMIT,
-        ocr_predict_request_new_line: typing.Optional[int] = OMIT,
+        url: typing.Optional[str] = OMIT,
+        page_range: typing.Optional[str] = OMIT,
+        zone: typing.Optional[str] = OMIT,
+        new_line: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[OcrPredictResponse]:
         """
@@ -21672,9 +24039,6 @@ class RawApifreaksApi:
             Your API key
 
         model : OcrPredictRequestModel
-            OCR model to use.
-
-        ocr_predict_request_model : OcrPredictRequestModel
             OCR model to use. `mini-ocr-v1` for CAPTCHA OCR, `ocr-v1` for general OCR
 
         url : typing.Optional[str]
@@ -21687,18 +24051,6 @@ class RawApifreaksApi:
             Define OCR zones using coordinates (top:left:height:width). Multiple zones can be defined using commas. Only available for model 'ocr-v1'. **Note:** This parameter cannot be used with .pdf and .zip file types as it can only be applied to single image queries.
 
         new_line : typing.Optional[int]
-            Set to 1 to split output text into individual lines (default: 0)
-
-        ocr_predict_request_url : typing.Optional[str]
-            URL of the image or PDF (required if `file` not provided)
-
-        ocr_predict_request_page_range : typing.Optional[str]
-            Specify page range for multi-page PDFs (e.g., '1,3,5-10' or 'allpages'). **Note:** This parameter can only be used with .pdf file types.
-
-        ocr_predict_request_zone : typing.Optional[str]
-            Define OCR zones using coordinates (top:left:height:width). Multiple zones can be defined using commas. Only available for model 'ocr-v1'. **Note:** This parameter cannot be used with .pdf and .zip file types as it can only be applied to single image queries.
-
-        ocr_predict_request_new_line : typing.Optional[int]
             Set to 1 to split output text into individual lines (default: 0)
 
         request_options : typing.Optional[RequestOptions]
@@ -21714,18 +24066,13 @@ class RawApifreaksApi:
             method="POST",
             params={
                 "apiKey": api_key,
+            },
+            json={
                 "url": url,
                 "model": model,
                 "page_range": page_range,
                 "zone": zone,
                 "new_line": new_line,
-            },
-            json={
-                "url": ocr_predict_request_url,
-                "model": ocr_predict_request_model,
-                "page_range": ocr_predict_request_page_range,
-                "zone": ocr_predict_request_zone,
-                "new_line": ocr_predict_request_new_line,
             },
             headers={
                 "content-type": "application/json",
@@ -22608,9 +24955,8 @@ class RawApifreaksApi:
         date: typing.Optional[dt.date] = None,
         elevation: typing.Optional[float] = None,
         time_zone: typing.Optional[str] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> HttpResponse[typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response]]:
+    ) -> HttpResponse[AstronomyLookupResponse]:
         """
         Retrieve sunrise and sunset times, current position of the moon, and other related information by specifying a location address, location coordinates, IP address, or using the client IP address if no parameter is passed.
 
@@ -22654,7 +25000,7 @@ class RawApifreaksApi:
             Successful response with astronomy data
         """
         _response = self._client_wrapper.httpx_client.request(
-            "v2.0/geolocation/astronomy" if version == "2.0" else "v1.0/geolocation/astronomy",
+            "v1.0/geolocation/astronomy",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -22672,22 +25018,13 @@ class RawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response],
-                        parse_obj_as(
-                            type_=AstronomyLookupV2Response,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response],
-                        parse_obj_as(
-                            type_=AstronomyLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    AstronomyLookupResponse,
+                    parse_obj_as(
+                        type_=AstronomyLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return HttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -22834,9 +25171,8 @@ class AsyncRawApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response]]:
+    ) -> AsyncHttpResponse[GeolocationLookupResponse]:
         """
         Get detailed geolocation data for an IP address including country, city, timezone, currency, and optional security and user-agent information
 
@@ -22872,7 +25208,7 @@ class AsyncRawApifreaksApi:
             Successful response
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v2.0/geolocation/lookup" if version == "2.0" else "v1.0/geolocation/lookup",
+            "v1.0/geolocation/lookup",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -22887,22 +25223,13 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response],
-                        parse_obj_as(
-                            type_=GeolocationLookupV2Response,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response],
-                        parse_obj_as(
-                            type_=GeolocationLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    GeolocationLookupResponse,
+                    parse_obj_as(
+                        type_=GeolocationLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -23055,9 +25382,8 @@ class AsyncRawApifreaksApi:
         fields: typing.Optional[str] = None,
         excludes: typing.Optional[str] = None,
         include: typing.Optional[str] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]]]:
+    ) -> AsyncHttpResponse[typing.List[BulkGeolocationLookupResponseItem]]:
         """
         Retrieve detailed geolocation data for multiple IP addresses in a single request.
         Supports up to `50,000` IP-addresses/host-names per request.
@@ -23094,7 +25420,7 @@ class AsyncRawApifreaksApi:
             Successful response
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v2.0/geolocation/lookup" if version == "2.0" else "v1.0/geolocation/lookup",
+            "v1.0/geolocation/lookup",
             method="POST",
             params={
                 "apiKey": api_key,
@@ -23115,22 +25441,13 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]],
-                        parse_obj_as(
-                            type_=typing.List[GeolocationLookupV2Response],  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]],
-                        parse_obj_as(
-                            type_=typing.List[BulkGeolocationLookupResponseItem],  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    typing.List[BulkGeolocationLookupResponseItem],
+                    parse_obj_as(
+                        type_=typing.List[BulkGeolocationLookupResponseItem],  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -24069,9 +26386,8 @@ class AsyncRawApifreaksApi:
         api_key: str,
         domain_name: str,
         format: typing.Optional[DomainWhoisLookupRequestFormat] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response]]:
+    ) -> AsyncHttpResponse[DomainWhoisLookupResponse]:
         """
         Retrieve current WHOIS information for a domain name.
         This endpoint provides detailed registration information including registrar details,
@@ -24097,7 +26413,7 @@ class AsyncRawApifreaksApi:
             Successful response
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v2.0/domain/whois/live" if version == "2.0" else "v1.0/domain/whois/live",
+            "v1.0/domain/whois/live",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -24108,22 +26424,13 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response],
-                        parse_obj_as(
-                            type_=DomainWhoisLookupV2Response,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response],
-                        parse_obj_as(
-                            type_=DomainWhoisLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    DomainWhoisLookupResponse,
+                    parse_obj_as(
+                        type_=DomainWhoisLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -24272,9 +26579,8 @@ class AsyncRawApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainWhoisLookupRequestFormat] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]]]:
+    ) -> AsyncHttpResponse[BulkDomainWhoisLookupResponse]:
         """
         Retrieve WHOIS information for `100 Domains per Request`.
 
@@ -24298,7 +26604,7 @@ class AsyncRawApifreaksApi:
             WHOIS data retrieved successfully for all domains
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v2.0/domain/whois/live" if version == "2.0" else "v1.0/domain/whois/live",
+            "v1.0/domain/whois/live",
             method="POST",
             params={
                 "apiKey": api_key,
@@ -24315,22 +26621,13 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]],
-                        parse_obj_as(
-                            type_=typing.List[DomainWhoisLookupV2Response],  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]],
-                        parse_obj_as(
-                            type_=BulkDomainWhoisLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    BulkDomainWhoisLookupResponse,
+                    parse_obj_as(
+                        type_=BulkDomainWhoisLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -25031,7 +27328,7 @@ class AsyncRawApifreaksApi:
         keyword : typing.Optional[str]
             Keyword search term for reverse WHOIS by keyword (case-insensitive pattern matching).
 
-        email : str
+        email : typing.Optional[str]
             Email search term for reverse WHOIS by email address (case-insensitive exact or regex match; * wildcard supported).
 
         owner : typing.Optional[str]
@@ -25219,7 +27516,7 @@ class AsyncRawApifreaksApi:
         format: typing.Optional[DomainDnsLookupRequestFormat] = None,
         host_name: typing.Optional[str] = None,
         ip_address: typing.Optional[str] = None,
-        type: typing.Union[str, typing.Sequence[str]],
+        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DomainDnsLookupResponse]:
         """
@@ -25239,7 +27536,7 @@ class AsyncRawApifreaksApi:
         ip_address : typing.Optional[str]
             The IP address for requested DNS's PTR record. 'type' parameter must be set to 'all'.
 
-        type : typing.Union[str, typing.Sequence[str]]
+        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
 
         request_options : typing.Optional[RequestOptions]
@@ -25419,7 +27716,7 @@ class AsyncRawApifreaksApi:
         api_key: str,
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainDnsLookupRequestFormat] = None,
-        type: typing.Union[str, typing.Sequence[str]],
+        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BulkDomainDnsLookupResponse]:
         """
@@ -25437,7 +27734,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[BulkDomainDnsLookupRequestFormat]
             Format of the response.
 
-        type : typing.Union[str, typing.Sequence[str]]
+        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
@@ -25459,7 +27756,6 @@ class AsyncRawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
-                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -25624,7 +27920,7 @@ class AsyncRawApifreaksApi:
         api_key: str,
         host_name: str,
         format: typing.Optional[DomainDnsHistoryRequestFormat] = None,
-        type: typing.Union[str, typing.Sequence[str]],
+        type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         page: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DomainDnsHistoryResponse]:
@@ -25643,7 +27939,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[DomainDnsHistoryRequestFormat]
             Format of the response.
 
-        type : typing.Union[str, typing.Sequence[str]]
+        type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
@@ -26431,17 +28727,6 @@ class AsyncRawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
             if _response.status_code == 413:
                 raise ContentTooLargeError(
                     headers=dict(_response.headers),
@@ -26623,17 +28908,6 @@ class AsyncRawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -26828,30 +29102,8 @@ class AsyncRawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
             if _response.status_code == 406:
                 raise NotAcceptableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -27038,30 +29290,8 @@ class AsyncRawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 405:
-                raise MethodNotAllowedError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
             if _response.status_code == 406:
                 raise NotAcceptableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -27747,7 +29977,6 @@ class AsyncRawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
-                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -27831,17 +30060,6 @@ class AsyncRawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
             if _response.status_code == 413:
                 raise ContentTooLargeError(
                     headers=dict(_response.headers),
@@ -27913,7 +30131,6 @@ class AsyncRawApifreaksApi:
         domain: str,
         format: typing.Optional[DomainAvailabilitySuggestionsRequestFormat] = None,
         source: typing.Optional[DomainAvailabilitySuggestionsRequestSource] = None,
-        sug: typing.Optional[bool] = None,
         count: typing.Optional[int] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DomainAvailabilitySuggestionsResponse]:
@@ -27934,9 +30151,6 @@ class AsyncRawApifreaksApi:
         source : typing.Optional[DomainAvailabilitySuggestionsRequestSource]
             Specify the data source for domain availability checks. Use "dns" for DNS-based lookups or "whois" for WHOIS-based lookups. By default, "dns" is used.
 
-        sug : typing.Optional[bool]
-            Enable domain suggestions.
-
         count : typing.Optional[int]
             Number of suggestions to retrieve.
 
@@ -27956,7 +30170,6 @@ class AsyncRawApifreaksApi:
                 "format": format,
                 "domain": domain,
                 "source": source,
-                "sug": sug,
                 "count": count,
             },
             request_options=request_options,
@@ -28028,17 +30241,6 @@ class AsyncRawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
-                    headers=dict(_response.headers),
-                    body=typing.cast(
-                        typing.Any,
-                        parse_obj_as(
-                            type_=typing.Any,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    ),
-                )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -28248,8 +30450,2510 @@ class AsyncRawApifreaksApi:
                         ),
                     ),
                 )
-            if _response.status_code == 408:
-                raise RequestTimeoutError(
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def domain_typosquatting(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[DomainTyposquattingRequestFormat] = None,
+        keyword: typing.Optional[str] = None,
+        pattern: typing.Optional[str] = None,
+        page_token: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[DomainTyposquattingResponse]:
+        """
+        The Domain Typosquatting API searches for registered domains that are typo or look-alike variants of a brand keyword, or that match a wildcard pattern. Results include registration lifecycle data and drop status across 1529+ TLDs, paginated at 100 domains per page.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[DomainTyposquattingRequestFormat]
+            Format of the response.
+
+        keyword : typing.Optional[str]
+            Brand or label to find typo variants for. 3-63 characters, letters, digits, or hyphens, a single label with no dots. Case-insensitive. Use either keyword or pattern, never both.
+
+        pattern : typing.Optional[str]
+            Wildcard search string that combines fuzzy matching with * wildcards. 3-63 characters total, * is the only supported wildcard and each one matches zero or more characters, maximum 3 asterisks per request. Use either keyword or pattern, never both.
+
+        page_token : typing.Optional[str]
+            Token from nextPageToken in the previous response. Required to retrieve page 2 and onward. The original keyword or pattern must be passed alongside the token on every page request. Results page at 100 domains per page.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[DomainTyposquattingResponse]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v1.0/domain/typosquatting",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "keyword": keyword,
+                "pattern": pattern,
+                "pageToken": page_token,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DomainTyposquattingResponse,
+                    parse_obj_as(
+                        type_=DomainTyposquattingResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def domain_reputation(
+        self,
+        *,
+        api_key: str,
+        domain_name: str,
+        format: typing.Optional[DomainReputationRequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[DomainReputationResponse]:
+        """
+        The Domain Reputation API evaluates a domain against threat intelligence sources, DGA (domain generation algorithm) scoring, trust signals, and email deliverability configuration, returning a consolidated risk assessment with a verdict, severity, and supporting evidence.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        domain_name : str
+            The domain name to assess (e.g. example.com). Must contain at least one dot and be at most 253 characters. Automatically lowercased.
+
+        format : typing.Optional[DomainReputationRequestFormat]
+            Format of the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[DomainReputationResponse]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v1.0/domain/reputation",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "domainName": domain_name,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DomainReputationResponse,
+                    parse_obj_as(
+                        type_=DomainReputationResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def astronomy_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[AstronomyLookupV2RequestFormat] = None,
+        location: typing.Optional[str] = None,
+        lat: typing.Optional[float] = None,
+        long_: typing.Optional[float] = None,
+        ip: typing.Optional[str] = None,
+        lang: typing.Optional[AstronomyLookupV2RequestLang] = None,
+        date: typing.Optional[dt.date] = None,
+        elevation: typing.Optional[float] = None,
+        time_zone: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[AstronomyLookupV2Response]:
+        """
+        Retrieve sunrise and sunset times, current position of the moon, and other related information by specifying a location address, location coordinates, IP address, or using the client IP address if no parameter is passed.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[AstronomyLookupV2RequestFormat]
+            Format of the response. Can be "json" or "xml".
+
+        location : typing.Optional[str]
+            Extract astronomy information using location (preferably city)
+
+        lat : typing.Optional[float]
+            Latitude to extract astronomy information using location coordinates
+
+        long_ : typing.Optional[float]
+            Longitude to extract astronomy information using location coordinates
+
+        ip : typing.Optional[str]
+            IPv4 or IPv6 address to extract astronomy information using IP address
+
+        lang : typing.Optional[AstronomyLookupV2RequestLang]
+            Response language of "location" field in case of lookup through IP address only.
+
+        date : typing.Optional[dt.date]
+            Specific date (format YYYY-MM-DD) for which astronomy data is required
+
+        elevation : typing.Optional[float]
+            Elevation above sea level at the location, in meters. The value should be between 0 meter and a maximum value of 10,000 meters. Negative value is set to 0.
+
+        time_zone : typing.Optional[str]
+            Time zone to receive all time-based data in your preferred local time.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[AstronomyLookupV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/geolocation/astronomy",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "location": location,
+                "lat": lat,
+                "long": long_,
+                "ip": ip,
+                "lang": lang,
+                "date": str(date) if date is not None else None,
+                "elevation": elevation,
+                "time_zone": time_zone,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    AstronomyLookupV2Response,
+                    parse_obj_as(
+                        type_=AstronomyLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def timezone_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[TimezoneLookupV2RequestFormat] = None,
+        ip: typing.Optional[str] = None,
+        tz: typing.Optional[str] = None,
+        location: typing.Optional[str] = None,
+        lat: typing.Optional[float] = None,
+        long_: typing.Optional[float] = None,
+        lang: typing.Optional[TimezoneLookupV2RequestLang] = None,
+        iata_code: typing.Optional[str] = None,
+        icao_code: typing.Optional[str] = None,
+        lo_code: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[TimezoneLookupV2Response]:
+        """
+        Get current time, date, and timezone details by specifying a timezone name, location address, GPS coordinates, IP address, IATA/ICAO airport code, UN/LOCODE, or use the client IP if no parameter is provided.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[TimezoneLookupV2RequestFormat]
+            Format of the response. Possible values: json, xml.
+
+        ip : typing.Optional[str]
+            IPv4 or IPv6 address to extract timezone information.
+
+        tz : typing.Optional[str]
+            Timezone name in IANA format (e.g., Asia/Kolkata) to retrieve information directly.
+
+        location : typing.Optional[str]
+            Location string (preferably city and country) to extract timezone.
+
+        lat : typing.Optional[float]
+            Latitude for geolocation-based timezone lookup. Only time_zone is returned for this mode; no location object is included.
+
+        long_ : typing.Optional[float]
+            Longitude for geolocation-based timezone lookup. Only time_zone is returned for this mode; no location object is included.
+
+        lang : typing.Optional[TimezoneLookupV2RequestLang]
+            Response language for location fields. Default: en.
+
+        iata_code : typing.Optional[str]
+            3-letter IATA airport code (e.g., LHR) to extract timezone.
+
+        icao_code : typing.Optional[str]
+            4-letter ICAO airport code (e.g., KJFK) to extract timezone.
+
+        lo_code : typing.Optional[str]
+            5-letter UN/LOCODE city code to extract timezone.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[TimezoneLookupV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/geolocation/timezone",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "ip": ip,
+                "tz": tz,
+                "location": location,
+                "lat": lat,
+                "long": long_,
+                "lang": lang,
+                "iata_code": iata_code,
+                "icao_code": icao_code,
+                "lo_code": lo_code,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    TimezoneLookupV2Response,
+                    parse_obj_as(
+                        type_=TimezoneLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def geolocation_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[GeolocationLookupV2RequestFormat] = None,
+        ip: typing.Optional[str] = None,
+        lang: typing.Optional[GeolocationLookupV2RequestLang] = None,
+        fields: typing.Optional[str] = None,
+        excludes: typing.Optional[str] = None,
+        include: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[GeolocationLookupV2Response]:
+        """
+        Get detailed IP geolocation data for an IP address including country, city, timezone, currency, and optional threat intelligence and user-agent information.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[GeolocationLookupV2RequestFormat]
+            Format of the response.
+
+        ip : typing.Optional[str]
+            IPv4, IPv6, or hostname for geolocation lookup.
+
+        lang : typing.Optional[GeolocationLookupV2RequestLang]
+            Response language for location fields. Default: en.
+
+        fields : typing.Optional[str]
+            Comma-separated list of fields to include in response. For example, `location` includes all location fields, `location.city` is a specific field.
+
+        excludes : typing.Optional[str]
+            Comma-separated list of fields to exclude from response.
+
+        include : typing.Optional[str]
+            Comma-separated list of additional data modules to include. Possible values: security (threat intelligence), hostname (IP-Hostname lookup), liveHostname (live hostname lookup), hostnameFallbackLive (hostname with live fallback), user_agent (parse User-Agent header), abuse (abuse contact info), dma_code (DMA code), geo_accuracy (accuracy_radius, confidence, locality), * (all modules).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[GeolocationLookupV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/geolocation/lookup",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "ip": ip,
+                "lang": lang,
+                "fields": fields,
+                "excludes": excludes,
+                "include": include,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    GeolocationLookupV2Response,
+                    parse_obj_as(
+                        type_=GeolocationLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 423:
+                raise LockedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def bulk_geolocation_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        ips: typing.Sequence[str],
+        format: typing.Optional[BulkGeolocationLookupV2RequestFormat] = None,
+        lang: typing.Optional[BulkGeolocationLookupV2RequestLang] = None,
+        fields: typing.Optional[str] = None,
+        excludes: typing.Optional[str] = None,
+        include: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[typing.List[BulkGeolocationLookupV2ResponseItem]]:
+        """
+        Get detailed IP geolocation data for multiple IP addresses including country, city, timezone, currency, and optional threat intelligence information. Supports up to 50,000 IP addresses per request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        ips : typing.Sequence[str]
+            List of IP addresses or hostnames to lookup.
+
+        format : typing.Optional[BulkGeolocationLookupV2RequestFormat]
+            Format of the response.
+
+        lang : typing.Optional[BulkGeolocationLookupV2RequestLang]
+            Response language for location fields. Default: en.
+
+        fields : typing.Optional[str]
+            Comma-separated list of fields to include in the response. For example, `location` includes all location fields, `location.city` is a specific field.
+
+        excludes : typing.Optional[str]
+            Comma-separated list of fields to exclude from response.
+
+        include : typing.Optional[str]
+            Comma-separated list of additional data modules to include. Possible values: security (threat intelligence), hostname (IP-Hostname lookup), liveHostname (live hostname lookup), user_agent (parse User-Agent header), abuse (abuse contact info), * (all modules).
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[typing.List[BulkGeolocationLookupV2ResponseItem]]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/geolocation/lookup",
+            method="POST",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "lang": lang,
+                "fields": fields,
+                "excludes": excludes,
+                "include": include,
+            },
+            json={
+                "ips": ips,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    typing.List[BulkGeolocationLookupV2ResponseItem],
+                    parse_obj_as(
+                        type_=typing.List[BulkGeolocationLookupV2ResponseItem],  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def domain_whois_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        domain_name: str,
+        format: typing.Optional[DomainWhoisLookupV2RequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[DomainWhoisLookupV2Response]:
+        """
+        Returns the current WHOIS record for the specified domain, including registrar details, registrant/administrative/technical/billing/reseller contacts, name servers, status codes, and raw WHOIS text.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        domain_name : str
+            Domain name to retrieve WHOIS data for (e.g. example.com).
+
+        format : typing.Optional[DomainWhoisLookupV2RequestFormat]
+            Format of the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[DomainWhoisLookupV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/domain/whois/live",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "domainName": domain_name,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    DomainWhoisLookupV2Response,
+                    parse_obj_as(
+                        type_=DomainWhoisLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def bulk_domain_whois_lookup_v2(
+        self,
+        *,
+        api_key: str,
+        domain_names: typing.Sequence[str],
+        format: typing.Optional[BulkDomainWhoisLookupV2RequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[BulkDomainWhoisLookupV2Response]:
+        """
+        Returns the current WHOIS record for each requested domain, in request order. Supports up to 100 domain names per request; a domain that fails to resolve yields an error item instead of failing the whole batch.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        domain_names : typing.Sequence[str]
+            List of domain names to retrieve WHOIS data for.
+
+        format : typing.Optional[BulkDomainWhoisLookupV2RequestFormat]
+            Format of the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[BulkDomainWhoisLookupV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/domain/whois/live",
+            method="POST",
+            params={
+                "apiKey": api_key,
+                "format": format,
+            },
+            json={
+                "domainNames": domain_names,
+            },
+            headers={
+                "content-type": "application/json",
+            },
+            request_options=request_options,
+            omit=OMIT,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    BulkDomainWhoisLookupV2Response,
+                    parse_obj_as(
+                        type_=BulkDomainWhoisLookupV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def commodity_latest_rates_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[CommodityLatestRatesV2RequestFormat] = None,
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        quote: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[CommodityLatestRatesV2Response]:
+        """
+        Returns the current live price for the requested commodity symbols. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[CommodityLatestRatesV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of commodity symbols (e.g., XAU, WTIOIL-SPOT). Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+
+        quote : typing.Optional[str]
+            Target currency for the exchange rate. If omitted (or set to `default`), the default quote currency of each commodity is used. Requires a premium plan; ignored on lower-tier plans.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[CommodityLatestRatesV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/rates/latest",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "symbols": symbols,
+                "quote": quote,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommodityLatestRatesV2Response,
+                    parse_obj_as(
+                        type_=CommodityLatestRatesV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def commodity_historical_rates_v2(
+        self,
+        *,
+        api_key: str,
+        date: dt.date,
+        format: typing.Optional[CommodityHistoricalRatesV2RequestFormat] = None,
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[CommodityHistoricalRatesV2Response]:
+        """
+        Returns OHLC price data for the requested commodity symbols on a specific date. Falls back to the nearest earlier rate if none exists for the exact date. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        date : dt.date
+            Date in YYYY-MM-DD format. Data available from 1990 onwards.
+
+        format : typing.Optional[CommodityHistoricalRatesV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of commodity symbols. Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[CommodityHistoricalRatesV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/rates/historical",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "symbols": symbols,
+                "date": str(date),
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommodityHistoricalRatesV2Response,
+                    parse_obj_as(
+                        type_=CommodityHistoricalRatesV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def commodity_fluctuation_v2(
+        self,
+        *,
+        api_key: str,
+        start_date: dt.date,
+        end_date: dt.date,
+        format: typing.Optional[CommodityFluctuationV2RequestFormat] = None,
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[CommodityFluctuationV2Response]:
+        """
+        Returns price fluctuation metrics (start, end, change, percent change) for the requested commodity symbols over a date range. For monthly-updated commodities the range snaps to month boundaries. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        start_date : dt.date
+            Start date (YYYY-MM-DD)
+
+        end_date : dt.date
+            End date (YYYY-MM-DD)
+
+        format : typing.Optional[CommodityFluctuationV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of commodity symbols. Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[CommodityFluctuationV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/fluctuation",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "symbols": symbols,
+                "startDate": str(start_date),
+                "endDate": str(end_date),
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommodityFluctuationV2Response,
+                    parse_obj_as(
+                        type_=CommodityFluctuationV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def commodity_time_series_v2(
+        self,
+        *,
+        api_key: str,
+        start_date: dt.date,
+        end_date: dt.date,
+        format: typing.Optional[CommodityTimeSeriesV2RequestFormat] = None,
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[CommodityTimeSeriesV2Response]:
+        """
+        Returns day-by-day OHLC data for the requested commodity symbols within a date range, indexed by date. Non-trading days are excluded. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        start_date : dt.date
+            Start date (YYYY-MM-DD)
+
+        end_date : dt.date
+            End date (YYYY-MM-DD). Maximum range is 365 days.
+
+        format : typing.Optional[CommodityTimeSeriesV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Comma-separated list of commodity symbols. Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[CommodityTimeSeriesV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/time-series",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+                "symbols": symbols,
+                "startDate": str(start_date),
+                "endDate": str(end_date),
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommodityTimeSeriesV2Response,
+                    parse_obj_as(
+                        type_=CommodityTimeSeriesV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 413:
+                raise ContentTooLargeError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 429:
+                raise TooManyRequestsError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 500:
+                raise InternalServerError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 503:
+                raise ServiceUnavailableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 504:
+                raise GatewayTimeoutError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            _response_json = _response.json()
+        except JSONDecodeError:
+            raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response.text)
+        except ValidationError as e:
+            raise ParsingError(
+                status_code=_response.status_code, headers=dict(_response.headers), body=_response.json(), cause=e
+            )
+        raise ApiError(status_code=_response.status_code, headers=dict(_response.headers), body=_response_json)
+
+    async def commodity_symbols_v2(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[CommoditySymbolsV2RequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> AsyncHttpResponse[CommoditySymbolsV2Response]:
+        """
+        Returns the list of supported commodity symbols with metadata. Deprecated symbols stay listed with status "inactive" and a deprecationDate.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[CommoditySymbolsV2RequestFormat]
+            Response format. Currently only `json` is supported.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        AsyncHttpResponse[CommoditySymbolsV2Response]
+            Successful response
+        """
+        _response = await self._client_wrapper.httpx_client.request(
+            "v2.0/commodity/symbols",
+            method="GET",
+            params={
+                "apiKey": api_key,
+                "format": format,
+            },
+            request_options=request_options,
+        )
+        try:
+            if 200 <= _response.status_code < 300:
+                _data = typing.cast(
+                    CommoditySymbolsV2Response,
+                    parse_obj_as(
+                        type_=CommoditySymbolsV2Response,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
+                return AsyncHttpResponse(response=_response, data=_data)
+            if _response.status_code == 400:
+                raise BadRequestError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 401:
+                raise UnauthorizedError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 402:
+                raise PaymentRequiredError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 403:
+                raise ForbiddenError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 404:
+                raise NotFoundError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 406:
+                raise NotAcceptableError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -32124,7 +36828,7 @@ class AsyncRawApifreaksApi:
         *,
         api_key: str,
         format: typing.Optional[PdfUploadResourcesRequestFormat] = None,
-        file: typing.List[core.File],
+        file: typing.Optional[typing.List[core.File]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[PdfUploadResourcesResponse]:
         """
@@ -32138,7 +36842,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[PdfUploadResourcesRequestFormat]
             Specifies the desired format for the API response. Choose 'json' for a JSON object or 'xml' for an XML structure.
 
-        file : typing.List[core.File]
+        file : typing.Optional[typing.List[core.File]]
             See core.File for more documentation
 
         request_options : typing.Optional[RequestOptions]
@@ -34542,7 +39246,7 @@ class AsyncRawApifreaksApi:
         from_: str,
         to: str,
         format: typing.Optional[CurrencyConvertLatestRequestFormat] = None,
-        amount: typing.Optional[str] = None,
+        amount: typing.Optional[float] = None,
         updates: typing.Optional[CurrencyConvertLatestRequestUpdates] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CurrencyConvertLatestResponse]:
@@ -34563,7 +39267,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CurrencyConvertLatestRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[str]
+        amount : typing.Optional[float]
             Amount to convert
 
         updates : typing.Optional[CurrencyConvertLatestRequestUpdates]
@@ -34738,7 +39442,7 @@ class AsyncRawApifreaksApi:
         to: str,
         date: dt.date,
         format: typing.Optional[CurrencyConvertHistoricalRequestFormat] = None,
-        amount: typing.Optional[str] = None,
+        amount: typing.Optional[float] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CurrencyConvertHistoricalResponse]:
         """
@@ -34761,7 +39465,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CurrencyConvertHistoricalRequestFormat]
             Format of the response.
 
-        amount : typing.Optional[str]
+        amount : typing.Optional[float]
             The Amount to be converted
 
         request_options : typing.Optional[RequestOptions]
@@ -35323,7 +40027,7 @@ class AsyncRawApifreaksApi:
         format: typing.Optional[CurrencyConvertByIpRequestFormat] = None,
         updates: typing.Optional[CurrencyConvertByIpRequestUpdates] = None,
         ip: typing.Optional[str] = None,
-        amount: typing.Optional[str] = None,
+        amount: typing.Optional[float] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CurrencyConvertByIpResponse]:
         """
@@ -35346,7 +40050,7 @@ class AsyncRawApifreaksApi:
         ip : typing.Optional[str]
             IPv4 or IPv6 geolocated currency
 
-        amount : typing.Optional[str]
+        amount : typing.Optional[float]
             Amount to convert
 
         request_options : typing.Optional[RequestOptions]
@@ -36041,7 +40745,7 @@ class AsyncRawApifreaksApi:
         api_key: str,
         updates: CommodityLatestRatesRequestUpdates,
         format: typing.Optional[CommodityLatestRatesRequestFormat] = None,
-        symbols: typing.Union[str, typing.Sequence[str]],
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         quote: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CommodityLatestRatesResponse]:
@@ -36059,7 +40763,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CommodityLatestRatesRequestFormat]
             Format of the Response
 
-        symbols : typing.Union[str, typing.Sequence[str]]
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
 
         quote : typing.Optional[str]
@@ -36231,7 +40935,7 @@ class AsyncRawApifreaksApi:
         api_key: str,
         date: dt.date,
         format: typing.Optional[CommodityHistoricalRatesRequestFormat] = None,
-        symbols: typing.Union[str, typing.Sequence[str]],
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CommodityHistoricalRatesResponse]:
         """
@@ -36248,7 +40952,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CommodityHistoricalRatesRequestFormat]
             Format of the response.
 
-        symbols : typing.Union[str, typing.Sequence[str]]
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -36417,7 +41121,7 @@ class AsyncRawApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityFluctuationRequestFormat] = None,
-        symbols: typing.Union[str, typing.Sequence[str]],
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CommodityFluctuationResponse]:
         """
@@ -36437,7 +41141,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CommodityFluctuationRequestFormat]
             Format of the response.
 
-        symbols : typing.Union[str, typing.Sequence[str]]
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -36607,7 +41311,7 @@ class AsyncRawApifreaksApi:
         start_date: dt.date,
         end_date: dt.date,
         format: typing.Optional[CommodityTimeSeriesRequestFormat] = None,
-        symbols: typing.Union[str, typing.Sequence[str]],
+        symbols: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[CommodityTimeSeriesResponse]:
         """
@@ -36627,7 +41331,7 @@ class AsyncRawApifreaksApi:
         format : typing.Optional[CommodityTimeSeriesRequestFormat]
             Format of the response.
 
-        symbols : typing.Union[str, typing.Sequence[str]]
+        symbols : typing.Optional[typing.Union[str, typing.Sequence[str]]]
             Comma-separated list of commodity symbols
 
         request_options : typing.Optional[RequestOptions]
@@ -43327,9 +48031,8 @@ class AsyncRawApifreaksApi:
         iata_code: typing.Optional[str] = None,
         icao_code: typing.Optional[str] = None,
         lo_code: typing.Optional[str] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response]]:
+    ) -> AsyncHttpResponse[TimezoneLookupResponse]:
         """
         Retrieve current time, date, and timezone-related information by specifying a timezone name, location address, location coordinates, IP address, or use the client IP address if no parameter is passed.
 
@@ -43377,7 +48080,7 @@ class AsyncRawApifreaksApi:
             Timezone lookup result
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v2.0/geolocation/timezone" if version == "2.0" else "v1.0/geolocation/timezone",
+            "v1.0/geolocation/timezone",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -43396,22 +48099,13 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response],
-                        parse_obj_as(
-                            type_=TimezoneLookupV2Response,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response],
-                        parse_obj_as(
-                            type_=TimezoneLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    TimezoneLookupResponse,
+                    parse_obj_as(
+                        type_=TimezoneLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(
@@ -43808,9 +48502,6 @@ class AsyncRawApifreaksApi:
         api_key : str
             Your API key
 
-        user_agent : str
-            The User-Agent string to parse.
-
         format : typing.Optional[UserAgentLookupRequestFormat]
             Format of the response
 
@@ -43828,9 +48519,6 @@ class AsyncRawApifreaksApi:
             params={
                 "apiKey": api_key,
                 "format": format,
-            },
-            headers={
-                "User-Agent": str(user_agent),
             },
             request_options=request_options,
         )
@@ -44165,15 +48853,10 @@ class AsyncRawApifreaksApi:
         *,
         api_key: str,
         model: OcrPredictRequestModel,
-        ocr_predict_request_model: OcrPredictRequestModel,
-        url: typing.Optional[str] = None,
-        page_range: typing.Optional[str] = None,
-        zone: typing.Optional[str] = None,
-        new_line: typing.Optional[int] = None,
-        ocr_predict_request_url: typing.Optional[str] = OMIT,
-        ocr_predict_request_page_range: typing.Optional[str] = OMIT,
-        ocr_predict_request_zone: typing.Optional[str] = OMIT,
-        ocr_predict_request_new_line: typing.Optional[int] = OMIT,
+        url: typing.Optional[str] = OMIT,
+        page_range: typing.Optional[str] = OMIT,
+        zone: typing.Optional[str] = OMIT,
+        new_line: typing.Optional[int] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[OcrPredictResponse]:
         """
@@ -44193,9 +48876,6 @@ class AsyncRawApifreaksApi:
             Your API key
 
         model : OcrPredictRequestModel
-            OCR model to use.
-
-        ocr_predict_request_model : OcrPredictRequestModel
             OCR model to use. `mini-ocr-v1` for CAPTCHA OCR, `ocr-v1` for general OCR
 
         url : typing.Optional[str]
@@ -44208,18 +48888,6 @@ class AsyncRawApifreaksApi:
             Define OCR zones using coordinates (top:left:height:width). Multiple zones can be defined using commas. Only available for model 'ocr-v1'. **Note:** This parameter cannot be used with .pdf and .zip file types as it can only be applied to single image queries.
 
         new_line : typing.Optional[int]
-            Set to 1 to split output text into individual lines (default: 0)
-
-        ocr_predict_request_url : typing.Optional[str]
-            URL of the image or PDF (required if `file` not provided)
-
-        ocr_predict_request_page_range : typing.Optional[str]
-            Specify page range for multi-page PDFs (e.g., '1,3,5-10' or 'allpages'). **Note:** This parameter can only be used with .pdf file types.
-
-        ocr_predict_request_zone : typing.Optional[str]
-            Define OCR zones using coordinates (top:left:height:width). Multiple zones can be defined using commas. Only available for model 'ocr-v1'. **Note:** This parameter cannot be used with .pdf and .zip file types as it can only be applied to single image queries.
-
-        ocr_predict_request_new_line : typing.Optional[int]
             Set to 1 to split output text into individual lines (default: 0)
 
         request_options : typing.Optional[RequestOptions]
@@ -44235,18 +48903,13 @@ class AsyncRawApifreaksApi:
             method="POST",
             params={
                 "apiKey": api_key,
+            },
+            json={
                 "url": url,
                 "model": model,
                 "page_range": page_range,
                 "zone": zone,
                 "new_line": new_line,
-            },
-            json={
-                "url": ocr_predict_request_url,
-                "model": ocr_predict_request_model,
-                "page_range": ocr_predict_request_page_range,
-                "zone": ocr_predict_request_zone,
-                "new_line": ocr_predict_request_new_line,
             },
             headers={
                 "content-type": "application/json",
@@ -45129,9 +49792,8 @@ class AsyncRawApifreaksApi:
         date: typing.Optional[dt.date] = None,
         elevation: typing.Optional[float] = None,
         time_zone: typing.Optional[str] = None,
-        version: typing.Optional[str] = "1.0",
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> AsyncHttpResponse[typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response]]:
+    ) -> AsyncHttpResponse[AstronomyLookupResponse]:
         """
         Retrieve sunrise and sunset times, current position of the moon, and other related information by specifying a location address, location coordinates, IP address, or using the client IP address if no parameter is passed.
 
@@ -45175,7 +49837,7 @@ class AsyncRawApifreaksApi:
             Successful response with astronomy data
         """
         _response = await self._client_wrapper.httpx_client.request(
-            "v2.0/geolocation/astronomy" if version == "2.0" else "v1.0/geolocation/astronomy",
+            "v1.0/geolocation/astronomy",
             method="GET",
             params={
                 "apiKey": api_key,
@@ -45193,22 +49855,13 @@ class AsyncRawApifreaksApi:
         )
         try:
             if 200 <= _response.status_code < 300:
-                if version == "2.0":
-                    _data = typing.cast(
-                        typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response],
-                        parse_obj_as(
-                            type_=AstronomyLookupV2Response,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
-                else:
-                    _data = typing.cast(
-                        typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response],
-                        parse_obj_as(
-                            type_=AstronomyLookupResponse,  # type: ignore
-                            object_=_response.json(),
-                        ),
-                    )
+                _data = typing.cast(
+                    AstronomyLookupResponse,
+                    parse_obj_as(
+                        type_=AstronomyLookupResponse,  # type: ignore
+                        object_=_response.json(),
+                    ),
+                )
                 return AsyncHttpResponse(response=_response, data=_data)
             if _response.status_code == 400:
                 raise BadRequestError(

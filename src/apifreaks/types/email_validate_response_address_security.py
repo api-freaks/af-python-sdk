@@ -7,7 +7,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
 class EmailValidateResponseAddressSecurity(UniversalBaseModel):
-    threat_score: int
+    threat_score: float
     is_tor: bool
     is_proxy: bool
     proxy_type: str

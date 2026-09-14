@@ -7,8 +7,8 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
 class DomainSslChainLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess(UniversalBaseModel):
-    issuers: typing.Optional[typing.List[str]] = None
-    ocsp: typing.Optional[typing.List[str]] = None
+    issuers: typing.List[str]
+    ocsp: typing.List[str]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

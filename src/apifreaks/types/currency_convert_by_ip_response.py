@@ -19,6 +19,10 @@ class CurrencyConvertByIpResponse(UniversalBaseModel):
         FieldMetadata(alias="from"),
         pydantic.Field(alias="from", description="Base currency code whose amount will be converted."),
     ]
+    """
+    Base currency code whose amount will be converted.
+    """
+
     to: str = pydantic.Field()
     """
     Desired currency code for the converted amount.
@@ -37,16 +41,27 @@ class CurrencyConvertByIpResponse(UniversalBaseModel):
             description="IP Address whose country's currency will be extracted and used as 'to'. Defaults to the request IP if not provided.",
         ),
     ]
+    """
+    IP Address whose country's currency will be extracted and used as 'to'. Defaults to the request IP if not provided.
+    """
+
     given_amount: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="givenAmount"),
         pydantic.Field(alias="givenAmount", description="The amount to be converted."),
     ]
+    """
+    The amount to be converted.
+    """
+
     converted_amount: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="convertedAmount"),
         pydantic.Field(alias="convertedAmount", description="Converted amount in the desired currency."),
     ]
+    """
+    Converted amount in the desired currency.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

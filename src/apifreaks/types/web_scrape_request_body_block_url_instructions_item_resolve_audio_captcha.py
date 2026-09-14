@@ -14,6 +14,9 @@ class WebScrapeRequestBodyBlockUrlInstructionsItemResolveAudioCaptcha(UniversalB
         FieldMetadata(alias="resolveAudioCaptcha"),
         pydantic.Field(alias="resolveAudioCaptcha", description="Solves audio CAPTCHA challenges."),
     ] = None
+    """
+    Solves audio CAPTCHA challenges.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

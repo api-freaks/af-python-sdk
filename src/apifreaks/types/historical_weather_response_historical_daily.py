@@ -29,16 +29,28 @@ class HistoricalWeatherResponseHistoricalDaily(UniversalBaseModel):
         FieldMetadata(alias="temperature_2m_mean"),
         pydantic.Field(alias="temperature_2m_mean", description="Daily mean air temperature at 2 meters (°C)"),
     ] = None
+    """
+    Daily mean air temperature at 2 meters (°C)
+    """
+
     temperature2m_max: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="temperature_2m_max"),
         pydantic.Field(alias="temperature_2m_max", description="Daily maximum air temperature at 2 meters (°C)"),
     ] = None
+    """
+    Daily maximum air temperature at 2 meters (°C)
+    """
+
     temperature2m_min: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="temperature_2m_min"),
         pydantic.Field(alias="temperature_2m_min", description="Daily minimum air temperature at 2 meters (°C)"),
     ] = None
+    """
+    Daily minimum air temperature at 2 meters (°C)
+    """
+
     apparent_temperature_mean: typing.Optional[float] = pydantic.Field(default=None)
     """
     Daily mean perceived temperature (°C)
@@ -74,48 +86,74 @@ class HistoricalWeatherResponseHistoricalDaily(UniversalBaseModel):
         FieldMetadata(alias="wind_speed_10m_max"),
         pydantic.Field(alias="wind_speed_10m_max", description="Maximum wind speed at 10 meters (km/h)"),
     ] = None
+    """
+    Maximum wind speed at 10 meters (km/h)
+    """
+
     wind_gusts10m_max: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_gusts_10m_max"),
         pydantic.Field(alias="wind_gusts_10m_max", description="Maximum wind gusts at 10 meters (km/h)"),
     ] = None
+    """
+    Maximum wind gusts at 10 meters (km/h)
+    """
+
     wind_speed10m_mean: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_speed_10m_mean"),
         pydantic.Field(alias="wind_speed_10m_mean", description="Daily mean wind speed at 10 meters (km/h)"),
     ] = None
+    """
+    Daily mean wind speed at 10 meters (km/h)
+    """
+
     wind_speed10m_min: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_speed_10m_min"),
         pydantic.Field(alias="wind_speed_10m_min", description="Minimum wind speed at 10 meters (km/h)"),
     ] = None
+    """
+    Minimum wind speed at 10 meters (km/h)
+    """
+
     wind_gusts10m_min: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_gusts_10m_min"),
         pydantic.Field(alias="wind_gusts_10m_min", description="Minimum wind gusts at 10 meters (km/h)"),
     ] = None
+    """
+    Minimum wind gusts at 10 meters (km/h)
+    """
+
     wind_gusts10m_mean: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="wind_gusts_10m_mean"),
         pydantic.Field(alias="wind_gusts_10m_mean", description="Daily mean wind gusts at 10 meters (km/h)"),
     ] = None
+    """
+    Daily mean wind gusts at 10 meters (km/h)
+    """
+
     wind_direction10m_dominant: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="wind_direction_10m_dominant"),
         pydantic.Field(alias="wind_direction_10m_dominant", description="Dominant wind direction at 10 meters (°)"),
     ] = None
+    """
+    Dominant wind direction at 10 meters (°)
+    """
+
     shortwave_radiation_sum: typing.Optional[float] = pydantic.Field(default=None)
     """
     Daily sum of shortwave solar radiation (MJ/m²)
     """
 
-    et0fao_evapotranspiration_sum: typing_extensions.Annotated[
-        typing.Optional[float],
-        FieldMetadata(alias="et0_fao_evapotranspiration_sum"),
-        pydantic.Field(
-            alias="et0_fao_evapotranspiration_sum", description="Daily sum of reference evapotranspiration (mm)"
-        ),
-    ] = None
+    et0_fao_evapotranspiration_sum: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Daily sum of reference evapotranspiration (mm)
+    """
+
     cloud_cover_mean: typing.Optional[float] = pydantic.Field(default=None)
     """
     Daily mean cloud cover percentage (%)
@@ -126,31 +164,55 @@ class HistoricalWeatherResponseHistoricalDaily(UniversalBaseModel):
         FieldMetadata(alias="dew_point_2m_mean"),
         pydantic.Field(alias="dew_point_2m_mean", description="Daily mean dew point temperature at 2 meters (°C)"),
     ] = None
+    """
+    Daily mean dew point temperature at 2 meters (°C)
+    """
+
     dew_point2m_max: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="dew_point_2m_max"),
         pydantic.Field(alias="dew_point_2m_max", description="Daily maximum dew point temperature at 2 meters (°C)"),
     ] = None
+    """
+    Daily maximum dew point temperature at 2 meters (°C)
+    """
+
     dew_point2m_min: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="dew_point_2m_min"),
         pydantic.Field(alias="dew_point_2m_min", description="Daily minimum dew point temperature at 2 meters (°C)"),
     ] = None
+    """
+    Daily minimum dew point temperature at 2 meters (°C)
+    """
+
     relative_humidity2m_mean: typing_extensions.Annotated[
         typing.Optional[float],
         FieldMetadata(alias="relative_humidity_2m_mean"),
         pydantic.Field(alias="relative_humidity_2m_mean", description="Daily mean relative humidity at 2 meters (%)"),
     ] = None
+    """
+    Daily mean relative humidity at 2 meters (%)
+    """
+
     relative_humidity2m_max: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="relative_humidity_2m_max"),
         pydantic.Field(alias="relative_humidity_2m_max", description="Daily maximum relative humidity at 2 meters (%)"),
     ] = None
+    """
+    Daily maximum relative humidity at 2 meters (%)
+    """
+
     relative_humidity2m_min: typing_extensions.Annotated[
         typing.Optional[int],
         FieldMetadata(alias="relative_humidity_2m_min"),
         pydantic.Field(alias="relative_humidity_2m_min", description="Daily minimum relative humidity at 2 meters (%)"),
     ] = None
+    """
+    Daily minimum relative humidity at 2 meters (%)
+    """
+
     pressure_msl_mean: typing.Optional[float] = pydantic.Field(default=None)
     """
     Daily mean atmospheric pressure at mean sea level (hPa)

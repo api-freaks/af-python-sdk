@@ -16,18 +16,18 @@ class AstronomyLookupResponseLocation(UniversalBaseModel):
     continent_name: typing.Optional[str] = None
     country_code2: typing.Optional[str] = None
     country_code3: typing.Optional[str] = None
-    country_name: typing.Optional[str] = None
+    country_name: str
     country_name_official: typing.Optional[str] = None
     is_eu: typing.Optional[bool] = None
-    state_prov: typing.Optional[str] = None
+    state_prov: str
     state_code: typing.Optional[str] = None
     district: typing.Optional[str] = None
-    city: typing.Optional[str] = None
+    city: str
     zipcode: typing.Optional[str] = None
-    latitude: typing.Optional[str] = None
-    longitude: typing.Optional[str] = None
-    locality: typing.Optional[str] = None
-    elevation: typing.Optional[str] = None
+    latitude: str
+    longitude: str
+    locality: str
+    elevation: str
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

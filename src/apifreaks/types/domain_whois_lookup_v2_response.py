@@ -5,253 +5,134 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-
-
-class DomainWhoisLookupV2ResponseDomainRegistrar(UniversalBaseModel):
-    id: typing.Optional[str] = None
-    id_type: typing.Optional[str] = None
-    iana_id: typing.Optional[str] = None
-    registry_id: typing.Optional[str] = None
-    handle: typing.Optional[str] = None
-    status: typing.Optional[str] = None
-    registrar_name: typing.Optional[str] = None
-    normalized_name: typing.Optional[str] = None
-    whois_server: typing.Optional[str] = None
-    rdap_server: typing.Optional[str] = None
-    website_url: typing.Optional[str] = None
-    email_address: typing.Optional[str] = None
-    phone_number: typing.Optional[str] = None
-    authoritative_registry_name: typing.Optional[str] = None
-    organization_number: typing.Optional[str] = None
-    is_sponsor: typing.Optional[bool] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class DomainWhoisLookupV2ResponseResellerContact(UniversalBaseModel):
-    name: typing.Optional[str] = None
-    email_address: typing.Optional[str] = None
-    phone: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class DomainWhoisLookupV2ResponseRegistrantContact(UniversalBaseModel):
-    id: typing.Optional[str] = None
-    name: typing.Optional[str] = None
-    company: typing.Optional[str] = None
-    street: typing.Optional[str] = None
-    city: typing.Optional[str] = None
-    state: typing.Optional[str] = None
-    zip_code: typing.Optional[str] = None
-    country_name: typing.Optional[str] = None
-    country_code: typing.Optional[str] = None
-    email_address: typing.Optional[str] = None
-    phone: typing.Optional[str] = None
-    fax: typing.Optional[str] = None
-    mailing_address: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class DomainWhoisLookupV2ResponseAdministrativeContact(UniversalBaseModel):
-    id: typing.Optional[str] = None
-    name: typing.Optional[str] = None
-    company: typing.Optional[str] = None
-    street: typing.Optional[str] = None
-    city: typing.Optional[str] = None
-    state: typing.Optional[str] = None
-    zip_code: typing.Optional[str] = None
-    country_name: typing.Optional[str] = None
-    country_code: typing.Optional[str] = None
-    email_address: typing.Optional[str] = None
-    phone: typing.Optional[str] = None
-    fax: typing.Optional[str] = None
-    mailing_address: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class DomainWhoisLookupV2ResponseTechnicalContact(UniversalBaseModel):
-    id: typing.Optional[str] = None
-    name: typing.Optional[str] = None
-    company: typing.Optional[str] = None
-    street: typing.Optional[str] = None
-    city: typing.Optional[str] = None
-    state: typing.Optional[str] = None
-    zip_code: typing.Optional[str] = None
-    country_name: typing.Optional[str] = None
-    country_code: typing.Optional[str] = None
-    email_address: typing.Optional[str] = None
-    phone: typing.Optional[str] = None
-    fax: typing.Optional[str] = None
-    mailing_address: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class DomainWhoisLookupV2ResponseBillingContact(UniversalBaseModel):
-    id: typing.Optional[str] = None
-    name: typing.Optional[str] = None
-    company: typing.Optional[str] = None
-    street: typing.Optional[str] = None
-    city: typing.Optional[str] = None
-    state: typing.Optional[str] = None
-    zip_code: typing.Optional[str] = None
-    country_name: typing.Optional[str] = None
-    country_code: typing.Optional[str] = None
-    email_address: typing.Optional[str] = None
-    phone: typing.Optional[str] = None
-    fax: typing.Optional[str] = None
-    mailing_address: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class DomainWhoisLookupV2ResponseEligibilityInfo(UniversalBaseModel):
-    id: typing.Optional[str] = None
-    name: typing.Optional[str] = None
-    type: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class DomainWhoisLookupV2ResponseAbuseContact(UniversalBaseModel):
-    email_address: typing.Optional[str] = None
-    phone_number: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class DomainWhoisLookupV2ResponseRegistryDataDomainRegistrar(UniversalBaseModel):
-    id: typing.Optional[str] = None
-    id_type: typing.Optional[str] = None
-    iana_id: typing.Optional[str] = None
-    registry_id: typing.Optional[str] = None
-    handle: typing.Optional[str] = None
-    status: typing.Optional[str] = None
-    registrar_name: typing.Optional[str] = None
-    normalized_name: typing.Optional[str] = None
-    whois_server: typing.Optional[str] = None
-    rdap_server: typing.Optional[str] = None
-    website_url: typing.Optional[str] = None
-    email_address: typing.Optional[str] = None
-    phone_number: typing.Optional[str] = None
-    authoritative_registry_name: typing.Optional[str] = None
-    organization_number: typing.Optional[str] = None
-    is_sponsor: typing.Optional[bool] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
-
-
-class DomainWhoisLookupV2ResponseRegistryData(UniversalBaseModel):
-    domain_name: typing.Optional[str] = None
-    query_time: typing.Optional[dt.datetime] = None
-    whois_server: typing.Optional[str] = None
-    create_date: typing.Optional[dt.date] = None
-    update_date: typing.Optional[dt.date] = None
-    expiry_date: typing.Optional[dt.date] = None
-    domain_registrar: typing.Optional[DomainWhoisLookupV2ResponseRegistryDataDomainRegistrar] = None
-    name_servers: typing.Optional[typing.List[str]] = None
-    domain_status: typing.Optional[typing.List[str]] = None
-    whois_raw_registry: typing.Optional[str] = None
-
-    if IS_PYDANTIC_V2:
-        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
-    else:
-
-        class Config:
-            frozen = True
-            smart_union = True
-            extra = pydantic.Extra.allow
+from .domain_whois_lookup_v2_response_abuse_contact import DomainWhoisLookupV2ResponseAbuseContact
+from .domain_whois_lookup_v2_response_administrative_contact import DomainWhoisLookupV2ResponseAdministrativeContact
+from .domain_whois_lookup_v2_response_billing_contact import DomainWhoisLookupV2ResponseBillingContact
+from .domain_whois_lookup_v2_response_domain_registered import DomainWhoisLookupV2ResponseDomainRegistered
+from .domain_whois_lookup_v2_response_domain_registrar import DomainWhoisLookupV2ResponseDomainRegistrar
+from .domain_whois_lookup_v2_response_eligibility_info import DomainWhoisLookupV2ResponseEligibilityInfo
+from .domain_whois_lookup_v2_response_registrant_contact import DomainWhoisLookupV2ResponseRegistrantContact
+from .domain_whois_lookup_v2_response_registry_data import DomainWhoisLookupV2ResponseRegistryData
+from .domain_whois_lookup_v2_response_reseller_contact import DomainWhoisLookupV2ResponseResellerContact
+from .domain_whois_lookup_v2_response_technical_contact import DomainWhoisLookupV2ResponseTechnicalContact
 
 
 class DomainWhoisLookupV2Response(UniversalBaseModel):
-    status: typing.Optional[bool] = None
-    domain_name: typing.Optional[str] = None
-    query_time: typing.Optional[dt.datetime] = None
-    whois_server: typing.Optional[str] = None
-    domain_registered: typing.Optional[str] = None
-    secure_dns: typing.Optional[bool] = None
-    domain_handle: typing.Optional[str] = None
-    create_date: typing.Optional[dt.date] = None
-    update_date: typing.Optional[dt.date] = None
-    expiry_date: typing.Optional[dt.date] = None
-    domain_registrar: typing.Optional[DomainWhoisLookupV2ResponseDomainRegistrar] = None
-    reseller_contact: typing.Optional[DomainWhoisLookupV2ResponseResellerContact] = None
-    registrant_contact: typing.Optional[DomainWhoisLookupV2ResponseRegistrantContact] = None
-    administrative_contact: typing.Optional[DomainWhoisLookupV2ResponseAdministrativeContact] = None
-    technical_contact: typing.Optional[DomainWhoisLookupV2ResponseTechnicalContact] = None
-    billing_contact: typing.Optional[DomainWhoisLookupV2ResponseBillingContact] = None
-    eligibility_info: typing.Optional[DomainWhoisLookupV2ResponseEligibilityInfo] = None
-    abuse_contact: typing.Optional[DomainWhoisLookupV2ResponseAbuseContact] = None
-    name_servers: typing.Optional[typing.List[str]] = None
-    domain_status: typing.Optional[typing.List[str]] = None
-    whois_raw_domain: typing.Optional[str] = None
-    registry_data: typing.Optional[DomainWhoisLookupV2ResponseRegistryData] = None
+    """
+    Current WHOIS registration record for the requested domain.
+    """
+
+    status: bool = pydantic.Field()
+    """
+    true if the request was successfully processed.
+    """
+
+    domain_name: str = pydantic.Field()
+    """
+    Domain name that was queried.
+    """
+
+    query_time: str = pydantic.Field()
+    """
+    Timestamp when the WHOIS query was executed.
+    """
+
+    whois_server: str = pydantic.Field()
+    """
+    WHOIS or RDAP server that provided this record.
+    """
+
+    domain_registered: DomainWhoisLookupV2ResponseDomainRegistered = pydantic.Field()
+    """
+    Domain registration status; 'restricted' means the registry withholds registration details.
+    """
+
+    secure_dns: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Indicates if DNSSEC or secure DNS is enabled for the domain.
+    """
+
+    domain_handle: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Internal domain registry handle/ID.
+    """
+
+    create_date: typing.Optional[dt.date] = pydantic.Field(default=None)
+    """
+    Date the domain was originally registered, when the domain is registered.
+    """
+
+    update_date: typing.Optional[dt.date] = pydantic.Field(default=None)
+    """
+    Date the domain registration was last updated, when the domain is registered.
+    """
+
+    expiry_date: typing.Optional[dt.date] = pydantic.Field(default=None)
+    """
+    Date the domain registration is set to expire, when the domain is registered.
+    """
+
+    domain_registrar: typing.Optional[DomainWhoisLookupV2ResponseDomainRegistrar] = pydantic.Field(default=None)
+    """
+    Registrar of record for a domain, as published by either the registrar or the registry.
+    """
+
+    reseller_contact: typing.Optional[DomainWhoisLookupV2ResponseResellerContact] = pydantic.Field(default=None)
+    """
+    A contact record (registrant, administrative, technical, billing, or reseller) published in the domain's WHOIS record.
+    """
+
+    registrant_contact: typing.Optional[DomainWhoisLookupV2ResponseRegistrantContact] = pydantic.Field(default=None)
+    """
+    A contact record (registrant, administrative, technical, billing, or reseller) published in the domain's WHOIS record.
+    """
+
+    administrative_contact: typing.Optional[DomainWhoisLookupV2ResponseAdministrativeContact] = pydantic.Field(
+        default=None
+    )
+    """
+    A contact record (registrant, administrative, technical, billing, or reseller) published in the domain's WHOIS record.
+    """
+
+    technical_contact: typing.Optional[DomainWhoisLookupV2ResponseTechnicalContact] = pydantic.Field(default=None)
+    """
+    A contact record (registrant, administrative, technical, billing, or reseller) published in the domain's WHOIS record.
+    """
+
+    billing_contact: typing.Optional[DomainWhoisLookupV2ResponseBillingContact] = pydantic.Field(default=None)
+    """
+    A contact record (registrant, administrative, technical, billing, or reseller) published in the domain's WHOIS record.
+    """
+
+    abuse_contact: typing.Optional[DomainWhoisLookupV2ResponseAbuseContact] = pydantic.Field(default=None)
+    """
+    Registrar's abuse-reporting contact.
+    """
+
+    eligibility_info: typing.Optional[DomainWhoisLookupV2ResponseEligibilityInfo] = pydantic.Field(default=None)
+    """
+    Domain eligibility information (populated for TLDs with registrant eligibility requirements, e.g. .eu).
+    """
+
+    name_servers: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
+    """
+    Name servers currently recorded for the domain.
+    """
+
+    domain_status: typing.Optional[typing.List[str]] = pydantic.Field(default=None)
+    """
+    EPP domain status codes currently recorded for the domain.
+    """
+
+    whois_raw_domain: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Raw WHOIS text as returned by the registrar's WHOIS server.
+    """
+
+    registry_data: typing.Optional[DomainWhoisLookupV2ResponseRegistryData] = pydantic.Field(default=None)
+    """
+    Registry-level (as opposed to registrar-level) WHOIS data, sourced directly from the TLD registry.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

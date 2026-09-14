@@ -42,6 +42,10 @@ class CurrentWeatherResponseCurrentAirQuality(UniversalBaseModel):
             description="Particulate matter with diameter less than 2.5 micrometers (μg/m³) measured at 10 meters above ground.",
         ),
     ]
+    """
+    Particulate matter with diameter less than 2.5 micrometers (μg/m³) measured at 10 meters above ground.
+    """
+
     carbon_monoxide: float = pydantic.Field()
     """
     Atmospheric carbon monoxide gas concentration (μg/m³) at 10 meters above ground.

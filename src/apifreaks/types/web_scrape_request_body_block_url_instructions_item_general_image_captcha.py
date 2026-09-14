@@ -19,6 +19,9 @@ class WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptcha(UniversalB
         FieldMetadata(alias="generalImageCaptcha"),
         pydantic.Field(alias="generalImageCaptcha", description="Instructions for solving image captchas."),
     ] = None
+    """
+    Instructions for solving image captchas.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
