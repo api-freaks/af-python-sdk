@@ -14,9 +14,9 @@ class WeatherTimeSeriesResponseHistoricalValueDaily(UniversalBaseModel):
     Daily historical data
     """
 
-    timestamp: typing.Optional[dt.datetime] = pydantic.Field(default=None)
+    timestamp: typing.Optional[dt.date] = pydantic.Field(default=None)
     """
-    ISO 8601 formatted timestamp
+    Date of this daily entry, `YYYY-MM-DD`.
     """
 
     weather_code: typing.Optional[int] = pydantic.Field(default=None)

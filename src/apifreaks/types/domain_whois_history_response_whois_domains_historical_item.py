@@ -47,9 +47,9 @@ class DomainWhoisHistoryResponseWhoisDomainsHistoricalItem(UniversalBaseModel):
     Domain name which was queried.
     """
 
-    query_time: dt.datetime = pydantic.Field()
+    query_time: str = pydantic.Field()
     """
-    The timestamp when the query was made.
+    The timestamp when the query was made (format YYYY-MM-DD HH:mm:ss, not ISO 8601).
     """
 
     whois_server: str = pydantic.Field()

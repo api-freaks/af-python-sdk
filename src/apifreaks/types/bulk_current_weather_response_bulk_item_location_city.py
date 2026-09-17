@@ -32,17 +32,17 @@ class BulkCurrentWeatherResponseBulkItemLocationCity(UniversalBaseModel):
     Specific locality, neighborhood, suburb, or village within the geocoded area.
     """
 
-    latitude: float = pydantic.Field()
+    latitude: str = pydantic.Field()
     """
     Geocoded latitude coordinate in decimal degrees, ranging from -90 to +90.
     """
 
-    longitude: float = pydantic.Field()
+    longitude: str = pydantic.Field()
     """
     Geocoded longitude coordinate in decimal degrees, ranging from -180 to +180.
     """
 
-    elevation: typing.Optional[float] = pydantic.Field(default=None)
+    elevation: typing.Optional[str] = pydantic.Field(default=None)
     """
     Elevation above mean sea level in meters at the geocoded coordinates.
     """

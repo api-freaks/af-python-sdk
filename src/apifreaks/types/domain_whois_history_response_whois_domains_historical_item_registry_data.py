@@ -15,7 +15,11 @@ from .domain_whois_history_response_whois_domains_historical_item_registry_data_
 
 class DomainWhoisHistoryResponseWhoisDomainsHistoricalItemRegistryData(UniversalBaseModel):
     domain_name: typing.Optional[str] = None
-    query_time: typing.Optional[dt.datetime] = None
+    query_time: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Timestamp when the WHOIS query was executed (format YYYY-MM-DD HH:mm:ss, not ISO 8601).
+    """
+
     whois_server: typing.Optional[str] = None
     domain_registered: typing.Optional[
         DomainWhoisHistoryResponseWhoisDomainsHistoricalItemRegistryDataDomainRegistered

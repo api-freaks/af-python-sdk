@@ -35,7 +35,11 @@ class DomainWhoisReverseResponseWhoisDomainsHistoricalItemAdministrativeContact(
     num: int
     status: bool
     domain_name: str
-    query_time: dt.datetime
+    query_time: str = pydantic.Field()
+    """
+    Timestamp when the WHOIS query was executed (format YYYY-MM-DD HH:mm:ss, not ISO 8601).
+    """
+
     whois_server: str
     domain_registered: DomainWhoisReverseResponseWhoisDomainsHistoricalItemAdministrativeContactDomainRegistered
     create_date: typing.Optional[dt.date] = None

@@ -6,20 +6,26 @@ import pydantic
 import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
-from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier_user_notice_notice_ref import (
-    DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef,
+from .domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier_user_notice_notice_ref import (
+    DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNoticeNoticeRef,
 )
 
 
-class DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNotice(
+class DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNotice(
     UniversalBaseModel
 ):
     explicit_text: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="explicitText"), pydantic.Field(alias="explicitText")
+        typing.Optional[str],
+        FieldMetadata(alias="explicitText"),
+        pydantic.Field(alias="explicitText", description="Explicit text notice"),
     ] = None
+    """
+    Explicit text notice
+    """
+
     notice_ref: typing_extensions.Annotated[
         typing.Optional[
-            DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef
+            DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNoticeNoticeRef
         ],
         FieldMetadata(alias="noticeRef"),
         pydantic.Field(alias="noticeRef"),

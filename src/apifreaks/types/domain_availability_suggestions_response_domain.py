@@ -8,12 +8,14 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef(
-    UniversalBaseModel
-):
-    organization: typing.Optional[str] = None
-    notice_numbers: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="noticeNumbers"), pydantic.Field(alias="noticeNumbers")
+class DomainAvailabilitySuggestionsResponseDomain(UniversalBaseModel):
+    """
+    Returned when `sug=false` — availability for the queried domain only, no suggestions.
+    """
+
+    domain: typing.Optional[str] = None
+    domain_availability: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="domainAvailability"), pydantic.Field(alias="domainAvailability")
     ] = None
 
     if IS_PYDANTIC_V2:

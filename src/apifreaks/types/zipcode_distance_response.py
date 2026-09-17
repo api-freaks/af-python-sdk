@@ -8,9 +8,9 @@ from .zipcode_distance_response_results_item import ZipcodeDistanceResponseResul
 
 
 class ZipcodeDistanceResponse(UniversalBaseModel):
-    results_count: typing.Optional[str] = pydantic.Field(default=None)
+    result_count: typing.Optional[int] = pydantic.Field(default=None)
     """
-    Number of distance results returned
+    Number of distance results returned (may be less than the number of requested compare codes).
     """
 
     results: typing.Optional[typing.List[ZipcodeDistanceResponseResultsItem]] = None

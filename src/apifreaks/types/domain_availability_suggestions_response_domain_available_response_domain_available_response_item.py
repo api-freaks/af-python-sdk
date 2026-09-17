@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DomainAvailabilitySuggestionsResponseDomainAvailableResponseItem(UniversalBaseModel):
+class DomainAvailabilitySuggestionsResponseDomainAvailableResponseDomainAvailableResponseItem(UniversalBaseModel):
     domain: typing.Optional[str] = None
     domain_availability: typing_extensions.Annotated[
         typing.Optional[bool], FieldMetadata(alias="domainAvailability"), pydantic.Field(alias="domainAvailability")

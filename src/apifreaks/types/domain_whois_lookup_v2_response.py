@@ -37,7 +37,7 @@ class DomainWhoisLookupV2Response(UniversalBaseModel):
     Timestamp when the WHOIS query was executed.
     """
 
-    whois_server: str = pydantic.Field()
+    whois_server: typing.Optional[str] = pydantic.Field(default=None)
     """
     WHOIS or RDAP server that provided this record.
     """
