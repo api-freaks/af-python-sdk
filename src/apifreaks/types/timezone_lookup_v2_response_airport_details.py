@@ -21,12 +21,12 @@ class TimezoneLookupV2ResponseAirportDetails(UniversalBaseModel):
     The full name of the airport.
     """
 
-    latitude: typing.Optional[float] = pydantic.Field(default=None)
+    latitude: typing.Optional[str] = pydantic.Field(default=None)
     """
     The latitude coordinate of the airport.
     """
 
-    longitude: typing.Optional[float] = pydantic.Field(default=None)
+    longitude: typing.Optional[str] = pydantic.Field(default=None)
     """
     The longitude coordinate of the airport.
     """

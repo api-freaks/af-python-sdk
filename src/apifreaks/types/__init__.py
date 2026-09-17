@@ -411,8 +411,12 @@ if typing.TYPE_CHECKING:
     from .domain_availability_suggestions_request_format import DomainAvailabilitySuggestionsRequestFormat
     from .domain_availability_suggestions_request_source import DomainAvailabilitySuggestionsRequestSource
     from .domain_availability_suggestions_response import DomainAvailabilitySuggestionsResponse
-    from .domain_availability_suggestions_response_domain_available_response_item import (
-        DomainAvailabilitySuggestionsResponseDomainAvailableResponseItem,
+    from .domain_availability_suggestions_response_domain import DomainAvailabilitySuggestionsResponseDomain
+    from .domain_availability_suggestions_response_domain_available_response import (
+        DomainAvailabilitySuggestionsResponseDomainAvailableResponse,
+    )
+    from .domain_availability_suggestions_response_domain_available_response_domain_available_response_item import (
+        DomainAvailabilitySuggestionsResponseDomainAvailableResponseDomainAvailableResponseItem,
     )
     from .domain_dns_history_request_format import DomainDnsHistoryRequestFormat
     from .domain_dns_history_response import DomainDnsHistoryResponse
@@ -607,17 +611,17 @@ if typing.TYPE_CHECKING:
     from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_authority_info_access import (
         DomainSslChainLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess,
     )
-    from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies import (
-        DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePolicies,
+    from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_item import (
+        DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItem,
     )
-    from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier import (
-        DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifier,
+    from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier import (
+        DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifier,
     )
-    from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier_user_notice import (
-        DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNotice,
+    from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier_user_notice import (
+        DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNotice,
     )
-    from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier_user_notice_notice_ref import (
-        DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef,
+    from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier_user_notice_notice_ref import (
+        DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNoticeNoticeRef,
     )
     from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_subject_alternative_names import (
         DomainSslChainLookupResponseSslCertificatesItemExtensionsSubjectAlternativeNames,
@@ -640,17 +644,17 @@ if typing.TYPE_CHECKING:
     from .domain_ssl_lookup_response_ssl_certificates_item_extensions_authority_info_access import (
         DomainSslLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess,
     )
-    from .domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies import (
-        DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePolicies,
+    from .domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_item import (
+        DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItem,
     )
-    from .domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier import (
-        DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifier,
+    from .domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier import (
+        DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifier,
     )
-    from .domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier_user_notice import (
-        DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNotice,
+    from .domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier_user_notice import (
+        DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNotice,
     )
-    from .domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier_user_notice_notice_ref import (
-        DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef,
+    from .domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier_user_notice_notice_ref import (
+        DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNoticeNoticeRef,
     )
     from .domain_ssl_lookup_response_ssl_certificates_item_extensions_subject_alternative_names import (
         DomainSslLookupResponseSslCertificatesItemExtensionsSubjectAlternativeNames,
@@ -1483,7 +1487,9 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DomainAvailabilitySuggestionsRequestFormat": ".domain_availability_suggestions_request_format",
     "DomainAvailabilitySuggestionsRequestSource": ".domain_availability_suggestions_request_source",
     "DomainAvailabilitySuggestionsResponse": ".domain_availability_suggestions_response",
-    "DomainAvailabilitySuggestionsResponseDomainAvailableResponseItem": ".domain_availability_suggestions_response_domain_available_response_item",
+    "DomainAvailabilitySuggestionsResponseDomain": ".domain_availability_suggestions_response_domain",
+    "DomainAvailabilitySuggestionsResponseDomainAvailableResponse": ".domain_availability_suggestions_response_domain_available_response",
+    "DomainAvailabilitySuggestionsResponseDomainAvailableResponseDomainAvailableResponseItem": ".domain_availability_suggestions_response_domain_available_response_domain_available_response_item",
     "DomainDnsHistoryRequestFormat": ".domain_dns_history_request_format",
     "DomainDnsHistoryResponse": ".domain_dns_history_response",
     "DomainDnsHistoryResponseHistoricalDnsRecordsItem": ".domain_dns_history_response_historical_dns_records_item",
@@ -1571,10 +1577,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DomainSslChainLookupResponseSslCertificatesItem": ".domain_ssl_chain_lookup_response_ssl_certificates_item",
     "DomainSslChainLookupResponseSslCertificatesItemExtensions": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions",
     "DomainSslChainLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_authority_info_access",
-    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePolicies": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies",
-    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifier": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier",
-    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNotice": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier_user_notice",
-    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier_user_notice_notice_ref",
+    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItem": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_item",
+    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifier": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier",
+    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNotice": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier_user_notice",
+    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNoticeNoticeRef": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier_user_notice_notice_ref",
     "DomainSslChainLookupResponseSslCertificatesItemExtensionsSubjectAlternativeNames": ".domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_subject_alternative_names",
     "DomainSslChainLookupResponseSslCertificatesItemIssuer": ".domain_ssl_chain_lookup_response_ssl_certificates_item_issuer",
     "DomainSslChainLookupResponseSslCertificatesItemPublicKey": ".domain_ssl_chain_lookup_response_ssl_certificates_item_public_key",
@@ -1584,10 +1590,10 @@ _dynamic_imports: typing.Dict[str, str] = {
     "DomainSslLookupResponseSslCertificatesItem": ".domain_ssl_lookup_response_ssl_certificates_item",
     "DomainSslLookupResponseSslCertificatesItemExtensions": ".domain_ssl_lookup_response_ssl_certificates_item_extensions",
     "DomainSslLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_authority_info_access",
-    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePolicies": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies",
-    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifier": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier",
-    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNotice": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier_user_notice",
-    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_policy_qualifier_user_notice_notice_ref",
+    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItem": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_item",
+    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifier": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier",
+    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNotice": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier_user_notice",
+    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNoticeNoticeRef": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_certificate_policies_item_policy_qualifier_user_notice_notice_ref",
     "DomainSslLookupResponseSslCertificatesItemExtensionsSubjectAlternativeNames": ".domain_ssl_lookup_response_ssl_certificates_item_extensions_subject_alternative_names",
     "DomainSslLookupResponseSslCertificatesItemIssuer": ".domain_ssl_lookup_response_ssl_certificates_item_issuer",
     "DomainSslLookupResponseSslCertificatesItemPublicKey": ".domain_ssl_lookup_response_ssl_certificates_item_public_key",
@@ -2287,7 +2293,9 @@ __all__ = [
     "DomainAvailabilitySuggestionsRequestFormat",
     "DomainAvailabilitySuggestionsRequestSource",
     "DomainAvailabilitySuggestionsResponse",
-    "DomainAvailabilitySuggestionsResponseDomainAvailableResponseItem",
+    "DomainAvailabilitySuggestionsResponseDomain",
+    "DomainAvailabilitySuggestionsResponseDomainAvailableResponse",
+    "DomainAvailabilitySuggestionsResponseDomainAvailableResponseDomainAvailableResponseItem",
     "DomainDnsHistoryRequestFormat",
     "DomainDnsHistoryResponse",
     "DomainDnsHistoryResponseHistoricalDnsRecordsItem",
@@ -2375,10 +2383,10 @@ __all__ = [
     "DomainSslChainLookupResponseSslCertificatesItem",
     "DomainSslChainLookupResponseSslCertificatesItemExtensions",
     "DomainSslChainLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess",
-    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePolicies",
-    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifier",
-    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNotice",
-    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef",
+    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItem",
+    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifier",
+    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNotice",
+    "DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNoticeNoticeRef",
     "DomainSslChainLookupResponseSslCertificatesItemExtensionsSubjectAlternativeNames",
     "DomainSslChainLookupResponseSslCertificatesItemIssuer",
     "DomainSslChainLookupResponseSslCertificatesItemPublicKey",
@@ -2388,10 +2396,10 @@ __all__ = [
     "DomainSslLookupResponseSslCertificatesItem",
     "DomainSslLookupResponseSslCertificatesItemExtensions",
     "DomainSslLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess",
-    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePolicies",
-    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifier",
-    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNotice",
-    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef",
+    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItem",
+    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifier",
+    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNotice",
+    "DomainSslLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNoticeNoticeRef",
     "DomainSslLookupResponseSslCertificatesItemExtensionsSubjectAlternativeNames",
     "DomainSslLookupResponseSslCertificatesItemIssuer",
     "DomainSslLookupResponseSslCertificatesItemPublicKey",

@@ -23,9 +23,9 @@ class DomainWhoisLookupV2ResponseRegistryData(UniversalBaseModel):
     Domain name as recorded by the registry.
     """
 
-    query_time: typing.Optional[dt.datetime] = pydantic.Field(default=None)
+    query_time: typing.Optional[str] = pydantic.Field(default=None)
     """
-    Timestamp when the registry-level record was queried.
+    Timestamp when the registry-level record was queried (format YYYY-MM-DD HH:mm:ss, not ISO 8601).
     """
 
     whois_server: typing.Optional[str] = pydantic.Field(default=None)

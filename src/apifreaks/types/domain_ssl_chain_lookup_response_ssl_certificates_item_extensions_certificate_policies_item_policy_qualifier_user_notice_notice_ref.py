@@ -8,13 +8,22 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 from ..core.serialization import FieldMetadata
 
 
-class DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesPolicyQualifierUserNoticeNoticeRef(
+class DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItemPolicyQualifierUserNoticeNoticeRef(
     UniversalBaseModel
 ):
-    organization: typing.Optional[str] = None
+    organization: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Organization providing the notice
+    """
+
     notice_numbers: typing_extensions.Annotated[
-        typing.Optional[str], FieldMetadata(alias="noticeNumbers"), pydantic.Field(alias="noticeNumbers")
+        typing.Optional[str],
+        FieldMetadata(alias="noticeNumbers"),
+        pydantic.Field(alias="noticeNumbers", description="Notice numbers"),
     ] = None
+    """
+    Notice numbers
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

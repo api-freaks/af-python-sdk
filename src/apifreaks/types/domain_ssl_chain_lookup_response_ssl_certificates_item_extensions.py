@@ -9,8 +9,8 @@ from ..core.serialization import FieldMetadata
 from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_authority_info_access import (
     DomainSslChainLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess,
 )
-from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies import (
-    DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePolicies,
+from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_certificate_policies_item import (
+    DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItem,
 )
 from .domain_ssl_chain_lookup_response_ssl_certificates_item_extensions_subject_alternative_names import (
     DomainSslChainLookupResponseSslCertificatesItemExtensionsSubjectAlternativeNames,
@@ -28,28 +28,30 @@ class DomainSslChainLookupResponseSslCertificatesItemExtensions(UniversalBaseMod
         typing.List[str], FieldMetadata(alias="keyUsages"), pydantic.Field(alias="keyUsages")
     ]
     extended_key_usages: typing_extensions.Annotated[
-        typing.List[str], FieldMetadata(alias="extendedKeyUsages"), pydantic.Field(alias="extendedKeyUsages")
-    ]
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="extendedKeyUsages"),
+        pydantic.Field(alias="extendedKeyUsages"),
+    ] = None
     crl_distribution_points: typing_extensions.Annotated[
         typing.Optional[typing.List[str]],
         FieldMetadata(alias="crlDistributionPoints"),
         pydantic.Field(alias="crlDistributionPoints"),
     ] = None
     authority_info_access: typing_extensions.Annotated[
-        DomainSslChainLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess,
+        typing.Optional[DomainSslChainLookupResponseSslCertificatesItemExtensionsAuthorityInfoAccess],
         FieldMetadata(alias="authorityInfoAccess"),
         pydantic.Field(alias="authorityInfoAccess"),
-    ]
+    ] = None
     subject_alternative_names: typing_extensions.Annotated[
         typing.Optional[DomainSslChainLookupResponseSslCertificatesItemExtensionsSubjectAlternativeNames],
         FieldMetadata(alias="subjectAlternativeNames"),
         pydantic.Field(alias="subjectAlternativeNames"),
     ] = None
     certificate_policies: typing_extensions.Annotated[
-        DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePolicies,
+        typing.Optional[typing.List[DomainSslChainLookupResponseSslCertificatesItemExtensionsCertificatePoliciesItem]],
         FieldMetadata(alias="certificatePolicies"),
         pydantic.Field(alias="certificatePolicies"),
-    ]
+    ] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

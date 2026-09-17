@@ -15,7 +15,11 @@ from .bulk_domain_whois_lookup_response_bulk_whois_response_item_registry_data_d
 
 class BulkDomainWhoisLookupResponseBulkWhoisResponseItemRegistryData(UniversalBaseModel):
     domain_name: typing.Optional[str] = None
-    query_time: typing.Optional[dt.datetime] = None
+    query_time: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Timestamp when the WHOIS query was executed (format YYYY-MM-DD HH:mm:ss, not ISO 8601).
+    """
+
     whois_server: typing.Optional[str] = None
     domain_registered: typing.Optional[
         BulkDomainWhoisLookupResponseBulkWhoisResponseItemRegistryDataDomainRegistered

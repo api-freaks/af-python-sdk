@@ -67,12 +67,12 @@ class WeatherForecastResponseLocationContinentCode(UniversalBaseModel):
     Postal code or ZIP code for the approximate location of the IP address.
     """
 
-    latitude: float = pydantic.Field()
+    latitude: str = pydantic.Field()
     """
     Geographic latitude in decimal degrees for the IP geolocation, ranging from -90 to +90.
     """
 
-    longitude: float = pydantic.Field()
+    longitude: str = pydantic.Field()
     """
     Geographic longitude in decimal degrees for the IP geolocation, ranging from -180 to +180.
     """
@@ -82,7 +82,7 @@ class WeatherForecastResponseLocationContinentCode(UniversalBaseModel):
     Specific locality, neighborhood, or small area designation within the city.
     """
 
-    elevation: typing.Optional[float] = pydantic.Field(default=None)
+    elevation: typing.Optional[str] = pydantic.Field(default=None)
     """
     Elevation above mean sea level in meters for the IP geolocation.
     """

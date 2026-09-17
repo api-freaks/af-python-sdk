@@ -41,12 +41,12 @@ class TimezoneLookupV2ResponseLoCodeDetails(UniversalBaseModel):
     The type of location as comma-separated list of facilities (e.g., Port, Rail Terminal, Road Terminal, Airport).
     """
 
-    latitude: typing.Optional[float] = pydantic.Field(default=None)
+    latitude: typing.Optional[str] = pydantic.Field(default=None)
     """
     The latitude coordinate of the location.
     """
 
-    longitude: typing.Optional[float] = pydantic.Field(default=None)
+    longitude: typing.Optional[str] = pydantic.Field(default=None)
     """
     The longitude coordinate of the location.
     """

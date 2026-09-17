@@ -17,8 +17,8 @@ class BulkScreenshotCaptureResponseResultsItemUrl(UniversalBaseModel):
     omit_background: typing.Optional[bool] = None
     destroy_screenshot: typing.Optional[bool] = None
     fail_on_error: typing.Optional[bool] = None
-    longitude: typing.Optional[float] = None
-    latitude: typing.Optional[float] = None
+    longitude: typing.Optional[str] = None
+    latitude: typing.Optional[str] = None
     proxy: typing.Optional[str] = None
     no_cookie_banners: typing.Optional[bool] = None
     block_ads: typing.Optional[bool] = None

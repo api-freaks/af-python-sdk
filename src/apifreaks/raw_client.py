@@ -2883,6 +2883,7 @@ class RawApifreaksApi:
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainDnsLookupRequestFormat] = None,
         type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        ip_addresses: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[BulkDomainDnsLookupResponse]:
         """
@@ -2904,6 +2905,9 @@ class RawApifreaksApi:
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
+        ip_addresses : typing.Optional[typing.Sequence[str]]
+            Array of IP addresses to include in the lookup for PTR record enrichment.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -2922,6 +2926,7 @@ class RawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
+                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -5298,6 +5303,7 @@ class RawApifreaksApi:
         format: typing.Optional[DomainAvailabilitySuggestionsRequestFormat] = None,
         source: typing.Optional[DomainAvailabilitySuggestionsRequestSource] = None,
         count: typing.Optional[int] = None,
+        sug: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[DomainAvailabilitySuggestionsResponse]:
         """
@@ -5318,7 +5324,10 @@ class RawApifreaksApi:
             Specify the data source for domain availability checks. Use "dns" for DNS-based lookups or "whois" for WHOIS-based lookups. By default, "dns" is used.
 
         count : typing.Optional[int]
-            Number of suggestions to retrieve.
+            Number of suggestions to retrieve. The API returns a minimum of 5 suggestions regardless of a lower value.
+
+        sug : typing.Optional[bool]
+            Controls the response shape. When `false`, returns a single availability object for the queried domain only. When omitted or `true`, returns an array of suggested domains instead.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -5337,6 +5346,7 @@ class RawApifreaksApi:
                 "domain": domain,
                 "source": source,
                 "count": count,
+                "sug": sug,
             },
             request_options=request_options,
         )
@@ -5407,6 +5417,17 @@ class RawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -23654,6 +23675,7 @@ class RawApifreaksApi:
         self,
         *,
         api_key: str,
+        user_agent: str,
         format: typing.Optional[UserAgentLookupRequestFormat] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[UserAgentLookupResponse]:
@@ -23682,6 +23704,9 @@ class RawApifreaksApi:
             params={
                 "apiKey": api_key,
                 "format": format,
+            },
+            headers={
+                "User-Agent": str(user_agent),
             },
             request_options=request_options,
         )
@@ -23834,7 +23859,7 @@ class RawApifreaksApi:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> HttpResponse[typing.List[BulkUserAgentLookupResponseItem]]:
         """
-        Parse up to `50,000 User-Agent strings` at once in a single request.
+        Parse up to `100 User-Agent strings` at once in a single request; exceeding that returns a 413, not a 400.
 
         Parameters
         ----------
@@ -23842,7 +23867,7 @@ class RawApifreaksApi:
             Your API key
 
         ua_strings : typing.Sequence[str]
-            List of user agent strings to parse
+            Array of User-Agent strings to parse. Maximum 100 strings per request — exceeding that returns a 413.
 
         format : typing.Optional[BulkUserAgentLookupRequestFormat]
             Format of the response
@@ -27717,6 +27742,7 @@ class AsyncRawApifreaksApi:
         domain_names: typing.Sequence[str],
         format: typing.Optional[BulkDomainDnsLookupRequestFormat] = None,
         type: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        ip_addresses: typing.Optional[typing.Sequence[str]] = OMIT,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[BulkDomainDnsLookupResponse]:
         """
@@ -27738,6 +27764,9 @@ class AsyncRawApifreaksApi:
             A comma-separated list of DNS record types for lookup.
             Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 
+        ip_addresses : typing.Optional[typing.Sequence[str]]
+            Array of IP addresses to include in the lookup for PTR record enrichment.
+
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
 
@@ -27756,6 +27785,7 @@ class AsyncRawApifreaksApi:
             },
             json={
                 "domainNames": domain_names,
+                "ipAddresses": ip_addresses,
             },
             headers={
                 "content-type": "application/json",
@@ -30132,6 +30162,7 @@ class AsyncRawApifreaksApi:
         format: typing.Optional[DomainAvailabilitySuggestionsRequestFormat] = None,
         source: typing.Optional[DomainAvailabilitySuggestionsRequestSource] = None,
         count: typing.Optional[int] = None,
+        sug: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[DomainAvailabilitySuggestionsResponse]:
         """
@@ -30152,7 +30183,10 @@ class AsyncRawApifreaksApi:
             Specify the data source for domain availability checks. Use "dns" for DNS-based lookups or "whois" for WHOIS-based lookups. By default, "dns" is used.
 
         count : typing.Optional[int]
-            Number of suggestions to retrieve.
+            Number of suggestions to retrieve. The API returns a minimum of 5 suggestions regardless of a lower value.
+
+        sug : typing.Optional[bool]
+            Controls the response shape. When `false`, returns a single availability object for the queried domain only. When omitted or `true`, returns an array of suggested domains instead.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -30171,6 +30205,7 @@ class AsyncRawApifreaksApi:
                 "domain": domain,
                 "source": source,
                 "count": count,
+                "sug": sug,
             },
             request_options=request_options,
         )
@@ -30241,6 +30276,17 @@ class AsyncRawApifreaksApi:
                 )
             if _response.status_code == 406:
                 raise NotAcceptableError(
+                    headers=dict(_response.headers),
+                    body=typing.cast(
+                        typing.Any,
+                        parse_obj_as(
+                            type_=typing.Any,  # type: ignore
+                            object_=_response.json(),
+                        ),
+                    ),
+                )
+            if _response.status_code == 408:
+                raise RequestTimeoutError(
                     headers=dict(_response.headers),
                     body=typing.cast(
                         typing.Any,
@@ -48491,6 +48537,7 @@ class AsyncRawApifreaksApi:
         self,
         *,
         api_key: str,
+        user_agent: str,
         format: typing.Optional[UserAgentLookupRequestFormat] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[UserAgentLookupResponse]:
@@ -48519,6 +48566,9 @@ class AsyncRawApifreaksApi:
             params={
                 "apiKey": api_key,
                 "format": format,
+            },
+            headers={
+                "User-Agent": str(user_agent),
             },
             request_options=request_options,
         )
@@ -48671,7 +48721,7 @@ class AsyncRawApifreaksApi:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> AsyncHttpResponse[typing.List[BulkUserAgentLookupResponseItem]]:
         """
-        Parse up to `50,000 User-Agent strings` at once in a single request.
+        Parse up to `100 User-Agent strings` at once in a single request; exceeding that returns a 413, not a 400.
 
         Parameters
         ----------
@@ -48679,7 +48729,7 @@ class AsyncRawApifreaksApi:
             Your API key
 
         ua_strings : typing.Sequence[str]
-            List of user agent strings to parse
+            Array of User-Agent strings to parse. Maximum 100 strings per request — exceeding that returns a 413.
 
         format : typing.Optional[BulkUserAgentLookupRequestFormat]
             Format of the response

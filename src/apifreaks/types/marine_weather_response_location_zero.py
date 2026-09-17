@@ -7,12 +7,12 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 
 class MarineWeatherResponseLocationZero(UniversalBaseModel):
-    latitude: float = pydantic.Field()
+    latitude: str = pydantic.Field()
     """
     Geographic latitude coordinate in decimal degrees, ranging from -90 (South Pole) to +90 (North Pole).
     """
 
-    longitude: float = pydantic.Field()
+    longitude: str = pydantic.Field()
     """
     Geographic longitude coordinate in decimal degrees, ranging from -180 (West) to +180 (East).
     """
@@ -37,7 +37,7 @@ class MarineWeatherResponseLocationZero(UniversalBaseModel):
     Specific locality, neighborhood, district, or village name within the broader area.
     """
 
-    elevation: typing.Optional[float] = pydantic.Field(default=None)
+    elevation: typing.Optional[str] = pydantic.Field(default=None)
     """
     Height above mean sea level in meters for the specified coordinates.
     """
