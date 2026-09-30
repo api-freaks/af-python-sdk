@@ -8002,7 +8002,7 @@ class ApifreaksApi:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> typing.List[BulkUserAgentLookupResponseItem]:
         """
-        Parse up to `100 User-Agent strings` at once in a single request; exceeding that returns a 413, not a 400.
+        Parse up to `20000 User-Agent strings` at once in a single request; exceeding that returns a 413, not a 400.
 
         Parameters
         ----------
@@ -8010,7 +8010,7 @@ class ApifreaksApi:
             Your API key
 
         ua_strings : typing.Sequence[str]
-            Array of User-Agent strings to parse. Maximum 100 strings per request — exceeding that returns a 413.
+            Array of User-Agent strings to parse. Maximum 20000 strings per request — exceeding that returns a 413.
 
         format : typing.Optional[BulkUserAgentLookupRequestFormat]
             Format of the response
@@ -16985,7 +16985,7 @@ class AsyncApifreaksApi:
         request_options: typing.Optional[RequestOptions] = None,
     ) -> typing.List[BulkUserAgentLookupResponseItem]:
         """
-        Parse up to `100 User-Agent strings` at once in a single request; exceeding that returns a 413, not a 400.
+        Parse up to `20000 User-Agent strings` at once in a single request; exceeding that returns a 413, not a 400.
 
         Parameters
         ----------
@@ -16993,7 +16993,7 @@ class AsyncApifreaksApi:
             Your API key
 
         ua_strings : typing.Sequence[str]
-            Array of User-Agent strings to parse. Maximum 100 strings per request — exceeding that returns a 413.
+            Array of User-Agent strings to parse. Maximum 20000 strings per request — exceeding that returns a 413.
 
         format : typing.Optional[BulkUserAgentLookupRequestFormat]
             Format of the response
