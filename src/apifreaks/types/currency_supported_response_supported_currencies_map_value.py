@@ -16,14 +16,32 @@ class CurrencySupportedResponseSupportedCurrenciesMapValue(UniversalBaseModel):
         str, FieldMetadata(alias="currencyCode"), pydantic.Field(alias="currencyCode")
     ]
     currency_name: typing_extensions.Annotated[
-        str, FieldMetadata(alias="currencyName"), pydantic.Field(alias="currencyName")
-    ]
+        typing.Optional[str],
+        FieldMetadata(alias="currencyName"),
+        pydantic.Field(alias="currencyName", description="Currency name; null for some entries (e.g. crypto tokens)."),
+    ] = None
+    """
+    Currency name; null for some entries (e.g. crypto tokens).
+    """
+
     country_code: typing_extensions.Annotated[
-        str, FieldMetadata(alias="countryCode"), pydantic.Field(alias="countryCode")
-    ]
+        typing.Optional[str],
+        FieldMetadata(alias="countryCode"),
+        pydantic.Field(alias="countryCode", description="Country code; null for currencies not tied to a country."),
+    ] = None
+    """
+    Country code; null for currencies not tied to a country.
+    """
+
     country_name: typing_extensions.Annotated[
-        str, FieldMetadata(alias="countryName"), pydantic.Field(alias="countryName")
-    ]
+        typing.Optional[str],
+        FieldMetadata(alias="countryName"),
+        pydantic.Field(alias="countryName", description="Country name; null for currencies not tied to a country."),
+    ] = None
+    """
+    Country name; null for currencies not tied to a country.
+    """
+
     status: CurrencySupportedResponseSupportedCurrenciesMapValueStatus
     available_from: typing_extensions.Annotated[
         str, FieldMetadata(alias="availableFrom"), pydantic.Field(alias="availableFrom")

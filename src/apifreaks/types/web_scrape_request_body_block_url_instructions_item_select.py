@@ -4,13 +4,22 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from .web_scrape_request_body_block_url_instructions_item_select_select import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemSelectSelect,
-)
 
 
 class WebScrapeRequestBodyBlockUrlInstructionsItemSelect(UniversalBaseModel):
-    select: typing.Optional[WebScrapeRequestBodyBlockUrlInstructionsItemSelectSelect] = None
+    """
+    A selector/value pair used by fill, select, and clickButtonByValue instructions.
+    """
+
+    place: str = pydantic.Field()
+    """
+    CSS or XPath selector identifying the target element.
+    """
+
+    value: str = pydantic.Field()
+    """
+    Value to fill, select, or match against.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -11,8 +11,8 @@ from .domain_dns_lookup_response_dns_records_item_strings import DomainDnsLookup
 
 DomainDnsLookupResponseDnsRecordsItem = typing.Union[
     DomainDnsLookupResponseDnsRecordsItemAddress,
-    DomainDnsLookupResponseDnsRecordsItemOne,
     DomainDnsLookupResponseDnsRecordsItemPriority,
+    DomainDnsLookupResponseDnsRecordsItemOne,
     DomainDnsLookupResponseDnsRecordsItemSingleName,
     DomainDnsLookupResponseDnsRecordsItemAdmin,
     DomainDnsLookupResponseDnsRecordsItemStrings,

@@ -2,82 +2,232 @@
 
 import typing
 
-from .web_scrape_request_body_block_url_instructions_item_block_element import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemBlockElement,
-)
-from .web_scrape_request_body_block_url_instructions_item_click import WebScrapeRequestBodyBlockUrlInstructionsItemClick
+import pydantic
+import typing_extensions
+from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 from .web_scrape_request_body_block_url_instructions_item_click_button_by_value import (
     WebScrapeRequestBodyBlockUrlInstructionsItemClickButtonByValue,
 )
-from .web_scrape_request_body_block_url_instructions_item_click_if_exist import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemClickIfExist,
-)
-from .web_scrape_request_body_block_url_instructions_item_conditional_check import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemConditionalCheck,
-)
-from .web_scrape_request_body_block_url_instructions_item_enter import WebScrapeRequestBodyBlockUrlInstructionsItemEnter
-from .web_scrape_request_body_block_url_instructions_item_extract import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemExtract,
-)
 from .web_scrape_request_body_block_url_instructions_item_fill import WebScrapeRequestBodyBlockUrlInstructionsItemFill
-from .web_scrape_request_body_block_url_instructions_item_fill_image_captcha import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemFillImageCaptcha,
+from .web_scrape_request_body_block_url_instructions_item_fill_image_captcha_item import (
+    WebScrapeRequestBodyBlockUrlInstructionsItemFillImageCaptchaItem,
 )
-from .web_scrape_request_body_block_url_instructions_item_general_image_captcha import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptcha,
-)
-from .web_scrape_request_body_block_url_instructions_item_js_exe import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemJsExe,
-)
-from .web_scrape_request_body_block_url_instructions_item_move_to_relative_tab import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemMoveToRelativeTab,
-)
-from .web_scrape_request_body_block_url_instructions_item_new_tab import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemNewTab,
+from .web_scrape_request_body_block_url_instructions_item_general_image_captcha_item import (
+    WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptchaItem,
 )
 from .web_scrape_request_body_block_url_instructions_item_resolve_audio_captcha import (
     WebScrapeRequestBodyBlockUrlInstructionsItemResolveAudioCaptcha,
 )
-from .web_scrape_request_body_block_url_instructions_item_saveimage import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemSaveimage,
-)
-from .web_scrape_request_body_block_url_instructions_item_screenshot import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemScreenshot,
-)
 from .web_scrape_request_body_block_url_instructions_item_select import (
     WebScrapeRequestBodyBlockUrlInstructionsItemSelect,
 )
-from .web_scrape_request_body_block_url_instructions_item_switch_to_iframe import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemSwitchToIframe,
-)
-from .web_scrape_request_body_block_url_instructions_item_switch_to_parent_frame import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemSwitchToParentFrame,
-)
-from .web_scrape_request_body_block_url_instructions_item_wait import WebScrapeRequestBodyBlockUrlInstructionsItemWait
-from .web_scrape_request_body_block_url_instructions_item_wait_for import (
-    WebScrapeRequestBodyBlockUrlInstructionsItemWaitFor,
-)
 
-WebScrapeRequestBodyBlockUrlInstructionsItem = typing.Union[
-    WebScrapeRequestBodyBlockUrlInstructionsItemFill,
-    WebScrapeRequestBodyBlockUrlInstructionsItemClick,
-    WebScrapeRequestBodyBlockUrlInstructionsItemClickIfExist,
-    WebScrapeRequestBodyBlockUrlInstructionsItemEnter,
-    WebScrapeRequestBodyBlockUrlInstructionsItemNewTab,
-    WebScrapeRequestBodyBlockUrlInstructionsItemMoveToRelativeTab,
-    WebScrapeRequestBodyBlockUrlInstructionsItemWait,
-    WebScrapeRequestBodyBlockUrlInstructionsItemWaitFor,
-    WebScrapeRequestBodyBlockUrlInstructionsItemSelect,
-    WebScrapeRequestBodyBlockUrlInstructionsItemJsExe,
-    WebScrapeRequestBodyBlockUrlInstructionsItemConditionalCheck,
-    WebScrapeRequestBodyBlockUrlInstructionsItemClickButtonByValue,
-    WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptcha,
-    WebScrapeRequestBodyBlockUrlInstructionsItemBlockElement,
-    WebScrapeRequestBodyBlockUrlInstructionsItemExtract,
-    WebScrapeRequestBodyBlockUrlInstructionsItemFillImageCaptcha,
-    WebScrapeRequestBodyBlockUrlInstructionsItemSwitchToIframe,
-    WebScrapeRequestBodyBlockUrlInstructionsItemSwitchToParentFrame,
-    WebScrapeRequestBodyBlockUrlInstructionsItemResolveAudioCaptcha,
-    WebScrapeRequestBodyBlockUrlInstructionsItemScreenshot,
-    WebScrapeRequestBodyBlockUrlInstructionsItemSaveimage,
-]
+
+class WebScrapeRequestBodyBlockUrlInstructionsItem(UniversalBaseModel):
+    """
+    A single browser scraping step. Exactly one of these action fields is set per instruction; every other field is absent.
+    """
+
+    fill: typing.Optional[WebScrapeRequestBodyBlockUrlInstructionsItemFill] = pydantic.Field(default=None)
+    """
+    A selector/value pair used by fill, select, and clickButtonByValue instructions.
+    """
+
+    click: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Click action: CSS selector or XPath identifying the element to click.
+    """
+
+    click_if_exist: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="clickIfExist"),
+        pydantic.Field(
+            alias="clickIfExist",
+            description="Click if exists action: CSS selector or XPath identifying the element to click, only if it appears on the page within a short timeout.",
+        ),
+    ] = None
+    """
+    Click if exists action: CSS selector or XPath identifying the element to click, only if it appears on the page within a short timeout.
+    """
+
+    enter: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Enter key action: CSS selector or XPath identifying the element to send an Enter keystroke to.
+    """
+
+    new_tab: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="newTab"),
+        pydantic.Field(
+            alias="newTab", description="New tab action: set to true to switch focus to a newly opened browser tab."
+        ),
+    ] = None
+    """
+    New tab action: set to true to switch focus to a newly opened browser tab.
+    """
+
+    move_to_relative_tab: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="moveToRelativeTab"),
+        pydantic.Field(
+            alias="moveToRelativeTab",
+            description="Move to relative tab action: relative tab index to move to (e.g. 1 for the next tab, -1 for the previous tab).",
+        ),
+    ] = None
+    """
+    Move to relative tab action: relative tab index to move to (e.g. 1 for the next tab, -1 for the previous tab).
+    """
+
+    wait: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Wait action: pauses execution for this many milliseconds.
+    """
+
+    wait_for: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="waitFor"),
+        pydantic.Field(
+            alias="waitFor",
+            description="Wait for element action: CSS selector or XPath identifying the element to wait for before continuing.",
+        ),
+    ] = None
+    """
+    Wait for element action: CSS selector or XPath identifying the element to wait for before continuing.
+    """
+
+    select: typing.Optional[WebScrapeRequestBodyBlockUrlInstructionsItemSelect] = pydantic.Field(default=None)
+    """
+    A selector/value pair used by fill, select, and clickButtonByValue instructions.
+    """
+
+    js_exe: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="jsExe"),
+        pydantic.Field(
+            alias="jsExe", description="Execute JavaScript action: JavaScript code to execute inside the page context."
+        ),
+    ] = None
+    """
+    Execute JavaScript action: JavaScript code to execute inside the page context.
+    """
+
+    conditional_check: typing_extensions.Annotated[
+        typing.Optional[typing.List[typing.Dict[str, typing.Any]]],
+        FieldMetadata(alias="conditionalCheck"),
+        pydantic.Field(
+            alias="conditionalCheck",
+            description="Conditional check action: list of conditional steps, each supporting if-<method> and else-<method> keys with conditions, executed based on element state.",
+        ),
+    ] = None
+    """
+    Conditional check action: list of conditional steps, each supporting if-<method> and else-<method> keys with conditions, executed based on element state.
+    """
+
+    click_button_by_value: typing_extensions.Annotated[
+        typing.Optional[WebScrapeRequestBodyBlockUrlInstructionsItemClickButtonByValue],
+        FieldMetadata(alias="clickButtonByValue"),
+        pydantic.Field(
+            alias="clickButtonByValue",
+            description="A selector/value pair used by fill, select, and clickButtonByValue instructions.",
+        ),
+    ] = None
+    """
+    A selector/value pair used by fill, select, and clickButtonByValue instructions.
+    """
+
+    general_image_captcha: typing_extensions.Annotated[
+        typing.Optional[typing.List[WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptchaItem]],
+        FieldMetadata(alias="generalImageCaptcha"),
+        pydantic.Field(
+            alias="generalImageCaptcha",
+            description="Image captcha solver action: instructions for solving image-based captchas using a selected model.",
+        ),
+    ] = None
+    """
+    Image captcha solver action: instructions for solving image-based captchas using a selected model.
+    """
+
+    block_element: typing_extensions.Annotated[
+        typing.Optional[typing.List[str]],
+        FieldMetadata(alias="blockElement"),
+        pydantic.Field(
+            alias="blockElement",
+            description="Block element action: list of CSS selectors or XPaths for elements to block or hide on the page.",
+        ),
+    ] = None
+    """
+    Block element action: list of CSS selectors or XPaths for elements to block or hide on the page.
+    """
+
+    extract: typing.Optional[typing.Dict[str, str]] = pydantic.Field(default=None)
+    """
+    Maps arbitrary output field names to CSS or XPath selectors. Each key becomes a field in the response's extractedData object.
+    """
+
+    fill_image_captcha: typing_extensions.Annotated[
+        typing.Optional[typing.List[WebScrapeRequestBodyBlockUrlInstructionsItemFillImageCaptchaItem]],
+        FieldMetadata(alias="fillImageCaptcha"),
+        pydantic.Field(
+            alias="fillImageCaptcha",
+            description="Fill image captcha action: captures and fills image-based captcha values automatically.",
+        ),
+    ] = None
+    """
+    Fill image captcha action: captures and fills image-based captcha values automatically.
+    """
+
+    switch_to_iframe: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="switchToIframe"),
+        pydantic.Field(
+            alias="switchToIframe",
+            description="Switch to iframe action: switches the browser context into an iframe identified by name or ID.",
+        ),
+    ] = None
+    """
+    Switch to iframe action: switches the browser context into an iframe identified by name or ID.
+    """
+
+    switch_to_parent_frame: typing_extensions.Annotated[
+        typing.Optional[bool],
+        FieldMetadata(alias="switchToParentFrame"),
+        pydantic.Field(
+            alias="switchToParentFrame",
+            description="Switch to parent frame action: returns the browser context from an iframe back to its parent frame.",
+        ),
+    ] = None
+    """
+    Switch to parent frame action: returns the browser context from an iframe back to its parent frame.
+    """
+
+    resolve_audio_captcha: typing_extensions.Annotated[
+        typing.Optional[WebScrapeRequestBodyBlockUrlInstructionsItemResolveAudioCaptcha],
+        FieldMetadata(alias="resolveAudioCaptcha"),
+        pydantic.Field(
+            alias="resolveAudioCaptcha",
+            description="Selectors for locating and solving a single audio CAPTCHA challenge.",
+        ),
+    ] = None
+    """
+    Selectors for locating and solving a single audio CAPTCHA challenge.
+    """
+
+    screenshot: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Screenshot action: captures a screenshot of the current page state. Can be a boolean-like value or a selector.
+    """
+
+    saveimage: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Save image action: saves an image from the page by CSS selector or element ID.
+    """
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow

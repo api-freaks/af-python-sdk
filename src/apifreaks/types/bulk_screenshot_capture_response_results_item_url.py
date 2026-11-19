@@ -10,7 +10,7 @@ class BulkScreenshotCaptureResponseResultsItemUrl(UniversalBaseModel):
     screenshot: str
     url: str
     created_at: str
-    format: str
+    format: typing.Optional[str] = None
     ttl: str
     file_type: typing.Optional[str] = None
     extracted_html: typing.Optional[str] = None

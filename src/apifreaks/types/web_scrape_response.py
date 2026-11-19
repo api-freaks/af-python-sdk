@@ -9,13 +9,20 @@ from ..core.serialization import FieldMetadata
 
 
 class WebScrapeResponse(UniversalBaseModel):
-    extracted_data: typing_extensions.Annotated[
-        typing.Dict[str, typing.Any],
-        FieldMetadata(alias="extractedData"),
-        pydantic.Field(alias="extractedData", description="Extracted data based on the extract instructions"),
-    ]
     """
-    Extracted data based on the extract instructions
+    The API returns an empty object `{}` when no extract instruction matched anything.
+    """
+
+    extracted_data: typing_extensions.Annotated[
+        typing.Optional[typing.Dict[str, typing.Any]],
+        FieldMetadata(alias="extractedData"),
+        pydantic.Field(
+            alias="extractedData",
+            description="Extracted data based on the extract instructions. Absent when nothing was extracted.",
+        ),
+    ] = None
+    """
+    Extracted data based on the extract instructions. Absent when nothing was extracted.
     """
 
     if IS_PYDANTIC_V2:

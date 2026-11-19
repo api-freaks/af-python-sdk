@@ -1,5 +1,5 @@
 # Reference
-<details><summary><code>client.<a href="src/apifreaks/client.py">geolocation_lookup</a>(...) -> typing.Union[GeolocationLookupResponse, GeolocationLookupV2Response]</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">geolocation_lookup</a>(...) -> GeolocationLookupResponse</code></summary>
 <dl>
 <dd>
 
@@ -107,14 +107,6 @@ client.geolocation_lookup(
 <dl>
 <dd>
 
-**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns the v2 response model, `GeolocationLookupV2Response`).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -127,7 +119,7 @@ client.geolocation_lookup(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_geolocation_lookup</a>(...) -> typing.Union[typing.List[BulkGeolocationLookupResponseItem], typing.List[GeolocationLookupV2Response]]</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_geolocation_lookup</a>(...) -> typing.List[BulkGeolocationLookupResponseItem]</code></summary>
 <dl>
 <dd>
 
@@ -232,14 +224,6 @@ client.bulk_geolocation_lookup(
 <dd>
 
 **include:** `typing.Optional[str]` — Comma-separated list of additional information to include in the response.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns a list of `GeolocationLookupV2Response`).
     
 </dd>
 </dl>
@@ -713,7 +697,7 @@ client.geocoder_reverse(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">domain_whois_lookup</a>(...) -> typing.Union[DomainWhoisLookupResponse, DomainWhoisLookupV2Response]</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">domain_whois_lookup</a>(...) -> DomainWhoisLookupResponse</code></summary>
 <dl>
 <dd>
 
@@ -792,14 +776,6 @@ client.domain_whois_lookup(
 <dl>
 <dd>
 
-**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns the v2 response model, `DomainWhoisLookupV2Response`).
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -812,7 +788,7 @@ client.domain_whois_lookup(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_domain_whois_lookup</a>(...) -> typing.Union[BulkDomainWhoisLookupResponse, typing.List[DomainWhoisLookupV2Response]]</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_domain_whois_lookup</a>(...) -> BulkDomainWhoisLookupResponse</code></summary>
 <dl>
 <dd>
 
@@ -884,14 +860,6 @@ client.bulk_domain_whois_lookup(
 <dd>
 
 **format:** `typing.Optional[BulkDomainWhoisLookupRequestFormat]` — Format of the response.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns a list of `DomainWhoisLookupV2Response`).
     
 </dd>
 </dl>
@@ -1386,7 +1354,7 @@ client.domain_dns_lookup(
 <dl>
 <dd>
 
-**host_name:** `typing.Optional[str]` — Hostname or URL whose DNS records are required.
+**host_name:** `typing.Optional[str]` — Hostname or URL whose DNS records are required. Give either `host-name` or `ipAddress`.
     
 </dd>
 </dl>
@@ -1394,7 +1362,7 @@ client.domain_dns_lookup(
 <dl>
 <dd>
 
-**ip_address:** `typing.Optional[str]` — The IP address for requested DNS's PTR record. 'type' parameter must be set to 'all'.
+**ip_address:** `typing.Optional[str]` — The IP address whose PTR (reverse DNS) record is required. Give either `host-name` or `ipAddress`; with `ipAddress`, set `type` to `all` or `PTR`.
     
 </dd>
 </dl>
@@ -1402,7 +1370,7 @@ client.domain_dns_lookup(
 <dl>
 <dd>
 
-**type:** `typing.Union[str, typing.Sequence[str]]` — A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
+**type:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — DNS record types to look up, sent as a comma-separated list (e.g. `A,MX`). Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, PTR, or all. When ipAddress is provided, use "all" or "PTR".
     
 </dd>
 </dl>
@@ -1505,10 +1473,7 @@ client.bulk_domain_dns_lookup(
 <dl>
 <dd>
 
-**type:** `typing.Union[str, typing.Sequence[str]]` 
-
-A comma-separated list of DNS record types for lookup.
-Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+**type:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — DNS record types to look up, sent as a comma-separated list (e.g. `A,MX`). Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all.
     
 </dd>
 </dl>
@@ -1516,7 +1481,7 @@ Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
 <dl>
 <dd>
 
-**ip_addresses:** `typing.Optional[typing.Sequence[str]]` — Array of IP addresses to include in the lookup for enrichment
+**ip_addresses:** `typing.Optional[typing.List[str]]` — Array of IP addresses to include in the lookup for PTR record enrichment.
     
 </dd>
 </dl>
@@ -1617,10 +1582,7 @@ client.domain_dns_history(
 <dl>
 <dd>
 
-**type:** `typing.Union[str, typing.Sequence[str]]` 
-
-A comma-separated list of DNS record types for lookup.
-Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+**type:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — DNS record types to look up, sent as a comma-separated list (e.g. `A,MX`). Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all.
     
 </dd>
 </dl>
@@ -1799,7 +1761,7 @@ Supports various operations like form filling, clicking, data extraction, and CA
 <dd>
 
 ```python
-from apifreaks import ApifreaksApi, WebScrapeRequestBodyBlockUrl, WebScrapeRequestBodyBlockUrlCookiesItem, WebScrapeRequestBodyBlockUrlInstructionsItemFill, WebScrapeRequestBodyBlockUrlInstructionsItemFillFill, WebScrapeRequestBodyBlockUrlInstructionsItemClick, WebScrapeRequestBodyBlockUrlInstructionsItemWait, WebScrapeRequestBodyBlockUrlInstructionsItemExtract, WebScrapeRequestBodyBlockUrlInstructionsItemExtractExtract, WebScrapeRequestBodyBlockUrlInstructionsItemBlockElement, WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptcha, WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptchaGeneralImageCaptchaItem
+from apifreaks import ApifreaksApi, WebScrapeRequestBodyBlockUrl, WebScrapeRequestBodyBlockUrlInstructionsItem
 from apifreaks.environment import ApifreaksApiEnvironment
 
 client = ApifreaksApi(
@@ -1810,63 +1772,20 @@ client.web_scrape(
     api_key="apiKey",
     url="https://example.com",
     request=WebScrapeRequestBodyBlockUrl(
-        block_url=[
-            "https://example.com/ads.js",
-            "https://tracker.example.com/*"
-        ],
-        cookies=[
-            WebScrapeRequestBodyBlockUrlCookiesItem(
-                name="sessionid",
-                value="abc123",
-            ),
-            WebScrapeRequestBodyBlockUrlCookiesItem(
-                name="user_pref",
-                value="darkmode",
-            )
-        ],
         instructions=[
-            WebScrapeRequestBodyBlockUrlInstructionsItemFill(
-                fill=WebScrapeRequestBodyBlockUrlInstructionsItemFillFill(
-                    place="#username",
-                    value="myuser",
-                ),
+            WebScrapeRequestBodyBlockUrlInstructionsItem(),
+            WebScrapeRequestBodyBlockUrlInstructionsItem(),
+            WebScrapeRequestBodyBlockUrlInstructionsItem(),
+            WebScrapeRequestBodyBlockUrlInstructionsItem(),
+            WebScrapeRequestBodyBlockUrlInstructionsItem(
+                extract={
+                    "profile": "#profile",
+                    "welcomeMessage": "#welcome-message",
+                    "userInfo": "#user-info"
+                },
             ),
-            WebScrapeRequestBodyBlockUrlInstructionsItemFill(
-                fill=WebScrapeRequestBodyBlockUrlInstructionsItemFillFill(
-                    place="#password",
-                    value="mypassword",
-                ),
-            ),
-            WebScrapeRequestBodyBlockUrlInstructionsItemClick(
-                click="#loginButton",
-            ),
-            WebScrapeRequestBodyBlockUrlInstructionsItemWait(
-                wait=2000,
-            ),
-            WebScrapeRequestBodyBlockUrlInstructionsItemExtract(
-                extract=WebScrapeRequestBodyBlockUrlInstructionsItemExtractExtract(
-                    html="#profile",
-                    text="#welcome-message",
-                    user_data="#user-info",
-                ),
-            ),
-            WebScrapeRequestBodyBlockUrlInstructionsItemBlockElement(
-                block_element=[
-                    ".ad-banner",
-                    "//div[@class=\'popup\']"
-                ],
-            ),
-            WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptcha(
-                general_image_captcha=[
-                    WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptchaGeneralImageCaptchaItem(
-                        image_path="#captcha-img",
-                        text_field="#captcha-input",
-                        image_update_path="#refresh-captcha",
-                        captcha_failed_path="#captcha-error",
-                        model="mini-ocr-v1",
-                    )
-                ],
-            )
+            WebScrapeRequestBodyBlockUrlInstructionsItem(),
+            WebScrapeRequestBodyBlockUrlInstructionsItem()
         ],
     ),
 )
@@ -1938,7 +1857,7 @@ Set  `true` to handle websites with JavaScript. Set `false` to handle static htm
 <dl>
 <dd>
 
-**proxy:** `typing.Optional[WebScrapeRequestProxy]` — Use proxy for requests
+**proxy:** `typing.Optional[WebScrapeRequestProxy]` — Use a proxy for the request. Pass true/false to toggle the default proxy pool, or a proxy URL string to use a specific proxy.
     
 </dd>
 </dl>
@@ -2189,6 +2108,203 @@ client.bulk_email_validate(
 <dd>
 
 **format:** `typing.Optional[BulkEmailValidateRequestFormat]` — Format of the response
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">disposable_email_check_v2</a>(...) -> DisposableEmailCheckV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Validates email syntax and checks the domain for disposable, free, spam, and role-account signals, plus MX/A DNS records. Send the email (and optionally an ip) as a JSON request body. When an ip is included, the response also carries geolocation and security data for it.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.disposable_email_check_v2(
+    api_key="apiKey",
+    email="test@sogetthis.com",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**email:** `str` — The email address to check.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[DisposableEmailCheckV2RequestFormat]` — Format of the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ip:** `typing.Optional[str]` — Optional IP address to look up for location and security data, such as the IP the signup came from.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_disposable_email_check_v2</a>(...) -> BulkDisposableEmailCheckV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Checks a bulk of email addresses (each with an optional ip) and returns a disposable email check result for each, in the same order as the request. Maximum `100` entries per request.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi, BulkDisposableEmailCheckV2RequestEmailDataItem
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.bulk_disposable_email_check_v2(
+    api_key="apiKey",
+    email_data=[
+        BulkDisposableEmailCheckV2RequestEmailDataItem(
+            email="abc",
+        ),
+        BulkDisposableEmailCheckV2RequestEmailDataItem(
+            email="john@microsoft.com",
+            ip="8.8.8.8",
+        ),
+        BulkDisposableEmailCheckV2RequestEmailDataItem(
+            email="test@mailinator.com",
+        )
+    ],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**email_data:** `typing.List[BulkDisposableEmailCheckV2RequestEmailDataItem]` — Entries to check. Maximum 100 per request. Must not be empty, and must not contain null entries or entries without a valid email.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[BulkDisposableEmailCheckV2RequestFormat]` — Format of the response.
     
 </dd>
 </dl>
@@ -2889,7 +3005,7 @@ client.domain_availability_suggestions(
 <dl>
 <dd>
 
-**sug:** `typing.Optional[bool]` — Enable domain suggestions.
+**count:** `typing.Optional[int]` — Number of suggestions to retrieve. The API returns a minimum of 5 suggestions regardless of a lower value.
     
 </dd>
 </dl>
@@ -2897,7 +3013,7 @@ client.domain_availability_suggestions(
 <dl>
 <dd>
 
-**count:** `typing.Optional[int]` — Number of suggestions to retrieve.
+**sug:** `typing.Optional[bool]` — Controls the response shape. When `false`, returns a single availability object for the queried domain only. When omitted or `true`, returns an array of suggested domains instead.
     
 </dd>
 </dl>
@@ -3038,6 +3154,1534 @@ client.subdomains_lookup(
 </dl>
 </details>
 
+<details><summary><code>client.<a href="src/apifreaks/client.py">domain_typosquatting</a>(...) -> DomainTyposquattingResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The Domain Typosquatting API searches for registered domains that are typo or look-alike variants of a brand keyword, or that match a wildcard pattern. Results include registration lifecycle data and drop status across 1529+ TLDs, paginated at 100 domains per page.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.domain_typosquatting(
+    api_key="apiKey",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[DomainTyposquattingRequestFormat]` — Format of the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**keyword:** `typing.Optional[str]` — Brand or label to find typo variants for. 3-63 characters, letters, digits, or hyphens, a single label with no dots. Case-insensitive. Use either keyword or pattern, never both.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pattern:** `typing.Optional[str]` — Wildcard search string that combines fuzzy matching with * wildcards. 3-63 characters total, * is the only supported wildcard and each one matches zero or more characters, maximum 3 asterisks per request. Use either keyword or pattern, never both.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**page_token:** `typing.Optional[str]` — Token from nextPageToken in the previous response. Required to retrieve page 2 and onward. The original keyword or pattern must be passed alongside the token on every page request. Results page at 100 domains per page.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">domain_reputation</a>(...) -> DomainReputationResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+The Domain Reputation API evaluates a domain against threat intelligence sources, DGA (domain generation algorithm) scoring, trust signals, and email deliverability configuration, returning a consolidated risk assessment with a verdict, severity, and supporting evidence.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.domain_reputation(
+    api_key="apiKey",
+    domain_name="domainName",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**domain_name:** `str` — The domain name to assess (e.g. example.com). Must contain at least one dot and be at most 253 characters. Automatically lowercased.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[DomainReputationRequestFormat]` — Format of the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">astronomy_lookup_v2</a>(...) -> AstronomyLookupV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Retrieve sunrise and sunset times, current position of the moon, and other related information by specifying a location address, location coordinates, IP address, or using the client IP address if no parameter is passed.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.astronomy_lookup_v2(
+    api_key="apiKey",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[AstronomyLookupV2RequestFormat]` — Format of the response. Can be "json" or "xml".
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**location:** `typing.Optional[str]` — Extract astronomy information using location (preferably city)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lat:** `typing.Optional[float]` — Latitude to extract astronomy information using location coordinates
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**long:** `typing.Optional[float]` — Longitude to extract astronomy information using location coordinates
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ip:** `typing.Optional[str]` — IPv4 or IPv6 address to extract astronomy information using IP address
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lang:** `typing.Optional[AstronomyLookupV2RequestLang]` — Response language of "location" field in case of lookup through IP address only.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date:** `typing.Optional[datetime.date]` — Specific date (format YYYY-MM-DD) for which astronomy data is required
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**elevation:** `typing.Optional[float]` — Elevation above sea level at the location, in meters. The value should be between 0 meter and a maximum value of 10,000 meters. Negative value is set to 0.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**time_zone:** `typing.Optional[str]` — Time zone to receive all time-based data in your preferred local time.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">timezone_lookup_v2</a>(...) -> TimezoneLookupV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get current time, date, and timezone details by specifying a timezone name, location address, GPS coordinates, IP address, IATA/ICAO airport code, UN/LOCODE, or use the client IP if no parameter is provided.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.timezone_lookup_v2(
+    api_key="apiKey",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[TimezoneLookupV2RequestFormat]` — Format of the response. Possible values: json, xml.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ip:** `typing.Optional[str]` — IPv4 or IPv6 address to extract timezone information.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**tz:** `typing.Optional[str]` — Timezone name in IANA format (e.g., Asia/Kolkata) to retrieve information directly.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**location:** `typing.Optional[str]` — Location string (preferably city and country) to extract timezone.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lat:** `typing.Optional[float]` — Latitude for geolocation-based timezone lookup. Only time_zone is returned for this mode; no location object is included.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**long:** `typing.Optional[float]` — Longitude for geolocation-based timezone lookup. Only time_zone is returned for this mode; no location object is included.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lang:** `typing.Optional[TimezoneLookupV2RequestLang]` — Response language for location fields. Default: en.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**iata_code:** `typing.Optional[str]` — 3-letter IATA airport code (e.g., LHR) to extract timezone.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**icao_code:** `typing.Optional[str]` — 4-letter ICAO airport code (e.g., KJFK) to extract timezone.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lo_code:** `typing.Optional[str]` — 5-letter UN/LOCODE city code to extract timezone.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">geolocation_lookup_v2</a>(...) -> GeolocationLookupV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get detailed IP geolocation data for an IP address including country, city, timezone, currency, and optional threat intelligence and user-agent information.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.geolocation_lookup_v2(
+    api_key="apiKey",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[GeolocationLookupV2RequestFormat]` — Format of the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ip:** `typing.Optional[str]` — IPv4, IPv6, or hostname for geolocation lookup.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lang:** `typing.Optional[GeolocationLookupV2RequestLang]` — Response language for location fields. Default: en.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fields:** `typing.Optional[str]` — Comma-separated list of fields to include in response. For example, `location` includes all location fields, `location.city` is a specific field.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**excludes:** `typing.Optional[str]` — Comma-separated list of fields to exclude from response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include:** `typing.Optional[str]` — Comma-separated list of additional data modules to include. Possible values: security (threat intelligence), hostname (IP-Hostname lookup), liveHostname (live hostname lookup), hostnameFallbackLive (hostname with live fallback), user_agent (parse User-Agent header), abuse (abuse contact info), dma_code (DMA code), geo_accuracy (accuracy_radius, confidence, locality), * (all modules).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_geolocation_lookup_v2</a>(...) -> typing.List[BulkGeolocationLookupV2ResponseItem]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Get detailed IP geolocation data for multiple IP addresses including country, city, timezone, currency, and optional threat intelligence information. Supports up to 50,000 IP addresses per request.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.bulk_geolocation_lookup_v2(
+    api_key="apiKey",
+    ips=[
+        "ips"
+    ],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ips:** `typing.List[str]` — List of IP addresses or hostnames to lookup.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[BulkGeolocationLookupV2RequestFormat]` — Format of the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**lang:** `typing.Optional[BulkGeolocationLookupV2RequestLang]` — Response language for location fields. Default: en.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**fields:** `typing.Optional[str]` — Comma-separated list of fields to include in the response. For example, `location` includes all location fields, `location.city` is a specific field.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**excludes:** `typing.Optional[str]` — Comma-separated list of fields to exclude from response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**include:** `typing.Optional[str]` — Comma-separated list of additional data modules to include. Possible values: security (threat intelligence), hostname (IP-Hostname lookup), liveHostname (live hostname lookup), user_agent (parse User-Agent header), abuse (abuse contact info), * (all modules).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">domain_whois_lookup_v2</a>(...) -> DomainWhoisLookupV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the current WHOIS record for the specified domain, including registrar details, registrant/administrative/technical/billing/reseller contacts, name servers, status codes, and raw WHOIS text.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.domain_whois_lookup_v2(
+    api_key="apiKey",
+    domain_name="domainName",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**domain_name:** `str` — Domain name to retrieve WHOIS data for (e.g. example.com).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[DomainWhoisLookupV2RequestFormat]` — Format of the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_domain_whois_lookup_v2</a>(...) -> BulkDomainWhoisLookupV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the current WHOIS record for each requested domain, in request order. Supports up to 100 domain names per request; a domain that fails to resolve yields an error item instead of failing the whole batch.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.bulk_domain_whois_lookup_v2(
+    api_key="apiKey",
+    domain_names=[
+        "domainNames"
+    ],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**domain_names:** `typing.List[str]` — List of domain names to retrieve WHOIS data for.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[BulkDomainWhoisLookupV2RequestFormat]` — Format of the response.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">commodity_latest_rates_v2</a>(...) -> CommodityLatestRatesV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the current live price for the requested commodity symbols. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.commodity_latest_rates_v2(
+    api_key="apiKey",
+    symbols=[
+        "symbols"
+    ],
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[CommodityLatestRatesV2RequestFormat]` — Response format. Currently only `json` is supported.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols (e.g., XAU, WTIOIL-SPOT). Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**quote:** `typing.Optional[str]` — Target currency for the exchange rate. If omitted (or set to `default`), the default quote currency of each commodity is used. Requires a premium plan; ignored on lower-tier plans.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">commodity_historical_rates_v2</a>(...) -> CommodityHistoricalRatesV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns OHLC price data for the requested commodity symbols on a specific date. Falls back to the nearest earlier rate if none exists for the exact date. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+import datetime
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.commodity_historical_rates_v2(
+    api_key="apiKey",
+    symbols=[
+        "symbols"
+    ],
+    date=datetime.date.fromisoformat("2023-01-15"),
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date:** `datetime.date` — Date in YYYY-MM-DD format. Data available from 1990 onwards.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[CommodityHistoricalRatesV2RequestFormat]` — Response format. Currently only `json` is supported.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols. Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">commodity_fluctuation_v2</a>(...) -> CommodityFluctuationV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns price fluctuation metrics (start, end, change, percent change) for the requested commodity symbols over a date range. For monthly-updated commodities the range snaps to month boundaries. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+import datetime
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.commodity_fluctuation_v2(
+    api_key="apiKey",
+    symbols=[
+        "symbols"
+    ],
+    start_date=datetime.date.fromisoformat("2023-01-15"),
+    end_date=datetime.date.fromisoformat("2023-01-15"),
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_date:** `datetime.date` — Start date (YYYY-MM-DD)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_date:** `datetime.date` — End date (YYYY-MM-DD)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[CommodityFluctuationV2RequestFormat]` — Response format. Currently only `json` is supported.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols. Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">commodity_time_series_v2</a>(...) -> CommodityTimeSeriesV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns day-by-day OHLC data for the requested commodity symbols within a date range, indexed by date. Non-trading days are excluded. Unresolved symbols degrade to a 206 partial response instead of failing the whole request.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+import datetime
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.commodity_time_series_v2(
+    api_key="apiKey",
+    symbols=[
+        "symbols"
+    ],
+    start_date=datetime.date.fromisoformat("2023-01-15"),
+    end_date=datetime.date.fromisoformat("2023-01-15"),
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_date:** `datetime.date` — Start date (YYYY-MM-DD)
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**end_date:** `datetime.date` — End date (YYYY-MM-DD). Maximum range is 365 days.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[CommodityTimeSeriesV2RequestFormat]` — Response format. Currently only `json` is supported.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols. Case-insensitive; duplicates are deduplicated server-side, with one response entry and one credit charge per unique symbol.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">commodity_symbols_v2</a>(...) -> CommoditySymbolsV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the list of supported commodity symbols with metadata. Deprecated symbols stay listed with status "inactive" and a deprecationDate.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.commodity_symbols_v2(
+    api_key="apiKey",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[CommoditySymbolsV2RequestFormat]` — Response format. Currently only `json` is supported.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">commodity_intraday_rates_v2</a>(...) -> CommodityIntradayRatesV2Response</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns the prices of one commodity through a UTC day at the requested interval, keyed by UTC timestamp. Each request costs a flat 50 credits however many points it returns.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+import datetime
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.commodity_intraday_rates_v2(
+    api_key="apiKey",
+    symbols="symbols",
+    interval="1m",
+    date=datetime.date.fromisoformat("2023-01-15"),
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**symbols:** `str` — Exactly one commodity symbol. Case-insensitive. Sending two or more returns a 400. Only symbols updated every second, every minute, or every 10 minutes have intraday rates; symbols updated hourly or less often return a 400. Use the Commodity Symbols endpoint for all valid values.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**interval:** `CommodityIntradayRatesV2RequestInterval` — Spacing between points. Case-insensitive. Symbols updated every 10 minutes accept only `10m`, `30m`, `1h`, `2h`, `4h`, `8h`, `12h`, `1d`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**date:** `datetime.date` — The UTC day to read, in `YYYY-MM-DD` format. Cannot be in the future. For today, points stop at the current UTC minute.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**start_time:** `typing.Optional[str]` — First mark of the window, as a 24-hour UTC time in `HH:mm`. Must fall on a mark of the interval (for example, `14:30` works for `5m` or `30m`, but not for `1h`). For `1d` it can only be `00:00`.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**metadata:** `typing.Optional[bool]` — Whether to include the `metadata` object. Pass `false` to receive only the prices.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
 <details><summary><code>client.<a href="src/apifreaks/client.py">pdf_merge</a>(...) -> PdfMergeResponse</code></summary>
 <dl>
 <dd>
@@ -3074,7 +4718,7 @@ client = ApifreaksApi(
 
 client.pdf_merge(
     api_key="apiKey",
-    file=["example_file"],
+    file=[open("/path/to/file", "rb")],
 )
 
 ```
@@ -3212,7 +4856,7 @@ client = ApifreaksApi(
 client.pdf_remove_pages(
     api_key="apiKey",
     pages="pages",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -3357,7 +5001,7 @@ client = ApifreaksApi(
 
 client.pdf_split(
     api_key="apiKey",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -3523,7 +5167,7 @@ client = ApifreaksApi(
 client.pdf_rotate(
     api_key="apiKey",
     rotate=1,
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -3677,7 +5321,7 @@ client = ApifreaksApi(
 client.pdf_compress(
     api_key="apiKey",
     compression_level="low",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -3823,7 +5467,7 @@ client = ApifreaksApi(
 client.pdf_extract_pages(
     api_key="apiKey",
     pages="pages",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -3976,7 +5620,7 @@ client = ApifreaksApi(
 
 client.pdf_linearize(
     api_key="apiKey",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -4114,7 +5758,7 @@ client = ApifreaksApi(
 client.pdf_encrypt(
     api_key="apiKey",
     user_password="user_password",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -4276,7 +5920,7 @@ client = ApifreaksApi(
 client.pdf_decrypt(
     api_key="apiKey",
     file_password="file_password",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -4425,7 +6069,7 @@ client.pdf_restrict(
     restrictions=[
         "print_high"
     ],
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -4607,7 +6251,8 @@ client = ApifreaksApi(
 client.pdf_unrestrict(
     api_key="apiKey",
     file_password="file_password",
-    file="example_file",
+    user_password="user_password",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -4640,6 +6285,14 @@ client.pdf_unrestrict(
 <dl>
 <dd>
 
+**user_password:** `str` — Sets the user password for the PDF file. Password Length should be between 6 and 128 characters.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **format:** `typing.Optional[PdfUnrestrictRequestFormat]` — Specifies the desired format for the API response. Choose 'json' for a JSON object or 'xml' for an XML structure.
     
 </dd>
@@ -4665,14 +6318,6 @@ client.pdf_unrestrict(
 <dd>
 
 **output:** `typing.Optional[str]` — The desired name for the output unrestricted PDF file. If not provided, a default name will be assigned.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**user_password:** `typing.Optional[str]` — Sets the user password for the PDF file. Password Length should be between 6 and 128 characters.
     
 </dd>
 </dl>
@@ -4768,7 +6413,7 @@ client = ApifreaksApi(
 
 client.pdf_convert_to_png(
     api_key="apiKey",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -4937,7 +6582,7 @@ client = ApifreaksApi(
 
 client.pdf_convert_to_jpg(
     api_key="apiKey",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -5114,7 +6759,7 @@ client = ApifreaksApi(
 
 client.pdf_convert_to_tiff(
     api_key="apiKey",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -5283,7 +6928,7 @@ client = ApifreaksApi(
 
 client.pdf_convert_to_bmp(
     api_key="apiKey",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -5452,7 +7097,7 @@ client = ApifreaksApi(
 
 client.pdf_convert_to_gif(
     api_key="apiKey",
-    file="example_file",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -5621,7 +7266,7 @@ client = ApifreaksApi(
 
 client.pdf_upload_resources(
     api_key="apiKey",
-    file=["example_file"],
+    file=[open("/path/to/file", "rb")],
 )
 
 ```
@@ -5654,7 +7299,7 @@ client.pdf_upload_resources(
 <dl>
 <dd>
 
-**file:** `typing.List[core.File]` — The PDF files to be uploaded to the API Freaks server. Multiple files can be provided in an array.
+**file:** `typing.Optional[typing.List[core.File]]` — The PDF files to be uploaded to the API Freaks server. Multiple files can be provided in an array.
     
 </dd>
 </dl>
@@ -5701,7 +7346,20 @@ This API uploads PDF files to the API Freaks server in binary format.
 <dd>
 
 ```python
-client.pdf_upload_binary(...)
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+with open("document.pdf", "rb") as f:
+    client.pdf_upload_binary(
+        api_key="apiKey",
+        file_name="document.pdf",
+        request=f.read(),
+    )
+
 ```
 </dd>
 </dl>
@@ -6201,7 +7859,232 @@ client.pdf_delete_file(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">screenshot_capture</a>(...) -> typing.Iterator[bytes]</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">pdf_generate_from_template</a>(...) -> PdfGenerateFromTemplateResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Renders the template identified by template_id with the JSON data supplied in the request body (or fetched from data_url). Returns a hosted URL for the generated PDF. Provide either a request body or a data_url; one of the two is required. The keys of the data object are the fields you bound when you designed the template in the APIFreaks PDF Template Builder, so the exact shape is up to you. Pin the version parameter to a specific template version (e.g. version=v2) so later design changes never touch what is already live; omit it to use the latest version.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.pdf_generate_from_template(
+    api_key="apiKey",
+    template_id="template_id",
+    request={
+        "candidate_name": "Ava Thompson",
+        "candidate_title": "Senior Operations Analyst",
+        "email": "ava.thompson@example.com",
+        "phone": "+1 (555) 381-2048",
+        "city": "Austin, TX",
+        "portfolio_url": "portfolio.example.com",
+        "profile_summary": "Analytical operations professional with 8+ years of experience improving reporting pipelines, streamlining process documentation, and coordinating cross-functional delivery for distributed teams across multiple time zones.",
+        "company_name": "Northwind Logistics",
+        "job_title": "Operations Analyst",
+        "employment_period": "2021 - Present",
+        "job_achievement_1": "Led weekly KPI reporting for finance, fulfillment, and customer success stakeholders across three business units.",
+        "job_achievement_2": "Reduced manual reconciliation work by 35% through workflow redesign and documentation automation.",
+        "job_achievement_3": "Spearheaded a cross-team initiative that improved on-time delivery metrics by 18% within six months.",
+        "skills": [{"skill": "Process Improvement", "level": "Advanced", "years": "7"}, {"skill": "Stakeholder Reporting", "level": "Expert", "years": "8"}, {"skill": "Cross-functional Coordination", "level": "Advanced", "years": "5"}, {"skill": "Workflow Documentation", "level": "Advanced", "years": "6"}],
+        "degree": "B.S. in Information Systems",
+        "institution": "University of Texas",
+        "graduation_year": "2018",
+        "certification_1": "Certified Business Analysis Professional (CBAP)",
+        "certification_2": "Six Sigma Green Belt",
+        "languages": "English (Native), Spanish (Professional)"
+    },
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**template_id:** `str` — The template to render, from the APIFreaks PDF Template Builder. Copy it from your dashboard when you save the template.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request:** `typing.Dict[str, typing.Any]` — Free-form JSON object whose keys map to the fields bound in the template.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[str]` — Template version to render, e.g. v2. Must start with v. Omit this parameter entirely to use the latest version; the literal value 'latest' is not accepted by the API.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**data_url:** `typing.Optional[str]` — A URL the API fetches your JSON data from, instead of the request body. Provide this when you are not sending a request body.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_pdf_generate_from_template</a>(...) -> typing.List[BulkPdfGenerateFromTemplateResponseItem]</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Upload a CSV file where each row is one record. The API generates one PDF per row and returns an array of results, each with its own pdf_url. Rows are processed independently, so a failure in one row does not block the rest of the batch. The response gives a row-by-row breakdown of which PDFs succeeded and which failed.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.bulk_pdf_generate_from_template(
+    api_key="apiKey",
+    template_id="template_id",
+    file=open("/path/to/file", "rb"),
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**template_id:** `str` — The template to render, from the APIFreaks PDF Template Builder. Copy it from your dashboard when you save the template.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**file:** `core.File` — A CSV file uploaded as form-data where each row is one record. One PDF is generated per row.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**version:** `typing.Optional[str]` — Template version to render, e.g. v2. Must start with v. Omit this parameter entirely to use the latest version; the literal value 'latest' is not accepted by the API.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">screenshot_capture</a>(...) -> ScreenshotCaptureResponse</code></summary>
 <dl>
 <dd>
 
@@ -6271,7 +8154,7 @@ client.screenshot_capture(
 <dl>
 <dd>
 
-**output:** `typing.Optional[ScreenshotCaptureRequestOutput]` — Output format for screenshot results
+**output:** `typing.Optional[ScreenshotCaptureRequestOutput]` — Output format for screenshot results. The SDKs support only `json`, which returns metadata with the captured file's URL in `screenshot`; download the file from that URL. (The API's `output=image`, which returns the raw file, is not supported by the SDK methods.)
     
 </dd>
 </dl>
@@ -6824,6 +8707,222 @@ Avoid using spaces or special characters; use hyphens or underscores to separate
 <dl>
 <dd>
 
+**captcha_error:** `typing.Optional[str]` — CSS selector of the message shown for a wrong answer. While it is visible, the solver tries again.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**captcha_image:** `typing.Optional[str]` — CSS selector of the captcha picture. Required when solve_captcha is true.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**captcha_input:** `typing.Optional[str]` — CSS selector of the box the answer is typed into. Required when solve_captcha is true.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**captcha_refresh:** `typing.Optional[str]` — CSS selector of the control that loads a new captcha picture before the next try.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**captcha_retries:** `typing.Optional[int]` — Number of guesses the solver makes, from 1 to 5.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**captcha_submit:** `typing.Optional[str]` — CSS selector of the button to click after the answer is typed.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**classic_proxy:** `typing.Optional[bool]` — Loads the page through a datacenter proxy. Adds 20 credits per request. Ignored when premium_proxy is true or a custom proxy is set.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**click_recursion:** `typing.Optional[int]` — Number of times to click the selector (when set via `selector_to_click`).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**country:** `typing.Optional[str]` — Two-letter country code, such as US or DE, for the exit address of classic_proxy or premium_proxy. Ignored when you send your own proxy. Any two-letter code is sent, including one that is not listed. Classic proxy countries: BG, GE, DE, HN, MD, UA, GB, US. Premium proxy countries: AF, AL, DZ, AO, AG, AR, AM, AW, AU, AT, AZ, BS, BH, BD, BB, BY, BE, BZ, BJ, BT, BO, BQ, BA, BW, BR, BN, BG, BF, BI, CV, KH, CM, CA, KY, CF, TD, CL, CN, CO, KM, CG, CR, CI, HR, CU, CW, CY, CZ, CD, DK, DJ, DM, DO, EC, EG, SV, GQ, EE, SZ, ET, FO, FJ, FI, FR, GF, PF, GA, GM, GE, DE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, HT, HN, HK, HU, IS, IN, ID, IR, IQ, IE, IL, IT, JM, JP, JE, JO, KZ, KE, XK, KW, KG, LA, LV, LB, LS, LR, LY, LT, MO, MG, MW, MY, MV, ML, MT, MQ, MR, MU, YT, MX, MD, MN, ME, MA, MZ, MM, NA, NP, NL, NC, NZ, NI, NE, NG, MK, NO, OM, PK, PS, PA, PG, PY, PE, PH, PL, PT, PR, QA, RE, RO, RU, RW, KN, LC, VC, WS, SA, SN, RS, SC, SL, SG, SK, SI, SB, SO, ZA, KR, SS, ES, LK, SD, SR, SE, CH, SY, TW, TJ, TZ, TH, TL, TG, TO, TT, TN, TR, TM, UG, UA, AE, GB, US, UY, UZ, VE, VN, YE, ZM, ZW.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**extract_markdown:** `typing.Optional[bool]` — Extracts rendered page content as a structured .md (Markdown) file. Preserves headings, lists, links. Only with output=json.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[ScreenshotCaptureRequestFormat]` — Response format: json (default).
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**get_image_urls:** `typing.Optional[bool]` — Extracts all image URLs from the rendered DOM and returns them in structured format. Only with output=json.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**gpu:** `typing.Optional[bool]` — Renders the page with a GPU, including WebGL and canvas content. Adds 20 credits per request.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**markdown:** `typing.Optional[str]` — Markdown to render instead of loading a URL. Works like custom_html, so you can capture a README or notes without hosting a page.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**ocr_model:** `typing.Optional[ScreenshotCaptureRequestOcrModel]` — Recognition model used by the captcha solver: mini-ocr-v1 (default) or ocr-v1.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pdf_options_format:** `typing.Optional[ScreenshotCaptureRequestPdfOptionsFormat]` — Paper size of the PDF. Applies when file_type is PDF. Without it, width and height are used if set, otherwise the page renders as one long page: A0, A1, A2, A3, A4, A5, A6, Letter, Legal, Tabloid, or Ledger.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pdf_options_landscape:** `typing.Optional[bool]` — Renders the PDF in landscape orientation, swapping the width and height of the paper size. Applies when file_type is PDF.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pdf_options_media:** `typing.Optional[ScreenshotCaptureRequestPdfOptionsMedia]` — CSS media type used to render the PDF: print or screen.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pdf_options_page_range:** `typing.Optional[str]` — Pages to keep in the PDF, as start-end, for example 1-3 or 5-5. Pages are rendered first and then trimmed. Has no effect on a single-page PDF. Applies when file_type is PDF.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**pdf_options_print_background:** `typing.Optional[bool]` — Includes background colors and images in the PDF. Applies when file_type is PDF.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**premium_proxy:** `typing.Optional[bool]` — Loads the page through a residential proxy. Adds 200 credits per request. Used instead of classic_proxy.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**scroll_delay:** `typing.Optional[int]` — Delay in milliseconds between scroll steps when `lazy_load` is enabled. Use higher values for heavy pages.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**selector_to_click:** `typing.Optional[str]` — CSS selector for an element to click before capturing the screenshot. Useful for opening dropdowns, modals, or triggering content.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**solve_captcha:** `typing.Optional[bool]` — Solves a captcha made of text drawn in a picture, then takes the screenshot. Requires captcha_image and captcha_input. Adds 20 credits per request.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**stealth:** `typing.Optional[bool]` — Makes the browser look like a regular visitor for pages that block automated traffic. No extra credits.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**timezone:** `typing.Optional[str]` — IANA timezone the browser uses while rendering, such as Asia/Karachi or Europe/London. Useful for clocks and localized dates.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**video:** `typing.Optional[bool]` — Records visible viewport only for a specified duration. Use with `duration` parameter. Ideal for dashboards and animations.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
     
 </dd>
@@ -7226,7 +9325,7 @@ client.currency_convert_latest(
 <dl>
 <dd>
 
-**amount:** `typing.Optional[str]` — Amount to convert
+**amount:** `typing.Optional[float]` — Amount to convert
     
 </dd>
 </dl>
@@ -7350,7 +9449,7 @@ client.currency_convert_historical(
 <dl>
 <dd>
 
-**amount:** `typing.Optional[str]` — The Amount to be converted
+**amount:** `typing.Optional[float]` — The Amount to be converted
     
 </dd>
 </dl>
@@ -7692,7 +9791,7 @@ client.currency_convert_by_ip(
 <dl>
 <dd>
 
-**amount:** `typing.Optional[str]` — Amount to convert
+**amount:** `typing.Optional[float]` — Amount to convert
     
 </dd>
 </dl>
@@ -8032,7 +10131,7 @@ client.commodity_latest_rates(
 <dl>
 <dd>
 
-**symbols:** `typing.Union[str, typing.Sequence[str]]` — Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
+**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma separated list of desired commodities symbols *(e.g. XAU,XAG,WTI,BRENT)* **Required**
     
 </dd>
 </dl>
@@ -8141,7 +10240,7 @@ client.commodity_historical_rates(
 <dl>
 <dd>
 
-**symbols:** `typing.Union[str, typing.Sequence[str]]` — Comma-separated list of commodity symbols
+**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols
     
 </dd>
 </dl>
@@ -8251,7 +10350,7 @@ client.commodity_fluctuation(
 <dl>
 <dd>
 
-**symbols:** `typing.Union[str, typing.Sequence[str]]` — Comma-separated list of commodity symbols
+**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols
     
 </dd>
 </dl>
@@ -8361,7 +10460,7 @@ client.commodity_time_series(
 <dl>
 <dd>
 
-**symbols:** `typing.Union[str, typing.Sequence[str]]` — Comma-separated list of commodity symbols
+**symbols:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list of commodity symbols
     
 </dd>
 </dl>
@@ -8529,7 +10628,7 @@ client.vat_supported_countries(
 <dl>
 <dd>
 
-**type:** `typing.Optional[VatSupportedCountriesRequestType]` — Type of supported country. Supported values: IBAN, SWIFT, VAT. By default, it returns all supported countries for all types.
+**type:** `typing.Optional[VatSupportedCountriesRequestType]` — Which list to return: VAT (`VAT_Supported_Countries_And_States`), IBAN (`IBAN_Supported_Countries`) or SWIFT (`SWIFT_Supported_Countries`). Each value returns only its own list. If omitted (or unknown), all three lists are returned.
     
 </dd>
 </dl>
@@ -8734,7 +10833,7 @@ client.vat_rate_by_country(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_vat_rate_by_country</a>(...) -> BulkVatRateByCountryResponse</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">bulk_vat_rate_by_country</a>(...) -> typing.List[BulkVatRateByCountryResponseItem]</code></summary>
 <dl>
 <dd>
 
@@ -9515,7 +11614,6 @@ client = ApifreaksApi(
 client.zipcode_search_by_region(
     api_key="apiKey",
     country="country",
-    region="region",
 )
 
 ```
@@ -9548,14 +11646,6 @@ client.zipcode_search_by_region(
 <dl>
 <dd>
 
-**region:** `str` — Name of the region, state or province associated with the country.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
 **format:** `typing.Optional[ZipcodeSearchByRegionRequestFormat]` — Format of the response.
     
 </dd>
@@ -9564,7 +11654,23 @@ client.zipcode_search_by_region(
 <dl>
 <dd>
 
+**region:** `typing.Optional[str]` — Name of the region, state or province associated with the country. Either region or region_code is required; region_code takes priority if both are given.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
 **page:** `typing.Optional[int]` — Page no. to retrieve paginated results.
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**region_code:** `typing.Optional[str]` — ISO code of the region, state, or province associated with the country. Either region or region_code is required. region_code takes priority if both are given.
     
 </dd>
 </dl>
@@ -10015,7 +12121,7 @@ client.current_weather(
 <dl>
 <dd>
 
-**format:** `typing.Optional[CurrentWeatherRequestFormat]` — Response format returned by the API.
+**format:** `typing.Optional[CurrentWeatherRequestFormat]` — Response format returned by the API. Only JSON is supported.
     
 </dd>
 </dl>
@@ -10158,7 +12264,7 @@ client.bulk_current_weather(
 <dl>
 <dd>
 
-**format:** `typing.Optional[BulkCurrentWeatherRequestFormat]` — Response format returned by the API.
+**format:** `typing.Optional[BulkCurrentWeatherRequestFormat]` — Response format returned by the API. Only JSON is supported.
     
 </dd>
 </dl>
@@ -10246,7 +12352,7 @@ client.weather_forecast(
 <dl>
 <dd>
 
-**format:** `typing.Optional[WeatherForecastRequestFormat]` — Response format returned by the API.
+**format:** `typing.Optional[WeatherForecastRequestFormat]` — Response format returned by the API. Only JSON is supported.
     
 </dd>
 </dl>
@@ -10408,7 +12514,7 @@ client.historical_weather(
 <dl>
 <dd>
 
-**format:** `typing.Optional[HistoricalWeatherRequestFormat]` — Response format returned by the API.
+**format:** `typing.Optional[HistoricalWeatherRequestFormat]` — Response format returned by the API. Only JSON is supported.
     
 </dd>
 </dl>
@@ -10555,7 +12661,7 @@ client.weather_time_series(
 <dl>
 <dd>
 
-**format:** `typing.Optional[WeatherTimeSeriesRequestFormat]` — Response format returned by the API.
+**format:** `typing.Optional[WeatherTimeSeriesRequestFormat]` — Response format returned by the API. Only JSON is supported.
     
 </dd>
 </dl>
@@ -10683,7 +12789,7 @@ client.marine_weather(
 <dl>
 <dd>
 
-**format:** `typing.Optional[MarineWeatherRequestFormat]` — Response format returned by the API.
+**format:** `typing.Optional[MarineWeatherRequestFormat]` — Response format returned by the API. Only JSON is supported.
     
 </dd>
 </dl>
@@ -10827,7 +12933,7 @@ client.air_quality(
 <dl>
 <dd>
 
-**format:** `typing.Optional[AirQualityRequestFormat]` — Response format returned by the API.
+**format:** `typing.Optional[AirQualityRequestFormat]` — Response format returned by the API. Only JSON is supported.
     
 </dd>
 </dl>
@@ -10990,7 +13096,7 @@ client.flood_forecast(
 <dl>
 <dd>
 
-**format:** `typing.Optional[FloodForecastRequestFormat]` — Response format returned by the API.
+**format:** `typing.Optional[FloodForecastRequestFormat]` — Response format returned by the API. Only JSON is supported.
     
 </dd>
 </dl>
@@ -11317,7 +13423,6 @@ client = ApifreaksApi(
 
 client.get_subregions(
     api_key="apiKey",
-    region="region",
 )
 
 ```
@@ -11342,7 +13447,7 @@ client.get_subregions(
 <dl>
 <dd>
 
-**region:** `str` — Name of the region.
+**format:** `typing.Optional[GetSubregionsRequestFormat]` — Format of the response
     
 </dd>
 </dl>
@@ -11350,7 +13455,7 @@ client.get_subregions(
 <dl>
 <dd>
 
-**format:** `typing.Optional[GetSubregionsRequestFormat]` — Format of the response
+**region:** `typing.Optional[str]` — Name of the region. If omitted, all subregions are returned.
     
 </dd>
 </dl>
@@ -11536,7 +13641,7 @@ client.get_admin_units(
 <dl>
 <dd>
 
-**admin_levels:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Comma-separated list to filter results by one or more administrative levels.
+**admin_level:** `typing.Optional[typing.Union[str, typing.Sequence[str]]]` — Filter results by one or more administrative level names (e.g. `land`, `state`, `province`), sent as a comma-separated list. Use the admin levels endpoint to list the levels a country has.
     
 </dd>
 </dl>
@@ -11751,7 +13856,7 @@ client.get_cities(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">get_supported_flags</a>(...) -> typing.List[GetSupportedFlagsResponseItem]</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">get_supported_flags</a>(...) -> GetSupportedFlagsResponse</code></summary>
 <dl>
 <dd>
 
@@ -11938,7 +14043,7 @@ client.get_flags(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">timezone_lookup</a>(...) -> typing.Union[TimezoneLookupResponse, TimezoneLookupV2Response]</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">timezone_lookup</a>(...) -> TimezoneLookupResponse</code></summary>
 <dl>
 <dd>
 
@@ -12071,14 +14176,6 @@ client.timezone_lookup(
 <dd>
 
 **lo_code:** `typing.Optional[str]` — 5-letter UN/LO city code.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns the v2 response model, `TimezoneLookupV2Response`).
     
 </dd>
 </dl>
@@ -12334,6 +14431,7 @@ client = ApifreaksApi(
 
 client.user_agent_lookup(
     api_key="apiKey",
+    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
 )
 
 ```
@@ -12358,8 +14456,8 @@ client.user_agent_lookup(
 <dl>
 <dd>
 
-**user_agent:** `str` — The User-Agent string to parse.
-    
+**user_agent:** `str` — The User-Agent string to parse. Sent as the `User-Agent` request header (overrides the SDK's own).
+
 </dd>
 </dl>
 
@@ -12398,7 +14496,7 @@ client.user_agent_lookup(
 <dl>
 <dd>
 
-Parse up to `50,000 User-Agent strings` at once in a single request.
+Parse up to `20000 User-Agent strings` at once in a single request; exceeding that returns a 413, not a 400.
 </dd>
 </dl>
 </dd>
@@ -12449,7 +14547,7 @@ client.bulk_user_agent_lookup(
 <dl>
 <dd>
 
-**ua_strings:** `typing.List[str]` — List of user agent strings to parse
+**ua_strings:** `typing.List[str]` — Array of User-Agent strings to parse. Maximum 20000 strings per request — exceeding that returns a 413.
     
 </dd>
 </dl>
@@ -12522,7 +14620,7 @@ client = ApifreaksApi(
 client.ocr_predict(
     api_key="apiKey",
     model="mini-ocr-v1",
-    ocr_predict_request_model="mini-ocr-v1",
+    file=open("/path/to/file", "rb"),
 )
 
 ```
@@ -12547,7 +14645,7 @@ client.ocr_predict(
 <dl>
 <dd>
 
-**model:** `OcrPredictRequestModel` — OCR model to use.
+**model:** `OcrPredictRequestModel` — OCR model to use. `mini-ocr-v1` for CAPTCHA OCR, `ocr-v1` for general OCR.
     
 </dd>
 </dl>
@@ -12555,15 +14653,7 @@ client.ocr_predict(
 <dl>
 <dd>
 
-**ocr_predict_request_model:** `OcrPredictRequestModel` — OCR model to use. `mini-ocr-v1` for CAPTCHA OCR, `ocr-v1` for general OCR
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**url:** `typing.Optional[str]` — URL of the image or PDF (required if `file` not provided)
+**url:** `typing.Optional[str]` — URL of the image or PDF (required if `file` is not uploaded).
     
 </dd>
 </dl>
@@ -12587,7 +14677,7 @@ client.ocr_predict(
 <dl>
 <dd>
 
-**new_line:** `typing.Optional[int]` — Set to 1 to split output text into individual lines (default: 0)
+**new_line:** `typing.Optional[int]` — Set to 1 to split output text into individual lines (default: 0). This changes the shape of `OCRText` (see the response).
     
 </dd>
 </dl>
@@ -12595,31 +14685,7 @@ client.ocr_predict(
 <dl>
 <dd>
 
-**ocr_predict_request_url:** `typing.Optional[str]` — URL of the image or PDF (required if `file` not provided)
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**ocr_predict_request_page_range:** `typing.Optional[str]` — Specify page range for multi-page PDFs (e.g., '1,3,5-10' or 'allpages'). **Note:** This parameter can only be used with .pdf file types.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**ocr_predict_request_zone:** `typing.Optional[str]` — Define OCR zones using coordinates (top:left:height:width). Multiple zones can be defined using commas. Only available for model 'ocr-v1'. **Note:** This parameter cannot be used with .pdf and .zip file types as it can only be applied to single image queries.
-    
-</dd>
-</dl>
-
-<dl>
-<dd>
-
-**ocr_predict_request_new_line:** `typing.Optional[int]` — Set to 1 to split output text into individual lines (default: 0)
+**file:** `typing.Optional[core.File]` — Image, PDF, or ZIP file for OCR (required if `url` not provided). Supported formats: .png, .jpg, .jpeg, .bmp, .tiff, .gif, .pcx, .pdf, .zip. **Note:** PDFs containing images in them are allowed only for processing. The request body must contain only this file; every other option is a query parameter.
     
 </dd>
 </dl>
@@ -12979,7 +15045,7 @@ client.readability_score(
 </dl>
 </details>
 
-<details><summary><code>client.<a href="src/apifreaks/client.py">astronomy_lookup</a>(...) -> typing.Union[AstronomyLookupResponse, AstronomyLookupV2Response]</code></summary>
+<details><summary><code>client.<a href="src/apifreaks/client.py">astronomy_lookup</a>(...) -> AstronomyLookupResponse</code></summary>
 <dl>
 <dd>
 
@@ -13111,7 +15177,79 @@ client.astronomy_lookup(
 <dl>
 <dd>
 
-**version:** `typing.Optional[str]` — API version: `"1.0"` (default) or `"2.0"` (calls the `/v2.0/` endpoint and returns the v2 response model, `AstronomyLookupV2Response`).
+**request_options:** `typing.Optional[RequestOptions]` — Request-specific configuration.
+    
+</dd>
+</dl>
+</dd>
+</dl>
+
+
+</dd>
+</dl>
+</details>
+
+<details><summary><code>client.<a href="src/apifreaks/client.py">get_credits_usage</a>(...) -> GetCreditsUsageResponse</code></summary>
+<dl>
+<dd>
+
+#### 📝 Description
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+Returns subscription, subscription-surcharge, and one-off credit balances for the authenticated organization's account.
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### 🔌 Usage
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+```python
+from apifreaks import ApifreaksApi
+from apifreaks.environment import ApifreaksApiEnvironment
+
+client = ApifreaksApi(
+    environment=ApifreaksApiEnvironment.DEFAULT,
+)
+
+client.get_credits_usage(
+    api_key="apiKey",
+)
+
+```
+</dd>
+</dl>
+</dd>
+</dl>
+
+#### ⚙️ Parameters
+
+<dl>
+<dd>
+
+<dl>
+<dd>
+
+**api_key:** `str` — Your API key
+    
+</dd>
+</dl>
+
+<dl>
+<dd>
+
+**format:** `typing.Optional[GetCreditsUsageRequestFormat]` — Format of the response. Possible values: json, xml.
     
 </dd>
 </dl>

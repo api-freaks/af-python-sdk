@@ -181,6 +181,10 @@ except ApiError as e:
     print(f"Response body: {e.body}")
 ```
 
+If a successful (2xx) response doesn't match the expected schema, the SDK raises `apifreaks.core.ParsingError`, a subclass of `ApiError` that also carries the validation error as `e.cause`, so the `except ApiError` above catches it too.
+
+> **Note:** `get_credits_usage` requires an organization-admin API key; with any other key the API returns 403 (`ForbiddenError`).
+
 ## Request Types
 
 The SDK exports generated request and response types from the `apifreaks` package.

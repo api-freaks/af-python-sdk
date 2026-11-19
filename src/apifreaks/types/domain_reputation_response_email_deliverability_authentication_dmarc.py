@@ -16,7 +16,7 @@ class DomainReputationResponseEmailDeliverabilityAuthenticationDmarc(UniversalBa
     Indicates whether a DMARC record was found.
     """
 
-    policy: str = pydantic.Field()
+    policy: typing.Optional[str] = pydantic.Field(default=None)
     """
     DMARC enforcement policy applied to failing messages (e.g. none, quarantine, reject).
     """

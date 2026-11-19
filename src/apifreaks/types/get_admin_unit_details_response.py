@@ -9,13 +9,50 @@ from ..core.serialization import FieldMetadata
 
 
 class GetAdminUnitDetailsResponse(UniversalBaseModel):
-    name: str
-    admin_code: str
-    admin_level: str
-    iso_alpha2: typing_extensions.Annotated[
-        str, FieldMetadata(alias="iso_alpha_2"), pydantic.Field(alias="iso_alpha_2")
+    """
+    Detailed information for a single administrative unit.
+    """
+
+    name: str = pydantic.Field()
+    """
+    Name of the administrative unit.
+    """
+
+    admin_code: str = pydantic.Field()
+    """
+    Administrative code of the unit.
+    """
+
+    admin_iso31662: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="admin_iso3166_2"),
+        pydantic.Field(
+            alias="admin_iso3166_2",
+            description="The unit's full ISO 3166-2 code, formed as {country}-{admin_code} (e.g. US-CA, DE-BY).",
+        ),
+    ] = None
+    """
+    The unit's full ISO 3166-2 code, formed as {country}-{admin_code} (e.g. US-CA, DE-BY).
+    """
+
+    admin_level: str = pydantic.Field()
+    """
+    Level or type of the administrative unit (e.g. land, province, state).
+    """
+
+    country_iso31662: typing_extensions.Annotated[
+        str,
+        FieldMetadata(alias="country_iso3166_2"),
+        pydantic.Field(alias="country_iso3166_2", description="Country code in ISO 3166-1 alpha-2 format."),
     ]
-    country_name: str
+    """
+    Country code in ISO 3166-1 alpha-2 format.
+    """
+
+    country_name: str = pydantic.Field()
+    """
+    Name of the country.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

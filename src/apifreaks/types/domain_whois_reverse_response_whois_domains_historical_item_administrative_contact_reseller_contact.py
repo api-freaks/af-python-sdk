@@ -19,6 +19,15 @@ class DomainWhoisReverseResponseWhoisDomainsHistoricalItemAdministrativeContactR
     phone: typing.Optional[str] = None
     fax: typing.Optional[str] = None
     mailing_address: typing.Optional[str] = None
+    handle: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Registry handle for the contact, when published.
+    """
+
+    id: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Contact identifier.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

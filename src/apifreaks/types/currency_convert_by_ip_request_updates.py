@@ -2,4 +2,4 @@
 
 import typing
 
-CurrencyConvertByIpRequestUpdates = typing.Union[typing.Literal["1d", "1h", "10m", "1m"], typing.Any]
+CurrencyConvertByIpRequestUpdates = typing.Union[typing.Literal["1m", "10m", "1h", "1d"], typing.Any]

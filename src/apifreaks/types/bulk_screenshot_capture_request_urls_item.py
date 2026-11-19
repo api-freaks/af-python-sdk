@@ -3,11 +3,486 @@
 import typing
 
 import pydantic
+import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
+from .bulk_screenshot_capture_request_urls_item_file_type import BulkScreenshotCaptureRequestUrlsItemFileType
+from .bulk_screenshot_capture_request_urls_item_format import BulkScreenshotCaptureRequestUrlsItemFormat
+from .bulk_screenshot_capture_request_urls_item_ocr_model import BulkScreenshotCaptureRequestUrlsItemOcrModel
+from .bulk_screenshot_capture_request_urls_item_output import BulkScreenshotCaptureRequestUrlsItemOutput
+from .bulk_screenshot_capture_request_urls_item_pdf_options import BulkScreenshotCaptureRequestUrlsItemPdfOptions
+from .bulk_screenshot_capture_request_urls_item_scroll_speed import BulkScreenshotCaptureRequestUrlsItemScrollSpeed
+from .bulk_screenshot_capture_request_urls_item_wait_for_event import BulkScreenshotCaptureRequestUrlsItemWaitForEvent
 
 
 class BulkScreenshotCaptureRequestUrlsItem(UniversalBaseModel):
     url: str
+    accept_languages: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Sets the accepted languages for the HTTP request. This is sent as the Accept-Language header.
+    """
+
+    adjust_top: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Initial vertical scroll position in pixels before capture. Use to position mid-page content in viewport. Not supported for PDF.
+    """
+
+    block_ads: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks requests to known ad networks for cleaner, distraction-free screenshots.
+    """
+
+    block_chat_widgets: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks live chat popups, support bubbles, and messaging interfaces.
+    """
+
+    block_event_source: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks EventSource (SSE) connections - prevents real-time data streams.
+    """
+
+    block_fetch: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks all Fetch API requests - stops async data loading.
+    """
+
+    block_font: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks external font files - page falls back to system defaults. Supported: woff, woff2, ttf, otf, eot.
+    """
+
+    block_images: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks all image resources (jpg, png, gif, webp, svg, etc.) for faster rendering.
+    """
+
+    block_js: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Disables all JavaScript execution. Renders a static version of the page. Speeds up capture but may break dynamic content.
+    """
+
+    block_manifest: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks manifest files (.json, .webmanifest) - disables PWA-related functionality.
+    """
+
+    block_media: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks audio and video resources (mp3, mp4, webm, etc.) from loading.
+    """
+
+    block_specific_requests: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Fine-grained blocking of specific URLs or patterns. Separate multiple rules by comma, space, or newline. Default: empty.
+    """
+
+    block_stylesheets: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks all stylesheets - page renders as raw HTML without visual formatting.
+    """
+
+    block_text_track: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks subtitles and caption overlays from loading.
+    """
+
+    block_tracking: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks tracking scripts and analytics services for cleaner, privacy-oriented renders.
+    """
+
+    block_web_socket: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks WebSocket connections - prevents real-time bidirectional communication.
+    """
+
+    block_xhr: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Blocks all XMLHttpRequest (AJAX) calls - prevents dynamic API-driven content.
+    """
+
+    blur_selector: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS selectors to blur before capture. Masks sensitive data like emails, payments, or personal info. Multiple selectors supported. Default: empty.
+    """
+
+    captcha_error: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS selector of the message shown for a wrong answer. While it is visible, the solver tries again.
+    """
+
+    captcha_image: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS selector of the captcha picture. Required when solve_captcha is true.
+    """
+
+    captcha_input: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS selector of the box the answer is typed into. Required when solve_captcha is true.
+    """
+
+    captcha_refresh: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS selector of the control that loads a new captcha picture before the next try.
+    """
+
+    captcha_retries: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Number of guesses the solver makes, from 1 to 5.
+    """
+
+    captcha_submit: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS selector of the button to click after the answer is typed.
+    """
+
+    classic_proxy: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Loads the page through a datacenter proxy. Adds 20 credits per request. Ignored when premium_proxy is true or a custom proxy is set.
+    """
+
+    click_recursion: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Number of times to click the selector (when set via `selector_to_click`).
+    """
+
+    clip_height: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="clip[height]"),
+        pydantic.Field(alias="clip[height]", description="Height of the clip area in pixels. Default: null."),
+    ] = None
+    """
+    Height of the clip area in pixels. Default: null.
+    """
+
+    clip_width: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="clip[width]"),
+        pydantic.Field(alias="clip[width]", description="Width of the clip area in pixels. Default: null."),
+    ] = None
+    """
+    Width of the clip area in pixels. Default: null.
+    """
+
+    clip_x: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="clip[x]"),
+        pydantic.Field(
+            alias="clip[x]",
+            description="X coordinate (in pixels) for the top-left corner of the clip area. Default: null.",
+        ),
+    ] = None
+    """
+    X coordinate (in pixels) for the top-left corner of the clip area. Default: null.
+    """
+
+    clip_y: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="clip[y]"),
+        pydantic.Field(
+            alias="clip[y]",
+            description="Y coordinate (in pixels) for the top-left corner of the clip area. Default: null.",
+        ),
+    ] = None
+    """
+    Y coordinate (in pixels) for the top-left corner of the clip area. Default: null.
+    """
+
+    cookies: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Cookies to include in the request before rendering. Supports single or multiple cookies. Example: `cookie=value; otherCookie=otherValue;`.
+    """
+
+    country: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Two-letter country code, such as US or DE, for the exit address of classic_proxy or premium_proxy. Ignored when you send your own proxy. Any two-letter code is sent, including one that is not listed. Classic proxy countries: BG, GE, DE, HN, MD, UA, GB, US. Premium proxy countries: AF, AL, DZ, AO, AG, AR, AM, AW, AU, AT, AZ, BS, BH, BD, BB, BY, BE, BZ, BJ, BT, BO, BQ, BA, BW, BR, BN, BG, BF, BI, CV, KH, CM, CA, KY, CF, TD, CL, CN, CO, KM, CG, CR, CI, HR, CU, CW, CY, CZ, CD, DK, DJ, DM, DO, EC, EG, SV, GQ, EE, SZ, ET, FO, FJ, FI, FR, GF, PF, GA, GM, GE, DE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, HT, HN, HK, HU, IS, IN, ID, IR, IQ, IE, IL, IT, JM, JP, JE, JO, KZ, KE, XK, KW, KG, LA, LV, LB, LS, LR, LY, LT, MO, MG, MW, MY, MV, ML, MT, MQ, MR, MU, YT, MX, MD, MN, ME, MA, MZ, MM, NA, NP, NL, NC, NZ, NI, NE, NG, MK, NO, OM, PK, PS, PA, PG, PY, PE, PH, PL, PT, PR, QA, RE, RO, RU, RW, KN, LC, VC, WS, SA, SN, RS, SC, SL, SG, SK, SI, SB, SO, ZA, KR, SS, ES, LK, SD, SR, SE, CH, SY, TW, TJ, TZ, TH, TL, TG, TO, TT, TN, TR, TM, UG, UA, AE, GB, US, UY, UZ, VE, VN, YE, ZM, ZW.
+    """
+
+    css: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Allows injecting custom CSS code into the page before rendering. Pass the CSS code directly as a string.
+    """
+
+    css_url: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Allows loading external CSS into the page. Provide a URL pointing to the CSS file.
+    """
+
+    custom_html: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Custom HTML to render instead of loading a URL. Overrides the url option. Use for capturing specific HTML structures or dynamic content.
+    """
+
+    dark_mode: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    When set to `true`, websites that support prefers-color-scheme: dark will render in dark mode.
+    """
+
+    delay: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Wait period in milliseconds before capture. Allows animations, API responses, and dynamic elements to finish rendering.
+    """
+
+    destroy_screenshot: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    If `true`, screenshot/PDF is not stored on server and must be downloaded immediately.
+    """
+
+    duration: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Duration of scrolling action in seconds (0-60). Higher = longer video. Default: null (full page scroll).
+    """
+
+    enable_caching: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Stores the render in cache for reuse on subsequent identical requests.
+    """
+
+    enable_incognito: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Enables private/incognito browsing. Each render starts with a clean slate - no cookies, cache, or session data persisted.
+    """
+
+    extract_html: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Returns rendered HTML as a .html file (includes JS-executed DOM). Only available with output=json.
+    """
+
+    extract_markdown: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Extracts rendered page content as a structured .md (Markdown) file. Preserves headings, lists, links. Only with output=json.
+    """
+
+    extract_text: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Strips all HTML and returns visible text as a .txt file. Ideal for text analysis, indexing, or AI pipelines. Only with output=json.
+    """
+
+    fail_on_error: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    If `true`, returns an error when the target page responds with 4xx or 5xx status.
+    """
+
+    file_type: typing.Optional[BulkScreenshotCaptureRequestUrlsItemFileType] = pydantic.Field(default=None)
+    """
+    Output format. PNG (lossless, transparency), JPEG (compressed, smaller size), WebP (modern, efficient), PDF (document). For scrolling captures: MP4, GIF, WebM. Scrolling capture formats: WEBM (web-optimized), MP4 (widely compatible, default), GIF (short loops).
+    """
+
+    format: typing.Optional[BulkScreenshotCaptureRequestUrlsItemFormat] = pydantic.Field(default=None)
+    """
+    Response format: json (default).
+    """
+
+    fresh: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    If `true`, bypasses cache and captures a fresh render. If `false`, returns cached version when available.
+    """
+
+    full_page: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Captures the entire webpage from top to bottom, including scrollable content outside the viewport. Ideal for long-form pages.
+    """
+
+    get_image_urls: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Extracts all image URLs from the rendered DOM and returns them in structured format. Only with output=json.
+    """
+
+    gpu: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Renders the page with a GPU, including WebGL and canvas content. Adds 20 credits per request.
+    """
+
+    grayscale: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Applies a grayscale filter to the screenshot. Requires a value from 0 (no effect) to 100 (fully grayscale).
+    """
+
+    headers: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Custom HTTP headers to include as key=value pairs. Use a semicolon to separate multiple headers (e.g., `key1=value1;key2=value2`).
+    """
+
+    height: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Viewport height in pixels. Controls how much vertical area is visible. Max: 4320.
+    """
+
+    image_quality: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Compression level for JPEG output (0-100). Lower = smaller file, higher = better quality. Only applies to JPEG.
+    """
+
+    js: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Allows injecting custom JavaScript code into the page before rendering. Pass the JavaScript code directly as a string.
+    """
+
+    js_url: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Allows loading external JavaScript into the page. Provide a URL pointing to the script file.
+    """
+
+    latitude: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Specify latitude for the browser Geolocation API. Provide a numeric value. Default: null (not set).
+    """
+
+    lazy_load: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Automatically scrolls the page to trigger lazy-loaded images and components. Ensures complete content capture.
+    """
+
+    longitude: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Specify longitude for the browser Geolocation API. Provide a numeric value. Default: null (not set).
+    """
+
+    markdown: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Markdown to render instead of loading a URL. Works like custom_html, so you can capture a README or notes without hosting a page.
+    """
+
+    no_cookie_banners: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Hides or blocks cookie consent banners and popups before capture.
+    """
+
+    ocr_model: typing.Optional[BulkScreenshotCaptureRequestUrlsItemOcrModel] = pydantic.Field(default=None)
+    """
+    Recognition model used by the captcha solver: mini-ocr-v1 (default) or ocr-v1.
+    """
+
+    omit_background: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Replaces simple white/plain backgrounds with transparency for a cut-out effect. Only works with PNG output.
+    """
+
+    output: typing.Optional[BulkScreenshotCaptureRequestUrlsItemOutput] = pydantic.Field(default=None)
+    """
+    Set the output format. `json` returns metadata with a hosted file URL. `image` streams the raw file bytes directly.
+    """
+
+    pdf_options: typing.Optional[BulkScreenshotCaptureRequestUrlsItemPdfOptions] = pydantic.Field(default=None)
+    """
+    PDF output options. Applies when file_type is PDF.
+    """
+
+    premium_proxy: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Loads the page through a residential proxy. Adds 200 credits per request. Used instead of classic_proxy.
+    """
+
+    proxy: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Allows defining a proxy for the connection. Provide a JSON string with keys: server (include port number), username, and password.
+    """
+
+    remove_selector: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS selectors to remove before capture. Deletes matched elements from DOM. Ideal for cleaning ads, popups, sidebars. Multiple selectors supported. Default: empty.
+    """
+
+    result_file_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Custom name for the output file. Helps with organized storage and retrieval. Note: non-unique names may overwrite existing files.
+    """
+
+    retina: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Captures at 2x resolution for sharper, high-DPI output. Increases file size.
+    """
+
+    scroll_back: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    If `true`, scrolls to bottom then back to top, creating a seamless loop.
+    """
+
+    scroll_delay: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Delay in milliseconds between scroll steps when `lazy_load` is enabled. Use higher values for heavy pages.
+    """
+
+    scroll_speed: typing.Optional[BulkScreenshotCaptureRequestUrlsItemScrollSpeed] = pydantic.Field(default=None)
+    """
+    Scrolling speed: fast, normal (default), or slow. Affects render time and output pacing.
+    """
+
+    scroll_to_element: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Scrolls the page to bring the specified CSS selector into view before capture. Ideal for below-the-fold content. Default: empty.
+    """
+
+    scrolling_screenshot: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Enables scrolling screenshot mode to capture a video (webm, gif, mp4) of the webpage.
+    """
+
+    selector: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS selector to capture a specific element. Only that element is rendered. Falls back to full page if not found. Default: empty.
+    """
+
+    selector_to_click: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS selector for an element to click before capturing the screenshot. Useful for opening dropdowns, modals, or triggering content.
+    """
+
+    solve_captcha: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Solves a captcha made of text drawn in a picture, then takes the screenshot. Requires captcha_image and captcha_input. Adds 20 credits per request.
+    """
+
+    start_immediately: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Starts recording immediately without waiting for full page load.
+    """
+
+    stealth: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Makes the browser look like a regular visitor for pages that block automated traffic. No extra credits.
+    """
+
+    thumbnail_width: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Specifies the width of the thumbnail in pixels. Default value is 0 (meaning no specific value is set, and the screenshot is returned at its original resolution).
+    """
+
+    timeout: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Maximum wait in milliseconds for page load before aborting. Adjust for slow/heavy pages. Default: 100000 (100s).
+    """
+
+    timezone: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    IANA timezone the browser uses while rendering, such as Asia/Karachi or Europe/London. Useful for clocks and localized dates.
+    """
+
+    ttl: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Time in seconds the render stays cached before auto-invalidation. Use higher values for static pages, lower for dynamic content. Default: 2592000 (30 days).
+    """
+
+    user_agent: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Custom User-Agent string sent in the request headers.
+    """
+
+    video: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    Records visible viewport only for a specified duration. Use with `duration` parameter. Ideal for dashboards and animations.
+    """
+
+    wait_for_event: typing.Optional[BulkScreenshotCaptureRequestUrlsItemWaitForEvent] = pydantic.Field(default=None)
+    """
+    Controls when rendering starts based on page load lifecycle. `load` (all resources), `domcontentloaded` (HTML parsed), `networkidle` (no network activity for 500ms).
+    """
+
+    width: typing.Optional[int] = pydantic.Field(default=None)
+    """
+    Viewport width in pixels. Simulates device screen sizes. Max: 7680.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -2,4 +2,4 @@
 
 import typing
 
-ScreenshotCaptureRequestOutput = typing.Union[typing.Literal["json", "image"], typing.Any]
+ScreenshotCaptureRequestOutput = typing.Union[typing.Literal["json"], typing.Any]

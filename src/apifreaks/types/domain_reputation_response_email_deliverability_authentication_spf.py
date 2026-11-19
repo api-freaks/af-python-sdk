@@ -16,12 +16,12 @@ class DomainReputationResponseEmailDeliverabilityAuthenticationSpf(UniversalBase
     Indicates whether an SPF record was found.
     """
 
-    policy: str = pydantic.Field()
+    policy: typing.Optional[str] = pydantic.Field(default=None)
     """
     SPF enforcement policy qualifier found in the record (e.g. ~all, -all).
     """
 
-    record: str = pydantic.Field()
+    record: typing.Optional[str] = pydantic.Field(default=None)
     """
     Raw SPF DNS TXT record string.
     """

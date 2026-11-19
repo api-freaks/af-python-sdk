@@ -3,8 +3,9 @@
 import typing
 
 from ..core.api_error import ApiError
+from ..types.request_timeout_error_body import RequestTimeoutErrorBody
 
 
 class RequestTimeoutError(ApiError):
-    def __init__(self, body: typing.Any, headers: typing.Optional[typing.Dict[str, str]] = None):
+    def __init__(self, body: RequestTimeoutErrorBody, headers: typing.Optional[typing.Dict[str, str]] = None):
         super().__init__(status_code=408, headers=headers, body=body)

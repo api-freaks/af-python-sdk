@@ -3,7 +3,9 @@
 import typing
 
 import pydantic
+import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 
 
 class GeolocationLookupResponseNetworkAsn(UniversalBaseModel):
@@ -47,12 +49,20 @@ class GeolocationLookupResponseNetworkAsn(UniversalBaseModel):
     The allocation status of the ASN
     """
 
-    num_of_ipv4_routes: typing.Optional[str] = pydantic.Field(default=None)
+    num_of_ipv4_routes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="num_of_ipv4_routes"),
+        pydantic.Field(alias="num_of_ipv4_routes", description="The number of IPv4 routes associated with the ASN"),
+    ] = None
     """
     The number of IPv4 routes associated with the ASN
     """
 
-    num_of_ipv6_routes: typing.Optional[str] = pydantic.Field(default=None)
+    num_of_ipv6_routes: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="num_of_ipv6_routes"),
+        pydantic.Field(alias="num_of_ipv6_routes", description="The number of IPv6 routes associated with the ASN"),
+    ] = None
     """
     The number of IPv6 routes associated with the ASN
     """

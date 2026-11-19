@@ -7,5 +7,5 @@ from .flood_forecast_response_location_continent_code import FloodForecastRespon
 from .flood_forecast_response_location_zero import FloodForecastResponseLocationZero
 
 FloodForecastResponseLocation = typing.Union[
-    FloodForecastResponseLocationZero, FloodForecastResponseLocationContinentCode, FloodForecastResponseLocationCity
+    FloodForecastResponseLocationContinentCode, FloodForecastResponseLocationCity, FloodForecastResponseLocationZero
 ]

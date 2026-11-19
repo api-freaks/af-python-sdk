@@ -2,4 +2,4 @@
 
 import typing
 
-FloodForecastRequestFormat = typing.Union[typing.Literal["json", "xml"], typing.Any]
+FloodForecastRequestFormat = typing.Union[typing.Literal["json"], typing.Any]

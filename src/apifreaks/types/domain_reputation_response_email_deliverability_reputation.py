@@ -16,7 +16,7 @@ class DomainReputationResponseEmailDeliverabilityReputation(UniversalBaseModel):
     Indicates whether the domain appears on known spam blacklists.
     """
 
-    newly_registered: bool = pydantic.Field()
+    newly_registered: typing.Optional[bool] = pydantic.Field(default=None)
     """
     Indicates whether the domain was registered recently.
     """

@@ -9,13 +9,28 @@ from ..core.serialization import FieldMetadata
 
 
 class WebScrapeRequestBodyBlockUrlInstructionsItemResolveAudioCaptcha(UniversalBaseModel):
-    resolve_audio_captcha: typing_extensions.Annotated[
-        typing.Optional[typing.Dict[str, typing.Any]],
-        FieldMetadata(alias="resolveAudioCaptcha"),
-        pydantic.Field(alias="resolveAudioCaptcha", description="Solves audio CAPTCHA challenges."),
+    """
+    Selectors for locating and solving a single audio CAPTCHA challenge.
+    """
+
+    audio_path: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="audioPath"),
+        pydantic.Field(alias="audioPath", description="Selector for the audio CAPTCHA element."),
     ] = None
     """
-    Solves audio CAPTCHA challenges.
+    Selector for the audio CAPTCHA element.
+    """
+
+    text_field: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="textField"),
+        pydantic.Field(
+            alias="textField", description="Selector for the field where the resolved audio CAPTCHA text is entered."
+        ),
+    ] = None
+    """
+    Selector for the field where the resolved audio CAPTCHA text is entered.
     """
 
     if IS_PYDANTIC_V2:

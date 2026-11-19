@@ -29,7 +29,16 @@ class BulkDomainWhoisLookupResponseBulkWhoisResponseItemRegistryData(UniversalBa
     expiry_date: typing.Optional[dt.date] = None
     name_servers: typing.Optional[typing.List[str]] = None
     domain_status: typing.Optional[typing.List[str]] = None
-    whois_raw_registry: typing.Optional[str] = None
+    whois_raw_registry: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Deprecated: the API never returns this key; the raw registry WHOIS text is in `whois_raw_registery`.
+    """
+
+    whois_raw_registery: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Raw WHOIS text returned by the registry's WHOIS server (the key is spelled `whois_raw_registery` by the API).
+    """
+
     domain_registrar: typing.Optional[BulkDomainWhoisLookupResponseBulkWhoisResponseItemRegistryDataDomainRegistrar] = (
         None
     )

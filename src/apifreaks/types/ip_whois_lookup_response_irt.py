@@ -4,6 +4,12 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .ip_whois_lookup_response_irt_abuse_contacts_item import IpWhoisLookupResponseIrtAbuseContactsItem
+from .ip_whois_lookup_response_irt_administrative_contacts_item import (
+    IpWhoisLookupResponseIrtAdministrativeContactsItem,
+)
+from .ip_whois_lookup_response_irt_organization import IpWhoisLookupResponseIrtOrganization
+from .ip_whois_lookup_response_irt_technical_contacts_item import IpWhoisLookupResponseIrtTechnicalContactsItem
 
 
 class IpWhoisLookupResponseIrt(UniversalBaseModel):
@@ -33,6 +39,31 @@ class IpWhoisLookupResponseIrt(UniversalBaseModel):
     date_created: typing.Optional[str] = None
     date_updated: typing.Optional[str] = None
     source: typing.Optional[str] = None
+    abuse_contacts: typing.Optional[typing.List[IpWhoisLookupResponseIrtAbuseContactsItem]] = pydantic.Field(
+        default=None
+    )
+    """
+    Abuse contacts linked to this IRT.
+    """
+
+    administrative_contacts: typing.Optional[typing.List[IpWhoisLookupResponseIrtAdministrativeContactsItem]] = (
+        pydantic.Field(default=None)
+    )
+    """
+    Administrative contacts linked to this IRT.
+    """
+
+    organization: typing.Optional[IpWhoisLookupResponseIrtOrganization] = pydantic.Field(default=None)
+    """
+    Organization object containing the registrant's handle, name, address, contact details, and linked admin/tech/abuse contacts.
+    """
+
+    technical_contacts: typing.Optional[typing.List[IpWhoisLookupResponseIrtTechnicalContactsItem]] = pydantic.Field(
+        default=None
+    )
+    """
+    Technical contacts linked to this IRT.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

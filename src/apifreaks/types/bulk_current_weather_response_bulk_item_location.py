@@ -9,7 +9,7 @@ from .bulk_current_weather_response_bulk_item_location_continent_code import (
 from .bulk_current_weather_response_bulk_item_location_zero import BulkCurrentWeatherResponseBulkItemLocationZero
 
 BulkCurrentWeatherResponseBulkItemLocation = typing.Union[
-    BulkCurrentWeatherResponseBulkItemLocationZero,
     BulkCurrentWeatherResponseBulkItemLocationContinentCode,
     BulkCurrentWeatherResponseBulkItemLocationCity,
+    BulkCurrentWeatherResponseBulkItemLocationZero,
 ]

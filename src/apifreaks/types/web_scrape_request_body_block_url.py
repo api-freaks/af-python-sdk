@@ -29,7 +29,7 @@ class WebScrapeRequestBodyBlockUrl(UniversalBaseModel):
 
     instructions: typing.List[WebScrapeRequestBodyBlockUrlInstructionsItem] = pydantic.Field()
     """
-    An ordered list of step-by-step scraping instructions to be executed in the browser.
+    An ordered list of step-by-step scraping instructions to be executed in the browser. Each item is one Instruction object, with exactly one action field set.
     """
 
     if IS_PYDANTIC_V2:

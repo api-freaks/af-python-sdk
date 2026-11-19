@@ -9,10 +9,10 @@ from ..core.serialization import FieldMetadata
 
 
 class DomainAvailabilitySuggestionsResponseDomainAvailableResponseDomainAvailableResponseItem(UniversalBaseModel):
-    domain: typing.Optional[str] = None
+    domain: str
     domain_availability: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="domainAvailability"), pydantic.Field(alias="domainAvailability")
-    ] = None
+        bool, FieldMetadata(alias="domainAvailability"), pydantic.Field(alias="domainAvailability")
+    ]
     message: typing.Optional[str] = pydantic.Field(default=None)
     """
     Extra details if the domain is not registered.

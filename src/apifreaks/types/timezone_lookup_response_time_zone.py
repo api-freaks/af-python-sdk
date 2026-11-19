@@ -35,6 +35,15 @@ class TimezoneLookupResponseTimeZone(UniversalBaseModel):
     dst_exists: bool
     dst_start: typing.Optional[TimezoneLookupResponseTimeZoneDstStart] = None
     dst_end: typing.Optional[TimezoneLookupResponseTimeZoneDstEnd] = None
+    dst_tz_abbreviation: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Abbreviation of the DST time zone. Always present as a key; holds an empty string when dst_exists is false.
+    """
+
+    dst_tz_full_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Full name of the DST time zone. Always present as a key; holds an empty string when dst_exists is false.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

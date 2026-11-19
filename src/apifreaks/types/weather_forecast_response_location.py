@@ -7,7 +7,7 @@ from .weather_forecast_response_location_continent_code import WeatherForecastRe
 from .weather_forecast_response_location_zero import WeatherForecastResponseLocationZero
 
 WeatherForecastResponseLocation = typing.Union[
-    WeatherForecastResponseLocationZero,
     WeatherForecastResponseLocationContinentCode,
     WeatherForecastResponseLocationCity,
+    WeatherForecastResponseLocationZero,
 ]

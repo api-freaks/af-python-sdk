@@ -29,10 +29,15 @@ class DomainWhoisHistoryResponseWhoisDomainsHistoricalItemRegistryData(Universal
     expiry_date: typing.Optional[dt.date] = None
     name_servers: typing.Optional[typing.List[str]] = None
     domain_status: typing.Optional[typing.List[str]] = None
-    whois_raw_registry: typing.Optional[str] = None
+    whois_raw_registry: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Deprecated: the API returns this field as `whois_raw_registery`; read `whois_raw_registery` instead.
+    """
+
     domain_registrar: typing.Optional[
         DomainWhoisHistoryResponseWhoisDomainsHistoricalItemRegistryDataDomainRegistrar
     ] = None
+    whois_raw_registery: typing.Optional[str] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
