@@ -7,7 +7,7 @@ from .weather_time_series_response_location_continent_code import WeatherTimeSer
 from .weather_time_series_response_location_zero import WeatherTimeSeriesResponseLocationZero
 
 WeatherTimeSeriesResponseLocation = typing.Union[
-    WeatherTimeSeriesResponseLocationZero,
     WeatherTimeSeriesResponseLocationContinentCode,
     WeatherTimeSeriesResponseLocationCity,
+    WeatherTimeSeriesResponseLocationZero,
 ]

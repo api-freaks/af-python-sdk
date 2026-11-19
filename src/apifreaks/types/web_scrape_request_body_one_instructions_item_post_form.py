@@ -3,25 +3,22 @@
 import typing
 
 import pydantic
-import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
-from ..core.serialization import FieldMetadata
-from .web_scrape_request_body_one_instructions_item_post_form_post_form import (
-    WebScrapeRequestBodyOneInstructionsItemPostFormPostForm,
-)
 
 
 class WebScrapeRequestBodyOneInstructionsItemPostForm(UniversalBaseModel):
-    post_form: typing_extensions.Annotated[
-        typing.Optional[WebScrapeRequestBodyOneInstructionsItemPostFormPostForm],
-        FieldMetadata(alias="postForm"),
-        pydantic.Field(
-            alias="postForm",
-            description="Submits a form using POST method. Provide the form's XPath/CSS selector and input values.",
-        ),
-    ] = None
     """
-    Submits a form using POST method. Provide the form's XPath/CSS selector and input values.
+    Form selector and field values to submit via postForm or getForm.
+    """
+
+    selector: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    CSS or XPath selector identifying the form element.
+    """
+
+    data: typing.Optional[typing.Dict[str, str]] = pydantic.Field(default=None)
+    """
+    Form field name/value pairs to submit.
     """
 
     if IS_PYDANTIC_V2:

@@ -3,5 +3,5 @@
 import typing
 
 BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItemSingleNameDnsType = typing.Union[
-    typing.Literal["NS"], typing.Any
+    typing.Literal["NS", "PTR"], typing.Any
 ]

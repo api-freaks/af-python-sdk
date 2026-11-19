@@ -13,10 +13,10 @@ class DomainAvailabilitySuggestionsResponseDomain(UniversalBaseModel):
     Returned when `sug=false` — availability for the queried domain only, no suggestions.
     """
 
-    domain: typing.Optional[str] = None
+    domain: str
     domain_availability: typing_extensions.Annotated[
-        typing.Optional[bool], FieldMetadata(alias="domainAvailability"), pydantic.Field(alias="domainAvailability")
-    ] = None
+        bool, FieldMetadata(alias="domainAvailability"), pydantic.Field(alias="domainAvailability")
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

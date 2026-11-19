@@ -23,8 +23,8 @@ from .bulk_domain_dns_lookup_response_bulk_dns_info_item_dns_records_item_string
 
 BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItem = typing.Union[
     BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItemAddress,
-    BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItemOne,
     BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItemPriority,
+    BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItemOne,
     BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItemSingleName,
     BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItemAdmin,
     BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItemStrings,

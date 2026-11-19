@@ -13,7 +13,9 @@ class EmailValidateResponseDomain(UniversalBaseModel):
     disposable: bool
     spam: bool
     free: bool
-    catch_all: typing_extensions.Annotated[bool, FieldMetadata(alias="catchAll"), pydantic.Field(alias="catchAll")]
+    catch_all: typing_extensions.Annotated[
+        typing.Optional[bool], FieldMetadata(alias="catchAll"), pydantic.Field(alias="catchAll")
+    ] = None
     valid_domain: typing_extensions.Annotated[
         bool, FieldMetadata(alias="validDomain"), pydantic.Field(alias="validDomain")
     ]

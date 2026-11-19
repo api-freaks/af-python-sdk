@@ -7,5 +7,5 @@ from .marine_weather_response_location_continent_code import MarineWeatherRespon
 from .marine_weather_response_location_zero import MarineWeatherResponseLocationZero
 
 MarineWeatherResponseLocation = typing.Union[
-    MarineWeatherResponseLocationZero, MarineWeatherResponseLocationContinentCode, MarineWeatherResponseLocationCity
+    MarineWeatherResponseLocationContinentCode, MarineWeatherResponseLocationCity, MarineWeatherResponseLocationZero
 ]

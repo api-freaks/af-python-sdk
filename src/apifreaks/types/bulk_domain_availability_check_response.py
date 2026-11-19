@@ -4,6 +4,9 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .bulk_domain_availability_check_response_bulk_domain_availability_response_item import (
+    BulkDomainAvailabilityCheckResponseBulkDomainAvailabilityResponseItem,
+)
 from .bulk_domain_availability_check_response_bulk_domain_available_response_item import (
     BulkDomainAvailabilityCheckResponseBulkDomainAvailableResponseItem,
 )
@@ -12,6 +15,13 @@ from .bulk_domain_availability_check_response_bulk_domain_available_response_ite
 class BulkDomainAvailabilityCheckResponse(UniversalBaseModel):
     bulk_domain_available_response: typing.Optional[
         typing.List[BulkDomainAvailabilityCheckResponseBulkDomainAvailableResponseItem]
+    ] = pydantic.Field(default=None)
+    """
+    Deprecated: the API returns this field as `bulk_domain_availability_response`; read `bulk_domain_availability_response` instead.
+    """
+
+    bulk_domain_availability_response: typing.Optional[
+        typing.List[BulkDomainAvailabilityCheckResponseBulkDomainAvailabilityResponseItem]
     ] = None
 
     if IS_PYDANTIC_V2:

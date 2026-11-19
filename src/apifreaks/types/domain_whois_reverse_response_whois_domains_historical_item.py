@@ -5,11 +5,11 @@ import typing
 from .domain_whois_reverse_response_whois_domains_historical_item_administrative_contact import (
     DomainWhoisReverseResponseWhoisDomainsHistoricalItemAdministrativeContact,
 )
-from .domain_whois_reverse_response_whois_domains_historical_item_companyname import (
-    DomainWhoisReverseResponseWhoisDomainsHistoricalItemCompanyname,
+from .domain_whois_reverse_response_whois_domains_historical_item_company_name import (
+    DomainWhoisReverseResponseWhoisDomainsHistoricalItemCompanyName,
 )
 
 DomainWhoisReverseResponseWhoisDomainsHistoricalItem = typing.Union[
     DomainWhoisReverseResponseWhoisDomainsHistoricalItemAdministrativeContact,
-    DomainWhoisReverseResponseWhoisDomainsHistoricalItemCompanyname,
+    DomainWhoisReverseResponseWhoisDomainsHistoricalItemCompanyName,
 ]

@@ -96,7 +96,11 @@ class WeatherForecastResponseForecastValueHourlyItem(UniversalBaseModel):
     Visibility distance (m)
     """
 
-    et0_fao_evapotranspiration: typing.Optional[float] = pydantic.Field(default=None)
+    et0_fao_evapotranspiration: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="et0_fao_evapotranspiration"),
+        pydantic.Field(alias="et0_fao_evapotranspiration", description="Evapotranspiration (mm)"),
+    ] = None
     """
     Evapotranspiration (mm)
     """

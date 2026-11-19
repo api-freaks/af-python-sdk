@@ -2,4 +2,4 @@
 
 import typing
 
-AirQualityRequestFormat = typing.Union[typing.Literal["json", "xml"], typing.Any]
+AirQualityRequestFormat = typing.Union[typing.Literal["json"], typing.Any]

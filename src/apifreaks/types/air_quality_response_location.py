@@ -7,5 +7,5 @@ from .air_quality_response_location_continent_code import AirQualityResponseLoca
 from .air_quality_response_location_zero import AirQualityResponseLocationZero
 
 AirQualityResponseLocation = typing.Union[
-    AirQualityResponseLocationZero, AirQualityResponseLocationContinentCode, AirQualityResponseLocationCity
+    AirQualityResponseLocationContinentCode, AirQualityResponseLocationCity, AirQualityResponseLocationZero
 ]

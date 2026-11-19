@@ -10,7 +10,7 @@ from .web_scrape_request_body_one_instructions_item import WebScrapeRequestBodyO
 class WebScrapeRequestBodyOne(UniversalBaseModel):
     instructions: typing.List[WebScrapeRequestBodyOneInstructionsItem] = pydantic.Field()
     """
-    A list of sequential instructions to execute after receiving the static HTML response. Supported methods include `postForm`, `getForm`, and `extract`.
+    A list of sequential instructions to execute against the static HTML response. Each item is one StaticInstruction object, with exactly one action field set.
     """
 
     if IS_PYDANTIC_V2:

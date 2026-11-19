@@ -20,6 +20,35 @@ class SwiftCodeLookupResponse(UniversalBaseModel):
     bank_name: typing_extensions.Annotated[str, FieldMetadata(alias="bankName"), pydantic.Field(alias="bankName")]
     city: str
     country: str
+    branch_name: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="branchName"),
+        pydantic.Field(alias="branchName", description="Name of the branch or office. Null when not resolvable."),
+    ] = None
+    """
+    Name of the branch or office. Null when not resolvable.
+    """
+
+    instit_type: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="institType"),
+        pydantic.Field(
+            alias="institType",
+            description='Type of institution: "FIIN" (financial institution) or "NFIN" (non-financial institution).',
+        ),
+    ] = None
+    """
+    Type of institution: "FIIN" (financial institution) or "NFIN" (non-financial institution).
+    """
+
+    postal_code: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="postalCode"),
+        pydantic.Field(alias="postalCode", description="Postal/ZIP code of the bank branch. Null when not resolvable."),
+    ] = None
+    """
+    Postal/ZIP code of the bank branch. Null when not resolvable.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

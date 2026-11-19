@@ -21,7 +21,7 @@ class DomainReputationResponseEmailDeliverabilityInfrastructure(UniversalBaseMod
     List of mail exchange server hostnames for the domain.
     """
 
-    mx_provider: str = pydantic.Field()
+    mx_provider: typing.Optional[str] = pydantic.Field(default=None)
     """
     Email hosting provider inferred from the MX records.
     """

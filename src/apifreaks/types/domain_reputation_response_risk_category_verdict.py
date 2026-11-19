@@ -2,4 +2,4 @@
 
 import typing
 
-DomainReputationResponseRiskCategoryVerdict = typing.Union[typing.Literal["safe", "suspicious"], typing.Any]
+DomainReputationResponseRiskCategoryVerdict = typing.Union[typing.Literal["safe", "suspicious", "unknown"], typing.Any]

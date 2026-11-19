@@ -47,7 +47,7 @@ class DomainWhoisHistoryResponseWhoisDomainsHistoricalItem(UniversalBaseModel):
     Domain name which was queried.
     """
 
-    query_time: str = pydantic.Field()
+    query_time: typing.Optional[str] = pydantic.Field(default=None)
     """
     The timestamp when the query was made (format YYYY-MM-DD HH:mm:ss, not ISO 8601).
     """
@@ -57,7 +57,9 @@ class DomainWhoisHistoryResponseWhoisDomainsHistoricalItem(UniversalBaseModel):
     The WHOIS server that provided the domain information.
     """
 
-    domain_registered: DomainWhoisHistoryResponseWhoisDomainsHistoricalItemDomainRegistered = pydantic.Field()
+    domain_registered: typing.Optional[DomainWhoisHistoryResponseWhoisDomainsHistoricalItemDomainRegistered] = (
+        pydantic.Field(default=None)
+    )
     """
     Domain registration status.
     """

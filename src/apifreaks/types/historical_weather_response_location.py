@@ -7,7 +7,7 @@ from .historical_weather_response_location_continent_code import HistoricalWeath
 from .historical_weather_response_location_zero import HistoricalWeatherResponseLocationZero
 
 HistoricalWeatherResponseLocation = typing.Union[
-    HistoricalWeatherResponseLocationZero,
     HistoricalWeatherResponseLocationContinentCode,
     HistoricalWeatherResponseLocationCity,
+    HistoricalWeatherResponseLocationZero,
 ]

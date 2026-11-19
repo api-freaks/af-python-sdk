@@ -2,4 +2,4 @@
 
 import typing
 
-DomainDnsLookupResponseDnsRecordsItemSingleNameDnsType = typing.Union[typing.Literal["NS"], typing.Any]
+DomainDnsLookupResponseDnsRecordsItemSingleNameDnsType = typing.Union[typing.Literal["NS", "PTR"], typing.Any]

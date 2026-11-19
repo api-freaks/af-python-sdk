@@ -8,7 +8,7 @@ from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
 
 class SubdomainsLookupResponseSubdomainsItem(UniversalBaseModel):
     subdomain: str
-    first_seen: str
+    first_seen: typing.Optional[str] = None
     last_seen: typing.Optional[str] = None
     inactive_from: typing.Optional[str] = pydantic.Field(default=None)
     """

@@ -15,10 +15,20 @@ class DomainWhoisHistoryResponseWhoisDomainsHistoricalItemAdministrativeContact(
     zip_code: typing.Optional[str] = None
     country_name: typing.Optional[str] = None
     country_code: typing.Optional[str] = None
-    emailaddress: typing.Optional[str] = None
+    emailaddress: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Deprecated: the API returns this field as `email_address`; read `email_address` instead.
+    """
+
     phone: typing.Optional[str] = None
     fax: typing.Optional[str] = None
-    mailingaddress: typing.Optional[str] = None
+    mailingaddress: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Deprecated: the API returns this field as `mailing_address`; read `mailing_address` instead.
+    """
+
+    email_address: typing.Optional[str] = None
+    mailing_address: typing.Optional[str] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

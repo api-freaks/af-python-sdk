@@ -14,8 +14,16 @@ class AsnWhoisLookupResponseRouteObjectsItem(UniversalBaseModel):
     origin_name: typing_extensions.Annotated[str, FieldMetadata(alias="originName"), pydantic.Field(alias="originName")]
     isp: str
     number_of_ips: typing_extensions.Annotated[
-        int, FieldMetadata(alias="numberOfIps"), pydantic.Field(alias="numberOfIps")
+        float,
+        FieldMetadata(alias="numberOfIps"),
+        pydantic.Field(
+            alias="numberOfIps",
+            description="Number of IP addresses in the route. IPv6 routes exceed the 64-bit integer range, so this is a floating-point number.",
+        ),
     ]
+    """
+    Number of IP addresses in the route. IPv6 routes exceed the 64-bit integer range, so this is a floating-point number.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

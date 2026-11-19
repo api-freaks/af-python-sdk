@@ -14,9 +14,9 @@ class DomainAvailabilitySuggestionsResponseDomainAvailableResponse(UniversalBase
     Returned when `sug` is omitted or `true` — the queried domain plus suggested alternatives.
     """
 
-    domain_available_response: typing.Optional[
-        typing.List[DomainAvailabilitySuggestionsResponseDomainAvailableResponseDomainAvailableResponseItem]
-    ] = None
+    domain_available_response: typing.List[
+        DomainAvailabilitySuggestionsResponseDomainAvailableResponseDomainAvailableResponseItem
+    ]
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

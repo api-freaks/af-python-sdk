@@ -12,14 +12,14 @@ class VatRateByCountryResponseItem(UniversalBaseModel):
     type: str
     currency: str
     standard_rate: float
-    reduced_rate: typing.List[float]
+    reduced_rate: typing.Optional[typing.List[float]] = None
     super_reduced_rate: typing.Optional[typing.List[float]] = pydantic.Field(default=None)
     """
     Optional super-reduced VAT rates applicable in specific categories.
     """
 
     parking_rate: typing.Optional[float] = None
-    categories: typing.Dict[str, float]
+    categories: typing.Optional[typing.Dict[str, float]] = None
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

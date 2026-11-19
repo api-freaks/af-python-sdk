@@ -29,17 +29,19 @@ class DomainDnsLookupResponse(UniversalBaseModel):
     """
 
     domain_name: typing_extensions.Annotated[
-        str, FieldMetadata(alias="domainName"), pydantic.Field(alias="domainName", description="Queried domain.")
-    ]
+        typing.Optional[str],
+        FieldMetadata(alias="domainName"),
+        pydantic.Field(alias="domainName", description="Queried domain."),
+    ] = None
     """
     Queried domain.
     """
 
     domain_registered: typing_extensions.Annotated[
-        bool,
+        typing.Optional[bool],
         FieldMetadata(alias="domainRegistered"),
         pydantic.Field(alias="domainRegistered", description="Indicates whether the domain is registered."),
-    ]
+    ] = None
     """
     Indicates whether the domain is registered.
     """
@@ -54,6 +56,18 @@ class DomainDnsLookupResponse(UniversalBaseModel):
     ]
     """
     List of DNS records, each based on its type.
+    """
+
+    ip_address: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="ipAddress"),
+        pydantic.Field(
+            alias="ipAddress",
+            description="IP address queried (present when ipAddress parameter is used instead of host-name).",
+        ),
+    ] = None
+    """
+    IP address queried (present when ipAddress parameter is used instead of host-name).
     """
 
     if IS_PYDANTIC_V2:

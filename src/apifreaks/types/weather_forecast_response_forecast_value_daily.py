@@ -242,7 +242,11 @@ class WeatherForecastResponseForecastValueDaily(UniversalBaseModel):
     Mean relative humidity (%)
     """
 
-    et0_fao_evapotranspiration_sum: typing.Optional[float] = pydantic.Field(default=None)
+    et0_fao_evapotranspiration_sum: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="et0_fao_evapotranspiration_sum"),
+        pydantic.Field(alias="et0_fao_evapotranspiration_sum", description="ET₀ Reference Evapotranspiration (mm)"),
+    ] = None
     """
     ET₀ Reference Evapotranspiration (mm)
     """
