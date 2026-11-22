@@ -992,9 +992,6 @@ if typing.TYPE_CHECKING:
     from .not_acceptable_error_body import NotAcceptableErrorBody
     from .not_found_error_body import NotFoundErrorBody
     from .not_found_error_body_unresolved_value import NotFoundErrorBodyUnresolvedValue
-    from .ocr_predict_request_model import OcrPredictRequestModel
-    from .ocr_predict_response import OcrPredictResponse
-    from .ocr_predict_response_ocr_text import OcrPredictResponseOcrText
     from .payment_required_error_body import PaymentRequiredErrorBody
     from .pdf_compress_request_compression_level import PdfCompressRequestCompressionLevel
     from .pdf_compress_request_format import PdfCompressRequestFormat
@@ -1846,9 +1843,6 @@ _dynamic_imports: typing.Dict[str, str] = {
     "NotAcceptableErrorBody": ".not_acceptable_error_body",
     "NotFoundErrorBody": ".not_found_error_body",
     "NotFoundErrorBodyUnresolvedValue": ".not_found_error_body_unresolved_value",
-    "OcrPredictRequestModel": ".ocr_predict_request_model",
-    "OcrPredictResponse": ".ocr_predict_response",
-    "OcrPredictResponseOcrText": ".ocr_predict_response_ocr_text",
     "PaymentRequiredErrorBody": ".payment_required_error_body",
     "PdfCompressRequestCompressionLevel": ".pdf_compress_request_compression_level",
     "PdfCompressRequestFormat": ".pdf_compress_request_format",
@@ -2684,9 +2678,6 @@ __all__ = [
     "NotAcceptableErrorBody",
     "NotFoundErrorBody",
     "NotFoundErrorBodyUnresolvedValue",
-    "OcrPredictRequestModel",
-    "OcrPredictResponse",
-    "OcrPredictResponseOcrText",
     "PaymentRequiredErrorBody",
     "PdfCompressRequestCompressionLevel",
     "PdfCompressRequestFormat",

@@ -191,8 +191,6 @@ from .types.ip_whois_lookup_response import IpWhoisLookupResponse
 from .types.marine_weather_request_format import MarineWeatherRequestFormat
 from .types.marine_weather_request_precision import MarineWeatherRequestPrecision
 from .types.marine_weather_response import MarineWeatherResponse
-from .types.ocr_predict_request_model import OcrPredictRequestModel
-from .types.ocr_predict_response import OcrPredictResponse
 from .types.pdf_compress_request_compression_level import PdfCompressRequestCompressionLevel
 from .types.pdf_compress_request_format import PdfCompressRequestFormat
 from .types.pdf_compress_response import PdfCompressResponse
@@ -8462,82 +8460,6 @@ class ApifreaksApi:
         """
         _response = self._raw_client.bulk_user_agent_lookup(
             api_key=api_key, ua_strings=ua_strings, format=format, request_options=request_options
-        )
-        return _response.data
-
-    def ocr_predict(
-        self,
-        *,
-        api_key: str,
-        model: OcrPredictRequestModel,
-        url: typing.Optional[str] = None,
-        page_range: typing.Optional[str] = None,
-        zone: typing.Optional[str] = None,
-        new_line: typing.Optional[int] = None,
-        file: typing.Optional[core.File] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> OcrPredictResponse:
-        """
-        Perform Optical Character Recognition (OCR) on images, PDFs, or ZIP archives. Supports two models: `mini-ocr-v1` for CAPTCHA-optimized OCR and `ocr-v1` for general-purpose document text extraction. Supports zonal OCR to extract text from specific regions of an image.
-
-        **Notes:**
-        - The `zone` query parameter cannot be given with .pdf and .zip types as it can only be applied to single image query.
-        - The `page_range` query parameter cannot be given in any other type except .pdf types.
-        - PDFs containing images in them are allowed only for processing.
-        - The `mini-ocr-v1` model doesn’t support the following query parameters:
-            - `page_range` (.pdf types)
-            - `zone`
-
-        Parameters
-        ----------
-        api_key : str
-            Your API key
-
-        model : OcrPredictRequestModel
-            OCR model to use. `mini-ocr-v1` for CAPTCHA OCR, `ocr-v1` for general OCR.
-
-        url : typing.Optional[str]
-            URL of the image or PDF (required if `file` is not uploaded).
-
-        page_range : typing.Optional[str]
-            Specify page range for multi-page PDFs (e.g., '1,3,5-10' or 'allpages'). **Note:** This parameter can only be used with .pdf file types.
-
-        zone : typing.Optional[str]
-            Define OCR zones using coordinates (top:left:height:width). Multiple zones can be defined using commas. Only available for model 'ocr-v1'. **Note:** This parameter cannot be used with .pdf and .zip file types as it can only be applied to single image queries.
-
-        new_line : typing.Optional[int]
-            Set to 1 to split output text into individual lines (default: 0). This changes the shape of `OCRText` (see the response).
-
-        file : typing.Optional[core.File]
-            See core.File for more documentation
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        OcrPredictResponse
-            Successful OCR response
-
-        Examples
-        --------
-        from apifreaks import ApifreaksApi
-
-        client = ApifreaksApi()
-        client.ocr_predict(
-            api_key="apiKey",
-            model="mini-ocr-v1",
-        )
-        """
-        _response = self._raw_client.ocr_predict(
-            api_key=api_key,
-            model=model,
-            url=url,
-            page_range=page_range,
-            zone=zone,
-            new_line=new_line,
-            file=file,
-            request_options=request_options,
         )
         return _response.data
 
@@ -17953,90 +17875,6 @@ class AsyncApifreaksApi:
         """
         _response = await self._raw_client.bulk_user_agent_lookup(
             api_key=api_key, ua_strings=ua_strings, format=format, request_options=request_options
-        )
-        return _response.data
-
-    async def ocr_predict(
-        self,
-        *,
-        api_key: str,
-        model: OcrPredictRequestModel,
-        url: typing.Optional[str] = None,
-        page_range: typing.Optional[str] = None,
-        zone: typing.Optional[str] = None,
-        new_line: typing.Optional[int] = None,
-        file: typing.Optional[core.File] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> OcrPredictResponse:
-        """
-        Perform Optical Character Recognition (OCR) on images, PDFs, or ZIP archives. Supports two models: `mini-ocr-v1` for CAPTCHA-optimized OCR and `ocr-v1` for general-purpose document text extraction. Supports zonal OCR to extract text from specific regions of an image.
-
-        **Notes:**
-        - The `zone` query parameter cannot be given with .pdf and .zip types as it can only be applied to single image query.
-        - The `page_range` query parameter cannot be given in any other type except .pdf types.
-        - PDFs containing images in them are allowed only for processing.
-        - The `mini-ocr-v1` model doesn’t support the following query parameters:
-            - `page_range` (.pdf types)
-            - `zone`
-
-        Parameters
-        ----------
-        api_key : str
-            Your API key
-
-        model : OcrPredictRequestModel
-            OCR model to use. `mini-ocr-v1` for CAPTCHA OCR, `ocr-v1` for general OCR.
-
-        url : typing.Optional[str]
-            URL of the image or PDF (required if `file` is not uploaded).
-
-        page_range : typing.Optional[str]
-            Specify page range for multi-page PDFs (e.g., '1,3,5-10' or 'allpages'). **Note:** This parameter can only be used with .pdf file types.
-
-        zone : typing.Optional[str]
-            Define OCR zones using coordinates (top:left:height:width). Multiple zones can be defined using commas. Only available for model 'ocr-v1'. **Note:** This parameter cannot be used with .pdf and .zip file types as it can only be applied to single image queries.
-
-        new_line : typing.Optional[int]
-            Set to 1 to split output text into individual lines (default: 0). This changes the shape of `OCRText` (see the response).
-
-        file : typing.Optional[core.File]
-            See core.File for more documentation
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        OcrPredictResponse
-            Successful OCR response
-
-        Examples
-        --------
-        import asyncio
-
-        from apifreaks import AsyncApifreaksApi
-
-        client = AsyncApifreaksApi()
-
-
-        async def main() -> None:
-            await client.ocr_predict(
-                api_key="apiKey",
-                model="mini-ocr-v1",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.ocr_predict(
-            api_key=api_key,
-            model=model,
-            url=url,
-            page_range=page_range,
-            zone=zone,
-            new_line=new_line,
-            file=file,
-            request_options=request_options,
         )
         return _response.data
 
