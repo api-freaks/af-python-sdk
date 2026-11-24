@@ -2,14 +2,63 @@
 
 import typing
 
-from .web_scrape_request_body_one_instructions_item_extract import WebScrapeRequestBodyOneInstructionsItemExtract
+import pydantic
+import typing_extensions
+from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 from .web_scrape_request_body_one_instructions_item_get_form import WebScrapeRequestBodyOneInstructionsItemGetForm
-from .web_scrape_request_body_one_instructions_item_get_page import WebScrapeRequestBodyOneInstructionsItemGetPage
 from .web_scrape_request_body_one_instructions_item_post_form import WebScrapeRequestBodyOneInstructionsItemPostForm
 
-WebScrapeRequestBodyOneInstructionsItem = typing.Union[
-    WebScrapeRequestBodyOneInstructionsItemPostForm,
-    WebScrapeRequestBodyOneInstructionsItemGetForm,
-    WebScrapeRequestBodyOneInstructionsItemExtract,
-    WebScrapeRequestBodyOneInstructionsItemGetPage,
-]
+
+class WebScrapeRequestBodyOneInstructionsItem(UniversalBaseModel):
+    """
+    A single static-HTML scraping step. Exactly one of these action fields is set per instruction; every other field is absent.
+    """
+
+    post_form: typing_extensions.Annotated[
+        typing.Optional[WebScrapeRequestBodyOneInstructionsItemPostForm],
+        FieldMetadata(alias="postForm"),
+        pydantic.Field(
+            alias="postForm", description="Form selector and field values to submit via postForm or getForm."
+        ),
+    ] = None
+    """
+    Form selector and field values to submit via postForm or getForm.
+    """
+
+    get_form: typing_extensions.Annotated[
+        typing.Optional[WebScrapeRequestBodyOneInstructionsItemGetForm],
+        FieldMetadata(alias="getForm"),
+        pydantic.Field(
+            alias="getForm", description="Form selector and field values to submit via postForm or getForm."
+        ),
+    ] = None
+    """
+    Form selector and field values to submit via postForm or getForm.
+    """
+
+    extract: typing.Optional[typing.Dict[str, str]] = pydantic.Field(default=None)
+    """
+    Maps arbitrary output field names to CSS or XPath selectors. Each key becomes a field in the response's extractedData object.
+    """
+
+    get_page: typing_extensions.Annotated[
+        typing.Optional[str],
+        FieldMetadata(alias="getPage"),
+        pydantic.Field(
+            alias="getPage",
+            description="Get page action: retrieves the full page content. Optionally provide a URL or selector to target a specific page.",
+        ),
+    ] = None
+    """
+    Get page action: retrieves the full page content. Optionally provide a URL or selector to target a specific page.
+    """
+
+    if IS_PYDANTIC_V2:
+        model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
+    else:
+
+        class Config:
+            frozen = True
+            smart_union = True
+            extra = pydantic.Extra.allow

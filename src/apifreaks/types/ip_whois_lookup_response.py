@@ -9,6 +9,7 @@ from .ip_whois_lookup_response_administrative_contacts_item import IpWhoisLookup
 from .ip_whois_lookup_response_inet_nums_item import IpWhoisLookupResponseInetNumsItem
 from .ip_whois_lookup_response_irt import IpWhoisLookupResponseIrt
 from .ip_whois_lookup_response_organization import IpWhoisLookupResponseOrganization
+from .ip_whois_lookup_response_routes_item import IpWhoisLookupResponseRoutesItem
 from .ip_whois_lookup_response_technical_contacts_item import IpWhoisLookupResponseTechnicalContactsItem
 
 
@@ -24,6 +25,15 @@ class IpWhoisLookupResponse(UniversalBaseModel):
     abuse_contacts: typing.Optional[typing.List[IpWhoisLookupResponseAbuseContactsItem]] = None
     administrative_contacts: typing.Optional[typing.List[IpWhoisLookupResponseAdministrativeContactsItem]] = None
     whois_raw_response: typing.Optional[str] = None
+    routes: typing.Optional[typing.List[IpWhoisLookupResponseRoutesItem]] = pydantic.Field(default=None)
+    """
+    BGP route objects announced by this IP's network.
+    """
+
+    r_whois_raw_response: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    WHOIS response from the rwhois server, if available.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

@@ -61,6 +61,21 @@ class IbanValidateResponseBankData(UniversalBaseModel):
     Indicates whether given IBAN country supports Single Euro Payments Area (SEPA)
     """
 
+    branch_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Name of the branch or office. Null when not resolvable.
+    """
+
+    instit_type: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Type of institution: "FIIN" (financial institution) or "NFIN" (non-financial institution). Null when not resolvable.
+    """
+
+    postal_code: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Postal/ZIP code of the bank branch. Null when not resolvable.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

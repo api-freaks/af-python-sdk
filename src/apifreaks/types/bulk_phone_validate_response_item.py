@@ -80,6 +80,16 @@ class BulkPhoneValidateResponseItem(UniversalBaseModel):
     Whether the number can be dialled internationally.
     """
 
+    error: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Short error category. Present only when this item failed validation (e.g. malformed number, conflicting region parameters).
+    """
+
+    message: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Human-readable reason for failure. Present only when this item failed validation.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

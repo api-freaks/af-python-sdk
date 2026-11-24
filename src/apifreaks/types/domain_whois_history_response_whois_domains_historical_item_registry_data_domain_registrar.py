@@ -13,6 +13,10 @@ class DomainWhoisHistoryResponseWhoisDomainsHistoricalItemRegistryDataDomainRegi
     website_url: typing.Optional[str] = None
     email_address: typing.Optional[str] = None
     phone_number: typing.Optional[str] = None
+    handle: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Registrar handle as published in the snapshot, when present (for example `292`, usually the same as `iana_id`).
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

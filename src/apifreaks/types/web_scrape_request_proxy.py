@@ -2,4 +2,4 @@
 
 import typing
 
-WebScrapeRequestProxy = typing.Union[bool, str, typing.Dict[str, typing.Any]]
+WebScrapeRequestProxy = typing.Union[bool, str]

@@ -3,7 +3,9 @@
 import typing
 
 import pydantic
+import typing_extensions
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from ..core.serialization import FieldMetadata
 
 
 class IpSecurityLookupResponseSecurity(UniversalBaseModel):
@@ -26,6 +28,81 @@ class IpSecurityLookupResponseSecurity(UniversalBaseModel):
     is_spam: typing.Optional[bool] = None
     is_cloud_provider: typing.Optional[bool] = None
     cloud_provider_name: typing.Optional[str] = None
+    bot_confidence_score: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Bot detection confidence from 0 to 100. 0 unless is_bot is true.
+    """
+
+    bot_last_seen: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Last observed bot activity date in YYYY-MM-DD, when available.
+    """
+
+    bot_operator_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Organization running the bot, when known (mostly declared bots).
+    """
+
+    bot_type: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Kind of bot activity, when known. Declared bots (is_known_good_bot true): search_engine, ai_crawler, ai_assistant, seo_crawler, site_monitor, link_preview, feed_fetcher, archiver, ad_verification, scanner. Undeclared bots (is_known_good_bot false): scanner, scraper, exploit, credential_stuffing, brute_force, worm. New values can be added over time, so treat it as a plain string.
+    """
+
+    corporate_gateway_provider_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Corporate gateway provider name, when known.
+    """
+
+    corporate_gateway_type: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Kind of corporate gateway, when known. Known values: secure_web_gateway, browser_isolation.
+    """
+
+    is_corporate_gateway: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    true if the IP is an outbound address of a corporate security gateway (SWG, SSE, or SASE).
+    """
+
+    is_known_good_bot: typing.Optional[bool] = pydantic.Field(default=None)
+    """
+    true if the bot is a declared bot with a verifiable operator (e.g. a search engine crawler or uptime monitor).
+    """
+
+    proxy_days_seen30d: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="proxy_days_seen_30d"),
+        pydantic.Field(
+            alias="proxy_days_seen_30d",
+            description="Number of days in the last 30 days on which the IP was seen acting as a proxy. `0` when no proxy activity was observed.",
+        ),
+    ] = None
+    """
+    Number of days in the last 30 days on which the IP was seen acting as a proxy. `0` when no proxy activity was observed.
+    """
+
+    proxy_days_seen7d: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="proxy_days_seen_7d"),
+        pydantic.Field(
+            alias="proxy_days_seen_7d",
+            description="Number of days in the last 7 days on which the IP was seen acting as a proxy. `0` when no proxy activity was observed.",
+        ),
+    ] = None
+    """
+    Number of days in the last 7 days on which the IP was seen acting as a proxy. `0` when no proxy activity was observed.
+    """
+
+    proxy_provider_count30d: typing_extensions.Annotated[
+        typing.Optional[int],
+        FieldMetadata(alias="proxy_provider_count_30d"),
+        pydantic.Field(
+            alias="proxy_provider_count_30d",
+            description="Number of distinct proxy providers that offered the IP in the last 30 days. `0` when no proxy activity was observed.",
+        ),
+    ] = None
+    """
+    Number of distinct proxy providers that offered the IP in the last 30 days. `0` when no proxy activity was observed.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

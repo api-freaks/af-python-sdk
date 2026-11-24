@@ -149,7 +149,13 @@ class WeatherTimeSeriesResponseHistoricalValueDaily(UniversalBaseModel):
     Daily sum of shortwave solar radiation (MJ/m²)
     """
 
-    et0_fao_evapotranspiration_sum: typing.Optional[float] = pydantic.Field(default=None)
+    et0_fao_evapotranspiration_sum: typing_extensions.Annotated[
+        typing.Optional[float],
+        FieldMetadata(alias="et0_fao_evapotranspiration_sum"),
+        pydantic.Field(
+            alias="et0_fao_evapotranspiration_sum", description="Daily sum of reference evapotranspiration (mm)"
+        ),
+    ] = None
     """
     Daily sum of reference evapotranspiration (mm)
     """

@@ -2,4 +2,9 @@
 
 import typing
 
-CommoditySymbolsResponseSymbolsItemUpdateInterval = typing.Union[typing.Literal["PER_SECOND", "PER_MINUTE"], typing.Any]
+CommoditySymbolsResponseSymbolsItemUpdateInterval = typing.Union[
+    typing.Literal[
+        "PER_SECOND", "PER_MINUTE", "PER_10_MINUTES", "PER_HOUR", "PER_DAY", "PER_WEEK", "PER_MONTH", "PER_6_MONTHS"
+    ],
+    typing.Any,
+]

@@ -23,8 +23,8 @@ from .domain_dns_history_response_historical_dns_records_item_dns_records_item_s
 
 DomainDnsHistoryResponseHistoricalDnsRecordsItemDnsRecordsItem = typing.Union[
     DomainDnsHistoryResponseHistoricalDnsRecordsItemDnsRecordsItemAddress,
-    DomainDnsHistoryResponseHistoricalDnsRecordsItemDnsRecordsItemOne,
     DomainDnsHistoryResponseHistoricalDnsRecordsItemDnsRecordsItemPriority,
+    DomainDnsHistoryResponseHistoricalDnsRecordsItemDnsRecordsItemOne,
     DomainDnsHistoryResponseHistoricalDnsRecordsItemDnsRecordsItemSingleName,
     DomainDnsHistoryResponseHistoricalDnsRecordsItemDnsRecordsItemAdmin,
     DomainDnsHistoryResponseHistoricalDnsRecordsItemDnsRecordsItemStrings,

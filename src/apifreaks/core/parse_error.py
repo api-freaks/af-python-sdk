@@ -2,8 +2,10 @@
 
 from typing import Any, Dict, Optional
 
+from .api_error import ApiError
 
-class ParsingError(Exception):
+
+class ParsingError(ApiError):
     """
     Raised when the SDK fails to parse/validate a response from the server.
     This typically indicates that the server returned a response whose shape
@@ -23,11 +25,8 @@ class ParsingError(Exception):
         body: Any = None,
         cause: Optional[Exception] = None,
     ) -> None:
-        self.headers = headers
-        self.status_code = status_code
-        self.body = body
+        super().__init__(headers=headers, status_code=status_code, body=body)
         self.cause = cause
-        super().__init__()
         if cause is not None:
             self.__cause__ = cause
 

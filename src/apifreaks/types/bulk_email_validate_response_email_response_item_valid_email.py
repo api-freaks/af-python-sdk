@@ -2,4 +2,7 @@
 
 import typing
 
-BulkEmailValidateResponseEmailResponseItemValidEmail = typing.Union[typing.Literal["valid", "invalid"], typing.Any]
+BulkEmailValidateResponseEmailResponseItemValidEmail = typing.Union[
+    typing.Literal["valid", "accept_all", "invalid", "INVALID_EMAIL", "unknown", "risky", "app_server_blocked"],
+    typing.Any,
+]

@@ -25,10 +25,13 @@ class BulkDomainDnsLookupResponseBulkDnsInfoItemDnsRecordsItemSingleName(Univers
     single_name: typing_extensions.Annotated[
         str,
         FieldMetadata(alias="singleName"),
-        pydantic.Field(alias="singleName", description="Name server for the domain"),
+        pydantic.Field(
+            alias="singleName",
+            description="The name server (NS records), or the host name the IP address resolves to (PTR records from IP address lookups).",
+        ),
     ]
     """
-    Name server for the domain
+    The name server (NS records), or the host name the IP address resolves to (PTR records from IP address lookups).
     """
 
     if IS_PYDANTIC_V2:

@@ -81,6 +81,16 @@ class MarineWeatherResponseCurrent(UniversalBaseModel):
     Direction of the ocean current (°)
     """
 
+    swell_wave_peak_period: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Peak period of swell waves in seconds. Frequently null even at locations with other wave data present.
+    """
+
+    wind_wave_peak_period: typing.Optional[float] = pydantic.Field(default=None)
+    """
+    Peak period of locally generated wind waves in seconds. Frequently null even at locations with other wave data present.
+    """
+
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2
     else:

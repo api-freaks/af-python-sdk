@@ -4,11 +4,13 @@ import typing
 
 import pydantic
 from ..core.pydantic_utilities import IS_PYDANTIC_V2, UniversalBaseModel
+from .domain_reputation_response_backlinks import DomainReputationResponseBacklinks
 from .domain_reputation_response_dga_score import DomainReputationResponseDgaScore
 from .domain_reputation_response_email_deliverability import DomainReputationResponseEmailDeliverability
 from .domain_reputation_response_evidence_summary import DomainReputationResponseEvidenceSummary
 from .domain_reputation_response_input import DomainReputationResponseInput
 from .domain_reputation_response_intelligence import DomainReputationResponseIntelligence
+from .domain_reputation_response_registration import DomainReputationResponseRegistration
 from .domain_reputation_response_risk_category import DomainReputationResponseRiskCategory
 from .domain_reputation_response_trust_signals import DomainReputationResponseTrustSignals
 
@@ -71,6 +73,16 @@ class DomainReputationResponse(UniversalBaseModel):
     errors: typing.List[str] = pydantic.Field()
     """
     List of errors encountered during processing, if any (e.g. "WHOIS lookup failed"). An empty array means every signal resolved.
+    """
+
+    backlinks: typing.Optional[DomainReputationResponseBacklinks] = pydantic.Field(default=None)
+    """
+    Backlink profile of the domain.
+    """
+
+    registration: typing.Optional[DomainReputationResponseRegistration] = pydantic.Field(default=None)
+    """
+    Current registration status of the domain.
     """
 
     if IS_PYDANTIC_V2:

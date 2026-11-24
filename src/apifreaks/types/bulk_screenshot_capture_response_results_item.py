@@ -9,7 +9,11 @@ from .bulk_screenshot_capture_response_results_item_url import BulkScreenshotCap
 
 class BulkScreenshotCaptureResponseResultsItem(UniversalBaseModel):
     status: str
-    error_message: typing.Optional[str] = None
+    error_message: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Error details for a failed URL; null when the capture succeeded.
+    """
+
     url: BulkScreenshotCaptureResponseResultsItemUrl
 
     if IS_PYDANTIC_V2:

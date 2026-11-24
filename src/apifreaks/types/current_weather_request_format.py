@@ -2,4 +2,4 @@
 
 import typing
 
-CurrentWeatherRequestFormat = typing.Union[typing.Literal["json", "xml"], typing.Any]
+CurrentWeatherRequestFormat = typing.Union[typing.Literal["json"], typing.Any]

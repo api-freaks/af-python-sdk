@@ -25,6 +25,20 @@ class AsnWhoisLookupResponseParsedWhoisResponse(UniversalBaseModel):
     organization: AsnWhoisLookupResponseParsedWhoisResponseOrganization
     technical_contacts: typing.List[AsnWhoisLookupResponseParsedWhoisResponseTechnicalContactsItem]
     abuse_contacts: typing.List[AsnWhoisLookupResponseParsedWhoisResponseAbuseContactsItem]
+    query_time: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Timestamp when the WHOIS query was executed, in `YYYY-MM-DD HH:mm:ss` format — not ISO 8601 (no `T` separator, no milliseconds, no `Z`).
+    """
+
+    r_whois_raw_response: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Raw referral WHOIS (rwhois) text, when the registry delegates to a referral server.
+    """
+
+    whois_raw_response: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Unparsed raw WHOIS text, when returned separately from whoisResponse.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

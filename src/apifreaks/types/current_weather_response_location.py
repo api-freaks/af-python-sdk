@@ -7,5 +7,5 @@ from .current_weather_response_location_continent_code import CurrentWeatherResp
 from .current_weather_response_location_zero import CurrentWeatherResponseLocationZero
 
 CurrentWeatherResponseLocation = typing.Union[
-    CurrentWeatherResponseLocationZero, CurrentWeatherResponseLocationContinentCode, CurrentWeatherResponseLocationCity
+    CurrentWeatherResponseLocationContinentCode, CurrentWeatherResponseLocationCity, CurrentWeatherResponseLocationZero
 ]

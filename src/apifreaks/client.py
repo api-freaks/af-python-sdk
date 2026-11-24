@@ -17,12 +17,15 @@ from .types.asn_whois_lookup_request_format import AsnWhoisLookupRequestFormat
 from .types.asn_whois_lookup_response import AsnWhoisLookupResponse
 from .types.astronomy_lookup_request_format import AstronomyLookupRequestFormat
 from .types.astronomy_lookup_response import AstronomyLookupResponse
-from .types.astronomy_lookup_v2_request_format import AstronomyLookupV2RequestFormat
-from .types.astronomy_lookup_v2_request_lang import AstronomyLookupV2RequestLang
-from .types.astronomy_lookup_v2_response import AstronomyLookupV2Response
+from .types.astronomy_lookup_v2request_format import AstronomyLookupV2RequestFormat
+from .types.astronomy_lookup_v2request_lang import AstronomyLookupV2RequestLang
+from .types.astronomy_lookup_v2response import AstronomyLookupV2Response
 from .types.bulk_current_weather_request_format import BulkCurrentWeatherRequestFormat
 from .types.bulk_current_weather_request_locations_item import BulkCurrentWeatherRequestLocationsItem
 from .types.bulk_current_weather_response import BulkCurrentWeatherResponse
+from .types.bulk_disposable_email_check_v2request_email_data_item import BulkDisposableEmailCheckV2RequestEmailDataItem
+from .types.bulk_disposable_email_check_v2request_format import BulkDisposableEmailCheckV2RequestFormat
+from .types.bulk_disposable_email_check_v2response import BulkDisposableEmailCheckV2Response
 from .types.bulk_domain_availability_check_request_format import BulkDomainAvailabilityCheckRequestFormat
 from .types.bulk_domain_availability_check_request_source import BulkDomainAvailabilityCheckRequestSource
 from .types.bulk_domain_availability_check_response import BulkDomainAvailabilityCheckResponse
@@ -30,18 +33,19 @@ from .types.bulk_domain_dns_lookup_request_format import BulkDomainDnsLookupRequ
 from .types.bulk_domain_dns_lookup_response import BulkDomainDnsLookupResponse
 from .types.bulk_domain_whois_lookup_request_format import BulkDomainWhoisLookupRequestFormat
 from .types.bulk_domain_whois_lookup_response import BulkDomainWhoisLookupResponse
-from .types.bulk_domain_whois_lookup_v2_request_format import BulkDomainWhoisLookupV2RequestFormat
-from .types.bulk_domain_whois_lookup_v2_response import BulkDomainWhoisLookupV2Response
+from .types.bulk_domain_whois_lookup_v2request_format import BulkDomainWhoisLookupV2RequestFormat
+from .types.bulk_domain_whois_lookup_v2response import BulkDomainWhoisLookupV2Response
 from .types.bulk_email_validate_request_email_data_item import BulkEmailValidateRequestEmailDataItem
 from .types.bulk_email_validate_request_format import BulkEmailValidateRequestFormat
 from .types.bulk_email_validate_response import BulkEmailValidateResponse
 from .types.bulk_geolocation_lookup_request_format import BulkGeolocationLookupRequestFormat
 from .types.bulk_geolocation_lookup_response_item import BulkGeolocationLookupResponseItem
-from .types.bulk_geolocation_lookup_v2_request_format import BulkGeolocationLookupV2RequestFormat
-from .types.bulk_geolocation_lookup_v2_request_lang import BulkGeolocationLookupV2RequestLang
-from .types.bulk_geolocation_lookup_v2_response_item import BulkGeolocationLookupV2ResponseItem
+from .types.bulk_geolocation_lookup_v2request_format import BulkGeolocationLookupV2RequestFormat
+from .types.bulk_geolocation_lookup_v2request_lang import BulkGeolocationLookupV2RequestLang
+from .types.bulk_geolocation_lookup_v2response_item import BulkGeolocationLookupV2ResponseItem
 from .types.bulk_ip_security_lookup_request_format import BulkIpSecurityLookupRequestFormat
 from .types.bulk_ip_security_lookup_response_item import BulkIpSecurityLookupResponseItem
+from .types.bulk_pdf_generate_from_template_response_item import BulkPdfGenerateFromTemplateResponseItem
 from .types.bulk_phone_validate_request_format import BulkPhoneValidateRequestFormat
 from .types.bulk_phone_validate_request_numbers_item import BulkPhoneValidateRequestNumbersItem
 from .types.bulk_phone_validate_response_item import BulkPhoneValidateResponseItem
@@ -52,30 +56,32 @@ from .types.bulk_user_agent_lookup_request_format import BulkUserAgentLookupRequ
 from .types.bulk_user_agent_lookup_response_item import BulkUserAgentLookupResponseItem
 from .types.bulk_vat_rate_by_country_request_countries_item import BulkVatRateByCountryRequestCountriesItem
 from .types.bulk_vat_rate_by_country_request_format import BulkVatRateByCountryRequestFormat
-from .types.bulk_vat_rate_by_country_response import BulkVatRateByCountryResponse
+from .types.bulk_vat_rate_by_country_response_item import BulkVatRateByCountryResponseItem
 from .types.bulk_zipcode_lookup_request_format import BulkZipcodeLookupRequestFormat
 from .types.bulk_zipcode_lookup_response import BulkZipcodeLookupResponse
 from .types.commodity_fluctuation_request_format import CommodityFluctuationRequestFormat
 from .types.commodity_fluctuation_response import CommodityFluctuationResponse
-from .types.commodity_fluctuation_v2_request_format import CommodityFluctuationV2RequestFormat
-from .types.commodity_fluctuation_v2_response import CommodityFluctuationV2Response
+from .types.commodity_fluctuation_v2request_format import CommodityFluctuationV2RequestFormat
+from .types.commodity_fluctuation_v2response import CommodityFluctuationV2Response
 from .types.commodity_historical_rates_request_format import CommodityHistoricalRatesRequestFormat
 from .types.commodity_historical_rates_response import CommodityHistoricalRatesResponse
-from .types.commodity_historical_rates_v2_request_format import CommodityHistoricalRatesV2RequestFormat
-from .types.commodity_historical_rates_v2_response import CommodityHistoricalRatesV2Response
+from .types.commodity_historical_rates_v2request_format import CommodityHistoricalRatesV2RequestFormat
+from .types.commodity_historical_rates_v2response import CommodityHistoricalRatesV2Response
+from .types.commodity_intraday_rates_v2request_interval import CommodityIntradayRatesV2RequestInterval
+from .types.commodity_intraday_rates_v2response import CommodityIntradayRatesV2Response
 from .types.commodity_latest_rates_request_format import CommodityLatestRatesRequestFormat
 from .types.commodity_latest_rates_request_updates import CommodityLatestRatesRequestUpdates
 from .types.commodity_latest_rates_response import CommodityLatestRatesResponse
-from .types.commodity_latest_rates_v2_request_format import CommodityLatestRatesV2RequestFormat
-from .types.commodity_latest_rates_v2_response import CommodityLatestRatesV2Response
+from .types.commodity_latest_rates_v2request_format import CommodityLatestRatesV2RequestFormat
+from .types.commodity_latest_rates_v2response import CommodityLatestRatesV2Response
 from .types.commodity_symbols_request_format import CommoditySymbolsRequestFormat
 from .types.commodity_symbols_response import CommoditySymbolsResponse
-from .types.commodity_symbols_v2_request_format import CommoditySymbolsV2RequestFormat
-from .types.commodity_symbols_v2_response import CommoditySymbolsV2Response
+from .types.commodity_symbols_v2request_format import CommoditySymbolsV2RequestFormat
+from .types.commodity_symbols_v2response import CommoditySymbolsV2Response
 from .types.commodity_time_series_request_format import CommodityTimeSeriesRequestFormat
 from .types.commodity_time_series_response import CommodityTimeSeriesResponse
-from .types.commodity_time_series_v2_request_format import CommodityTimeSeriesV2RequestFormat
-from .types.commodity_time_series_v2_response import CommodityTimeSeriesV2Response
+from .types.commodity_time_series_v2request_format import CommodityTimeSeriesV2RequestFormat
+from .types.commodity_time_series_v2response import CommodityTimeSeriesV2Response
 from .types.currency_convert_by_ip_request_format import CurrencyConvertByIpRequestFormat
 from .types.currency_convert_by_ip_request_updates import CurrencyConvertByIpRequestUpdates
 from .types.currency_convert_by_ip_response import CurrencyConvertByIpResponse
@@ -101,6 +107,8 @@ from .types.currency_time_series_request_format import CurrencyTimeSeriesRequest
 from .types.currency_time_series_response import CurrencyTimeSeriesResponse
 from .types.current_weather_request_format import CurrentWeatherRequestFormat
 from .types.current_weather_response import CurrentWeatherResponse
+from .types.disposable_email_check_v2request_format import DisposableEmailCheckV2RequestFormat
+from .types.disposable_email_check_v2response import DisposableEmailCheckV2Response
 from .types.domain_availability_check_request_format import DomainAvailabilityCheckRequestFormat
 from .types.domain_availability_check_request_source import DomainAvailabilityCheckRequestSource
 from .types.domain_availability_check_response import DomainAvailabilityCheckResponse
@@ -126,8 +134,8 @@ from .types.domain_whois_history_request_format import DomainWhoisHistoryRequest
 from .types.domain_whois_history_response import DomainWhoisHistoryResponse
 from .types.domain_whois_lookup_request_format import DomainWhoisLookupRequestFormat
 from .types.domain_whois_lookup_response import DomainWhoisLookupResponse
-from .types.domain_whois_lookup_v2_request_format import DomainWhoisLookupV2RequestFormat
-from .types.domain_whois_lookup_v2_response import DomainWhoisLookupV2Response
+from .types.domain_whois_lookup_v2request_format import DomainWhoisLookupV2RequestFormat
+from .types.domain_whois_lookup_v2response import DomainWhoisLookupV2Response
 from .types.domain_whois_reverse_request_format import DomainWhoisReverseRequestFormat
 from .types.domain_whois_reverse_request_mode import DomainWhoisReverseRequestMode
 from .types.domain_whois_reverse_response import DomainWhoisReverseResponse
@@ -143,9 +151,9 @@ from .types.geocoder_search_response_item import GeocoderSearchResponseItem
 from .types.geolocation_lookup_request_format import GeolocationLookupRequestFormat
 from .types.geolocation_lookup_request_lang import GeolocationLookupRequestLang
 from .types.geolocation_lookup_response import GeolocationLookupResponse
-from .types.geolocation_lookup_v2_request_format import GeolocationLookupV2RequestFormat
-from .types.geolocation_lookup_v2_request_lang import GeolocationLookupV2RequestLang
-from .types.geolocation_lookup_v2_response import GeolocationLookupV2Response
+from .types.geolocation_lookup_v2request_format import GeolocationLookupV2RequestFormat
+from .types.geolocation_lookup_v2request_lang import GeolocationLookupV2RequestLang
+from .types.geolocation_lookup_v2response import GeolocationLookupV2Response
 from .types.get_admin_levels_request_format import GetAdminLevelsRequestFormat
 from .types.get_admin_levels_response import GetAdminLevelsResponse
 from .types.get_admin_unit_details_request_format import GetAdminUnitDetailsRequestFormat
@@ -158,6 +166,8 @@ from .types.get_countries_request_format import GetCountriesRequestFormat
 from .types.get_countries_response import GetCountriesResponse
 from .types.get_country_details_request_format import GetCountryDetailsRequestFormat
 from .types.get_country_details_response import GetCountryDetailsResponse
+from .types.get_credits_usage_request_format import GetCreditsUsageRequestFormat
+from .types.get_credits_usage_response import GetCreditsUsageResponse
 from .types.get_flags_request_format import GetFlagsRequestFormat
 from .types.get_flags_request_shape import GetFlagsRequestShape
 from .types.get_flags_request_size import GetFlagsRequestSize
@@ -166,7 +176,7 @@ from .types.get_regions_request_format import GetRegionsRequestFormat
 from .types.get_regions_response import GetRegionsResponse
 from .types.get_subregions_request_format import GetSubregionsRequestFormat
 from .types.get_subregions_response import GetSubregionsResponse
-from .types.get_supported_flags_response_item import GetSupportedFlagsResponseItem
+from .types.get_supported_flags_response import GetSupportedFlagsResponse
 from .types.grammar_correct_response import GrammarCorrectResponse
 from .types.grammar_detect_response import GrammarDetectResponse
 from .types.historical_weather_request_format import HistoricalWeatherRequestFormat
@@ -181,8 +191,6 @@ from .types.ip_whois_lookup_response import IpWhoisLookupResponse
 from .types.marine_weather_request_format import MarineWeatherRequestFormat
 from .types.marine_weather_request_precision import MarineWeatherRequestPrecision
 from .types.marine_weather_response import MarineWeatherResponse
-from .types.ocr_predict_request_model import OcrPredictRequestModel
-from .types.ocr_predict_response import OcrPredictResponse
 from .types.pdf_compress_request_compression_level import PdfCompressRequestCompressionLevel
 from .types.pdf_compress_request_format import PdfCompressRequestFormat
 from .types.pdf_compress_response import PdfCompressResponse
@@ -210,6 +218,7 @@ from .types.pdf_encrypt_request_format import PdfEncryptRequestFormat
 from .types.pdf_encrypt_response import PdfEncryptResponse
 from .types.pdf_extract_pages_request_format import PdfExtractPagesRequestFormat
 from .types.pdf_extract_pages_response import PdfExtractPagesResponse
+from .types.pdf_generate_from_template_response import PdfGenerateFromTemplateResponse
 from .types.pdf_get_file_status_request_format import PdfGetFileStatusRequestFormat
 from .types.pdf_get_file_status_response import PdfGetFileStatusResponse
 from .types.pdf_get_task_status_request_format import PdfGetTaskStatusRequestFormat
@@ -240,9 +249,14 @@ from .types.phone_validate_response import PhoneValidateResponse
 from .types.readability_score_request_target import ReadabilityScoreRequestTarget
 from .types.readability_score_response import ReadabilityScoreResponse
 from .types.screenshot_capture_request_file_type import ScreenshotCaptureRequestFileType
+from .types.screenshot_capture_request_format import ScreenshotCaptureRequestFormat
+from .types.screenshot_capture_request_ocr_model import ScreenshotCaptureRequestOcrModel
 from .types.screenshot_capture_request_output import ScreenshotCaptureRequestOutput
+from .types.screenshot_capture_request_pdf_options_format import ScreenshotCaptureRequestPdfOptionsFormat
+from .types.screenshot_capture_request_pdf_options_media import ScreenshotCaptureRequestPdfOptionsMedia
 from .types.screenshot_capture_request_scroll_speed import ScreenshotCaptureRequestScrollSpeed
 from .types.screenshot_capture_request_wait_for_event import ScreenshotCaptureRequestWaitForEvent
+from .types.screenshot_capture_response import ScreenshotCaptureResponse
 from .types.subdomains_lookup_request_format import SubdomainsLookupRequestFormat
 from .types.subdomains_lookup_request_status import SubdomainsLookupRequestStatus
 from .types.subdomains_lookup_response import SubdomainsLookupResponse
@@ -254,9 +268,9 @@ from .types.timezone_convert_response import TimezoneConvertResponse
 from .types.timezone_lookup_request_format import TimezoneLookupRequestFormat
 from .types.timezone_lookup_request_lang import TimezoneLookupRequestLang
 from .types.timezone_lookup_response import TimezoneLookupResponse
-from .types.timezone_lookup_v2_request_format import TimezoneLookupV2RequestFormat
-from .types.timezone_lookup_v2_request_lang import TimezoneLookupV2RequestLang
-from .types.timezone_lookup_v2_response import TimezoneLookupV2Response
+from .types.timezone_lookup_v2request_format import TimezoneLookupV2RequestFormat
+from .types.timezone_lookup_v2request_lang import TimezoneLookupV2RequestLang
+from .types.timezone_lookup_v2response import TimezoneLookupV2Response
 from .types.user_agent_lookup_request_format import UserAgentLookupRequestFormat
 from .types.user_agent_lookup_response import UserAgentLookupResponse
 from .types.vat_rate_by_country_request_format import VatRateByCountryRequestFormat
@@ -1095,13 +1109,13 @@ class ApifreaksApi:
             Format of the response.
 
         host_name : typing.Optional[str]
-            Hostname or URL whose DNS records are required.
+            Hostname or URL whose DNS records are required. Give either `host-name` or `ipAddress`.
 
         ip_address : typing.Optional[str]
-            The IP address for requested DNS's PTR record. 'type' parameter must be set to 'all'.
+            The IP address whose PTR (reverse DNS) record is required. Give either `host-name` or `ipAddress`; with `ipAddress`, set `type` to `all` or `PTR`.
 
         type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
+            DNS record types to look up, sent as a comma-separated list (e.g. `A,MX`). Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, PTR, or all. When ipAddress is provided, use "all" or "PTR".
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -1157,8 +1171,7 @@ class ApifreaksApi:
             Format of the response.
 
         type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of DNS record types for lookup.
-            Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+            DNS record types to look up, sent as a comma-separated list (e.g. `A,MX`). Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all.
 
         ip_addresses : typing.Optional[typing.Sequence[str]]
             Array of IP addresses to include in the lookup for PTR record enrichment.
@@ -1218,8 +1231,7 @@ class ApifreaksApi:
             Format of the response.
 
         type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of DNS record types for lookup.
-            Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+            DNS record types to look up, sent as a comma-separated list (e.g. `A,MX`). Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all.
 
         page : typing.Optional[int]
             Page number for paginated results
@@ -1362,7 +1374,7 @@ class ApifreaksApi:
              Default value is `true`.
 
         proxy : typing.Optional[WebScrapeRequestProxy]
-            Use proxy for requests
+            Use a proxy for the request. Pass true/false to toggle the default proxy pool, or a proxy URL string to use a specific proxy.
 
         ssl_ignore : typing.Optional[bool]
             Ignore SSL certificate errors.
@@ -1401,16 +1413,7 @@ class ApifreaksApi:
         from apifreaks import (
             ApifreaksApi,
             WebScrapeRequestBodyBlockUrl,
-            WebScrapeRequestBodyBlockUrlCookiesItem,
-            WebScrapeRequestBodyBlockUrlInstructionsItemBlockElement,
-            WebScrapeRequestBodyBlockUrlInstructionsItemClick,
-            WebScrapeRequestBodyBlockUrlInstructionsItemExtract,
-            WebScrapeRequestBodyBlockUrlInstructionsItemExtractExtract,
-            WebScrapeRequestBodyBlockUrlInstructionsItemFill,
-            WebScrapeRequestBodyBlockUrlInstructionsItemFillFill,
-            WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptcha,
-            WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptchaGeneralImageCaptchaItem,
-            WebScrapeRequestBodyBlockUrlInstructionsItemWait,
+            WebScrapeRequestBodyBlockUrlInstructionsItem,
         )
 
         client = ApifreaksApi()
@@ -1418,60 +1421,20 @@ class ApifreaksApi:
             api_key="apiKey",
             url="https://example.com",
             request=WebScrapeRequestBodyBlockUrl(
-                block_url=[
-                    "https://example.com/ads.js",
-                    "https://tracker.example.com/*",
-                ],
-                cookies=[
-                    WebScrapeRequestBodyBlockUrlCookiesItem(
-                        name="sessionid",
-                        value="abc123",
-                    ),
-                    WebScrapeRequestBodyBlockUrlCookiesItem(
-                        name="user_pref",
-                        value="darkmode",
-                    ),
-                ],
                 instructions=[
-                    WebScrapeRequestBodyBlockUrlInstructionsItemFill(
-                        fill=WebScrapeRequestBodyBlockUrlInstructionsItemFillFill(
-                            place="#username",
-                            value="myuser",
-                        ),
+                    WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                    WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                    WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                    WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                    WebScrapeRequestBodyBlockUrlInstructionsItem(
+                        extract={
+                            "profile": "#profile",
+                            "welcomeMessage": "#welcome-message",
+                            "userInfo": "#user-info",
+                        },
                     ),
-                    WebScrapeRequestBodyBlockUrlInstructionsItemFill(
-                        fill=WebScrapeRequestBodyBlockUrlInstructionsItemFillFill(
-                            place="#password",
-                            value="mypassword",
-                        ),
-                    ),
-                    WebScrapeRequestBodyBlockUrlInstructionsItemClick(
-                        click="#loginButton",
-                    ),
-                    WebScrapeRequestBodyBlockUrlInstructionsItemWait(
-                        wait=2000,
-                    ),
-                    WebScrapeRequestBodyBlockUrlInstructionsItemExtract(
-                        extract=WebScrapeRequestBodyBlockUrlInstructionsItemExtractExtract(
-                            html="#profile",
-                            text="#welcome-message",
-                            user_data="#user-info",
-                        ),
-                    ),
-                    WebScrapeRequestBodyBlockUrlInstructionsItemBlockElement(
-                        block_element=[".ad-banner", "//div[@class='popup']"],
-                    ),
-                    WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptcha(
-                        general_image_captcha=[
-                            WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptchaGeneralImageCaptchaItem(
-                                image_path="#captcha-img",
-                                text_field="#captcha-input",
-                                image_update_path="#refresh-captcha",
-                                captcha_failed_path="#captcha-error",
-                                model="mini-ocr-v1",
-                            )
-                        ],
-                    ),
+                    WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                    WebScrapeRequestBodyBlockUrlInstructionsItem(),
                 ],
             ),
         )
@@ -1590,6 +1553,114 @@ class ApifreaksApi:
         )
         """
         _response = self._raw_client.bulk_email_validate(
+            api_key=api_key, email_data=email_data, format=format, request_options=request_options
+        )
+        return _response.data
+
+    def disposable_email_check_v2(
+        self,
+        *,
+        api_key: str,
+        email: str,
+        format: typing.Optional[DisposableEmailCheckV2RequestFormat] = None,
+        ip: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DisposableEmailCheckV2Response:
+        """
+        Validates email syntax and checks the domain for disposable, free, spam, and role-account signals, plus MX/A DNS records. Send the email (and optionally an ip) as a JSON request body. When an ip is included, the response also carries geolocation and security data for it.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        email : str
+            The email address to check.
+
+        format : typing.Optional[DisposableEmailCheckV2RequestFormat]
+            Format of the response.
+
+        ip : typing.Optional[str]
+            Optional IP address to look up for location and security data, such as the IP the signup came from.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DisposableEmailCheckV2Response
+            Successful response with disposable email check result.
+
+        Examples
+        --------
+        from apifreaks import ApifreaksApi
+
+        client = ApifreaksApi()
+        client.disposable_email_check_v2(
+            api_key="apiKey",
+            email="test@sogetthis.com",
+        )
+        """
+        _response = self._raw_client.disposable_email_check_v2(
+            api_key=api_key, email=email, format=format, ip=ip, request_options=request_options
+        )
+        return _response.data
+
+    def bulk_disposable_email_check_v2(
+        self,
+        *,
+        api_key: str,
+        email_data: typing.Sequence[BulkDisposableEmailCheckV2RequestEmailDataItem],
+        format: typing.Optional[BulkDisposableEmailCheckV2RequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BulkDisposableEmailCheckV2Response:
+        """
+        Checks a bulk of email addresses (each with an optional ip) and returns a disposable email check result for each, in the same order as the request. Maximum `100` entries per request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        email_data : typing.Sequence[BulkDisposableEmailCheckV2RequestEmailDataItem]
+            Entries to check. Maximum 100 per request. Must not be empty, and must not contain null entries or entries without a valid email.
+
+        format : typing.Optional[BulkDisposableEmailCheckV2RequestFormat]
+            Format of the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BulkDisposableEmailCheckV2Response
+            Successful response. Each item corresponds to one requested email, in the same order as the request.
+
+        Examples
+        --------
+        from apifreaks import (
+            ApifreaksApi,
+            BulkDisposableEmailCheckV2RequestEmailDataItem,
+        )
+
+        client = ApifreaksApi()
+        client.bulk_disposable_email_check_v2(
+            api_key="apiKey",
+            email_data=[
+                BulkDisposableEmailCheckV2RequestEmailDataItem(
+                    email="abc",
+                ),
+                BulkDisposableEmailCheckV2RequestEmailDataItem(
+                    email="john@microsoft.com",
+                    ip="8.8.8.8",
+                ),
+                BulkDisposableEmailCheckV2RequestEmailDataItem(
+                    email="test@mailinator.com",
+                ),
+            ],
+        )
+        """
+        _response = self._raw_client.bulk_disposable_email_check_v2(
             api_key=api_key, email_data=email_data, format=format, request_options=request_options
         )
         return _response.data
@@ -2807,6 +2878,75 @@ class ApifreaksApi:
         )
         return _response.data
 
+    def commodity_intraday_rates_v2(
+        self,
+        *,
+        api_key: str,
+        symbols: str,
+        interval: CommodityIntradayRatesV2RequestInterval,
+        date: dt.date,
+        start_time: typing.Optional[str] = None,
+        metadata: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CommodityIntradayRatesV2Response:
+        """
+        Returns the prices of one commodity through a UTC day at the requested interval, keyed by UTC timestamp. Each request costs a flat 50 credits however many points it returns.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        symbols : str
+            Exactly one commodity symbol. Case-insensitive. Sending two or more returns a 400. Only symbols updated every second, every minute, or every 10 minutes have intraday rates; symbols updated hourly or less often return a 400. Use the Commodity Symbols endpoint for all valid values.
+
+        interval : CommodityIntradayRatesV2RequestInterval
+            Spacing between points. Case-insensitive. Symbols updated every 10 minutes accept only `10m`, `30m`, `1h`, `2h`, `4h`, `8h`, `12h`, `1d`.
+
+        date : dt.date
+            The UTC day to read, in `YYYY-MM-DD` format. Cannot be in the future. For today, points stop at the current UTC minute.
+
+        start_time : typing.Optional[str]
+            First mark of the window, as a 24-hour UTC time in `HH:mm`. Must fall on a mark of the interval (for example, `14:30` works for `5m` or `30m`, but not for `1h`). For `1d` it can only be `00:00`.
+
+        metadata : typing.Optional[bool]
+            Whether to include the `metadata` object. Pass `false` to receive only the prices.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CommodityIntradayRatesV2Response
+            Successful operation
+
+        Examples
+        --------
+        import datetime
+
+        from apifreaks import ApifreaksApi
+
+        client = ApifreaksApi()
+        client.commodity_intraday_rates_v2(
+            api_key="apiKey",
+            symbols="symbols",
+            interval="1m",
+            date=datetime.date.fromisoformat(
+                "2023-01-15",
+            ),
+        )
+        """
+        _response = self._raw_client.commodity_intraday_rates_v2(
+            api_key=api_key,
+            symbols=symbols,
+            interval=interval,
+            date=date,
+            start_time=start_time,
+            metadata=metadata,
+            request_options=request_options,
+        )
+        return _response.data
+
     def pdf_merge(
         self,
         *,
@@ -3695,11 +3835,11 @@ class ApifreaksApi:
         *,
         api_key: str,
         file_password: str,
+        user_password: str,
         format: typing.Optional[PdfUnrestrictRequestFormat] = None,
         file_id: typing.Optional[str] = None,
         destroy: typing.Optional[bool] = None,
         output: typing.Optional[str] = None,
-        user_password: typing.Optional[str] = None,
         owner_password: typing.Optional[str] = None,
         webhook_url: typing.Optional[str] = None,
         webhook_failure_notification: typing.Optional[bool] = None,
@@ -3718,6 +3858,9 @@ class ApifreaksApi:
         file_password : str
             The password to unlock the input file. Either the owner password or user password can be provided. The owner password takes precedence. Password Length should be between 6 and 128 characters.
 
+        user_password : str
+            Sets the user password for the PDF file. Password Length should be between 6 and 128 characters.
+
         format : typing.Optional[PdfUnrestrictRequestFormat]
             Specifies the desired format for the API response. Choose 'json' for a JSON object or 'xml' for an XML structure.
 
@@ -3729,9 +3872,6 @@ class ApifreaksApi:
 
         output : typing.Optional[str]
             The desired name for the output unrestricted PDF file. If not provided, a default name will be assigned.
-
-        user_password : typing.Optional[str]
-            Sets the user password for the PDF file. Password Length should be between 6 and 128 characters.
 
         owner_password : typing.Optional[str]
             Sets the owner password for the PDF file. If the owner password is not provided, the `user_password` will also be used as the owner password. Password Length should be between 6 and 128 characters.
@@ -3764,16 +3904,17 @@ class ApifreaksApi:
         client.pdf_unrestrict(
             api_key="apiKey",
             file_password="file_password",
+            user_password="user_password",
         )
         """
         _response = self._raw_client.pdf_unrestrict(
             api_key=api_key,
             file_password=file_password,
+            user_password=user_password,
             format=format,
             file_id=file_id,
             destroy=destroy,
             output=output,
-            user_password=user_password,
             owner_password=owner_password,
             webhook_url=webhook_url,
             webhook_failure_notification=webhook_failure_notification,
@@ -4575,6 +4716,147 @@ class ApifreaksApi:
         )
         return _response.data
 
+    def pdf_generate_from_template(
+        self,
+        *,
+        api_key: str,
+        template_id: str,
+        request: typing.Dict[str, typing.Any],
+        version: typing.Optional[str] = None,
+        data_url: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PdfGenerateFromTemplateResponse:
+        """
+        Renders the template identified by template_id with the JSON data supplied in the request body (or fetched from data_url). Returns a hosted URL for the generated PDF. Provide either a request body or a data_url; one of the two is required. The keys of the data object are the fields you bound when you designed the template in the APIFreaks PDF Template Builder, so the exact shape is up to you. Pin the version parameter to a specific template version (e.g. version=v2) so later design changes never touch what is already live; omit it to use the latest version.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        template_id : str
+            The template to render, from the APIFreaks PDF Template Builder. Copy it from your dashboard when you save the template.
+
+        request : typing.Dict[str, typing.Any]
+
+        version : typing.Optional[str]
+            Template version to render, e.g. v2. Must start with v. Omit this parameter entirely to use the latest version; the literal value 'latest' is not accepted by the API.
+
+        data_url : typing.Optional[str]
+            A URL the API fetches your JSON data from, instead of the request body. Provide this when you are not sending a request body.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PdfGenerateFromTemplateResponse
+            PDF generated successfully. The response contains the hosted URL of the rendered PDF along with its creation and expiration times.
+
+        Examples
+        --------
+        from apifreaks import ApifreaksApi
+
+        client = ApifreaksApi()
+        client.pdf_generate_from_template(
+            api_key="apiKey",
+            template_id="template_id",
+            request={
+                "candidate_name": "Ava Thompson",
+                "candidate_title": "Senior Operations Analyst",
+                "email": "ava.thompson@example.com",
+                "phone": "+1 (555) 381-2048",
+                "city": "Austin, TX",
+                "portfolio_url": "portfolio.example.com",
+                "profile_summary": "Analytical operations professional with 8+ years of experience improving reporting pipelines, streamlining process documentation, and coordinating cross-functional delivery for distributed teams across multiple time zones.",
+                "company_name": "Northwind Logistics",
+                "job_title": "Operations Analyst",
+                "employment_period": "2021 - Present",
+                "job_achievement_1": "Led weekly KPI reporting for finance, fulfillment, and customer success stakeholders across three business units.",
+                "job_achievement_2": "Reduced manual reconciliation work by 35% through workflow redesign and documentation automation.",
+                "job_achievement_3": "Spearheaded a cross-team initiative that improved on-time delivery metrics by 18% within six months.",
+                "skills": [
+                    {"skill": "Process Improvement", "level": "Advanced", "years": "7"},
+                    {"skill": "Stakeholder Reporting", "level": "Expert", "years": "8"},
+                    {
+                        "skill": "Cross-functional Coordination",
+                        "level": "Advanced",
+                        "years": "5",
+                    },
+                    {
+                        "skill": "Workflow Documentation",
+                        "level": "Advanced",
+                        "years": "6",
+                    },
+                ],
+                "degree": "B.S. in Information Systems",
+                "institution": "University of Texas",
+                "graduation_year": "2018",
+                "certification_1": "Certified Business Analysis Professional (CBAP)",
+                "certification_2": "Six Sigma Green Belt",
+                "languages": "English (Native), Spanish (Professional)",
+            },
+        )
+        """
+        _response = self._raw_client.pdf_generate_from_template(
+            api_key=api_key,
+            template_id=template_id,
+            request=request,
+            version=version,
+            data_url=data_url,
+            request_options=request_options,
+        )
+        return _response.data
+
+    def bulk_pdf_generate_from_template(
+        self,
+        *,
+        api_key: str,
+        template_id: str,
+        file: core.File,
+        version: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> typing.List[BulkPdfGenerateFromTemplateResponseItem]:
+        """
+        Upload a CSV file where each row is one record. The API generates one PDF per row and returns an array of results, each with its own pdf_url. Rows are processed independently, so a failure in one row does not block the rest of the batch. The response gives a row-by-row breakdown of which PDFs succeeded and which failed.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        template_id : str
+            The template to render, from the APIFreaks PDF Template Builder. Copy it from your dashboard when you save the template.
+
+        file : core.File
+            See core.File for more documentation
+
+        version : typing.Optional[str]
+            Template version to render, e.g. v2. Must start with v. Omit this parameter entirely to use the latest version; the literal value 'latest' is not accepted by the API.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        typing.List[BulkPdfGenerateFromTemplateResponseItem]
+            PDFs generated successfully. The response is an array of results, one entry per CSV row, each with its own pdf_url.
+
+        Examples
+        --------
+        from apifreaks import ApifreaksApi
+
+        client = ApifreaksApi()
+        client.bulk_pdf_generate_from_template(
+            api_key="apiKey",
+            template_id="template_id",
+        )
+        """
+        _response = self._raw_client.bulk_pdf_generate_from_template(
+            api_key=api_key, template_id=template_id, file=file, version=version, request_options=request_options
+        )
+        return _response.data
+
     def screenshot_capture(
         self,
         *,
@@ -4648,8 +4930,35 @@ class ApifreaksApi:
         accept_languages: typing.Optional[str] = None,
         custom_html: typing.Optional[str] = None,
         image_quality: typing.Optional[float] = None,
+        captcha_error: typing.Optional[str] = None,
+        captcha_image: typing.Optional[str] = None,
+        captcha_input: typing.Optional[str] = None,
+        captcha_refresh: typing.Optional[str] = None,
+        captcha_retries: typing.Optional[int] = None,
+        captcha_submit: typing.Optional[str] = None,
+        classic_proxy: typing.Optional[bool] = None,
+        click_recursion: typing.Optional[int] = None,
+        country: typing.Optional[str] = None,
+        extract_markdown: typing.Optional[bool] = None,
+        format: typing.Optional[ScreenshotCaptureRequestFormat] = None,
+        get_image_urls: typing.Optional[bool] = None,
+        gpu: typing.Optional[bool] = None,
+        markdown: typing.Optional[str] = None,
+        ocr_model: typing.Optional[ScreenshotCaptureRequestOcrModel] = None,
+        pdf_options_format: typing.Optional[ScreenshotCaptureRequestPdfOptionsFormat] = None,
+        pdf_options_landscape: typing.Optional[bool] = None,
+        pdf_options_media: typing.Optional[ScreenshotCaptureRequestPdfOptionsMedia] = None,
+        pdf_options_page_range: typing.Optional[str] = None,
+        pdf_options_print_background: typing.Optional[bool] = None,
+        premium_proxy: typing.Optional[bool] = None,
+        scroll_delay: typing.Optional[int] = None,
+        selector_to_click: typing.Optional[str] = None,
+        solve_captcha: typing.Optional[bool] = None,
+        stealth: typing.Optional[bool] = None,
+        timezone: typing.Optional[str] = None,
+        video: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> typing.Iterator[bytes]:
+    ) -> ScreenshotCaptureResponse:
         """
         Capture full-page screenshots and videos of websites with advanced options like device simulation, custom code injection, cookie banner blocking, and scrollable content recording.
         Supports multiple output formats including JSON, image, GIF, MP4, and WebM.
@@ -4663,7 +4972,7 @@ class ApifreaksApi:
             URLs to capture screenshots of
 
         output : typing.Optional[ScreenshotCaptureRequestOutput]
-            Output format for screenshot results
+            Output format for screenshot results. The SDKs support only `json`, which returns metadata with the captured file's URL in `screenshot`; download the file from that URL. (The API's `output=image`, which returns the raw file, is not supported by the SDK methods.)
 
         file_type : typing.Optional[ScreenshotCaptureRequestFileType]
             File type for screenshot output
@@ -4857,13 +5166,94 @@ class ApifreaksApi:
 
         image_quality : typing.Optional[float]
 
+        captcha_error : typing.Optional[str]
+            CSS selector of the message shown for a wrong answer. While it is visible, the solver tries again.
+
+        captcha_image : typing.Optional[str]
+            CSS selector of the captcha picture. Required when solve_captcha is true.
+
+        captcha_input : typing.Optional[str]
+            CSS selector of the box the answer is typed into. Required when solve_captcha is true.
+
+        captcha_refresh : typing.Optional[str]
+            CSS selector of the control that loads a new captcha picture before the next try.
+
+        captcha_retries : typing.Optional[int]
+            Number of guesses the solver makes, from 1 to 5.
+
+        captcha_submit : typing.Optional[str]
+            CSS selector of the button to click after the answer is typed.
+
+        classic_proxy : typing.Optional[bool]
+            Loads the page through a datacenter proxy. Adds 20 credits per request. Ignored when premium_proxy is true or a custom proxy is set.
+
+        click_recursion : typing.Optional[int]
+            Number of times to click the selector (when set via `selector_to_click`).
+
+        country : typing.Optional[str]
+            Two-letter country code, such as US or DE, for the exit address of classic_proxy or premium_proxy. Ignored when you send your own proxy. Any two-letter code is sent, including one that is not listed. Classic proxy countries: BG, GE, DE, HN, MD, UA, GB, US. Premium proxy countries: AF, AL, DZ, AO, AG, AR, AM, AW, AU, AT, AZ, BS, BH, BD, BB, BY, BE, BZ, BJ, BT, BO, BQ, BA, BW, BR, BN, BG, BF, BI, CV, KH, CM, CA, KY, CF, TD, CL, CN, CO, KM, CG, CR, CI, HR, CU, CW, CY, CZ, CD, DK, DJ, DM, DO, EC, EG, SV, GQ, EE, SZ, ET, FO, FJ, FI, FR, GF, PF, GA, GM, GE, DE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, HT, HN, HK, HU, IS, IN, ID, IR, IQ, IE, IL, IT, JM, JP, JE, JO, KZ, KE, XK, KW, KG, LA, LV, LB, LS, LR, LY, LT, MO, MG, MW, MY, MV, ML, MT, MQ, MR, MU, YT, MX, MD, MN, ME, MA, MZ, MM, NA, NP, NL, NC, NZ, NI, NE, NG, MK, NO, OM, PK, PS, PA, PG, PY, PE, PH, PL, PT, PR, QA, RE, RO, RU, RW, KN, LC, VC, WS, SA, SN, RS, SC, SL, SG, SK, SI, SB, SO, ZA, KR, SS, ES, LK, SD, SR, SE, CH, SY, TW, TJ, TZ, TH, TL, TG, TO, TT, TN, TR, TM, UG, UA, AE, GB, US, UY, UZ, VE, VN, YE, ZM, ZW.
+
+        extract_markdown : typing.Optional[bool]
+            Extracts rendered page content as a structured .md (Markdown) file. Preserves headings, lists, links. Only with output=json.
+
+        format : typing.Optional[ScreenshotCaptureRequestFormat]
+            Response format: json (default).
+
+        get_image_urls : typing.Optional[bool]
+            Extracts all image URLs from the rendered DOM and returns them in structured format. Only with output=json.
+
+        gpu : typing.Optional[bool]
+            Renders the page with a GPU, including WebGL and canvas content. Adds 20 credits per request.
+
+        markdown : typing.Optional[str]
+            Markdown to render instead of loading a URL. Works like custom_html, so you can capture a README or notes without hosting a page.
+
+        ocr_model : typing.Optional[ScreenshotCaptureRequestOcrModel]
+            Recognition model used by the captcha solver: mini-ocr-v1 (default) or ocr-v1.
+
+        pdf_options_format : typing.Optional[ScreenshotCaptureRequestPdfOptionsFormat]
+            Paper size of the PDF. Applies when file_type is PDF. Without it, width and height are used if set, otherwise the page renders as one long page: A0, A1, A2, A3, A4, A5, A6, Letter, Legal, Tabloid, or Ledger.
+
+        pdf_options_landscape : typing.Optional[bool]
+            Renders the PDF in landscape orientation, swapping the width and height of the paper size. Applies when file_type is PDF.
+
+        pdf_options_media : typing.Optional[ScreenshotCaptureRequestPdfOptionsMedia]
+            CSS media type used to render the PDF: print or screen.
+
+        pdf_options_page_range : typing.Optional[str]
+            Pages to keep in the PDF, as start-end, for example 1-3 or 5-5. Pages are rendered first and then trimmed. Has no effect on a single-page PDF. Applies when file_type is PDF.
+
+        pdf_options_print_background : typing.Optional[bool]
+            Includes background colors and images in the PDF. Applies when file_type is PDF.
+
+        premium_proxy : typing.Optional[bool]
+            Loads the page through a residential proxy. Adds 200 credits per request. Used instead of classic_proxy.
+
+        scroll_delay : typing.Optional[int]
+            Delay in milliseconds between scroll steps when `lazy_load` is enabled. Use higher values for heavy pages.
+
+        selector_to_click : typing.Optional[str]
+            CSS selector for an element to click before capturing the screenshot. Useful for opening dropdowns, modals, or triggering content.
+
+        solve_captcha : typing.Optional[bool]
+            Solves a captcha made of text drawn in a picture, then takes the screenshot. Requires captcha_image and captcha_input. Adds 20 credits per request.
+
+        stealth : typing.Optional[bool]
+            Makes the browser look like a regular visitor for pages that block automated traffic. No extra credits.
+
+        timezone : typing.Optional[str]
+            IANA timezone the browser uses while rendering, such as Asia/Karachi or Europe/London. Useful for clocks and localized dates.
+
+        video : typing.Optional[bool]
+            Records visible viewport only for a specified duration. Use with `duration` parameter. Ideal for dashboards and animations.
+
         request_options : typing.Optional[RequestOptions]
-            Request-specific configuration. You can pass in configuration such as `chunk_size`, and more to customize the request and response.
+            Request-specific configuration.
 
         Returns
         -------
-        typing.Iterator[bytes]
-            Successful PDF response
+        ScreenshotCaptureResponse
+            Screenshot metadata, including the URL of the captured file (`screenshot`).
 
         Examples
         --------
@@ -4875,7 +5265,7 @@ class ApifreaksApi:
             url="url",
         )
         """
-        with self._raw_client.screenshot_capture(
+        _response = self._raw_client.screenshot_capture(
             api_key=api_key,
             url=url,
             output=output,
@@ -4946,9 +5336,36 @@ class ApifreaksApi:
             accept_languages=accept_languages,
             custom_html=custom_html,
             image_quality=image_quality,
+            captcha_error=captcha_error,
+            captcha_image=captcha_image,
+            captcha_input=captcha_input,
+            captcha_refresh=captcha_refresh,
+            captcha_retries=captcha_retries,
+            captcha_submit=captcha_submit,
+            classic_proxy=classic_proxy,
+            click_recursion=click_recursion,
+            country=country,
+            extract_markdown=extract_markdown,
+            format=format,
+            get_image_urls=get_image_urls,
+            gpu=gpu,
+            markdown=markdown,
+            ocr_model=ocr_model,
+            pdf_options_format=pdf_options_format,
+            pdf_options_landscape=pdf_options_landscape,
+            pdf_options_media=pdf_options_media,
+            pdf_options_page_range=pdf_options_page_range,
+            pdf_options_print_background=pdf_options_print_background,
+            premium_proxy=premium_proxy,
+            scroll_delay=scroll_delay,
+            selector_to_click=selector_to_click,
+            solve_captcha=solve_captcha,
+            stealth=stealth,
+            timezone=timezone,
+            video=video,
             request_options=request_options,
-        ) as r:
-            yield from r.data
+        )
+        return _response.data
 
     def bulk_screenshot_capture(
         self,
@@ -5858,7 +6275,7 @@ class ApifreaksApi:
             Format of the response. Default is JSON.
 
         type : typing.Optional[VatSupportedCountriesRequestType]
-            Type of supported country. Supported values: IBAN, SWIFT, VAT. By default, it returns all supported countries for all types.
+            Which list to return: VAT (`VAT_Supported_Countries_And_States`), IBAN (`IBAN_Supported_Countries`) or SWIFT (`SWIFT_Supported_Countries`). Each value returns only its own list. If omitted (or unknown), all three lists are returned.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -5982,7 +6399,7 @@ class ApifreaksApi:
         countries: typing.Sequence[BulkVatRateByCountryRequestCountriesItem],
         format: typing.Optional[BulkVatRateByCountryRequestFormat] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BulkVatRateByCountryResponse:
+    ) -> typing.List[BulkVatRateByCountryResponseItem]:
         """
         Retrieves VAT details for multiple countries or country-state combinations in a single request. Maximum of `100` entries per request are allowed.
 
@@ -6001,7 +6418,7 @@ class ApifreaksApi:
 
         Returns
         -------
-        BulkVatRateByCountryResponse
+        typing.List[BulkVatRateByCountryResponseItem]
             Successful response
 
         Examples
@@ -6385,9 +6802,10 @@ class ApifreaksApi:
         *,
         api_key: str,
         country: str,
-        region: str,
         format: typing.Optional[ZipcodeSearchByRegionRequestFormat] = None,
+        region: typing.Optional[str] = None,
         page: typing.Optional[int] = None,
+        region_code: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ZipcodeSearchByRegionResponse:
         """
@@ -6399,14 +6817,17 @@ class ApifreaksApi:
         country : str
             Country code in ISO 3166-1 alpha-2 format.
 
-        region : str
-            Name of the region, state or province associated with the country.
-
         format : typing.Optional[ZipcodeSearchByRegionRequestFormat]
             Format of the response.
 
+        region : typing.Optional[str]
+            Name of the region, state or province associated with the country. Either region or region_code is required; region_code takes priority if both are given.
+
         page : typing.Optional[int]
             Page no. to retrieve paginated results.
+
+        region_code : typing.Optional[str]
+            ISO code of the region, state, or province associated with the country. Either region or region_code is required. region_code takes priority if both are given.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -6424,11 +6845,16 @@ class ApifreaksApi:
         client.zipcode_search_by_region(
             api_key="apiKey",
             country="country",
-            region="region",
         )
         """
         _response = self._raw_client.zipcode_search_by_region(
-            api_key=api_key, country=country, region=region, format=format, page=page, request_options=request_options
+            api_key=api_key,
+            country=country,
+            format=format,
+            region=region,
+            page=page,
+            region_code=region_code,
+            request_options=request_options,
         )
         return _response.data
 
@@ -6667,7 +7093,7 @@ class ApifreaksApi:
             Your API key
 
         format : typing.Optional[CurrentWeatherRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         location : typing.Optional[str]
             City name, place name, or full address.
@@ -6734,7 +7160,7 @@ class ApifreaksApi:
             Array of locations to fetch weather data for
 
         format : typing.Optional[BulkCurrentWeatherRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         timezone : typing.Optional[str]
             Timezone for the results.
@@ -6801,7 +7227,7 @@ class ApifreaksApi:
             Your API key
 
         format : typing.Optional[WeatherForecastRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         start_date : typing.Optional[dt.date]
             Start date for the forecast in YYYY-MM-DD format. Forecast dates must be current or future dates only. Past dates are not allowed for forecast data. The difference between startDate and endDate must not exceed 16 days.
@@ -6889,7 +7315,7 @@ class ApifreaksApi:
             Specific date for which to fetch weather data in YYYY-MM-DD format. Historical dates must be past dates only. Current or future dates are not allowed for historical data. Data available from 1940 onwards.
 
         format : typing.Optional[HistoricalWeatherRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         location : typing.Optional[str]
             City name, place name, or full address.
@@ -6975,7 +7401,7 @@ class ApifreaksApi:
             End date for the data in YYYY-MM-DD format. Historical dates must be past dates only. Current or future dates are not allowed for historical data. Data available from 1940 onwards. For precision=daily, the difference between endDate and startDate must not exceed 90 days. For precision=hourly, the difference must not exceed 7 days.
 
         format : typing.Optional[WeatherTimeSeriesRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         location : typing.Optional[str]
             City name, place name, or full address.
@@ -7059,7 +7485,7 @@ class ApifreaksApi:
             Your API key
 
         format : typing.Optional[MarineWeatherRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         start_date : typing.Optional[dt.date]
             Starting date for marine forecast data in YYYY-MM-DD format. Forecast dates must be current or future dates only. Past dates are not allowed for forecast data. The difference between endDate and startDate must not exceed 16 days.
@@ -7141,7 +7567,7 @@ class ApifreaksApi:
             Your API key
 
         format : typing.Optional[AirQualityRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         start_date : typing.Optional[dt.date]
             Starting date for AQI forecast data in YYYY-MM-DD format. Forecast dates must be current or future dates only. Past dates are not allowed for forecast data. The difference between endDate and startDate must not exceed 5 days.
@@ -7229,7 +7655,7 @@ class ApifreaksApi:
             End date for flood forecast data in YYYY-MM-DD format. Forecast dates must be current or future dates only. Past dates are not allowed for forecast data. The difference between endDate and startDate must not exceed 16 days.
 
         format : typing.Optional[FloodForecastRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         location : typing.Optional[str]
             City name, place name, or full address.
@@ -7420,8 +7846,8 @@ class ApifreaksApi:
         self,
         *,
         api_key: str,
-        region: str,
         format: typing.Optional[GetSubregionsRequestFormat] = None,
+        region: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> GetSubregionsResponse:
         """
@@ -7430,11 +7856,11 @@ class ApifreaksApi:
         api_key : str
             Your API key
 
-        region : str
-            Name of the region.
-
         format : typing.Optional[GetSubregionsRequestFormat]
             Format of the response
+
+        region : typing.Optional[str]
+            Name of the region. If omitted, all subregions are returned.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -7451,11 +7877,10 @@ class ApifreaksApi:
         client = ApifreaksApi()
         client.get_subregions(
             api_key="apiKey",
-            region="region",
         )
         """
         _response = self._raw_client.get_subregions(
-            api_key=api_key, region=region, format=format, request_options=request_options
+            api_key=api_key, format=format, region=region, request_options=request_options
         )
         return _response.data
 
@@ -7510,7 +7935,7 @@ class ApifreaksApi:
         api_key: str,
         country: str,
         format: typing.Optional[GetAdminUnitsRequestFormat] = None,
-        admin_levels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        admin_level: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> GetAdminUnitsResponse:
         """
@@ -7527,8 +7952,8 @@ class ApifreaksApi:
         format : typing.Optional[GetAdminUnitsRequestFormat]
             Format of the response.
 
-        admin_levels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list to filter results by one or more administrative levels.
+        admin_level : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Filter results by one or more administrative level names (e.g. `land`, `state`, `province`), sent as a comma-separated list. Use the admin levels endpoint to list the levels a country has.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -7549,7 +7974,7 @@ class ApifreaksApi:
         )
         """
         _response = self._raw_client.get_admin_units(
-            api_key=api_key, country=country, format=format, admin_levels=admin_levels, request_options=request_options
+            api_key=api_key, country=country, format=format, admin_level=admin_level, request_options=request_options
         )
         return _response.data
 
@@ -7654,7 +8079,7 @@ class ApifreaksApi:
 
     def get_supported_flags(
         self, *, api_key: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.List[GetSupportedFlagsResponseItem]:
+    ) -> GetSupportedFlagsResponse:
         """
         Get list of all supported flags with their metadata
 
@@ -7668,7 +8093,7 @@ class ApifreaksApi:
 
         Returns
         -------
-        typing.List[GetSupportedFlagsResponseItem]
+        GetSupportedFlagsResponse
             Successful response
 
         Examples
@@ -8038,77 +8463,6 @@ class ApifreaksApi:
         )
         return _response.data
 
-    def ocr_predict(
-        self,
-        *,
-        api_key: str,
-        model: OcrPredictRequestModel,
-        url: typing.Optional[str] = OMIT,
-        page_range: typing.Optional[str] = OMIT,
-        zone: typing.Optional[str] = OMIT,
-        new_line: typing.Optional[int] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> OcrPredictResponse:
-        """
-        Perform Optical Character Recognition (OCR) on images, PDFs, or ZIP archives. Supports two models: `mini-ocr-v1` for CAPTCHA-optimized OCR and `ocr-v1` for general-purpose document text extraction. Supports zonal OCR to extract text from specific regions of an image.
-
-        **Notes:**
-        - The `zone` query parameter cannot be given with .pdf and .zip types as it can only be applied to single image query.
-        - The `page_range` query parameter cannot be given in any other type except .pdf types.
-        - PDFs containing images in them are allowed only for processing.
-        - The `mini-ocr-v1` model doesn’t support the following query parameters:
-            - `page_range` (.pdf types)
-            - `zone`
-
-        Parameters
-        ----------
-        api_key : str
-            Your API key
-
-        model : OcrPredictRequestModel
-            OCR model to use. `mini-ocr-v1` for CAPTCHA OCR, `ocr-v1` for general OCR
-
-        url : typing.Optional[str]
-            URL of the image or PDF (required if `file` not provided)
-
-        page_range : typing.Optional[str]
-            Specify page range for multi-page PDFs (e.g., '1,3,5-10' or 'allpages'). **Note:** This parameter can only be used with .pdf file types.
-
-        zone : typing.Optional[str]
-            Define OCR zones using coordinates (top:left:height:width). Multiple zones can be defined using commas. Only available for model 'ocr-v1'. **Note:** This parameter cannot be used with .pdf and .zip file types as it can only be applied to single image queries.
-
-        new_line : typing.Optional[int]
-            Set to 1 to split output text into individual lines (default: 0)
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        OcrPredictResponse
-            Successful OCR response
-
-        Examples
-        --------
-        from apifreaks import ApifreaksApi
-
-        client = ApifreaksApi()
-        client.ocr_predict(
-            api_key="apiKey",
-            model="mini-ocr-v1",
-        )
-        """
-        _response = self._raw_client.ocr_predict(
-            api_key=api_key,
-            model=model,
-            url=url,
-            page_range=page_range,
-            zone=zone,
-            new_line=new_line,
-            request_options=request_options,
-        )
-        return _response.data
-
     def grammar_detect(
         self, *, api_key: str, text: str, request_options: typing.Optional[RequestOptions] = None
     ) -> GrammarDetectResponse:
@@ -8342,6 +8696,44 @@ class ApifreaksApi:
             time_zone=time_zone,
             request_options=request_options,
         )
+        return _response.data
+
+    def get_credits_usage(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[GetCreditsUsageRequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> GetCreditsUsageResponse:
+        """
+        Returns subscription, subscription-surcharge, and one-off credit balances for the authenticated organization's account.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[GetCreditsUsageRequestFormat]
+            Format of the response. Possible values: json, xml.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        GetCreditsUsageResponse
+            Successful response with credit balances
+
+        Examples
+        --------
+        from apifreaks import ApifreaksApi
+
+        client = ApifreaksApi()
+        client.get_credits_usage(
+            api_key="apiKey",
+        )
+        """
+        _response = self._raw_client.get_credits_usage(api_key=api_key, format=format, request_options=request_options)
         return _response.data
 
 
@@ -9253,13 +9645,13 @@ class AsyncApifreaksApi:
             Format of the response.
 
         host_name : typing.Optional[str]
-            Hostname or URL whose DNS records are required.
+            Hostname or URL whose DNS records are required. Give either `host-name` or `ipAddress`.
 
         ip_address : typing.Optional[str]
-            The IP address for requested DNS's PTR record. 'type' parameter must be set to 'all'.
+            The IP address whose PTR (reverse DNS) record is required. Give either `host-name` or `ipAddress`; with `ipAddress`, set `type` to `all` or `PTR`.
 
         type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of DNS record types for lookup. Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all. When ipAddress is provided, type must be "all".
+            DNS record types to look up, sent as a comma-separated list (e.g. `A,MX`). Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, PTR, or all. When ipAddress is provided, use "all" or "PTR".
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -9323,8 +9715,7 @@ class AsyncApifreaksApi:
             Format of the response.
 
         type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of DNS record types for lookup.
-            Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+            DNS record types to look up, sent as a comma-separated list (e.g. `A,MX`). Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all.
 
         ip_addresses : typing.Optional[typing.Sequence[str]]
             Array of IP addresses to include in the lookup for PTR record enrichment.
@@ -9392,8 +9783,7 @@ class AsyncApifreaksApi:
             Format of the response.
 
         type : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            A comma-separated list of DNS record types for lookup.
-            Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all
+            DNS record types to look up, sent as a comma-separated list (e.g. `A,MX`). Possible values: A, AAAA, MX, NS, SOA, SPF, TXT, CNAME, or all.
 
         page : typing.Optional[int]
             Page number for paginated results
@@ -9552,7 +9942,7 @@ class AsyncApifreaksApi:
              Default value is `true`.
 
         proxy : typing.Optional[WebScrapeRequestProxy]
-            Use proxy for requests
+            Use a proxy for the request. Pass true/false to toggle the default proxy pool, or a proxy URL string to use a specific proxy.
 
         ssl_ignore : typing.Optional[bool]
             Ignore SSL certificate errors.
@@ -9593,16 +9983,7 @@ class AsyncApifreaksApi:
         from apifreaks import (
             AsyncApifreaksApi,
             WebScrapeRequestBodyBlockUrl,
-            WebScrapeRequestBodyBlockUrlCookiesItem,
-            WebScrapeRequestBodyBlockUrlInstructionsItemBlockElement,
-            WebScrapeRequestBodyBlockUrlInstructionsItemClick,
-            WebScrapeRequestBodyBlockUrlInstructionsItemExtract,
-            WebScrapeRequestBodyBlockUrlInstructionsItemExtractExtract,
-            WebScrapeRequestBodyBlockUrlInstructionsItemFill,
-            WebScrapeRequestBodyBlockUrlInstructionsItemFillFill,
-            WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptcha,
-            WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptchaGeneralImageCaptchaItem,
-            WebScrapeRequestBodyBlockUrlInstructionsItemWait,
+            WebScrapeRequestBodyBlockUrlInstructionsItem,
         )
 
         client = AsyncApifreaksApi()
@@ -9613,60 +9994,20 @@ class AsyncApifreaksApi:
                 api_key="apiKey",
                 url="https://example.com",
                 request=WebScrapeRequestBodyBlockUrl(
-                    block_url=[
-                        "https://example.com/ads.js",
-                        "https://tracker.example.com/*",
-                    ],
-                    cookies=[
-                        WebScrapeRequestBodyBlockUrlCookiesItem(
-                            name="sessionid",
-                            value="abc123",
-                        ),
-                        WebScrapeRequestBodyBlockUrlCookiesItem(
-                            name="user_pref",
-                            value="darkmode",
-                        ),
-                    ],
                     instructions=[
-                        WebScrapeRequestBodyBlockUrlInstructionsItemFill(
-                            fill=WebScrapeRequestBodyBlockUrlInstructionsItemFillFill(
-                                place="#username",
-                                value="myuser",
-                            ),
+                        WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                        WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                        WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                        WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                        WebScrapeRequestBodyBlockUrlInstructionsItem(
+                            extract={
+                                "profile": "#profile",
+                                "welcomeMessage": "#welcome-message",
+                                "userInfo": "#user-info",
+                            },
                         ),
-                        WebScrapeRequestBodyBlockUrlInstructionsItemFill(
-                            fill=WebScrapeRequestBodyBlockUrlInstructionsItemFillFill(
-                                place="#password",
-                                value="mypassword",
-                            ),
-                        ),
-                        WebScrapeRequestBodyBlockUrlInstructionsItemClick(
-                            click="#loginButton",
-                        ),
-                        WebScrapeRequestBodyBlockUrlInstructionsItemWait(
-                            wait=2000,
-                        ),
-                        WebScrapeRequestBodyBlockUrlInstructionsItemExtract(
-                            extract=WebScrapeRequestBodyBlockUrlInstructionsItemExtractExtract(
-                                html="#profile",
-                                text="#welcome-message",
-                                user_data="#user-info",
-                            ),
-                        ),
-                        WebScrapeRequestBodyBlockUrlInstructionsItemBlockElement(
-                            block_element=[".ad-banner", "//div[@class='popup']"],
-                        ),
-                        WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptcha(
-                            general_image_captcha=[
-                                WebScrapeRequestBodyBlockUrlInstructionsItemGeneralImageCaptchaGeneralImageCaptchaItem(
-                                    image_path="#captcha-img",
-                                    text_field="#captcha-input",
-                                    image_update_path="#refresh-captcha",
-                                    captcha_failed_path="#captcha-error",
-                                    model="mini-ocr-v1",
-                                )
-                            ],
-                        ),
+                        WebScrapeRequestBodyBlockUrlInstructionsItem(),
+                        WebScrapeRequestBodyBlockUrlInstructionsItem(),
                     ],
                 ),
             )
@@ -9804,6 +10145,130 @@ class AsyncApifreaksApi:
         asyncio.run(main())
         """
         _response = await self._raw_client.bulk_email_validate(
+            api_key=api_key, email_data=email_data, format=format, request_options=request_options
+        )
+        return _response.data
+
+    async def disposable_email_check_v2(
+        self,
+        *,
+        api_key: str,
+        email: str,
+        format: typing.Optional[DisposableEmailCheckV2RequestFormat] = None,
+        ip: typing.Optional[str] = OMIT,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> DisposableEmailCheckV2Response:
+        """
+        Validates email syntax and checks the domain for disposable, free, spam, and role-account signals, plus MX/A DNS records. Send the email (and optionally an ip) as a JSON request body. When an ip is included, the response also carries geolocation and security data for it.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        email : str
+            The email address to check.
+
+        format : typing.Optional[DisposableEmailCheckV2RequestFormat]
+            Format of the response.
+
+        ip : typing.Optional[str]
+            Optional IP address to look up for location and security data, such as the IP the signup came from.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        DisposableEmailCheckV2Response
+            Successful response with disposable email check result.
+
+        Examples
+        --------
+        import asyncio
+
+        from apifreaks import AsyncApifreaksApi
+
+        client = AsyncApifreaksApi()
+
+
+        async def main() -> None:
+            await client.disposable_email_check_v2(
+                api_key="apiKey",
+                email="test@sogetthis.com",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.disposable_email_check_v2(
+            api_key=api_key, email=email, format=format, ip=ip, request_options=request_options
+        )
+        return _response.data
+
+    async def bulk_disposable_email_check_v2(
+        self,
+        *,
+        api_key: str,
+        email_data: typing.Sequence[BulkDisposableEmailCheckV2RequestEmailDataItem],
+        format: typing.Optional[BulkDisposableEmailCheckV2RequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> BulkDisposableEmailCheckV2Response:
+        """
+        Checks a bulk of email addresses (each with an optional ip) and returns a disposable email check result for each, in the same order as the request. Maximum `100` entries per request.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        email_data : typing.Sequence[BulkDisposableEmailCheckV2RequestEmailDataItem]
+            Entries to check. Maximum 100 per request. Must not be empty, and must not contain null entries or entries without a valid email.
+
+        format : typing.Optional[BulkDisposableEmailCheckV2RequestFormat]
+            Format of the response.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        BulkDisposableEmailCheckV2Response
+            Successful response. Each item corresponds to one requested email, in the same order as the request.
+
+        Examples
+        --------
+        import asyncio
+
+        from apifreaks import (
+            AsyncApifreaksApi,
+            BulkDisposableEmailCheckV2RequestEmailDataItem,
+        )
+
+        client = AsyncApifreaksApi()
+
+
+        async def main() -> None:
+            await client.bulk_disposable_email_check_v2(
+                api_key="apiKey",
+                email_data=[
+                    BulkDisposableEmailCheckV2RequestEmailDataItem(
+                        email="abc",
+                    ),
+                    BulkDisposableEmailCheckV2RequestEmailDataItem(
+                        email="john@microsoft.com",
+                        ip="8.8.8.8",
+                    ),
+                    BulkDisposableEmailCheckV2RequestEmailDataItem(
+                        email="test@mailinator.com",
+                    ),
+                ],
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.bulk_disposable_email_check_v2(
             api_key=api_key, email_data=email_data, format=format, request_options=request_options
         )
         return _response.data
@@ -11186,6 +11651,82 @@ class AsyncApifreaksApi:
         )
         return _response.data
 
+    async def commodity_intraday_rates_v2(
+        self,
+        *,
+        api_key: str,
+        symbols: str,
+        interval: CommodityIntradayRatesV2RequestInterval,
+        date: dt.date,
+        start_time: typing.Optional[str] = None,
+        metadata: typing.Optional[bool] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> CommodityIntradayRatesV2Response:
+        """
+        Returns the prices of one commodity through a UTC day at the requested interval, keyed by UTC timestamp. Each request costs a flat 50 credits however many points it returns.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        symbols : str
+            Exactly one commodity symbol. Case-insensitive. Sending two or more returns a 400. Only symbols updated every second, every minute, or every 10 minutes have intraday rates; symbols updated hourly or less often return a 400. Use the Commodity Symbols endpoint for all valid values.
+
+        interval : CommodityIntradayRatesV2RequestInterval
+            Spacing between points. Case-insensitive. Symbols updated every 10 minutes accept only `10m`, `30m`, `1h`, `2h`, `4h`, `8h`, `12h`, `1d`.
+
+        date : dt.date
+            The UTC day to read, in `YYYY-MM-DD` format. Cannot be in the future. For today, points stop at the current UTC minute.
+
+        start_time : typing.Optional[str]
+            First mark of the window, as a 24-hour UTC time in `HH:mm`. Must fall on a mark of the interval (for example, `14:30` works for `5m` or `30m`, but not for `1h`). For `1d` it can only be `00:00`.
+
+        metadata : typing.Optional[bool]
+            Whether to include the `metadata` object. Pass `false` to receive only the prices.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        CommodityIntradayRatesV2Response
+            Successful operation
+
+        Examples
+        --------
+        import asyncio
+        import datetime
+
+        from apifreaks import AsyncApifreaksApi
+
+        client = AsyncApifreaksApi()
+
+
+        async def main() -> None:
+            await client.commodity_intraday_rates_v2(
+                api_key="apiKey",
+                symbols="symbols",
+                interval="1m",
+                date=datetime.date.fromisoformat(
+                    "2023-01-15",
+                ),
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.commodity_intraday_rates_v2(
+            api_key=api_key,
+            symbols=symbols,
+            interval=interval,
+            date=date,
+            start_time=start_time,
+            metadata=metadata,
+            request_options=request_options,
+        )
+        return _response.data
+
     async def pdf_merge(
         self,
         *,
@@ -12154,11 +12695,11 @@ class AsyncApifreaksApi:
         *,
         api_key: str,
         file_password: str,
+        user_password: str,
         format: typing.Optional[PdfUnrestrictRequestFormat] = None,
         file_id: typing.Optional[str] = None,
         destroy: typing.Optional[bool] = None,
         output: typing.Optional[str] = None,
-        user_password: typing.Optional[str] = None,
         owner_password: typing.Optional[str] = None,
         webhook_url: typing.Optional[str] = None,
         webhook_failure_notification: typing.Optional[bool] = None,
@@ -12177,6 +12718,9 @@ class AsyncApifreaksApi:
         file_password : str
             The password to unlock the input file. Either the owner password or user password can be provided. The owner password takes precedence. Password Length should be between 6 and 128 characters.
 
+        user_password : str
+            Sets the user password for the PDF file. Password Length should be between 6 and 128 characters.
+
         format : typing.Optional[PdfUnrestrictRequestFormat]
             Specifies the desired format for the API response. Choose 'json' for a JSON object or 'xml' for an XML structure.
 
@@ -12188,9 +12732,6 @@ class AsyncApifreaksApi:
 
         output : typing.Optional[str]
             The desired name for the output unrestricted PDF file. If not provided, a default name will be assigned.
-
-        user_password : typing.Optional[str]
-            Sets the user password for the PDF file. Password Length should be between 6 and 128 characters.
 
         owner_password : typing.Optional[str]
             Sets the owner password for the PDF file. If the owner password is not provided, the `user_password` will also be used as the owner password. Password Length should be between 6 and 128 characters.
@@ -12228,6 +12769,7 @@ class AsyncApifreaksApi:
             await client.pdf_unrestrict(
                 api_key="apiKey",
                 file_password="file_password",
+                user_password="user_password",
             )
 
 
@@ -12236,11 +12778,11 @@ class AsyncApifreaksApi:
         _response = await self._raw_client.pdf_unrestrict(
             api_key=api_key,
             file_password=file_password,
+            user_password=user_password,
             format=format,
             file_id=file_id,
             destroy=destroy,
             output=output,
-            user_password=user_password,
             owner_password=owner_password,
             webhook_url=webhook_url,
             webhook_failure_notification=webhook_failure_notification,
@@ -13133,6 +13675,171 @@ class AsyncApifreaksApi:
         )
         return _response.data
 
+    async def pdf_generate_from_template(
+        self,
+        *,
+        api_key: str,
+        template_id: str,
+        request: typing.Dict[str, typing.Any],
+        version: typing.Optional[str] = None,
+        data_url: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> PdfGenerateFromTemplateResponse:
+        """
+        Renders the template identified by template_id with the JSON data supplied in the request body (or fetched from data_url). Returns a hosted URL for the generated PDF. Provide either a request body or a data_url; one of the two is required. The keys of the data object are the fields you bound when you designed the template in the APIFreaks PDF Template Builder, so the exact shape is up to you. Pin the version parameter to a specific template version (e.g. version=v2) so later design changes never touch what is already live; omit it to use the latest version.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        template_id : str
+            The template to render, from the APIFreaks PDF Template Builder. Copy it from your dashboard when you save the template.
+
+        request : typing.Dict[str, typing.Any]
+
+        version : typing.Optional[str]
+            Template version to render, e.g. v2. Must start with v. Omit this parameter entirely to use the latest version; the literal value 'latest' is not accepted by the API.
+
+        data_url : typing.Optional[str]
+            A URL the API fetches your JSON data from, instead of the request body. Provide this when you are not sending a request body.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        PdfGenerateFromTemplateResponse
+            PDF generated successfully. The response contains the hosted URL of the rendered PDF along with its creation and expiration times.
+
+        Examples
+        --------
+        import asyncio
+
+        from apifreaks import AsyncApifreaksApi
+
+        client = AsyncApifreaksApi()
+
+
+        async def main() -> None:
+            await client.pdf_generate_from_template(
+                api_key="apiKey",
+                template_id="template_id",
+                request={
+                    "candidate_name": "Ava Thompson",
+                    "candidate_title": "Senior Operations Analyst",
+                    "email": "ava.thompson@example.com",
+                    "phone": "+1 (555) 381-2048",
+                    "city": "Austin, TX",
+                    "portfolio_url": "portfolio.example.com",
+                    "profile_summary": "Analytical operations professional with 8+ years of experience improving reporting pipelines, streamlining process documentation, and coordinating cross-functional delivery for distributed teams across multiple time zones.",
+                    "company_name": "Northwind Logistics",
+                    "job_title": "Operations Analyst",
+                    "employment_period": "2021 - Present",
+                    "job_achievement_1": "Led weekly KPI reporting for finance, fulfillment, and customer success stakeholders across three business units.",
+                    "job_achievement_2": "Reduced manual reconciliation work by 35% through workflow redesign and documentation automation.",
+                    "job_achievement_3": "Spearheaded a cross-team initiative that improved on-time delivery metrics by 18% within six months.",
+                    "skills": [
+                        {
+                            "skill": "Process Improvement",
+                            "level": "Advanced",
+                            "years": "7",
+                        },
+                        {
+                            "skill": "Stakeholder Reporting",
+                            "level": "Expert",
+                            "years": "8",
+                        },
+                        {
+                            "skill": "Cross-functional Coordination",
+                            "level": "Advanced",
+                            "years": "5",
+                        },
+                        {
+                            "skill": "Workflow Documentation",
+                            "level": "Advanced",
+                            "years": "6",
+                        },
+                    ],
+                    "degree": "B.S. in Information Systems",
+                    "institution": "University of Texas",
+                    "graduation_year": "2018",
+                    "certification_1": "Certified Business Analysis Professional (CBAP)",
+                    "certification_2": "Six Sigma Green Belt",
+                    "languages": "English (Native), Spanish (Professional)",
+                },
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.pdf_generate_from_template(
+            api_key=api_key,
+            template_id=template_id,
+            request=request,
+            version=version,
+            data_url=data_url,
+            request_options=request_options,
+        )
+        return _response.data
+
+    async def bulk_pdf_generate_from_template(
+        self,
+        *,
+        api_key: str,
+        template_id: str,
+        file: core.File,
+        version: typing.Optional[str] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> typing.List[BulkPdfGenerateFromTemplateResponseItem]:
+        """
+        Upload a CSV file where each row is one record. The API generates one PDF per row and returns an array of results, each with its own pdf_url. Rows are processed independently, so a failure in one row does not block the rest of the batch. The response gives a row-by-row breakdown of which PDFs succeeded and which failed.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        template_id : str
+            The template to render, from the APIFreaks PDF Template Builder. Copy it from your dashboard when you save the template.
+
+        file : core.File
+            See core.File for more documentation
+
+        version : typing.Optional[str]
+            Template version to render, e.g. v2. Must start with v. Omit this parameter entirely to use the latest version; the literal value 'latest' is not accepted by the API.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        typing.List[BulkPdfGenerateFromTemplateResponseItem]
+            PDFs generated successfully. The response is an array of results, one entry per CSV row, each with its own pdf_url.
+
+        Examples
+        --------
+        import asyncio
+
+        from apifreaks import AsyncApifreaksApi
+
+        client = AsyncApifreaksApi()
+
+
+        async def main() -> None:
+            await client.bulk_pdf_generate_from_template(
+                api_key="apiKey",
+                template_id="template_id",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.bulk_pdf_generate_from_template(
+            api_key=api_key, template_id=template_id, file=file, version=version, request_options=request_options
+        )
+        return _response.data
+
     async def screenshot_capture(
         self,
         *,
@@ -13206,8 +13913,35 @@ class AsyncApifreaksApi:
         accept_languages: typing.Optional[str] = None,
         custom_html: typing.Optional[str] = None,
         image_quality: typing.Optional[float] = None,
+        captcha_error: typing.Optional[str] = None,
+        captcha_image: typing.Optional[str] = None,
+        captcha_input: typing.Optional[str] = None,
+        captcha_refresh: typing.Optional[str] = None,
+        captcha_retries: typing.Optional[int] = None,
+        captcha_submit: typing.Optional[str] = None,
+        classic_proxy: typing.Optional[bool] = None,
+        click_recursion: typing.Optional[int] = None,
+        country: typing.Optional[str] = None,
+        extract_markdown: typing.Optional[bool] = None,
+        format: typing.Optional[ScreenshotCaptureRequestFormat] = None,
+        get_image_urls: typing.Optional[bool] = None,
+        gpu: typing.Optional[bool] = None,
+        markdown: typing.Optional[str] = None,
+        ocr_model: typing.Optional[ScreenshotCaptureRequestOcrModel] = None,
+        pdf_options_format: typing.Optional[ScreenshotCaptureRequestPdfOptionsFormat] = None,
+        pdf_options_landscape: typing.Optional[bool] = None,
+        pdf_options_media: typing.Optional[ScreenshotCaptureRequestPdfOptionsMedia] = None,
+        pdf_options_page_range: typing.Optional[str] = None,
+        pdf_options_print_background: typing.Optional[bool] = None,
+        premium_proxy: typing.Optional[bool] = None,
+        scroll_delay: typing.Optional[int] = None,
+        selector_to_click: typing.Optional[str] = None,
+        solve_captcha: typing.Optional[bool] = None,
+        stealth: typing.Optional[bool] = None,
+        timezone: typing.Optional[str] = None,
+        video: typing.Optional[bool] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> typing.AsyncIterator[bytes]:
+    ) -> ScreenshotCaptureResponse:
         """
         Capture full-page screenshots and videos of websites with advanced options like device simulation, custom code injection, cookie banner blocking, and scrollable content recording.
         Supports multiple output formats including JSON, image, GIF, MP4, and WebM.
@@ -13221,7 +13955,7 @@ class AsyncApifreaksApi:
             URLs to capture screenshots of
 
         output : typing.Optional[ScreenshotCaptureRequestOutput]
-            Output format for screenshot results
+            Output format for screenshot results. The SDKs support only `json`, which returns metadata with the captured file's URL in `screenshot`; download the file from that URL. (The API's `output=image`, which returns the raw file, is not supported by the SDK methods.)
 
         file_type : typing.Optional[ScreenshotCaptureRequestFileType]
             File type for screenshot output
@@ -13415,13 +14149,94 @@ class AsyncApifreaksApi:
 
         image_quality : typing.Optional[float]
 
+        captcha_error : typing.Optional[str]
+            CSS selector of the message shown for a wrong answer. While it is visible, the solver tries again.
+
+        captcha_image : typing.Optional[str]
+            CSS selector of the captcha picture. Required when solve_captcha is true.
+
+        captcha_input : typing.Optional[str]
+            CSS selector of the box the answer is typed into. Required when solve_captcha is true.
+
+        captcha_refresh : typing.Optional[str]
+            CSS selector of the control that loads a new captcha picture before the next try.
+
+        captcha_retries : typing.Optional[int]
+            Number of guesses the solver makes, from 1 to 5.
+
+        captcha_submit : typing.Optional[str]
+            CSS selector of the button to click after the answer is typed.
+
+        classic_proxy : typing.Optional[bool]
+            Loads the page through a datacenter proxy. Adds 20 credits per request. Ignored when premium_proxy is true or a custom proxy is set.
+
+        click_recursion : typing.Optional[int]
+            Number of times to click the selector (when set via `selector_to_click`).
+
+        country : typing.Optional[str]
+            Two-letter country code, such as US or DE, for the exit address of classic_proxy or premium_proxy. Ignored when you send your own proxy. Any two-letter code is sent, including one that is not listed. Classic proxy countries: BG, GE, DE, HN, MD, UA, GB, US. Premium proxy countries: AF, AL, DZ, AO, AG, AR, AM, AW, AU, AT, AZ, BS, BH, BD, BB, BY, BE, BZ, BJ, BT, BO, BQ, BA, BW, BR, BN, BG, BF, BI, CV, KH, CM, CA, KY, CF, TD, CL, CN, CO, KM, CG, CR, CI, HR, CU, CW, CY, CZ, CD, DK, DJ, DM, DO, EC, EG, SV, GQ, EE, SZ, ET, FO, FJ, FI, FR, GF, PF, GA, GM, GE, DE, GH, GI, GR, GL, GD, GP, GU, GT, GG, GN, GW, GY, HT, HN, HK, HU, IS, IN, ID, IR, IQ, IE, IL, IT, JM, JP, JE, JO, KZ, KE, XK, KW, KG, LA, LV, LB, LS, LR, LY, LT, MO, MG, MW, MY, MV, ML, MT, MQ, MR, MU, YT, MX, MD, MN, ME, MA, MZ, MM, NA, NP, NL, NC, NZ, NI, NE, NG, MK, NO, OM, PK, PS, PA, PG, PY, PE, PH, PL, PT, PR, QA, RE, RO, RU, RW, KN, LC, VC, WS, SA, SN, RS, SC, SL, SG, SK, SI, SB, SO, ZA, KR, SS, ES, LK, SD, SR, SE, CH, SY, TW, TJ, TZ, TH, TL, TG, TO, TT, TN, TR, TM, UG, UA, AE, GB, US, UY, UZ, VE, VN, YE, ZM, ZW.
+
+        extract_markdown : typing.Optional[bool]
+            Extracts rendered page content as a structured .md (Markdown) file. Preserves headings, lists, links. Only with output=json.
+
+        format : typing.Optional[ScreenshotCaptureRequestFormat]
+            Response format: json (default).
+
+        get_image_urls : typing.Optional[bool]
+            Extracts all image URLs from the rendered DOM and returns them in structured format. Only with output=json.
+
+        gpu : typing.Optional[bool]
+            Renders the page with a GPU, including WebGL and canvas content. Adds 20 credits per request.
+
+        markdown : typing.Optional[str]
+            Markdown to render instead of loading a URL. Works like custom_html, so you can capture a README or notes without hosting a page.
+
+        ocr_model : typing.Optional[ScreenshotCaptureRequestOcrModel]
+            Recognition model used by the captcha solver: mini-ocr-v1 (default) or ocr-v1.
+
+        pdf_options_format : typing.Optional[ScreenshotCaptureRequestPdfOptionsFormat]
+            Paper size of the PDF. Applies when file_type is PDF. Without it, width and height are used if set, otherwise the page renders as one long page: A0, A1, A2, A3, A4, A5, A6, Letter, Legal, Tabloid, or Ledger.
+
+        pdf_options_landscape : typing.Optional[bool]
+            Renders the PDF in landscape orientation, swapping the width and height of the paper size. Applies when file_type is PDF.
+
+        pdf_options_media : typing.Optional[ScreenshotCaptureRequestPdfOptionsMedia]
+            CSS media type used to render the PDF: print or screen.
+
+        pdf_options_page_range : typing.Optional[str]
+            Pages to keep in the PDF, as start-end, for example 1-3 or 5-5. Pages are rendered first and then trimmed. Has no effect on a single-page PDF. Applies when file_type is PDF.
+
+        pdf_options_print_background : typing.Optional[bool]
+            Includes background colors and images in the PDF. Applies when file_type is PDF.
+
+        premium_proxy : typing.Optional[bool]
+            Loads the page through a residential proxy. Adds 200 credits per request. Used instead of classic_proxy.
+
+        scroll_delay : typing.Optional[int]
+            Delay in milliseconds between scroll steps when `lazy_load` is enabled. Use higher values for heavy pages.
+
+        selector_to_click : typing.Optional[str]
+            CSS selector for an element to click before capturing the screenshot. Useful for opening dropdowns, modals, or triggering content.
+
+        solve_captcha : typing.Optional[bool]
+            Solves a captcha made of text drawn in a picture, then takes the screenshot. Requires captcha_image and captcha_input. Adds 20 credits per request.
+
+        stealth : typing.Optional[bool]
+            Makes the browser look like a regular visitor for pages that block automated traffic. No extra credits.
+
+        timezone : typing.Optional[str]
+            IANA timezone the browser uses while rendering, such as Asia/Karachi or Europe/London. Useful for clocks and localized dates.
+
+        video : typing.Optional[bool]
+            Records visible viewport only for a specified duration. Use with `duration` parameter. Ideal for dashboards and animations.
+
         request_options : typing.Optional[RequestOptions]
-            Request-specific configuration. You can pass in configuration such as `chunk_size`, and more to customize the request and response.
+            Request-specific configuration.
 
         Returns
         -------
-        typing.AsyncIterator[bytes]
-            Successful PDF response
+        ScreenshotCaptureResponse
+            Screenshot metadata, including the URL of the captured file (`screenshot`).
 
         Examples
         --------
@@ -13441,7 +14256,7 @@ class AsyncApifreaksApi:
 
         asyncio.run(main())
         """
-        async with self._raw_client.screenshot_capture(
+        _response = await self._raw_client.screenshot_capture(
             api_key=api_key,
             url=url,
             output=output,
@@ -13512,10 +14327,36 @@ class AsyncApifreaksApi:
             accept_languages=accept_languages,
             custom_html=custom_html,
             image_quality=image_quality,
+            captcha_error=captcha_error,
+            captcha_image=captcha_image,
+            captcha_input=captcha_input,
+            captcha_refresh=captcha_refresh,
+            captcha_retries=captcha_retries,
+            captcha_submit=captcha_submit,
+            classic_proxy=classic_proxy,
+            click_recursion=click_recursion,
+            country=country,
+            extract_markdown=extract_markdown,
+            format=format,
+            get_image_urls=get_image_urls,
+            gpu=gpu,
+            markdown=markdown,
+            ocr_model=ocr_model,
+            pdf_options_format=pdf_options_format,
+            pdf_options_landscape=pdf_options_landscape,
+            pdf_options_media=pdf_options_media,
+            pdf_options_page_range=pdf_options_page_range,
+            pdf_options_print_background=pdf_options_print_background,
+            premium_proxy=premium_proxy,
+            scroll_delay=scroll_delay,
+            selector_to_click=selector_to_click,
+            solve_captcha=solve_captcha,
+            stealth=stealth,
+            timezone=timezone,
+            video=video,
             request_options=request_options,
-        ) as r:
-            async for _chunk in r.data:
-                yield _chunk
+        )
+        return _response.data
 
     async def bulk_screenshot_capture(
         self,
@@ -14552,7 +15393,7 @@ class AsyncApifreaksApi:
             Format of the response. Default is JSON.
 
         type : typing.Optional[VatSupportedCountriesRequestType]
-            Type of supported country. Supported values: IBAN, SWIFT, VAT. By default, it returns all supported countries for all types.
+            Which list to return: VAT (`VAT_Supported_Countries_And_States`), IBAN (`IBAN_Supported_Countries`) or SWIFT (`SWIFT_Supported_Countries`). Each value returns only its own list. If omitted (or unknown), all three lists are returned.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -14700,7 +15541,7 @@ class AsyncApifreaksApi:
         countries: typing.Sequence[BulkVatRateByCountryRequestCountriesItem],
         format: typing.Optional[BulkVatRateByCountryRequestFormat] = None,
         request_options: typing.Optional[RequestOptions] = None,
-    ) -> BulkVatRateByCountryResponse:
+    ) -> typing.List[BulkVatRateByCountryResponseItem]:
         """
         Retrieves VAT details for multiple countries or country-state combinations in a single request. Maximum of `100` entries per request are allowed.
 
@@ -14719,7 +15560,7 @@ class AsyncApifreaksApi:
 
         Returns
         -------
-        BulkVatRateByCountryResponse
+        typing.List[BulkVatRateByCountryResponseItem]
             Successful response
 
         Examples
@@ -15170,9 +16011,10 @@ class AsyncApifreaksApi:
         *,
         api_key: str,
         country: str,
-        region: str,
         format: typing.Optional[ZipcodeSearchByRegionRequestFormat] = None,
+        region: typing.Optional[str] = None,
         page: typing.Optional[int] = None,
+        region_code: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> ZipcodeSearchByRegionResponse:
         """
@@ -15184,14 +16026,17 @@ class AsyncApifreaksApi:
         country : str
             Country code in ISO 3166-1 alpha-2 format.
 
-        region : str
-            Name of the region, state or province associated with the country.
-
         format : typing.Optional[ZipcodeSearchByRegionRequestFormat]
             Format of the response.
 
+        region : typing.Optional[str]
+            Name of the region, state or province associated with the country. Either region or region_code is required; region_code takes priority if both are given.
+
         page : typing.Optional[int]
             Page no. to retrieve paginated results.
+
+        region_code : typing.Optional[str]
+            ISO code of the region, state, or province associated with the country. Either region or region_code is required. region_code takes priority if both are given.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -15214,14 +16059,19 @@ class AsyncApifreaksApi:
             await client.zipcode_search_by_region(
                 api_key="apiKey",
                 country="country",
-                region="region",
             )
 
 
         asyncio.run(main())
         """
         _response = await self._raw_client.zipcode_search_by_region(
-            api_key=api_key, country=country, region=region, format=format, page=page, request_options=request_options
+            api_key=api_key,
+            country=country,
+            format=format,
+            region=region,
+            page=page,
+            region_code=region_code,
+            request_options=request_options,
         )
         return _response.data
 
@@ -15484,7 +16334,7 @@ class AsyncApifreaksApi:
             Your API key
 
         format : typing.Optional[CurrentWeatherRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         location : typing.Optional[str]
             City name, place name, or full address.
@@ -15559,7 +16409,7 @@ class AsyncApifreaksApi:
             Array of locations to fetch weather data for
 
         format : typing.Optional[BulkCurrentWeatherRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         timezone : typing.Optional[str]
             Timezone for the results.
@@ -15634,7 +16484,7 @@ class AsyncApifreaksApi:
             Your API key
 
         format : typing.Optional[WeatherForecastRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         start_date : typing.Optional[dt.date]
             Start date for the forecast in YYYY-MM-DD format. Forecast dates must be current or future dates only. Past dates are not allowed for forecast data. The difference between startDate and endDate must not exceed 16 days.
@@ -15730,7 +16580,7 @@ class AsyncApifreaksApi:
             Specific date for which to fetch weather data in YYYY-MM-DD format. Historical dates must be past dates only. Current or future dates are not allowed for historical data. Data available from 1940 onwards.
 
         format : typing.Optional[HistoricalWeatherRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         location : typing.Optional[str]
             City name, place name, or full address.
@@ -15823,7 +16673,7 @@ class AsyncApifreaksApi:
             End date for the data in YYYY-MM-DD format. Historical dates must be past dates only. Current or future dates are not allowed for historical data. Data available from 1940 onwards. For precision=daily, the difference between endDate and startDate must not exceed 90 days. For precision=hourly, the difference must not exceed 7 days.
 
         format : typing.Optional[WeatherTimeSeriesRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         location : typing.Optional[str]
             City name, place name, or full address.
@@ -15914,7 +16764,7 @@ class AsyncApifreaksApi:
             Your API key
 
         format : typing.Optional[MarineWeatherRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         start_date : typing.Optional[dt.date]
             Starting date for marine forecast data in YYYY-MM-DD format. Forecast dates must be current or future dates only. Past dates are not allowed for forecast data. The difference between endDate and startDate must not exceed 16 days.
@@ -16004,7 +16854,7 @@ class AsyncApifreaksApi:
             Your API key
 
         format : typing.Optional[AirQualityRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         start_date : typing.Optional[dt.date]
             Starting date for AQI forecast data in YYYY-MM-DD format. Forecast dates must be current or future dates only. Past dates are not allowed for forecast data. The difference between endDate and startDate must not exceed 5 days.
@@ -16100,7 +16950,7 @@ class AsyncApifreaksApi:
             End date for flood forecast data in YYYY-MM-DD format. Forecast dates must be current or future dates only. Past dates are not allowed for forecast data. The difference between endDate and startDate must not exceed 16 days.
 
         format : typing.Optional[FloodForecastRequestFormat]
-            Response format returned by the API.
+            Response format returned by the API. Only JSON is supported.
 
         location : typing.Optional[str]
             City name, place name, or full address.
@@ -16322,8 +17172,8 @@ class AsyncApifreaksApi:
         self,
         *,
         api_key: str,
-        region: str,
         format: typing.Optional[GetSubregionsRequestFormat] = None,
+        region: typing.Optional[str] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> GetSubregionsResponse:
         """
@@ -16332,11 +17182,11 @@ class AsyncApifreaksApi:
         api_key : str
             Your API key
 
-        region : str
-            Name of the region.
-
         format : typing.Optional[GetSubregionsRequestFormat]
             Format of the response
+
+        region : typing.Optional[str]
+            Name of the region. If omitted, all subregions are returned.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -16358,14 +17208,13 @@ class AsyncApifreaksApi:
         async def main() -> None:
             await client.get_subregions(
                 api_key="apiKey",
-                region="region",
             )
 
 
         asyncio.run(main())
         """
         _response = await self._raw_client.get_subregions(
-            api_key=api_key, region=region, format=format, request_options=request_options
+            api_key=api_key, format=format, region=region, request_options=request_options
         )
         return _response.data
 
@@ -16428,7 +17277,7 @@ class AsyncApifreaksApi:
         api_key: str,
         country: str,
         format: typing.Optional[GetAdminUnitsRequestFormat] = None,
-        admin_levels: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        admin_level: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         request_options: typing.Optional[RequestOptions] = None,
     ) -> GetAdminUnitsResponse:
         """
@@ -16445,8 +17294,8 @@ class AsyncApifreaksApi:
         format : typing.Optional[GetAdminUnitsRequestFormat]
             Format of the response.
 
-        admin_levels : typing.Optional[typing.Union[str, typing.Sequence[str]]]
-            Comma-separated list to filter results by one or more administrative levels.
+        admin_level : typing.Optional[typing.Union[str, typing.Sequence[str]]]
+            Filter results by one or more administrative level names (e.g. `land`, `state`, `province`), sent as a comma-separated list. Use the admin levels endpoint to list the levels a country has.
 
         request_options : typing.Optional[RequestOptions]
             Request-specific configuration.
@@ -16475,7 +17324,7 @@ class AsyncApifreaksApi:
         asyncio.run(main())
         """
         _response = await self._raw_client.get_admin_units(
-            api_key=api_key, country=country, format=format, admin_levels=admin_levels, request_options=request_options
+            api_key=api_key, country=country, format=format, admin_level=admin_level, request_options=request_options
         )
         return _response.data
 
@@ -16596,7 +17445,7 @@ class AsyncApifreaksApi:
 
     async def get_supported_flags(
         self, *, api_key: str, request_options: typing.Optional[RequestOptions] = None
-    ) -> typing.List[GetSupportedFlagsResponseItem]:
+    ) -> GetSupportedFlagsResponse:
         """
         Get list of all supported flags with their metadata
 
@@ -16610,7 +17459,7 @@ class AsyncApifreaksApi:
 
         Returns
         -------
-        typing.List[GetSupportedFlagsResponseItem]
+        GetSupportedFlagsResponse
             Successful response
 
         Examples
@@ -17029,85 +17878,6 @@ class AsyncApifreaksApi:
         )
         return _response.data
 
-    async def ocr_predict(
-        self,
-        *,
-        api_key: str,
-        model: OcrPredictRequestModel,
-        url: typing.Optional[str] = OMIT,
-        page_range: typing.Optional[str] = OMIT,
-        zone: typing.Optional[str] = OMIT,
-        new_line: typing.Optional[int] = OMIT,
-        request_options: typing.Optional[RequestOptions] = None,
-    ) -> OcrPredictResponse:
-        """
-        Perform Optical Character Recognition (OCR) on images, PDFs, or ZIP archives. Supports two models: `mini-ocr-v1` for CAPTCHA-optimized OCR and `ocr-v1` for general-purpose document text extraction. Supports zonal OCR to extract text from specific regions of an image.
-
-        **Notes:**
-        - The `zone` query parameter cannot be given with .pdf and .zip types as it can only be applied to single image query.
-        - The `page_range` query parameter cannot be given in any other type except .pdf types.
-        - PDFs containing images in them are allowed only for processing.
-        - The `mini-ocr-v1` model doesn’t support the following query parameters:
-            - `page_range` (.pdf types)
-            - `zone`
-
-        Parameters
-        ----------
-        api_key : str
-            Your API key
-
-        model : OcrPredictRequestModel
-            OCR model to use. `mini-ocr-v1` for CAPTCHA OCR, `ocr-v1` for general OCR
-
-        url : typing.Optional[str]
-            URL of the image or PDF (required if `file` not provided)
-
-        page_range : typing.Optional[str]
-            Specify page range for multi-page PDFs (e.g., '1,3,5-10' or 'allpages'). **Note:** This parameter can only be used with .pdf file types.
-
-        zone : typing.Optional[str]
-            Define OCR zones using coordinates (top:left:height:width). Multiple zones can be defined using commas. Only available for model 'ocr-v1'. **Note:** This parameter cannot be used with .pdf and .zip file types as it can only be applied to single image queries.
-
-        new_line : typing.Optional[int]
-            Set to 1 to split output text into individual lines (default: 0)
-
-        request_options : typing.Optional[RequestOptions]
-            Request-specific configuration.
-
-        Returns
-        -------
-        OcrPredictResponse
-            Successful OCR response
-
-        Examples
-        --------
-        import asyncio
-
-        from apifreaks import AsyncApifreaksApi
-
-        client = AsyncApifreaksApi()
-
-
-        async def main() -> None:
-            await client.ocr_predict(
-                api_key="apiKey",
-                model="mini-ocr-v1",
-            )
-
-
-        asyncio.run(main())
-        """
-        _response = await self._raw_client.ocr_predict(
-            api_key=api_key,
-            model=model,
-            url=url,
-            page_range=page_range,
-            zone=zone,
-            new_line=new_line,
-            request_options=request_options,
-        )
-        return _response.data
-
     async def grammar_detect(
         self, *, api_key: str, text: str, request_options: typing.Optional[RequestOptions] = None
     ) -> GrammarDetectResponse:
@@ -17382,6 +18152,54 @@ class AsyncApifreaksApi:
             elevation=elevation,
             time_zone=time_zone,
             request_options=request_options,
+        )
+        return _response.data
+
+    async def get_credits_usage(
+        self,
+        *,
+        api_key: str,
+        format: typing.Optional[GetCreditsUsageRequestFormat] = None,
+        request_options: typing.Optional[RequestOptions] = None,
+    ) -> GetCreditsUsageResponse:
+        """
+        Returns subscription, subscription-surcharge, and one-off credit balances for the authenticated organization's account.
+
+        Parameters
+        ----------
+        api_key : str
+            Your API key
+
+        format : typing.Optional[GetCreditsUsageRequestFormat]
+            Format of the response. Possible values: json, xml.
+
+        request_options : typing.Optional[RequestOptions]
+            Request-specific configuration.
+
+        Returns
+        -------
+        GetCreditsUsageResponse
+            Successful response with credit balances
+
+        Examples
+        --------
+        import asyncio
+
+        from apifreaks import AsyncApifreaksApi
+
+        client = AsyncApifreaksApi()
+
+
+        async def main() -> None:
+            await client.get_credits_usage(
+                api_key="apiKey",
+            )
+
+
+        asyncio.run(main())
+        """
+        _response = await self._raw_client.get_credits_usage(
+            api_key=api_key, format=format, request_options=request_options
         )
         return _response.data
 

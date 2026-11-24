@@ -15,6 +15,20 @@ class DomainWhoisReverseResponseWhoisDomainsHistoricalItemAdministrativeContactR
     website_url: typing.Optional[str] = None
     email_address: typing.Optional[str] = None
     phone_number: typing.Optional[str] = None
+    normalized_name: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Normalized (lowercase, stripped) registrar name, when published.
+    """
+
+    rdap_server: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    RDAP (Registration Data Access Protocol) server URL of the registrar, when published.
+    """
+
+    status: typing.Optional[str] = pydantic.Field(default=None)
+    """
+    Accreditation status of the registrar (e.g., 'accredited'), when published.
+    """
 
     if IS_PYDANTIC_V2:
         model_config: typing.ClassVar[pydantic.ConfigDict] = pydantic.ConfigDict(extra="allow", frozen=True)  # type: ignore # Pydantic v2

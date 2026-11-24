@@ -23,8 +23,8 @@ from .domain_dns_reverse_response_reverse_dns_records_item_dns_records_item_stri
 
 DomainDnsReverseResponseReverseDnsRecordsItemDnsRecordsItem = typing.Union[
     DomainDnsReverseResponseReverseDnsRecordsItemDnsRecordsItemAddress,
-    DomainDnsReverseResponseReverseDnsRecordsItemDnsRecordsItemOne,
     DomainDnsReverseResponseReverseDnsRecordsItemDnsRecordsItemPriority,
+    DomainDnsReverseResponseReverseDnsRecordsItemDnsRecordsItemOne,
     DomainDnsReverseResponseReverseDnsRecordsItemDnsRecordsItemSingleName,
     DomainDnsReverseResponseReverseDnsRecordsItemDnsRecordsItemAdmin,
     DomainDnsReverseResponseReverseDnsRecordsItemDnsRecordsItemStrings,
